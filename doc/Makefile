@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.3 2000-12-28 19:55:33 grahn Exp $
+# $Id: Makefile,v 1.4 2001-05-31 21:27:59 grahn Exp $
 #
 # Makefile
 #
@@ -31,8 +31,7 @@ SHELL = /bin/sh
 
 INSTALLBASE = /usr/local
 
-all:
-	true
+all: gavia_cvs.txt gavia_cvs.ps
 
 install:
 	install -m644 gavia_add.1 $(INSTALLBASE)/man/man1/
@@ -41,11 +40,17 @@ install:
 	install -m644 gavia_sort.1 $(INSTALLBASE)/man/man1/
 	install -m644 gavia_stat.1 $(INSTALLBASE)/man/man1/
 
+gavia_cvs.txt: gavia_cvs.mm
+	nroff -mm $^ >$@
+
+gavia_cvs.ps: gavia_cvs.mm
+	groff -Tps -mm $^ >$@
+
 depend:
 	true
 
 clean:
-	true
+	$(RM) gavia_cvs.txt gavia_cvs.ps
 
 love:
 	@echo "not war?"

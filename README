@@ -31,7 +31,8 @@ the old legacy, binary, broken Lanius data format. Why write a
 dedicated interactive user interface when you can get an existing text
 editor to do the boring stuff for you for free?
 
-Gavia is released under a BSD-style license.
+Gavia is (C) 1999-2005 Jörgen Grahn, and released under a BSD-style
+license.
 
 
 2. REQUIREMENTS
@@ -94,5 +95,5 @@ I'll probably never get around to it.
 
 Jörgen Grahn <jgrahn@algonet.se>
 
-$Id: README,v 1.7 2004-01-06 12:10:57 grahn Exp $
+$Id: README,v 1.8 2005-01-06 15:50:40 grahn Exp $
 $Name:  $

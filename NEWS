@@ -4,11 +4,15 @@ Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
 
+gavia 2.34 (2005-01-06)
 	- simple error checking on dates in 'gab' files added.  Broken
 	  dates kept popping up in various files (typically like
 	  "200408", with the day-of-month omitted) and that was
 	  silently accepted, then transformed to really unreasonabke
 	  values, like dates in 2026.
+
+	- excursions saved in mailbox format used to have a bracket
+	  '{' missing.  Fixed.
 
 gavia 2.33 (2004-08-05)
         - two species (or subspecies, maybe) added; new grand total
@@ -248,5 +252,5 @@ lanius, all versions:
 	Before written history.
 
 _________________________________________
-$Id: NEWS,v 1.30 2004-08-05 10:16:11 grahn Exp $
+$Id: NEWS,v 1.31 2005-01-06 15:50:40 grahn Exp $
 $Name:  $

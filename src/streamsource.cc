@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: streamsource.cc,v 1.4 2000-08-10 19:47:21 grahn Exp $
+ * $Id: streamsource.cc,v 1.5 2001-01-18 23:25:20 grahn Exp $
  *
  * streamsource.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: streamsource.cc,v 1.4 2000-08-10 19:47:21 grahn Exp $";
+"$Id: streamsource.cc,v 1.5 2001-01-18 23:25:20 grahn Exp $";
 }
 
 #include <cstdio>
@@ -49,6 +49,8 @@ static const char* rcsid() { rcsid(); return
 #include "canonorder.hh"
 
 #include "streamsource.hh"
+
+using std::string;
 
 
 static int eatpreamble(FILE *);

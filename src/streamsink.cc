@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: streamsink.cc,v 1.4 2000-08-10 19:47:21 grahn Exp $
+ * $Id: streamsink.cc,v 1.5 2001-01-18 23:25:20 grahn Exp $
  *
  * streamsink.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: streamsink.cc,v 1.4 2000-08-10 19:47:21 grahn Exp $";
+"$Id: streamsink.cc,v 1.5 2001-01-18 23:25:20 grahn Exp $";
 }
 
 #include <cstdio>
@@ -50,6 +50,8 @@ static const char* rcsid() { rcsid(); return
 #include "speciesset.hh"
 #include "bitmap.h"
 #include "motorola.h"
+
+using std::string;
 
 
 static int putpreamble(FILE *);

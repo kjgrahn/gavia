@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_add.cc,v 1.8 2000-08-10 19:47:21 grahn Exp $
+ * $Id: gavia_add.cc,v 1.9 2001-01-18 23:25:20 grahn Exp $
  *
  * gavia_add.cc
  *
@@ -36,17 +36,18 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gavia_add.cc,v 1.8 2000-08-10 19:47:21 grahn Exp $";
+"$Id: gavia_add.cc,v 1.9 2001-01-18 23:25:20 grahn Exp $";
 }
 
 #include <cstdio>
 #include <cstdlib>
 #include <cctype>
-#include <getopt.h>
-
 #include <cassert>
-
 #include <vector>
+
+#ifdef USE_GETOPT_H
+#include <getopt.h>
+#endif
 
 #include "version.hh"
 
@@ -54,6 +55,8 @@ static const char* rcsid() { rcsid(); return
 #include "gabsource.hh"
 #include "streamsink.hh"
 #include "canonorder.hh"
+
+using std::vector;
 
 
 /*----------------------------------------------------------------------------

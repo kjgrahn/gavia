@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: speciesset.hh,v 1.3 2000-08-10 19:47:21 grahn Exp $
+ * $Id: speciesset.hh,v 1.4 2001-01-18 23:25:20 grahn Exp $
  *
  * speciesset.hh
  *
@@ -41,6 +41,6 @@
 #include "species.hh"
 #include <set>
 
-typedef set<Species> SpeciesSet;
+typedef std::set<Species> SpeciesSet;
 
 #endif

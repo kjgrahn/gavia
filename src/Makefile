@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.9 2000-08-10 19:47:21 grahn Exp $
+# $Id: Makefile,v 1.10 2001-01-18 23:25:19 grahn Exp $
 #
 # Makefile
 #
@@ -31,10 +31,15 @@ SHELL = /bin/sh
 
 INSTALLBASE = /usr/local
 
-#CFLAGS = -Wall -pedantic -ansi -g
-#CPPFLAGS = -Wall -pedantic -ansi -g
+# Sun's compilers:
+#CFLAGS = -g
+#CPPFLAGS = -g -features=no%conststrings
+
+# GCC:
+CPPFLAGS = -DUSE_GETOPT_H -DUSE_HASHMAP
 CFLAGS = -Wall -pedantic -ansi -g -O2
-CPPFLAGS = -Wall -pedantic -ansi -g -O2
+CXXFLAGS = -Wall -pedantic -ansi -g -O2
+
 LDFLAGS =
 LIBS = -lfl
 
@@ -63,8 +68,6 @@ OBJS = gavia_add.o  \
        motorola.o bitmap.o \
        version.o
 OUTS = gavia_add gavia_cat gavia_grep gavia_sort
-
-OBSOLETE = test.cc exeditor.cc exeditor.hh
 
 all: $(OUTS)
 
@@ -95,7 +98,7 @@ gablexer.cc: gablexer.l
 	flex -ist8 gablexer.l >$@
 
 gablexer.o: gablexer.cc
-	$(CXX) -c -g $(CXXFLAGS) $<
+	$(CXX) -c -g $<
 
 # utility targets
 #

@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: dynamicorder.cc,v 1.4 2000-08-10 19:47:21 grahn Exp $
+ * $Id: dynamicorder.cc,v 1.5 2001-01-18 23:25:20 grahn Exp $
  *
  * dynamicorder.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: dynamicorder.cc,v 1.4 2000-08-10 19:47:21 grahn Exp $";
+"$Id: dynamicorder.cc,v 1.5 2001-01-18 23:25:20 grahn Exp $";
 }
 
 #include "species.hh"
@@ -42,6 +42,8 @@ static const char* rcsid() { rcsid(); return
 #include "speciesorder.hh"
 
 #include "dynamicorder.hh"
+
+#include <cassert>
 
 
 /*----------------------------------------------------------------------------

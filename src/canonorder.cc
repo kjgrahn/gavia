@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: canonorder.cc,v 1.5 2000-12-28 19:55:33 grahn Exp $
+ * $Id: canonorder.cc,v 1.6 2001-01-18 23:25:19 grahn Exp $
  *
  * canonorder.cc
  *
@@ -34,11 +34,12 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: canonorder.cc,v 1.5 2000-12-28 19:55:33 grahn Exp $";
+"$Id: canonorder.cc,v 1.6 2001-01-18 23:25:19 grahn Exp $";
 }
 
 #include "canonorder.hh"
 
+#include <cassert>
 
 #define INTERNALCANONLEN (484)
  

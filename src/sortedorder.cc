@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: sortedorder.cc,v 1.4 2000-08-10 19:47:21 grahn Exp $
+ * $Id: sortedorder.cc,v 1.5 2001-01-18 23:25:20 grahn Exp $
  *
  * sortedorder.cc
  *
@@ -34,16 +34,18 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: sortedorder.cc,v 1.4 2000-08-10 19:47:21 grahn Exp $";
+"$Id: sortedorder.cc,v 1.5 2001-01-18 23:25:20 grahn Exp $";
 }
 
 #include "species.hh"
 #include "speciesorder.hh"
 
+#include <cassert>
 #include <algorithm>
 
 #include "sortedorder.hh"
 
+using std::string;
 
 /*----------------------------------------------------------------------------
  *

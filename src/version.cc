@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: version.cc,v 1.2 2000-08-10 19:17:24 grahn Exp $
+ * $Id: version.cc,v 1.3 2001-01-18 23:25:20 grahn Exp $
  *
  * version.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: version.cc,v 1.2 2000-08-10 19:17:24 grahn Exp $";
+"$Id: version.cc,v 1.3 2001-01-18 23:25:20 grahn Exp $";
 }
 
 #include <cstring>
@@ -43,6 +43,8 @@ static const char* rcsid() { rcsid(); return
 
 #include "version.hh"
 
+using std::isspace;
+using std::isalnum;
 
 /*----------------------------------------------------------------------------
  *
@@ -66,7 +68,7 @@ Version::Version(const char *name)
 
   std::strcpy(q, "");
   
-  if((p = std::strstr(name, "$" "Name:"))) {
+  if((p = (char *)std::strstr(name, "$" "Name:"))) {
 
     p += std::strlen("$" "Name:");
 

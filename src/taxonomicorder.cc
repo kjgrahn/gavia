@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: taxonomicorder.cc,v 1.5 2000-12-28 19:55:33 grahn Exp $
+ * $Id: taxonomicorder.cc,v 1.6 2001-01-18 23:25:20 grahn Exp $
  *
  * taxonomicorder.cc
  *
@@ -34,8 +34,10 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: taxonomicorder.cc,v 1.5 2000-12-28 19:55:33 grahn Exp $";
+"$Id: taxonomicorder.cc,v 1.6 2001-01-18 23:25:20 grahn Exp $";
 }
+
+#include <cassert>
 
 #include "taxonomicorder.hh"
 

@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: excursion.hh,v 1.5 2000-08-10 19:47:21 grahn Exp $
+ * $Id: excursion.hh,v 1.6 2001-01-18 23:25:20 grahn Exp $
  *
  * excursion.hh
  *
@@ -39,21 +39,25 @@
 #ifndef EXCURSION_HH
 #define EXCURSION_HH
 
-#include <string>
-#include <hash_map>
 #include "species.hh"
 #include "speciesset.hh"
+
+#include <string>
+
+#ifdef USE_HASHMAP
+#include <hash_map>
 
 class SpeciesHash
 {
     hash<const char *> cstrh;
-
 public:
-    size_t operator() (const Species & s) const
-    {
-	return cstrh(s.c_str());
-    }
+    size_t operator() (const Species & s) const {return cstrh(s.c_str());}
 };
+
+#else
+#include <map>
+#endif
+
 
 
 class Excursion
@@ -68,79 +72,82 @@ public:
 
     // 'set' methods
     void setdate(long);
-    void setplace(const string&);
-    void settime(const string&);
-    void setobservers(const string&);
-    void setweather(const string&);
-    void setcomments(const string&);
+    void setplace(const std::string&);
+    void settime(const std::string&);
+    void setobservers(const std::string&);
+    void setweather(const std::string&);
+    void setcomments(const std::string&);
 
     // 'get' methods
     long getdate() const;
-    const string& getplace() const;
-    const string& gettime() const;
-    const string& getobservers() const;
-    const string& getweather() const;
-    const string& getcomments() const;
+    const std::string& getplace() const;
+    const std::string& gettime() const;
+    const std::string& getobservers() const;
+    const std::string& getweather() const;
+    const std::string& getcomments() const;
 
     const SpeciesSet& speciesset() const;
 
     typedef struct
     {
 	int count;
-	string comment;
+	std::string comment;
     } SpeciesData;
 
     int nofspecies() const;
     bool species(Species) const;
     int speciescount(Species) const;
-    string speciescomment(Species) const;
+    std::string speciescomment(Species) const;
 
-    void speciescomment(Species, string);
+    void speciescomment(Species, std::string);
 
     const SpeciesData& speciesdata(Species) const;
 
-    void insert(Species, int=0, string="");
+    void insert(Species, int=0, std::string="");
     void remove(Species);
 
 protected:
 private:
     long date;
-    string place;
-    string time;
-    string observers;
-    string weather;
-    string comments;
+    std::string place;
+    std::string time;
+    std::string observers;
+    std::string weather;
+    std::string comments;
 
     SpeciesSet sset;
+#ifdef USE_HASHMAP
     hash_map<Species, SpeciesData, SpeciesHash> smap;
-
+#else
+    std::map<Species, SpeciesData> smap;
+#endif
 };
 
 
 inline
 void Excursion::setdate(long dat) { date = dat;}
 inline
-void Excursion::setplace(const string& plac) { place = plac;}
+void Excursion::setplace(const std::string& plac) { place = plac;}
 inline
-void Excursion::settime(const string& tim) { time = tim;}
+void Excursion::settime(const std::string& tim) { time = tim;}
 inline
-void Excursion::setobservers(const string& observer) { observers = observer;}
+void Excursion::setobservers(const std::string& observer) { observers = observer;}
 inline
-void Excursion::setweather(const string& weathe) { weather = weathe;}
+void Excursion::setweather(const std::string& weathe) { weather = weathe;}
 inline
-void Excursion::setcomments(const string& comment) { comments = comment;}
+void Excursion::setcomments(const std::string& comment) { comments = comment;}
 
 inline
 long Excursion::getdate() const { return date;}
 inline
-const string& Excursion::getplace() const { return place;}
+const std::string& Excursion::getplace() const { return place;}
 inline
-const string& Excursion::gettime() const { return time;}
+const std::string& Excursion::gettime() const { return time;}
 inline
-const string& Excursion::getobservers() const { return observers;}
+const std::string& Excursion::getobservers() const { return observers;}
 inline
-const string& Excursion::getweather() const { return weather;}
+const std::string& Excursion::getweather() const { return weather;}
 inline
-const string& Excursion::getcomments() const { return comments;}
+const std::string& Excursion::getcomments() const { return comments;}
 
 #endif

@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: motorola.h,v 1.3 2000-08-10 19:47:21 grahn Exp $
+ * $Id: motorola.h,v 1.4 2001-01-18 23:25:20 grahn Exp $
  *
  * motorola.h
  *
@@ -36,6 +36,8 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+#include <stdio.h>
 
 int motorolareadword(FILE *, unsigned int *);
 int motorolareadulong(FILE *, unsigned long *);

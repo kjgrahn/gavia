@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_sort.cc,v 1.7 2000-08-10 19:47:21 grahn Exp $
+ * $Id: gavia_sort.cc,v 1.8 2001-01-18 23:25:20 grahn Exp $
  *
  * gavia_sort.cc
  *
@@ -36,18 +36,19 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gavia_sort.cc,v 1.7 2000-08-10 19:47:21 grahn Exp $";
+"$Id: gavia_sort.cc,v 1.8 2001-01-18 23:25:20 grahn Exp $";
 }
 
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
-#include <getopt.h>
-
 #include <cassert>
-
 #include <vector>
 #include <algorithm>
+
+#ifdef USE_GETOPT_H
+#include <getopt.h>
+#endif
 
 #include "version.hh"
 
@@ -59,6 +60,9 @@ static const char* rcsid() { rcsid(); return
 #include "dynamicorder.hh"
 
 #include "excursion.hh"
+
+using std::vector;
+using std::stable_sort;
 
 
 static bool internalplace(const Excursion& a, const Excursion& b);

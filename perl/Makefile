@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.2 2000-08-10 19:47:02 grahn Exp $
+# $Id: Makefile,v 1.3 2001-09-27 20:37:18 grahn Exp $
 #
 # Makefile
 #
@@ -39,6 +39,7 @@ install:
 	install -m555 gavia_stellata.pl $(INSTALLBASE)/bin/gavia_stellata
 	install -m555 gaviadate.pl $(INSTALLBASE)/bin/gaviadate
 	install -m555 gaviadeexpand.pl $(INSTALLBASE)/bin/gaviadeexpand
+	install -m555 gavia_focus $(INSTALLBASE)/bin/
 
 depend:
 	true

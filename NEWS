@@ -3,6 +3,7 @@
 Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
+gavia 2.19 (2001-09-27):
 	- a new tool, 'gavia_focus', lets you filter away common species
 	  during parts of the year -- useful for quickly browsing a large
 	  book.
@@ -75,5 +76,5 @@ lanius, all versions:
 	Before written history.
 
 _________________________________________
-$Id: NEWS,v 1.6 2001-09-23 20:20:07 grahn Exp $
+$Id: NEWS,v 1.7 2001-09-27 20:37:18 grahn Exp $
 $Name:  $

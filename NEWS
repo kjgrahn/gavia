@@ -4,6 +4,16 @@ Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
 
+gavia 2.25 (2002-07-15)
+	- the files in lib/ are now installed by default, and gavia_stellata(1) and
+	  gavia_focus(1) fall back to using these as config files if there
+	  are no user-specific ones, and not to files in the home directory of
+	  some hypothetical 'gavia' user
+	- lib/gavia_focus changed name to just lib/focus
+	- the list of species is now kept in a file, lib/gavia/species,
+	  rather than hardcoded into the binaries.  This file defines
+	  both the names and the taxonomical order.
+
 gavia 2.24 (2002-07-14)
         - the name change to "större flamingo" (which was what really was intended!)
 	  back in 2.22 was broken -- fixed
@@ -133,5 +143,5 @@ lanius, all versions:
 	Before written history.
 
 _________________________________________
-$Id: NEWS,v 1.14 2002-07-13 22:57:25 grahn Exp $
+$Id: NEWS,v 1.15 2002-07-15 16:20:43 grahn Exp $
 $Name:  $

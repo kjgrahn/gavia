@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: taxonomicorder.cc,v 1.10 2001-12-14 19:50:14 grahn Exp $
+ * $Id: taxonomicorder.cc,v 1.11 2001-12-14 23:00:04 grahn Exp $
  *
  * taxonomicorder.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: taxonomicorder.cc,v 1.10 2001-12-14 19:50:14 grahn Exp $";
+"$Id: taxonomicorder.cc,v 1.11 2001-12-14 23:00:04 grahn Exp $";
 }
 
 #include <cassert>
@@ -42,7 +42,7 @@ static const char* rcsid() { rcsid(); return
 #include "taxonomicorder.hh"
 
 
-#define INTERNALORDERLEN (485)
+#define INTERNALORDERLEN (502)
  
 static char * internalorder[INTERNALORDERLEN] =
 {

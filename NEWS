@@ -4,6 +4,22 @@ Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
 
+gavia 2.32 (2004-08-04)
+	- nineteen species added (new grand total 535):
+	  afrikansk klippsvala    klipphöna
+	  alpkaja		  marmorand
+	  atlasgröngöling	  svartvingad glada
+	  berberfalk		  palmduva
+	  ökenberglärka		  sandökenlärka
+	  vitkronad stenskvätta	  stenökenlärka
+	  bergsökenfink		  berberstenskvätta
+	  diademrödstjärt	  trädgårdsbulbyl
+	  eremitibis		  balearisk lira
+	  hussparv
+	- rearranged the taxonomic order within some groups
+	- rearranged lib/default, too: slightly different order,
+	  and more species moved to the 'rarities' section
+
 gavia 2.31 (2004-04-24)
         - gavia_cat et al: better handling of unrecognized
           command-line options.
@@ -220,5 +236,5 @@ lanius, all versions:
 	Before written history.
 
 _________________________________________
-$Id: NEWS,v 1.27 2004-04-24 10:26:47 grahn Exp $
+$Id: NEWS,v 1.28 2004-08-04 17:02:48 grahn Exp $
 $Name:  $

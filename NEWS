@@ -4,6 +4,17 @@ Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
 
+        - eight new species added (new total 514):
+	  svartbrynad albatross
+	  dvärgsnögås
+	  svangås
+	  gulkindad kricka
+	  slagfalk
+	  tygeltärna
+	  eksångare
+	  långstjärtad rosenfink
+	- taxonomic ordering cleaned up slightly
+
 gavia 2.26 (2002-07-16)
         - three species names were clearly misspelled:
 	  gräshoppsångare
@@ -155,5 +166,5 @@ lanius, all versions:
 	Before written history.
 
 _________________________________________
-$Id: NEWS,v 1.16 2002-07-15 22:36:14 grahn Exp $
+$Id: NEWS,v 1.17 2002-07-25 15:43:11 grahn Exp $
 $Name:  $

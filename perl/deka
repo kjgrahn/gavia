@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w # -*- perl -*-
 #
-# $Id: deka,v 1.1 2002-09-30 11:02:34 grahn Exp $
+# $Id: deka,v 1.2 2002-11-23 17:07:03 grahn Exp $
 # 
 
 use strict;
@@ -21,7 +21,7 @@ while(<>) {
 }
 
 my $i;
-for($i = $min; $i<=$max; $i++) {
+foreach $i ($min .. $max) {
 
     $tab{$i} = 0 unless  defined($tab{$i});
 

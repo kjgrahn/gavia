@@ -1,4 +1,4 @@
-# $Id: species,v 1.9 2002-12-28 22:23:28 grahn Exp $
+# $Id: species,v 1.10 2004-01-07 22:30:10 grahn Exp $
 # $Name:  $
 #
 # The canonical list of species accepted by Gavia.
@@ -15,6 +15,27 @@
 # Number of species: 516 ([0..515])
 # <species perl -ne 'print if /^\d{3}/' | wc -l
 #
+
+# + 516 afrikansk klippsvala
+# + 517 alpkaja
+# + 518 atlasgröngöling
+# + 519 berberfalk
+# + 520 ökenberglärka
+#   521 vitkronad stenskvätta
+#   522 bergsökenfink
+# + 523 diademrödstjärt
+#   524 eremitibis
+#   525 hussparv
+#   526 klipphöna
+#   527 marmorand
+#   528 svartvingad glada
+#   529 palmduva
+# + 531 stenökenlärka
+# + 530 sandökenlärka
+#   532 berberstenskvätta
+#   533 trädgårdsbulbyl
+#   534 nordafrikansk blåmes
+#   535 balearisk lira
 
 000 smålom
 001 storlom
@@ -164,6 +185,7 @@
 336 tatarfalk
 075 jaktfalk
 076 pilgrimsfalk
+519 berberfalk
 
 077 järpe
 078 dalripa
@@ -356,6 +378,7 @@
 180 göktyta
 181 gråspett
 182 gröngöling
+518 atlasgröngöling
 183 spillkråka
 184 större hackspett
 393 mellanspett
@@ -373,9 +396,13 @@
 190 trädlärka
 191 sånglärka
 192 berglärka
+520 ökenberglärka
+531 stenökenlärka
+530 sandökenlärka
 
 193 backsvala
 468 klippsvala
+516 afrikansk klippsvala
 194 ladusvala
 398 rostgumpsvala
 195 hussvala
@@ -417,6 +444,7 @@
 407 vitstrupig näktergal
 212 svart rödstjärt
 213 rödstjärt
+523 diademrödstjärt
 
 214 buskskvätta
 409 svarthakad buskskvätta
@@ -534,6 +562,7 @@
 267 nötkråka
 268 kaja
 444 klippkaja
+517 alpkaja
 500 alpkråka
 269 råka
 270 kråka

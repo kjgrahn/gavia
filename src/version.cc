@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: version.cc,v 1.3 2001-01-18 23:25:20 grahn Exp $
+ * $Id: version.cc,v 1.4 2002-09-29 09:17:12 grahn Exp $
  *
  * version.cc
  *
- * Copyright (C) 2000 Jörgen Grahn <jgrahn@algonet.se>
+ * Copyright (C) 2000--2002 Jörgen Grahn <jgrahn@algonet.se>
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -34,12 +34,13 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: version.cc,v 1.3 2001-01-18 23:25:20 grahn Exp $";
+"$Id: version.cc,v 1.4 2002-09-29 09:17:12 grahn Exp $";
 }
 
 #include <cstring>
 #include <cctype>
 #include <cassert>
+#include <cstdio>
 
 #include "version.hh"
 
@@ -54,7 +55,7 @@ using std::isalnum;
  *   \$Name:  $
  * initialize the version name to
  *   <name> <num>.<num>...
- * otherwise to "".
+ * otherwise to something apologetic...
  *
  *----------------------------------------------------------------------------
  */
@@ -81,23 +82,27 @@ Version::Version(const char *name)
     }
     *q = '\0';
 
-    if(!*p || *p!='-') {
-      return;
+    if(*p=='-') {
+
+	p++;
+	*q++ = ' ';
+	*q = '\0';
+
+	int n = std::strspn(p, "0123456789-");
+	std::strncat(q, p, n);
+
+	while(*q) {
+	    if(*q=='-') {
+		*q = '.';
+	    }
+	    q++;
+	}
     }
+  }
 
-    p++;
-    *q++ = ' ';
-    *q = '\0';
-
-    int n = std::strspn(p, "0123456789-");
-    std::strncat(q, p, n);
-
-    while(*q) {
-      if(*q=='-') {
-	*q = '.';
-      }
-      q++;
-    }
+  if(!std::strcmp(namebuf, "")){
+      std::sprintf(namebuf, "Gavia (non-release build no older than %s)",
+		   __DATE__);
   }
 }
 

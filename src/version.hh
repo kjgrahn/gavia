@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: version.hh,v 1.5 2000-08-10 19:17:24 grahn Exp $
+ * $Id: version.hh,v 1.6 2002-09-29 09:17:12 grahn Exp $
  *
  * version.hh
  *
@@ -50,7 +50,7 @@ public:
 protected:
 private:
     Version();
-    static const int BUFSIZE = 40;
+    static const int BUFSIZE = 80;
     char namebuf[BUFSIZE];
 };
 

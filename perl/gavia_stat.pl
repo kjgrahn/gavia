@@ -1,10 +1,12 @@
 #!/usr/bin/perl -w
 #
-# $Id: gavia_stat.pl,v 1.1 2000-01-16 20:46:07 grahn Exp $
+# $Id: gavia_stat.pl,v 1.2 2000-12-17 14:49:24 grahn Exp $
 # $Name:  $
 #
-# gavia_stat.pl - 
+# gavia_stat.pl - take a book in 'gab' format and output its content
+#                 in 'species date place observers numbers comment' format.
 # 
+# Useful for generating reports based on species rather than excursion.
 #
 
 while(<>)

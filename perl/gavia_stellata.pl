@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: gavia_stellata.pl,v 1.4 2000-08-10 19:20:17 grahn Exp $
+# $Id: gavia_stellata.pl,v 1.5 2000-12-17 14:49:24 grahn Exp $
 # $Name:  $
 #
 # gavia_stellata.pl - interactively adding
@@ -23,14 +23,17 @@
 # THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' ...etc
 #
 
-$obsbok = glob "~gavia/obsbok";
-$template = glob "~gavia/template/default";
+$obsbok = shift
+    or die "usage: $0 filename\n";
+$template = glob "~/.gavia_template"
+    or glob "~gavia/template/default"
+    or die "Cannot find an excursion template to use.\n";
 $tmpname0 = "/tmp/gavia_stellata.tmp0.$$";
 $tmpname1 = "/tmp/gavia_stellata.tmp1.$$";
 
 -w $obsbok
     or die
-    "You won't be able to write to $obsbok (maybe you should checkout?)\n";
+    "\'$obsbok\' is not writeable.\n";
 
 if(system("gaviadate <$template >$tmpname0")) {
     unlink $tmpname0;

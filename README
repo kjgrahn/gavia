@@ -60,7 +60,7 @@ editor.
 
 3. INSTALLATION
 
-% make; make install
+% make && make install
 
 should be enough to compile and install gavia. The perl script used to
 enter excursions (gavia_stellata) assumes there is a directory ~gavia/
@@ -82,5 +82,5 @@ fact if you care to; I'll probably never get around to it.
 
 Jörgen Grahn <jgrahn@algonet.se>
 
-$Id: README,v 1.1 2000-09-13 17:20:43 grahn Exp $
+$Id: README,v 1.2 2000-12-17 14:49:24 grahn Exp $
 $Name:  $

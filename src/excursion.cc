@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: excursion.cc,v 1.8 2002-06-16 14:45:02 grahn Exp $
+ * $Id: excursion.cc,v 1.9 2004-08-05 09:52:51 grahn Exp $
  *
  * excursion.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: excursion.cc,v 1.8 2002-06-16 14:45:02 grahn Exp $";
+"$Id: excursion.cc,v 1.9 2004-08-05 09:52:51 grahn Exp $";
 }
 
 #include <cassert>
@@ -112,6 +112,15 @@ const Excursion& Excursion::operator=(const Excursion& obj)
     smap = obj.smap;
 
     return *this;
+}
+
+
+void Excursion::setdate(long dat)
+{
+    /* Dates are normalized to yyyymmdd before they arrive here.
+     * XXX Do a sanity check here!
+     */
+    date = dat;
 }
 
 

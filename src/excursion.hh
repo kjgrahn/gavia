@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: excursion.hh,v 1.8 2002-06-16 14:45:02 grahn Exp $
+ * $Id: excursion.hh,v 1.9 2004-08-05 09:52:51 grahn Exp $
  *
  * excursion.hh
  *
@@ -126,8 +126,6 @@ private:
 };
 
 
-inline
-void Excursion::setdate(long dat) { date = dat;}
 inline
 void Excursion::setplace(const std::string& plac) { place = plac;}
 inline

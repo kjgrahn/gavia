@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: canonorder.cc,v 1.12 2002-06-16 11:21:55 grahn Exp $
+ * $Id: canonorder.cc,v 1.13 2002-06-16 14:38:23 grahn Exp $
  *
  * canonorder.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: canonorder.cc,v 1.12 2002-06-16 11:21:55 grahn Exp $";
+"$Id: canonorder.cc,v 1.13 2002-06-16 14:38:23 grahn Exp $";
 }
 
 #include "canonorder.hh"
@@ -548,6 +548,7 @@ const char * CanonOrder::internalcanon[] =
     "häcksparv",	       /* 502 */
     "långnäbbad mås",	       /* 503 */
     "svartbukig flyghöna",     /* 504 */
+    "nilgås",		       /* 505 */
 };
 
 

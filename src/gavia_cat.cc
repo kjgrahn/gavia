@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_cat.cc,v 1.15 2002-10-19 19:08:49 grahn Exp $
+ * $Id: gavia_cat.cc,v 1.16 2004-01-17 11:24:27 grahn Exp $
  *
  * gavia_cat.cc
  *
@@ -37,7 +37,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gavia_cat.cc,v 1.15 2002-10-19 19:08:49 grahn Exp $";
+"$Id: gavia_cat.cc,v 1.16 2004-01-17 11:24:27 grahn Exp $";
 }
 
 #include <iostream>
@@ -102,6 +102,7 @@ int main(int argc, char ** argv)
 	    ordch = ch;
 	    break;
 	case 'v':
+	case '?':
 	    std::cerr << 
 		"gavia_cat, part of " << version.name() << std::endl <<
 		"Copyright (c) 1999--2002 Jörgen Grahn "

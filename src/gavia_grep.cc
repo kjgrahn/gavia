@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_grep.cc,v 1.12 2002-09-29 09:50:50 grahn Exp $
+ * $Id: gavia_grep.cc,v 1.13 2004-01-17 11:24:27 grahn Exp $
  *
  * gavia_grep.cc
  *
@@ -37,7 +37,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gavia_grep.cc,v 1.12 2002-09-29 09:50:50 grahn Exp $";
+"$Id: gavia_grep.cc,v 1.13 2004-01-17 11:24:27 grahn Exp $";
 }
 
 #include <cstdio>
@@ -91,6 +91,7 @@ int main(int argc, char ** argv)
 	    invert = true;
 	    break;
 	case 'V':
+	case '?':
 	    fprintf(stderr,
 		    "gavia_grep, part of %s\n"
 		    "Copyright (c) 2000, 2001 Jörgen Grahn "

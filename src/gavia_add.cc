@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_add.cc,v 1.11 2001-12-29 19:14:09 grahn Exp $
+ * $Id: gavia_add.cc,v 1.12 2004-01-17 11:24:27 grahn Exp $
  *
  * gavia_add.cc
  *
@@ -36,7 +36,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gavia_add.cc,v 1.11 2001-12-29 19:14:09 grahn Exp $";
+"$Id: gavia_add.cc,v 1.12 2004-01-17 11:24:27 grahn Exp $";
 }
 
 #include <iostream>
@@ -78,7 +78,7 @@ int main(int argc, char ** argv)
 
     while((ch = getopt(argc, argv, optstring))!=EOF)
     {
-	if(ch=='v')
+	if(ch=='v' || ch=='?')
 	{
 	    fprintf(stderr,
 		    "gavia_add, part of %s\n"

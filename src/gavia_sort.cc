@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_sort.cc,v 1.10 2001-12-29 19:14:09 grahn Exp $
+ * $Id: gavia_sort.cc,v 1.11 2004-01-17 11:24:27 grahn Exp $
  *
  * gavia_sort.cc
  *
@@ -36,7 +36,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gavia_sort.cc,v 1.10 2001-12-29 19:14:09 grahn Exp $";
+"$Id: gavia_sort.cc,v 1.11 2004-01-17 11:24:27 grahn Exp $";
 }
 
 #include <iostream>
@@ -96,6 +96,7 @@ int main(int argc, char ** argv)
 	case 'd':		// sort by date, then place
 	    byplace = false;
 	case 'v':
+	case '?':
 	    fprintf(stderr,
 		    "gavia_sort, part of %s\n"
 		    "Copyright (c) 2000, 2001 Jörgen Grahn "

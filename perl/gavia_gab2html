@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w # -*- perl -*-
 #
-# $Id: gavia_gab2html,v 1.1 2002-09-29 19:44:37 grahn Exp $
+# $Id: gavia_gab2html,v 1.2 2002-09-30 11:01:33 grahn Exp $
 # $Name:  $
 #
 # gavia_gab2html - transform gab (see gavia(5)) formatted excursions
@@ -13,24 +13,102 @@
 use strict;
 
 print <<EOF;
-<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 3.2 Final//EN\">\n
-<HTML>
-<HEAD>
-<META HTTP-EQUIV=\"Content-Type\" 
- CONTENT=\"text/html; charset=iso-8859-1\">
-<TITLE>Gavia contents</TITLE>
-</HEAD>
-<BODY>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Gavia contents</title>
+</head>
+<body>
 EOF
 
+
 while(<>) {
-    print;
+
+    chomp;
+    s/^\s+//;
+
+    SWITCH: {
+
+	my $hdrs = "place|date|time|observers|weather|comments";
+      
+	(/^$/ || /^\s*\#/) && do {
+
+	    last SWITCH;
+	};
+
+	/^(date)\s*:\s*(.+)/i && do {
+
+	    # special treatment fr the date field
+	    my $head = $1;
+	    my $date = $2;
+	    $date =~ s/(\d{4})(\d{2})(\d{2})/$1--$2--$3/
+		or
+		die "gavia_gab2html: broken date at line $.: $2\n";
+	    printf("<dt>%s <dd>%s\n", $head, quote($date));
+	    last SWITCH;
+	};
+
+	/^($hdrs)\s*:\s*(.+)/i && do {
+
+	    printf("<dt>%s <dd>%s\n", $1, quote($2));
+	    last SWITCH;
+	};
+
+	/^{/ && do {
+
+	    # BUG if there are no species -- <dl></dl> is forbidden
+	    print "\n<hr><p><dl>\n";
+	    last SWITCH;
+	};
+
+	/^}{/ && do {
+
+	    print "</dl><p><dl>\n";
+	    last SWITCH;
+	};
+
+	/^}/ && do {
+
+	    print "</dl><p>\n";
+	    last SWITCH;
+	};
+
+	/^(.+?)\s*:.*?:\s*(\d+)\s*:\s*(.*)/ && do {
+
+	    printf("<dt><em>%s</em>\n<dd>(%s) %s\n", $1, $2, quote($3));
+	    last SWITCH;
+	};
+
+	/^(.+?)\s*:.*?:.*?:\s*(.*)/ && do {
+
+	    printf("<dt><em>%s</em>\n<dd>%s\n", $1, quote($2));
+	    last SWITCH;
+	};
+
+	print STDERR "gavia_gab2html: funny stuff on line $.: $_\n";
+    }
 }
+
 
 print <<EOF;
 <hr>
-</BODY>
-</HTML>
+</body>
+</html>
 EOF
 
 exit 0;
+
+
+sub quote {
+    my $s = shift;
+
+    $s =~ s|&|&amp;|g;
+    $s =~ s|<|&lt;|g;
+    $s =~ s|>|&gt;|g;
+
+    $s =~ s|---|&mdash;|g;
+    $s =~ s|--|&ndash;|g;
+
+    return $s;
+}

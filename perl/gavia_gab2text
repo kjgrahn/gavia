@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w # -*- perl -*-
 #
-# $Id: gavia_gab2text,v 1.1 2002-09-29 19:44:37 grahn Exp $
+# $Id: gavia_gab2text,v 1.2 2002-09-30 11:01:33 grahn Exp $
 # $Name:  $
 #
 # gavia_gab2text - transform gab (see gavia(5)) formatted excursions
@@ -21,9 +21,26 @@ while(<>) {
 
 	my $hdrs = "place|date|time|observers|weather|comments";
       
+	(/^$/ || /^\s*\#/ || /^}\s*$/) && do {
+
+	    last SWITCH;
+	};
+
+	/^(date)\s*:\s*(.+)/i && do {
+
+	    # special treatment fr the date field
+	    my $head = $1;
+	    my $date = $2;
+	    $date =~ s/(\d{4})(\d{2})(\d{2})/$1-$2-$3/
+		or
+		die "gavia_gab2text: broken date at line $.: $2\n";
+	    bprint(sprintf("%-9s: %s\n", $head, $date));
+	    last SWITCH;
+	};
+
 	/^($hdrs)\s*:\s*(.+)/i && do {
 
-	    printf("%-9s: %s\n", $1, $2);
+	    bprint(sprintf("%-9s: %s\n", $1, $2));
 	    last SWITCH;
 	};
 
@@ -35,23 +52,27 @@ while(<>) {
 
 	/^(.+?)\s*:.*?:\s*(\d+)\s*:\s*(.*)/ && do {
 
-	    printf("%s (%d) %s\n", $1, $2, $3);
+	    bprint(sprintf("%s (%d) %s\n", $1, $2, $3));
 	    last SWITCH;
 	};
 
 	/^(.+?)\s*:.*?:.*?:\s*(.*)/ && do {
 
-	    printf("%s (0) %s\n", $1, $2, $3);
+	    bprint(sprintf("%s (0) %s\n", $1, $2));
 	    last SWITCH;
 	};
 
-	(/^$/ || /^\s*\#/ || /^}/) && do {
-
-	    last SWITCH;
-	};
-
-	print STDERR "gavia_gab2html: funny stuff on line $.: $_\n";
+	print STDERR "gavia_gab2text: funny stuff on line $.: $_\n";
     }
 }
 
 exit 0;
+
+sub bprint {
+    my $s = shift;
+
+    while($s =~ s/^(.{60,80})\s+(.{8,})/$2/) {
+	print "$1\n\t";
+    }
+    print $s;
+}

@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.5 2001-06-19 20:49:06 grahn Exp $
+# $Id: Makefile,v 1.6 2001-06-30 13:34:26 grahn Exp $
 #
 # Makefile
 #
@@ -34,6 +34,7 @@ INSTALLBASE = /usr/local
 all: gavia_cvs.txt gavia_cvs.ps
 
 install:
+	install -m644 gavia.1 $(INSTALLBASE)/man/man1/
 	install -m644 gavia_add.1 $(INSTALLBASE)/man/man1/
 	install -m644 gavia_cat.1 $(INSTALLBASE)/man/man1/
 	install -m644 gavia_grep.1 $(INSTALLBASE)/man/man1/

@@ -1,13 +1,13 @@
-.\" $Id: gavia_cvs.mm,v 1.7 2002-09-28 09:58:52 grahn Exp $
+.\" $Id: gavia_cvs.mm,v 1.8 2002-10-13 17:03:19 grahn Exp $
 
-.ND "$Date: 2002-09-28 09:58:52 $"
-.PF "\s-2$Id: gavia_cvs.mm,v 1.7 2002-09-28 09:58:52 grahn Exp $\s+2"
+.ND "$Date: 2002-10-13 17:03:19 $"
+.PF "\s-2$Id: gavia_cvs.mm,v 1.8 2002-10-13 17:03:19 grahn Exp $\s+2"
 
 .COVER
 .TL
 Using Gavia in combination with CVS
 .AF
-.AU "Jörgen Grahn <jgrahn@algonet.se>"
+.AU "J\(:orgen Grahn <jgrahn@algonet.se>"
 .AS
 Gavia is a set of tools to maintain an electronic bird notebook.
 The present document gives a short introduction to
@@ -194,9 +194,9 @@ we have one each on
 .B frailea
 (Peppared),
 .B pinicola
-(Falköping) and
+(Falk\(:oping) and
 .B regulus
-(Malmö).
+(Malm\(:o).
 .LI
 I have one on
 .BR islaya ,

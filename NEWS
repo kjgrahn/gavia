@@ -3,6 +3,9 @@
 Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
+	- gavia_stellata now uses $GAVIAEDITOR, $VISUAL or $EDITOR
+	  for picking the right editor.
+
 gavia 2.17 (2001-07-08):
 	- gavia_cat: when exporting to text, the day of week is printed:
 	    Date     : 1995-08-03 (Thu)
@@ -63,5 +66,5 @@ lanius, all versions:
 	Before written history.
 
 _________________________________________
-$Id: NEWS,v 1.2 2001-07-08 10:05:39 grahn Exp $
+$Id: NEWS,v 1.3 2001-07-08 12:56:10 grahn Exp $
 $Name:  $

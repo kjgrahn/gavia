@@ -1,7 +1,7 @@
-.\" $Id: gavia_stellata.1,v 1.2 2001-07-08 10:02:45 grahn Exp $
+.\" $Id: gavia_stellata.1,v 1.3 2001-07-08 12:56:10 grahn Exp $
 .\" 
 .\"
-.TH gavia_stellata 1 "JUN 2001" Gavia "User Manuals"
+.TH gavia_stellata 1 "JUL 2001" Gavia "User Manuals"
 .SH "NAME"
 gavia_stellata \- add excursions to a Gavia book
 .SH "SYNOPSIS"
@@ -14,7 +14,7 @@ excursions to a 'Gab'-formatted Gavia book.
 
 A template file,
 .B ~/.gavia_template ,
-is read into a text editor (emacs), with the current date filled in.
+is read into a text editor (e.g. emacs), with the current date filled in.
 When the user has edited and saved it, gavia_stellata strips
 away all non-selected species and fires up the editor again,
 so that the user can e.g. add comments.
@@ -31,6 +31,12 @@ all species. Fields, e.g. 'observers', may be pre-filled.
 .I ~gavia/template/default
 Global excursion template file, used if the personal template isn't
 available.
+.SH "ENVIRONMENT"
+.IP GAVIAEDITOR
+Specifies the editor to use.
+If not set, VISUAL or EDITOR is used instead.
+If none of these are set, the default is
+.BR emacs .
 .SH "AUTHOR"
 Jörgen Grahn <jgrahn@algonet.se>
 .SH "SEE ALSO"

@@ -1,12 +1,12 @@
 #!/usr/bin/perl -w
 #
-# $Id: gavia_stellata.pl,v 1.6 2000-12-28 19:55:33 grahn Exp $
+# $Id: gavia_stellata.pl,v 1.7 2001-07-08 12:56:11 grahn Exp $
 # $Name:  $
 #
 # gavia_stellata.pl - interactively adding
 # excursions to the default .gab file
 #
-# Copyright (c) 1999, 2000 Jörgen Grahn <jgrahn@algonet.se>
+# Copyright (c) 1999, 2000, 2001 Jörgen Grahn <jgrahn@algonet.se>
 # All rights reserved.
 # 
 # Redistribution and use in source and binary forms, with or without
@@ -31,6 +31,20 @@ $template = (glob "~/.gavia_template"
 $tmpname0 = "/tmp/gavia_stellata.tmp0.$$";
 $tmpname1 = "/tmp/gavia_stellata.tmp1.$$";
 
+if(defined $ENV{"GAVIAEDITOR"}) {
+    $editor = $ENV{"GAVIAEDITOR"};
+}
+elsif(defined $ENV{"VISUAL"}) {
+    $editor = $ENV{"VISUAL"};
+}
+elsif(defined $ENV{"EDITOR"}) {
+    $editor = $ENV{"EDITOR"};
+}
+else {
+    # rudely assume emacs is installed and in the path
+    $editor = "emacs";
+}
+
 -w $obsbok
     or die
     "\'$obsbok\' is not writeable.\n";
@@ -42,9 +56,9 @@ if(system("gaviadate <$template >$tmpname0")) {
 
 print "Invoking editor...\n";
 
-if(system("emacs $tmpname0")) {
+if(system("$editor $tmpname0")) {
     unlink $tmpname0;
-    die "Couldn't execute 'emacs'.\n";
+    die "Couldn't execute '$editor'.\n";
 }
 
 if(system("gaviadeexpand <$tmpname0 >$tmpname1")) {
@@ -57,7 +71,7 @@ unlink $tmpname0;
 
 print "Invoking editor... again...\n";
 
-if(system("emacs $tmpname1")) {
+if(system("$editor $tmpname1")) {
     unlink $tmpname1;
     die;
 }

@@ -1,17 +1,19 @@
-.\" $Id: gavia_add.1,v 1.8 2001-06-17 20:51:37 grahn Exp $
+.\" $Id: gavia_add.1,v 1.9 2001-09-29 19:16:59 grahn Exp $
 .\" 
 .\"
 .TH gavia_add 1 "JULY 1999" Gavia "User Manuals"
 .SH "NAME"
 gavia_add \- add excursions to a Gavia book
 .SH "SYNOPSIS"
-gavia_add [-v] bookfile
+gavia_add [-v] [bookfile]
 .SH "DESCRIPTION"
-gavia_add takes a single Gavia book as an argument.
-It then reads more excursion descriptions in a special text format
-(see below for a description) from standard input, and
-writes the book with the extra excursions added
-to standard output.
+gavia_add reads excursion descriptions in ''Gab'' format
+from standard input, and writes it to standard output
+in ''Gavia book'' format.
+If the optional argument
+.I bookfile
+is given, the contents of that book
+is prepended to the output.
 .SH "OPTIONS"
 .IP -v
 Print version information.

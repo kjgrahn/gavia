@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_add.cc,v 1.9 2001-01-18 23:25:20 grahn Exp $
+ * $Id: gavia_add.cc,v 1.10 2001-09-29 19:16:59 grahn Exp $
  *
  * gavia_add.cc
  *
@@ -36,7 +36,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gavia_add.cc,v 1.9 2001-01-18 23:25:20 grahn Exp $";
+"$Id: gavia_add.cc,v 1.10 2001-09-29 19:16:59 grahn Exp $";
 }
 
 #include <cstdio>
@@ -87,7 +87,7 @@ int main(int argc, char ** argv)
 	}
     }
 
-    if(argc==optind)
+    if(argc>optind+1)
     {
 	fprintf(stderr,	"usage: gavia_add book\n");
 
@@ -96,9 +96,11 @@ int main(int argc, char ** argv)
 
     vector<Excursion> exlist;
 
-    // Read the old book
-    //
+    if(argc==optind+1)
     {
+	// Read the old book
+	//
+
 	StreamSource src(argv[optind]);
 
 	while(!(src.eof()||src.error()))

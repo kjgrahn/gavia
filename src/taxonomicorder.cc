@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: taxonomicorder.cc,v 1.14 2002-06-16 14:38:23 grahn Exp $
+ * $Id: taxonomicorder.cc,v 1.15 2002-07-13 22:53:39 grahn Exp $
  *
  * taxonomicorder.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: taxonomicorder.cc,v 1.14 2002-06-16 14:38:23 grahn Exp $";
+"$Id: taxonomicorder.cc,v 1.15 2002-07-13 22:53:39 grahn Exp $";
 }
 
 #include <cassert>
@@ -85,7 +85,7 @@ static char * internalorder[] =
     "bronsibis",	       /* 314 */
     "skedstork",	       /* 315 */
 
-    "flamingo",		       /* 018 */
+    "större flamingo",	       /* 018 */
 
     "knölsvan",		       /* 019 */
     "mindre sångsvan",	       /* 020 */

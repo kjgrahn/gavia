@@ -4,6 +4,18 @@ Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
 
+gavia 2.26 (2002-07-16)
+        - three species names were clearly misspelled:
+	  gräshoppsångare
+	  rostskogstrast
+	  bergstaigasångare
+	  This is now fixed, but to ease the transition from
+	  files with the broken names in them, gavia_add(1)
+	  just warns and adjusts.
+	- gavia_stellata(1) does syntax checks on the excursions
+	  it adds, and checks the species names against the list
+	  of accepted names
+
 gavia 2.25 (2002-07-15)
 	- the files in lib/ are now installed by default, and gavia_stellata(1) and
 	  gavia_focus(1) fall back to using these as config files if there
@@ -143,5 +155,5 @@ lanius, all versions:
 	Before written history.
 
 _________________________________________
-$Id: NEWS,v 1.15 2002-07-15 16:20:43 grahn Exp $
+$Id: NEWS,v 1.16 2002-07-15 22:36:14 grahn Exp $
 $Name:  $

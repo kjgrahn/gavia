@@ -1,0 +1,54 @@
+.\" $Id: gavia_focus.1,v 1.1 2001-09-23 20:20:07 grahn Exp $
+.\" 
+.\"
+.TH gavia_focus 1 "SEPTEMBER 2001" Gavia "User Manuals"
+.SH "NAME"
+gavia_focus \- filter away species from a ''Gab'' book
+.SH "SYNOPSIS"
+gavia_focus [-f filter] file ...
+.SH "DESCRIPTION"
+gavia_focus takes one or more files (stdin if none given),
+in ''Gab'' format and outputs them as-is, except for species
+mentioned in a filter file (or ''blacklist'', or ''kill file'').
+This may be used when quickly browsing a book, to avoid listing
+common or ''trivial'' species.
+.PP
+The filter can be given on the command line (using the
+.B -f
+switch); otherwise, it defaults to one of the files
+described below.
+.SH "FILE FORMAT"
+The filter file is a sequence of species names, one per line.
+Species mentioned in this file will not be printed.
+Optionally, a timerange may be specified to only exclude species
+observed during parts of the year:
+.IP
+.ft CW
+species name  mmdd-mmdd
+.PP
+As an example, the following two lines will show the first
+species only in swedish summer, while the second only is
+shown in winter:
+.IP
+.ft CW
+fjällvråk   1001-0331
+.br
+sånglärka   0315-1031
+.PP
+Comment lines (starting with a hash sign) may be used.
+.SH "FILES"
+.TP
+.I ~/.gavia_focus
+Personal filter file.
+.TP
+.I ~gavia/gavia_focus
+Global filter file; used when the personal filter file
+does not exist and no filter file has been mentioned explicitly. 
+.SH "NOTES"
+This is a very crude way to filter away information;
+.B gavia_focus
+will happily throw away noteworthy things like common birds
+appearing out of their normal habitat or in unusual numbers.
+Use with care.
+.SH "AUTHOR"
+Jörgen Grahn <jgrahn@algonet.se>

@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: latexsink.hh,v 1.4 2000-08-10 19:47:21 grahn Exp $
+ * $Id: latexsink.hh,v 1.5 2001-12-29 19:14:09 grahn Exp $
  *
  * latexsink.hh
  *
- * Copyright (c) 1999 Jörgen Grahn <jgrahn@algonet.se>
+ * Copyright (c) 1999, 2001 Jörgen Grahn <jgrahn@algonet.se>
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -55,12 +55,10 @@ public:
     virtual ~LaTeXSink();				// destructor
 
     virtual void put(const Excursion&);
-    virtual bool error() const;
 
 protected:
 private:
     FILE * mfp;
-    bool merror;
     const SpeciesOrder * morder;
 
 };

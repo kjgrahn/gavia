@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: textsink.cc,v 1.5 2001-06-30 13:35:06 grahn Exp $
+ * $Id: textsink.cc,v 1.6 2001-12-29 19:14:09 grahn Exp $
  *
  * textsink.cc
  *
- * Copyright (c) 1999 Jörgen Grahn <jgrahn@algonet.se>
+ * Copyright (c) 1999, 2001 Jörgen Grahn <jgrahn@algonet.se>
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -34,21 +34,19 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: textsink.cc,v 1.5 2001-06-30 13:35:06 grahn Exp $";
+"$Id: textsink.cc,v 1.6 2001-12-29 19:14:09 grahn Exp $";
 }
 
 #include <cassert>
 #include <cstdio>
 #include <cstring>
 #include <ctime>
+#include <errno.h>
 
 #include "dynamicorder.hh"
+#include "exception.hh"
 
 #include "textsink.hh"
-
-
-static int putpreamble(FILE *);
-static int putpostamble(FILE *);
 
 
 /*----------------------------------------------------------------------------
@@ -74,7 +72,10 @@ TextSink::TextSink(const SpeciesOrder * so, const char * path)
 	mfp = fopen(path, "w");
     }
 
-    merror = !mfp || !::putpreamble(mfp);
+    if(!mfp)
+    {
+	throw GaviaException(errno);
+    }
 }
 
 
@@ -93,8 +94,6 @@ TextSink::TextSink(const SpeciesOrder * so, FILE * fp)
     morder = so;
 
     mfp = fp;
-
-    merror = !mfp || !::putpreamble(mfp);
 }
 
 
@@ -107,12 +106,7 @@ TextSink::TextSink(const SpeciesOrder * so, FILE * fp)
  */
 TextSink::~TextSink()
 {
-    if(!error())
-    {
-	::putpostamble(mfp);
-    }
-
-    if(mfp && mfp!=stdout)
+    if(mfp!=stdout)
     {
 	fclose(mfp);		// should check for error here (and do _what_?)
     }
@@ -130,11 +124,6 @@ TextSink::~TextSink()
  */
 void TextSink::put(const Excursion& ex)
 {
-    if(error())
-    {
-	return;			// no need to keep writing at I/O error
-    }
-
     static const char * wdays[] = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
 
     long date = ex.getdate();
@@ -174,43 +163,4 @@ void TextSink::put(const Excursion& ex)
     }
 
     fflush(mfp);
-}
-
-
-/*----------------------------------------------------------------------------
- *
- * error()
- *
- *
- *----------------------------------------------------------------------------
- */
-bool TextSink::error() const
-{
-    return merror;
-}
-
-
-/*----------------------------------------------------------------------------
- *
- * ::putpreamble()
- *
- *
- *----------------------------------------------------------------------------
- */
-static int putpreamble(FILE * fp)
-{
-    return 1;
-}
-
-
-/*----------------------------------------------------------------------------
- *
- * ::putpostamble()
- *
- *
- *----------------------------------------------------------------------------
- */
-static int putpostamble(FILE * fp)
-{
-    return 1;
 }

@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.12 2001-06-09 20:07:51 grahn Exp $
+# $Id: Makefile,v 1.13 2001-12-29 19:14:09 grahn Exp $
 #
 # Makefile
 #
@@ -122,17 +122,17 @@ love:
 
 gavia_add.o: version.hh streamsource.hh booksource.hh excursion.hh species.hh
 gavia_add.o: speciesset.hh gabsource.hh streamsink.hh booksink.hh
-gavia_add.o: canonorder.hh speciesorder.hh
+gavia_add.o: canonorder.hh speciesorder.hh exception.hh
 gavia_cat.o: version.hh booksink.hh excursion.hh species.hh speciesset.hh
 gavia_cat.o: gabsink.hh streamsink.hh textsink.hh htmlsink.hh latexsink.hh
 gavia_cat.o: mboxsink.hh speciesorder.hh canonorder.hh sortedorder.hh
-gavia_cat.o: taxonomicorder.hh streamsource.hh booksource.hh
-gavia_grep.o: version.hh excursion.hh species.hh speciesset.hh
-gavia_grep.o: streamsource.hh booksource.hh streamsink.hh booksink.hh
+gavia_cat.o: taxonomicorder.hh streamsource.hh booksource.hh exception.hh
+gavia_grep.o: version.hh streamsource.hh booksource.hh excursion.hh
+gavia_grep.o: species.hh speciesset.hh streamsink.hh booksink.hh exception.hh
 gavia_grep.o: canonorder.hh speciesorder.hh dynamicorder.hh
 gavia_sort.o: version.hh excursion.hh species.hh speciesset.hh
 gavia_sort.o: streamsource.hh booksource.hh streamsink.hh booksink.hh
-gavia_sort.o: canonorder.hh speciesorder.hh
+gavia_sort.o: exception.hh canonorder.hh speciesorder.hh
 excursion.o: excursion.hh species.hh speciesset.hh
 canonorder.o: canonorder.hh speciesorder.hh species.hh
 sortedorder.o: species.hh speciesorder.hh sortedorder.hh
@@ -140,23 +140,25 @@ dynamicorder.o: species.hh speciesset.hh speciesorder.hh dynamicorder.hh
 taxonomicorder.o: taxonomicorder.hh speciesorder.hh species.hh
 speciesredro.o: speciesredro.hh species.hh speciesorder.hh
 streamsource.o: motorola.h bitmap.h speciesorder.hh species.hh canonorder.hh
-streamsource.o: streamsource.hh booksource.hh excursion.hh speciesset.hh
+streamsource.o: exception.hh streamsource.hh booksource.hh excursion.hh
+streamsource.o: speciesset.hh
 gabsource.o: speciesorder.hh species.hh canonorder.hh speciesredro.hh
-gabsource.o: gabsource.hh booksource.hh excursion.hh speciesset.hh
+gabsource.o: exception.hh gabsource.hh booksource.hh excursion.hh
+gabsource.o: speciesset.hh
 streamsink.o: streamsink.hh booksink.hh excursion.hh species.hh speciesset.hh
-streamsink.o: canonorder.hh speciesorder.hh bitmap.h motorola.h
+streamsink.o: canonorder.hh speciesorder.hh exception.hh bitmap.h motorola.h
 gabsink.o: dynamicorder.hh speciesorder.hh species.hh speciesset.hh
-gabsink.o: gabsink.hh booksink.hh excursion.hh
+gabsink.o: exception.hh gabsink.hh booksink.hh excursion.hh
 textsink.o: dynamicorder.hh speciesorder.hh species.hh speciesset.hh
-textsink.o: textsink.hh booksink.hh excursion.hh
+textsink.o: exception.hh textsink.hh booksink.hh excursion.hh
 htmlsink.o: dynamicorder.hh speciesorder.hh species.hh speciesset.hh
-htmlsink.o: htmlsink.hh booksink.hh excursion.hh
+htmlsink.o: exception.hh htmlsink.hh booksink.hh excursion.hh
 latexsink.o: dynamicorder.hh speciesorder.hh species.hh speciesset.hh
-latexsink.o: latexsink.hh booksink.hh excursion.hh
+latexsink.o: exception.hh latexsink.hh booksink.hh excursion.hh
 mboxsink.o: dynamicorder.hh speciesorder.hh species.hh speciesset.hh
-mboxsink.o: mboxsink.hh booksink.hh excursion.hh
-gablexer.o: excursion.hh species.hh speciesset.hh speciesredro.hh
-gablexer.o: speciesorder.hh
+mboxsink.o: exception.hh mboxsink.hh booksink.hh excursion.hh
+gablexer.o: excursion.hh species.hh speciesset.hh exception.hh
+gablexer.o: speciesredro.hh speciesorder.hh
 motorola.o: motorola.h
 bitmap.o: bitmap.h
 version.o: version.hh

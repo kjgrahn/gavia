@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gabsource.cc,v 1.5 2000-08-10 19:47:21 grahn Exp $
+ * $Id: gabsource.cc,v 1.6 2001-12-29 19:14:09 grahn Exp $
  *
  * gabsource.cc
  *
@@ -34,18 +34,20 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gabsource.cc,v 1.5 2000-08-10 19:47:21 grahn Exp $";
+"$Id: gabsource.cc,v 1.6 2001-12-29 19:14:09 grahn Exp $";
 }
 
 #include <cstdio>
 #include <cstdlib>
 #include <cassert>
+#include <errno.h>
 
 #include <string>
 
 #include "speciesorder.hh"
 #include "canonorder.hh"
 #include "speciesredro.hh"
+#include "exception.hh"
 
 #include "gabsource.hh"
 
@@ -86,8 +88,7 @@ GabSource::GabSource(const char* path)
 
     if(!mfp)
     {
-	mstate = -1;
-	return;
+	throw GaviaException(errno);
     }
 
     yyin = mfp;
@@ -105,17 +106,13 @@ GabSource::GabSource(const char* path)
  */
 GabSource::GabSource(FILE * fp)
 {
+    assert(fp);
+
     CanonOrder order;
 
     redro = new SpeciesRedro(&order);
 
     line = 1;
-
-    if(!fp)
-    {
-	mstate = -1;
-	return;
-    }
 
     mfp = fp;
 
@@ -152,7 +149,7 @@ GabSource::~GabSource()
  */
 Excursion GabSource::excursion()
 {
-    assert(!(eof() || error()));
+    assert(!eof());
 
     return mexcursion;
 }
@@ -167,7 +164,7 @@ Excursion GabSource::excursion()
  */
 void GabSource::next()
 {
-    assert(!(eof() || error()));
+    assert(!eof());
 
     mstate = ::eatexcursion(mexcursion, &line, redro);
 }
@@ -188,31 +185,18 @@ bool GabSource::eof() const
 
 /*----------------------------------------------------------------------------
  *
- * error()
- *
- *
- *----------------------------------------------------------------------------
- */
-bool GabSource::error() const
-{
-    return mstate<0;
-}
-
-
-/*----------------------------------------------------------------------------
- *
  * ::eatexcursion()
  *
  *
- * Pulls an Excursion from 'yyin' (set in constructor).
- * Returns <0 for I/O error, 0 for
- * EOF condition *without* trailing garbage, and >0 for success.
- * 'ex' has an undefined value if not success.
+ * Pulls an Excursion from 'yyin' (set in constructor).  Returns 0 for
+ * EOF condition *without* trailing garbage, and >0 for success.  'ex'
+ * has an undefined value if not success.
  *----------------------------------------------------------------------------
  */
 static int eatexcursion(Excursion& ex, int * line, SpeciesRedro * redro)
 {
     ex = Excursion();			// hack needed to clear ex
 
-    return yylex(&ex, line, redro);
+    int rc = yylex(&ex, line, redro);
+    return rc;
 }

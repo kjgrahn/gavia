@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: booksource.hh,v 1.3 2000-08-10 19:47:21 grahn Exp $
+ * $Id: booksource.hh,v 1.4 2001-12-29 19:14:09 grahn Exp $
  *
  * booksource.hh
  *
@@ -51,7 +51,6 @@ public:
     virtual Excursion excursion() = 0;
     virtual void next() = 0;
     virtual bool eof() const = 0;
-    virtual bool error() const = 0;
 
     virtual ~BookSource() {}
 

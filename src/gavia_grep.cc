@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_grep.cc,v 1.10 2001-03-24 18:54:01 grahn Exp $
+ * $Id: gavia_grep.cc,v 1.11 2001-12-29 19:14:09 grahn Exp $
  *
  * gavia_grep.cc
  *
- * Copyright (c) 1999, 2000 Jörgen Grahn <jgrahn@algonet.se>
+ * Copyright (c) 1999--2001 Jörgen Grahn <jgrahn@algonet.se>
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -37,7 +37,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gavia_grep.cc,v 1.10 2001-03-24 18:54:01 grahn Exp $";
+"$Id: gavia_grep.cc,v 1.11 2001-12-29 19:14:09 grahn Exp $";
 }
 
 #include <cstdio>
@@ -53,9 +53,9 @@ static const char* rcsid() { rcsid(); return
 
 #include "version.hh"
 
-#include "excursion.hh"
 #include "streamsource.hh"
 #include "streamsink.hh"
+#include "exception.hh"
 
 #include "canonorder.hh"
 #include "dynamicorder.hh"
@@ -92,7 +92,7 @@ int main(int argc, char ** argv)
 	case 'V':
 	    fprintf(stderr,
 		    "gavia_grep, part of %s\n"
-		    "Copyright (c) 2000 Jörgen Grahn "
+		    "Copyright (c) 2000, 2001 Jörgen Grahn "
 		    "<jgrahn@algonet.se>\n",
 		    version.name());
 	    return 0;
@@ -140,31 +140,30 @@ int main(int argc, char ** argv)
 	p = &argv[i];
     }
 
-    while(*p)
+    try
     {
-	StreamSource src(*p);
-
-	while(!(src.eof() || src.error()))
+	while(*p)
 	{
-	    Excursion ex = src.excursion();
-	    
-	    if(invert ^ internalmatchex(ex, &preg))
+	    StreamSource src(*p);
+
+	    while(!src.eof())
 	    {
-		sink.put(ex);
+		Excursion ex = src.excursion();
+	    
+		if(invert ^ internalmatchex(ex, &preg))
+		{
+		    sink.put(ex);
+		}
+		src.next();
 	    }
-	    src.next();
-	}
 
-	if(src.error())
-	{
-	    // read error in this book - abort
-	    fprintf(stderr,
-		    "gavia_grep: something wrong in '%s'; aborting\n",
-		    *p);
-	    return 1;
+	    p++;
 	}
-
-	p++;
+    }
+    catch(const GaviaException& ge)
+    {
+	std::cerr << "gavia_grep: error: " << ge.msg << std::endl;
+	return 1;
     }
 
     return 0;

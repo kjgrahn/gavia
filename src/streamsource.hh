@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: streamsource.hh,v 1.4 2000-08-10 19:47:21 grahn Exp $
+ * $Id: streamsource.hh,v 1.5 2001-12-29 19:14:09 grahn Exp $
  *
  * streamsource.hh
  *
@@ -56,7 +56,6 @@ public:
     virtual Excursion excursion();
     virtual void next();
     virtual bool eof() const;
-    virtual bool error() const;
 
 protected:
 private:

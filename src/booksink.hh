@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: booksink.hh,v 1.3 2000-08-10 19:47:21 grahn Exp $
+ * $Id: booksink.hh,v 1.4 2001-12-29 19:14:09 grahn Exp $
  *
  * booksink.hh
  *
@@ -48,7 +48,6 @@ class BookSink
 {
 public:
     virtual void put(const Excursion&) = 0;
-    virtual bool error() const = 0;
 
     virtual ~BookSink() {}
 

@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: streamsink.cc,v 1.5 2001-01-18 23:25:20 grahn Exp $
+ * $Id: streamsink.cc,v 1.6 2001-12-29 19:14:09 grahn Exp $
  *
  * streamsink.cc
  *
- * Copyright (c) 1999 Jörgen Grahn <jgrahn@algonet.se>
+ * Copyright (c) 1999, 2001 Jörgen Grahn <jgrahn@algonet.se>
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: streamsink.cc,v 1.5 2001-01-18 23:25:20 grahn Exp $";
+"$Id: streamsink.cc,v 1.6 2001-12-29 19:14:09 grahn Exp $";
 }
 
 #include <cstdio>
@@ -44,19 +44,22 @@ static const char* rcsid() { rcsid(); return
 
 #include <string>
 
+#include <errno.h>
+
 #include "streamsink.hh"
 
 #include "canonorder.hh"
 #include "speciesset.hh"
+#include "exception.hh"
 #include "bitmap.h"
 #include "motorola.h"
 
 using std::string;
 
 
-static int putpreamble(FILE *);
-static int putpostamble(FILE *);
-static bool internalputstring(const string&, FILE *);
+static void putpreamble(FILE *);
+static void putpostamble(FILE *);
+static void internalputstring(const string&, FILE *);
 static unsigned long internaldatetoamigatime(long);
 
 
@@ -67,7 +70,7 @@ static unsigned long internaldatetoamigatime(long);
  *
  *----------------------------------------------------------------------------
  */
-StreamSink::StreamSink(const char * path)
+StreamSink::StreamSink(const char * path) : merror(false)
 {
     assert(path);
 
@@ -80,7 +83,12 @@ StreamSink::StreamSink(const char * path)
 	mfp = fopen(path, "w");
     }
 
-    merror = !mfp || !::putpreamble(mfp);
+    if(!mfp)
+    {
+	throw GaviaException(errno);
+    }
+
+    ::putpreamble(mfp);
 }
 
 
@@ -91,13 +99,18 @@ StreamSink::StreamSink(const char * path)
  *
  *----------------------------------------------------------------------------
  */
-StreamSink::StreamSink(FILE * fp)
+StreamSink::StreamSink(FILE * fp) : merror(false)
 {
     assert(fp);
 
     mfp = fp;
 
-    merror = !mfp || !::putpreamble(mfp);
+    if(!mfp)
+    {
+	throw GaviaException(errno);
+    }
+
+    ::putpreamble(mfp);
 }
 
 
@@ -137,32 +150,24 @@ void StreamSink::put(const Excursion& ex)
 	return;			// no need to keep writing at I/O error
     }
 
-    bool rc = true;
-
-    rc = ::internalputstring(string(""), mfp);
-    assert(rc);
-
-    rc = ::internalputstring(ex.getplace(), mfp);
-    assert(rc);
-
-    rc = ::motorolawriteulong(
+    ::internalputstring(string(""), mfp);
+    ::internalputstring(ex.getplace(), mfp);
+    bool rc = ::motorolawriteulong(
 	::internaldatetoamigatime(ex.getdate()),
 	mfp);
-    assert(rc);
+    if(!rc)
+    {
+	throw GaviaException(errno);
+    }
 
-    rc = ::internalputstring(ex.gettime(), mfp);
-    assert(rc);
-    rc = ::internalputstring(ex.getobservers(), mfp);
-    assert(rc);
-    rc = ::internalputstring(ex.getweather(), mfp);
-    assert(rc);
-    rc = ::internalputstring(ex.getcomments(), mfp);
-    assert(rc);
+    ::internalputstring(ex.gettime(), mfp);
+    ::internalputstring(ex.getobservers(), mfp);
+    ::internalputstring(ex.getweather(), mfp);
+    ::internalputstring(ex.getcomments(), mfp);
 
     // The extension field has never been used, but
     // should really have been recorded in Excursion ###
-    rc = internalputstring(string(""), mfp);
-    assert(rc);
+    ::internalputstring(string(""), mfp);
 
     // write the bitmap, with the bits set that represent the
     // CanonOrder index of all species recorded in 'ex'.
@@ -181,7 +186,10 @@ void StreamSink::put(const Excursion& ex)
     }
 
     rc = ::bitmapwrite(&bmap, mfp);
-    assert(rc);
+    if(!rc)
+    {
+	throw GaviaException(errno);
+    }
 
     bitmapdestroy(&bmap);
 
@@ -192,7 +200,10 @@ void StreamSink::put(const Excursion& ex)
 	if(ex.species(co.species(i)))
 	{
 	    rc = ::motorolawriteword(ex.speciescount(co.species(i)), mfp);
-	    assert(rc);
+	    if(!rc)
+	    {
+		throw GaviaException(errno);
+	    }
 	}
     }
 
@@ -202,8 +213,7 @@ void StreamSink::put(const Excursion& ex)
     {
 	if(ex.species(co.species(i)))
 	{
-	    rc = ::internalputstring(ex.speciescomment(co.species(i)), mfp);
-	    assert(rc);
+	    ::internalputstring(ex.speciescomment(co.species(i)), mfp);
 	}
     }
 }
@@ -229,21 +239,15 @@ bool StreamSink::error() const
  *
  *----------------------------------------------------------------------------
  */
-static int putpreamble(FILE * fp)
+static void putpreamble(FILE * fp)
 {
     static const char id[] = "Lanius Book v1.0";
 
-    if(!::motorolawriteword(::strlen(id), fp))
+    if((!::motorolawriteword(::strlen(id), fp)) ||
+       ::fwrite(id, 1, ::strlen(id), fp) != ::strlen(id))
     {
-	return 0;
+	throw GaviaException(errno);
     }
-
-    if(::fwrite(id, 1, ::strlen(id), fp) != ::strlen(id))
-    {
-	return 0;
-    }
-
-    return 1;
 }
 
 
@@ -254,21 +258,15 @@ static int putpreamble(FILE * fp)
  *
  *----------------------------------------------------------------------------
  */
-static int putpostamble(FILE * fp)
+static void putpostamble(FILE * fp)
 {
     static const char id[] = "NIL:";
 
-    if(!::motorolawriteword(::strlen(id), fp))
+    if((!::motorolawriteword(::strlen(id), fp)) ||
+       ::fwrite(id, 1, ::strlen(id), fp) != ::strlen(id))
     {
-	return 0;
+	throw GaviaException(errno);
     }
-
-    if(::fwrite(id, 1, ::strlen(id), fp) != ::strlen(id))
-    {
-	return 0;
-    }
-
-    return 1;
 }
 
 
@@ -279,17 +277,14 @@ static int putpostamble(FILE * fp)
  *
  *----------------------------------------------------------------------------
  */
-static bool internalputstring(const string& str, FILE * fp)
+static void internalputstring(const string& str, FILE * fp)
 {
     int n = str.length();
 
-    if(::motorolawriteword(n, fp))
+    if(!::motorolawriteword(n, fp) ||
+       (fwrite(str.c_str(), 1, n, fp)!=(unsigned int)n))
     {
-	return(fwrite(str.c_str(), 1, n, fp)==(unsigned int)n);
-    }
-    else
-    {
-	return false;
+	throw GaviaException(errno);
     }
 }
 

@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: htmlsink.cc,v 1.5 2000-08-10 19:47:21 grahn Exp $
+ * $Id: htmlsink.cc,v 1.6 2001-12-29 19:14:09 grahn Exp $
  *
  * htmlsink.cc
  *
@@ -34,21 +34,23 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: htmlsink.cc,v 1.5 2000-08-10 19:47:21 grahn Exp $";
+"$Id: htmlsink.cc,v 1.6 2001-12-29 19:14:09 grahn Exp $";
 }
 
 #include <cassert>
 #include <cstdio>
 #include <cstring>
+#include <errno.h>
 
 #include "dynamicorder.hh"
+#include "exception.hh"
 
 #include "htmlsink.hh"
 
 
-static int putpreamble(FILE *);
-static int putpostamble(FILE *);
-static int htmlfputs(const char *, FILE *);
+static void putpreamble(FILE *);
+static void putpostamble(FILE *);
+static void htmlfputs(const char *, FILE *);
 
 
 /*----------------------------------------------------------------------------
@@ -74,7 +76,12 @@ HtmlSink::HtmlSink(const SpeciesOrder * so, const char * path)
 	mfp = fopen(path, "w");
     }
 
-    merror = !mfp || !::putpreamble(mfp);
+    if(!mfp)
+    {
+	throw GaviaException(errno);
+    }
+
+    ::putpreamble(mfp);
 }
 
 
@@ -94,7 +101,7 @@ HtmlSink::HtmlSink(const SpeciesOrder * so, FILE * fp)
 
     mfp = fp;
 
-    merror = !mfp || !::putpreamble(mfp);
+    ::putpreamble(mfp);
 }
 
 
@@ -107,12 +114,11 @@ HtmlSink::HtmlSink(const SpeciesOrder * so, FILE * fp)
  */
 HtmlSink::~HtmlSink()
 {
-    if(!error())
-    {
-	::putpostamble(mfp);
-    }
+    if(!mfp) return;
 
-    if(mfp && mfp!=stdout)
+    ::putpostamble(mfp);
+
+    if(mfp!=stdout)
     {
 	fclose(mfp);		// should check for error here (and do _what_?)
     }
@@ -130,11 +136,6 @@ HtmlSink::~HtmlSink()
  */
 void HtmlSink::put(const Excursion& ex)
 {
-    if(error())
-    {
-	return;			// no need to keep writing at I/O error
-    }
-
     fputs("<hr>\n", mfp);
 
     fputs("<h1>\n", mfp);
@@ -199,25 +200,12 @@ void HtmlSink::put(const Excursion& ex)
 
 /*----------------------------------------------------------------------------
  *
- * error()
- *
- *
- *----------------------------------------------------------------------------
- */
-bool HtmlSink::error() const
-{
-    return merror;
-}
-
-
-/*----------------------------------------------------------------------------
- *
  * ::putpreamble()
  *
  *
  *----------------------------------------------------------------------------
  */
-static int putpreamble(FILE * fp)
+static void putpreamble(FILE * fp)
 {
     fprintf(fp,
 	    "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 3.2 Final//EN\">\n"
@@ -228,8 +216,6 @@ static int putpreamble(FILE * fp)
 	    "<TITLE>Gavia contents</TITLE>\n"
 	    "</HEAD>\n"
 	    "<BODY>\n\n");
-
-    return 1;
 }
 
 
@@ -240,15 +226,13 @@ static int putpreamble(FILE * fp)
  *
  *----------------------------------------------------------------------------
  */
-static int putpostamble(FILE * fp)
+static void putpostamble(FILE * fp)
 {
     fprintf(fp,
 	    "\n"
 	    "<hr>\n\n"
 	    "</BODY>\n"
 	    "</HTML>\n");
-
-    return 1;
 }
 
 
@@ -260,7 +244,7 @@ static int putpostamble(FILE * fp)
  * As ANSI C fputs(), but escapes &<> characters
  *----------------------------------------------------------------------------
  */
-static int htmlfputs(const char * str, FILE * fp)
+static void htmlfputs(const char * str, FILE * fp)
 {
     while(*str)
     {
@@ -282,6 +266,4 @@ static int htmlfputs(const char * str, FILE * fp)
 
         str++;
     }
-
-    return 1;
 }

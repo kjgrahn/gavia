@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gabsink.cc,v 1.4 2001-05-31 19:59:41 grahn Exp $
+ * $Id: gabsink.cc,v 1.5 2001-12-29 19:14:09 grahn Exp $
  *
  * gabsink.cc
  *
@@ -34,19 +34,17 @@
  */
 
 static const char rcsid[] =
-"$Id: gabsink.cc,v 1.4 2001-05-31 19:59:41 grahn Exp $";
+"$Id: gabsink.cc,v 1.5 2001-12-29 19:14:09 grahn Exp $";
 
 #include <assert.h>
 #include <stdio.h>
-#include <string.h>
+#include <cstring>
+#include <errno.h>
 
 #include "dynamicorder.hh"
+#include "exception.hh"
 
 #include "gabsink.hh"
-
-
-static int putpreamble(FILE *);
-static int putpostamble(FILE *);
 
 
 /*----------------------------------------------------------------------------
@@ -72,7 +70,10 @@ GabSink::GabSink(const SpeciesOrder * so, const char * path)
 	mfp = fopen(path, "w");
     }
 
-    merror = !mfp || !::putpreamble(mfp);
+    if(!mfp)
+    {
+	throw GaviaException(errno);
+    }
 }
 
 
@@ -91,8 +92,6 @@ GabSink::GabSink(const SpeciesOrder * so, FILE * fp)
     morder = so;
 
     mfp = fp;
-
-    merror = !mfp || !::putpreamble(mfp);
 }
 
 
@@ -105,11 +104,6 @@ GabSink::GabSink(const SpeciesOrder * so, FILE * fp)
  */
 GabSink::~GabSink()
 {
-    if(!error())
-    {
-	::putpostamble(mfp);
-    }
-
     if(mfp && mfp!=stdout)
     {
 	fclose(mfp);		// should check for error here (and do _what_?)
@@ -128,11 +122,6 @@ GabSink::~GabSink()
  */
 void GabSink::put(const Excursion& ex)
 {
-    if(error())
-    {
-	return;			// no need to keep writing at I/O error
-    }
-
     fprintf(mfp, "%s\n", "{");
 
     fprintf(mfp, "place        : %s\n", ex.getplace().c_str());
@@ -189,43 +178,4 @@ void GabSink::put(const Excursion& ex)
     fprintf(mfp, "%s\n\n", "}");
 
     fflush(mfp);
-}
-
-
-/*----------------------------------------------------------------------------
- *
- * error()
- *
- *
- *----------------------------------------------------------------------------
- */
-bool GabSink::error() const
-{
-    return merror;
-}
-
-
-/*----------------------------------------------------------------------------
- *
- * ::putpreamble()
- *
- *
- *----------------------------------------------------------------------------
- */
-static int putpreamble(FILE * fp)
-{
-    return 1;
-}
-
-
-/*----------------------------------------------------------------------------
- *
- * ::putpostamble()
- *
- *
- *----------------------------------------------------------------------------
- */
-static int putpostamble(FILE * fp)
-{
-    return 1;
 }

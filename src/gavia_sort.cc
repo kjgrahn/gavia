@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_sort.cc,v 1.9 2001-03-03 12:20:22 grahn Exp $
+ * $Id: gavia_sort.cc,v 1.10 2001-12-29 19:14:09 grahn Exp $
  *
  * gavia_sort.cc
  *
- * Copyright (c) 1999, 2000 Jörgen Grahn <jgrahn@algonet.se>
+ * Copyright (c) 1999--2001 Jörgen Grahn <jgrahn@algonet.se>
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -36,9 +36,10 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gavia_sort.cc,v 1.9 2001-03-03 12:20:22 grahn Exp $";
+"$Id: gavia_sort.cc,v 1.10 2001-12-29 19:14:09 grahn Exp $";
 }
 
+#include <iostream>
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
@@ -55,6 +56,7 @@ static const char* rcsid() { rcsid(); return
 #include "excursion.hh"
 #include "streamsource.hh"
 #include "streamsink.hh"
+#include "exception.hh"
 
 #include "canonorder.hh"
 
@@ -96,7 +98,7 @@ int main(int argc, char ** argv)
 	case 'v':
 	    fprintf(stderr,
 		    "gavia_sort, part of %s\n"
-		    "Copyright (c) 2000 Jörgen Grahn "
+		    "Copyright (c) 2000, 2001 Jörgen Grahn "
 		    "<jgrahn@algonet.se>\n",
 		    version.name());
 	    return 0;
@@ -125,25 +127,26 @@ int main(int argc, char ** argv)
 
     // read in excursions from all input files/stdin
     // and push them onto exlist
-    while(*p)
+    try
     {
-	StreamSource src(*p);
+	while(*p)
+	{
+	    StreamSource src(*p);
 
-	while(!(src.eof() || src.error()))
-        {
-            exlist.push_back(src.excursion());
-            src.next();
-        }
+	    while(!src.eof())
+	    {
+		exlist.push_back(src.excursion());
+		src.next();
+	    }
 
-        if(src.error())
-        {
-            perror("gavia_sort");
-            return 1;
-        }
-
-	p++;
+	    p++;
+	}
     }
-
+    catch(const GaviaException& exception)
+    {
+	std::cerr << "gavia_sort: error: " << exception.msg << std::endl;
+	return 1;
+    }
 
     // sort the exlist vector
     stable_sort(exlist.begin(), exlist.end(),
@@ -152,6 +155,7 @@ int main(int argc, char ** argv)
 
     // Dump the result to stdout
     //
+    try
     {
         CanonOrder co;
         StreamSink sink(stdout);
@@ -161,12 +165,11 @@ int main(int argc, char ** argv)
         {
             sink.put(exlist[i]);
         }
-
-        if(sink.error())
-        {
-            perror("gavia_sort");
-            return 1;
-        }
+    }
+    catch(const GaviaException& exception)
+    {
+	std::cerr << "gavia_sort: error: " << exception.msg << std::endl;
+	return 1;
     }
 
     return 0;

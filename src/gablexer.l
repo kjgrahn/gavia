@@ -1,7 +1,7 @@
 %{
 /*----------------------------------------------------------------------------
  *
- * $Id: gablexer.l,v 1.7 2001-03-03 12:20:22 grahn Exp $
+ * $Id: gablexer.l,v 1.8 2001-12-29 19:14:09 grahn Exp $
  *
  * gablexer.l
  *
@@ -35,7 +35,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gablexer.l,v 1.7 2001-03-03 12:20:22 grahn Exp $";
+"$Id: gablexer.l,v 1.8 2001-12-29 19:14:09 grahn Exp $";
 }
 
 #include <cctype>
@@ -43,6 +43,7 @@ static const char* rcsid() { rcsid(); return
 #include <string>
 
 #include "excursion.hh"
+#include "exception.hh"
 #include "speciesredro.hh"
 
 #define YY_DECL int yylex(Excursion * excursion, int * inc, SpeciesRedro * redro)
@@ -134,8 +135,7 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
     /* date: */
     /* fprintf(stderr, "%s\n", "date, empty"); */
 
-    fprintf(stderr, "***Defaulted dates not yet implemented ###\n");
-    return -1;
+    throw GaviaException("defaulted dates not implemented");
 }
 
 <HEAD>^{BLANK}*time{BLANK}*\:({FREEFLD}|{BLANKFLD})$ {
@@ -231,8 +231,7 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
 
     if(!redro->ismember(species))
     {
-	fprintf(stderr, "Invalid species '%.30s'\n", s);
-	return -1;
+	throw GaviaException(std::string("invalid species '") + s + "'");
     }
 
     excursion->insert(species);
@@ -270,8 +269,7 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
 
     if(!redro->ismember(species))
     {
-	fprintf(stderr, "Invalid species '%.30s'\n", s);
-	return -1;
+	throw GaviaException(std::string("invalid species '") + s + "'");
     }
 
     excursion->insert(species, num, u);
@@ -305,8 +303,7 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
 
     if(!redro->ismember(species))
     {
-	fprintf(stderr, "Invalid species '%.30s'\n", s);
-	return -1;
+	throw GaviaException(std::string("invalid species '") + s + "'");
     }
 
     excursion->insert(species, 0, u);
@@ -332,8 +329,10 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
 <*>. {
     /* something wrong */
 
-    fprintf(stderr, "***Parse error near line %d\n", *inc);
-    return -1;
+    char buf[10];
+    std::sprintf(buf, "%d", *inc);
+
+    throw GaviaException(std::string("parse error near line ") + buf);
 }
 
 %%

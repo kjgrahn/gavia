@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_cat.cc,v 1.11 2001-06-09 20:07:51 grahn Exp $
+ * $Id: gavia_cat.cc,v 1.12 2001-12-29 19:14:09 grahn Exp $
  *
  * gavia_cat.cc
  *
@@ -37,10 +37,10 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gavia_cat.cc,v 1.11 2001-06-09 20:07:51 grahn Exp $";
+"$Id: gavia_cat.cc,v 1.12 2001-12-29 19:14:09 grahn Exp $";
 }
 
-#include <cstdio>
+#include <iostream>
 #include <cstdlib>
 #include <cstring>
 #include <cassert>
@@ -66,6 +66,7 @@ static const char* rcsid() { rcsid(); return
 
 #include "streamsource.hh"
 #include "excursion.hh"
+#include "exception.hh"
 
 
 /*----------------------------------------------------------------------------
@@ -103,11 +104,10 @@ int main(int argc, char ** argv)
 	    ordch = ch;
 	    break;
 	case 'v':
-	    fprintf(stderr,
-		    "gavia_cat, part of %s\n"
-		    "Copyright (c) 1999--2001 Jörgen Grahn "
-		    "<jgrahn@algonet.se>\n",
-		    version.name());
+	    std::cerr << 
+		"gavia_cat, part of " << version.name() << std::endl <<
+		"Copyright (c) 1999--2001 Jörgen Grahn "
+		"<jgrahn@algonet.se>" << std::endl;
 	    return 0;
 	    break;
 	default:
@@ -171,38 +171,38 @@ int main(int argc, char ** argv)
 	break;
     }
 
-    for(int i=optind; i<argc; i++)
+    try
     {
-	StreamSource src(argv[i]);
-
-	while(!(src.eof() || src.error()))
+	for(int i=optind; i<argc; i++)
 	{
-	    sink->put(src.excursion());
-	    src.next();
+	    StreamSource src(argv[i]);
+
+	    while(!src.eof())
+	    {
+		sink->put(src.excursion());
+		src.next();
+	    }
 	}
 
-	if(src.error())
+	if(optind==argc)
 	{
-	    // read error in this book - abort
-	    delete order;
-	    delete sink;
-	    return 1;
+	    // no filenames given ->
+	    // the previous for loop wasn't executed ->
+	    // read from stdin instead
+
+	    StreamSource src(stdin);
+
+	    while(!src.eof())
+	    {
+		sink->put(src.excursion());
+		src.next();
+	    }
 	}
     }
-
-    if(optind==argc)
+    catch(const GaviaException& exception)
     {
-	// no filenames given ->
-	// the previous for loop wasn't executed ->
-	// read from stdin instead
-
-	StreamSource src(stdin);
-
-	while(!(src.eof() || src.error()))
-	{
-	    sink->put(src.excursion());
-	    src.next();
-	}
+	std::cerr << "gavia_cat: " << exception.msg << std::endl;
+	return 1;
     }
 
     delete order;

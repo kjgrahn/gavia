@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: mboxsink.hh,v 1.1 2001-06-09 20:07:51 grahn Exp $
+ * $Id: mboxsink.hh,v 1.2 2001-12-29 19:14:09 grahn Exp $
  *
  * mboxsink.hh
  *
@@ -55,12 +55,10 @@ public:
     virtual ~MboxSink();				// destructor
 
     virtual void put(const Excursion&);
-    virtual bool error() const {return merror;}
 
 protected:
 private:
     FILE * mfp;
-    bool merror;
     const SpeciesOrder * morder;
 
 };

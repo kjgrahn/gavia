@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gabsink.hh,v 1.2 2000-08-10 19:47:21 grahn Exp $
+ * $Id: gabsink.hh,v 1.3 2001-12-29 19:14:09 grahn Exp $
  *
  * gabsink.hh
  *
@@ -55,7 +55,6 @@ public:
     virtual ~GabSink();				// destructor
 
     virtual void put(const Excursion&);
-    virtual bool error() const;
 
 protected:
 private:

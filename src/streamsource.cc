@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: streamsource.cc,v 1.5 2001-01-18 23:25:20 grahn Exp $
+ * $Id: streamsource.cc,v 1.6 2001-12-29 19:14:09 grahn Exp $
  *
  * streamsource.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: streamsource.cc,v 1.5 2001-01-18 23:25:20 grahn Exp $";
+"$Id: streamsource.cc,v 1.6 2001-12-29 19:14:09 grahn Exp $";
 }
 
 #include <cstdio>
@@ -42,11 +42,15 @@ static const char* rcsid() { rcsid(); return
 #include <ctime>
 #include <cassert>
 
+#include <errno.h>
+
 #include "motorola.h"
 #include "bitmap.h"
 
 #include "speciesorder.hh"
 #include "canonorder.hh"
+
+#include "exception.hh"
 
 #include "streamsource.hh"
 
@@ -86,15 +90,14 @@ StreamSource::StreamSource(const char* path)
 
     if(!mfp)
     {
-	mstate = -1;
-	return;
+	throw GaviaException(errno);
     }
 
     int i = ::eatpreamble(mfp);
 
     if(i<0)
     {
-	mstate = -1;
+	throw GaviaException("malformed preamble");
     }
     else if(i==0)
     {
@@ -118,19 +121,15 @@ StreamSource::StreamSource(FILE * fp)
 {
     morder = new CanonOrder();
     assert(morder);
+    assert(fp);
 
-    if(!fp)
-    {
-	mstate = -1;
-	return;
-    }
     mfp = fp;
 
     int i = ::eatpreamble(mfp);
 
     if(i<0)
     {
-	mstate = -1;
+	throw GaviaException("malformed preamble");
     }
     else if(i==0)
     {
@@ -170,7 +169,7 @@ StreamSource::~StreamSource()
  */
 Excursion StreamSource::excursion()
 {
-    assert(!(eof() || error()));
+    assert(!eof());
 
     return mexcursion;
 }
@@ -185,7 +184,7 @@ Excursion StreamSource::excursion()
  */
 void StreamSource::next()
 {
-    assert(!(eof() || error()));
+    assert(!eof());
 
     mstate = ::eatexcursion(mfp, morder, mexcursion);
 }
@@ -201,19 +200,6 @@ void StreamSource::next()
 bool StreamSource::eof() const
 {
     return mstate==0;
-}
-
-
-/*----------------------------------------------------------------------------
- *
- * error()
- *
- *
- *----------------------------------------------------------------------------
- */
-bool StreamSource::error() const
-{
-    return mstate<0;
 }
 
 
@@ -240,9 +226,10 @@ static int eatpreamble(FILE * fp)
  * ::eatexcursion()
  *
  *
- * Pulls an Excursion from 'fp'. Returns <0 for I/O error, 0 for
- * EOF condition *without* trailing garbage, and >0 for success.
- * 'ex' has an undefined value if not success.
+ * Pulls an Excursion from 'fp'. Throws GaviaException for I/O error,
+ * else returns 0 for EOF condition *without* trailing garbage, and >0
+ * for success.  'ex' has an undefined value if not success.
+ *
  *----------------------------------------------------------------------------
  */
 static int eatexcursion(FILE * fp, SpeciesOrder * order, Excursion& ex)
@@ -257,7 +244,7 @@ static int eatexcursion(FILE * fp, SpeciesOrder * order, Excursion& ex)
     i = motorolareadword(fp, &n); 	// must start with a motorolaword of 0
     if(i<0)
     {
-	return -1;
+	throw GaviaException("garbage in excursion");
     }
     else if(i==0 || n!=0)
     {
@@ -267,7 +254,7 @@ static int eatexcursion(FILE * fp, SpeciesOrder * order, Excursion& ex)
     i = ::eatstring(fp, tmp);		// place
     if(i<=0)
     {
-	return -1;
+	throw GaviaException("garbage in excursion");
     }
     ex.setplace(tmp);
 
@@ -275,42 +262,42 @@ static int eatexcursion(FILE * fp, SpeciesOrder * order, Excursion& ex)
     i = ::motorolareadulong(fp, &m);
     if(i<=0)
     {
-	return -1;
+	throw GaviaException("garbage in excursion");
     }
     ex.setdate(::internalamigatimetodate(m));
 
     i = ::eatstring(fp, tmp);		// time
     if(i<=0)
     {
-	return -1;
+	throw GaviaException("garbage in excursion");
     }
     ex.settime(tmp);
 
     i = ::eatstring(fp, tmp);		// observers
     if(i<=0)
     {
-	return -1;
+	throw GaviaException("garbage in excursion");
     }
     ex.setobservers(tmp);
 
     i = ::eatstring(fp, tmp);		// weather
     if(i<=0)
     {
-	return -1;
+	throw GaviaException("garbage in excursion");
     }
     ex.setweather(tmp);
 
     i = ::eatstring(fp, tmp);		// comments
     if(i<=0)
     {
-	return -1;
+	throw GaviaException("garbage in excursion");
     }
     ex.setcomments(tmp);
 
     i = ::eatstring(fp, tmp);		// extension ### don't discard
     if(i<=0)
     {
-	return -1;
+	throw GaviaException("garbage in excursion");
     }
 
     Bitmap bitmap;			// set of species
@@ -318,7 +305,7 @@ static int eatexcursion(FILE * fp, SpeciesOrder * order, Excursion& ex)
     i = ::bitmapread(&bitmap, fp);
     if(!i)
     {
-	return -1;
+	throw GaviaException("garbage in excursion");
     }
 
     for(i=0; i<BMAPNR*8; i++)		// speciescounts
@@ -328,7 +315,7 @@ static int eatexcursion(FILE * fp, SpeciesOrder * order, Excursion& ex)
 	    unsigned int n;
 	    if(::motorolareadword(fp, &n) <= 0)
 	    {
-		return -1;
+		throw GaviaException("garbage in excursion");
 	    }
 	    ex.insert(order->species(i), n);
 	}
@@ -341,7 +328,7 @@ static int eatexcursion(FILE * fp, SpeciesOrder * order, Excursion& ex)
 	    int n = ::eatstring(fp, tmp);
 	    if(n<=0)
 	    {
-		return -1;
+		throw GaviaException("garbage in excursion");
 	    }
 
 	    ex.speciescomment(order->species(i), tmp);

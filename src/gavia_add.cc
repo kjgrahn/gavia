@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_add.cc,v 1.10 2001-09-29 19:16:59 grahn Exp $
+ * $Id: gavia_add.cc,v 1.11 2001-12-29 19:14:09 grahn Exp $
  *
  * gavia_add.cc
  *
@@ -36,9 +36,10 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gavia_add.cc,v 1.10 2001-09-29 19:16:59 grahn Exp $";
+"$Id: gavia_add.cc,v 1.11 2001-12-29 19:14:09 grahn Exp $";
 }
 
+#include <iostream>
 #include <cstdio>
 #include <cstdlib>
 #include <cctype>
@@ -55,6 +56,7 @@ static const char* rcsid() { rcsid(); return
 #include "gabsource.hh"
 #include "streamsink.hh"
 #include "canonorder.hh"
+#include "exception.hh"
 
 using std::vector;
 
@@ -80,7 +82,7 @@ int main(int argc, char ** argv)
 	{
 	    fprintf(stderr,
 		    "gavia_add, part of %s\n"
-		    "Copyright (c) 2000 Jörgen Grahn "
+		    "Copyright (c) 2000, 2001 Jörgen Grahn "
 		    "<jgrahn@algonet.se>\n",
 		    version.name());
 	    return 0;
@@ -96,61 +98,51 @@ int main(int argc, char ** argv)
 
     vector<Excursion> exlist;
 
-    if(argc==optind+1)
+    try
     {
-	// Read the old book
+	if(argc==optind+1)
+	{
+	    // Read the old book
+	    //
+
+	    StreamSource src(argv[optind]);
+
+	    while(!src.eof())
+	    {
+		exlist.push_back(src.excursion());
+		src.next();
+	    }
+	}
+
+	// Read the textual excursions,
+	// add to the original
+	{
+	    GabSource src(stdin);
+
+	    while(!src.eof())
+	    {
+		exlist.push_back(src.excursion());
+		src.next();
+	    }
+	}
+
+	// Dump the result to stdout
 	//
-
-	StreamSource src(argv[optind]);
-
-	while(!(src.eof()||src.error()))
 	{
-	    exlist.push_back(src.excursion());
-	    src.next();
-	}
+	    CanonOrder co;
+	    StreamSink sink(stdout);
 
-	if(src.error())
-	{
-	    perror("gavia_add");
-	    return 1;
+	    unsigned int i;
+	    for(i=0; i<exlist.size(); i++)
+	    {
+		sink.put(exlist[i]);
+	    }
 	}
     }
-
-    // Read the textual excursions,
-    // add to the original
+    catch(const GaviaException& ge)
     {
-	GabSource src(stdin);
-
-	while(!(src.eof()||src.error()))
-	{
-	    exlist.push_back(src.excursion());
-	    src.next();
-	}
-
-	if(src.error())
-	{
-	    perror("gavia_add");
-	    return 1;
-	}
-    }
-
-    // Dump the result to stdout
-    //
-    {
-	CanonOrder co;
-	StreamSink sink(stdout);
-
-	unsigned int i;
-	for(i=0; i<exlist.size(); i++)
-	{
-	    sink.put(exlist[i]);
-	}
-
-	if(sink.error())
-	{
-	    perror("gavia_add");
-	    return 1;
-	}
+	std::cerr << "gavia_add: error: " << ge.msg << std::endl;
+	return 1;
     }
 
     return 0;

@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: mboxsink.cc,v 1.1 2001-06-09 20:07:51 grahn Exp $
+ * $Id: mboxsink.cc,v 1.2 2001-12-29 19:14:09 grahn Exp $
  *
  * mboxsink.cc
  *
@@ -34,14 +34,16 @@
  */
 
 static const char rcsid[] =
-"$Id: mboxsink.cc,v 1.1 2001-06-09 20:07:51 grahn Exp $";
+"$Id: mboxsink.cc,v 1.2 2001-12-29 19:14:09 grahn Exp $";
 
 #include <cassert>
 #include <cstdio>
 #include <cstring>
 #include <time.h>
+#include <errno.h>
 
 #include "dynamicorder.hh"
+#include "exception.hh"
 
 #include "mboxsink.hh"
 
@@ -74,7 +76,10 @@ MboxSink::MboxSink(const SpeciesOrder * so, const char * path)
 	mfp = fopen(path, "w");
     }
 
-    merror = !mfp;
+    if(!mfp)
+    {
+	throw GaviaException(errno);
+    }
 }
 
 
@@ -93,8 +98,6 @@ MboxSink::MboxSink(const SpeciesOrder * so, FILE * fp)
     morder = so;
 
     mfp = fp;
-
-    merror = !mfp;
 }
 
 
@@ -107,7 +110,7 @@ MboxSink::MboxSink(const SpeciesOrder * so, FILE * fp)
  */
 MboxSink::~MboxSink()
 {
-    if(mfp && mfp!=stdout)
+    if(mfp!=stdout)
     {
 	fclose(mfp);		// should check for error here (and do _what_?)
     }
@@ -125,11 +128,6 @@ MboxSink::~MboxSink()
  */
 void MboxSink::put(const Excursion& ex)
 {
-    if(error())
-    {
-	return;			// no need to keep writing at I/O error
-    }
-
     fprintf(mfp, "From GAVIA  ");
     putFromdate(mfp, time(0));
     fprintf(mfp, "\n");
@@ -194,7 +192,7 @@ void MboxSink::put(const Excursion& ex)
 	}
     }
 
-    fprintf(mfp, "\n");
+    fprintf(mfp, "}\n");
 
     fflush(mfp);
 }

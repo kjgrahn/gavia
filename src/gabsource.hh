@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gabsource.hh,v 1.5 2000-08-10 19:47:21 grahn Exp $
+ * $Id: gabsource.hh,v 1.6 2001-12-29 19:14:09 grahn Exp $
  *
  * gabsource.hh
  *
@@ -84,9 +84,6 @@ public:
     virtual Excursion excursion();
     virtual void next();
     virtual bool eof() const;
-    virtual bool error() const;
-
-    // virtual string errstring() const;
 
 protected:
 private:

@@ -3,6 +3,7 @@
 Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
+gavia 2.18 (2001-07-22):
 	- taxonomic order (gavia_cat -x) now actually presents something
 	  resembling what it should (used to be the same as canonical order,
 	  i.e. newly added (rare) species tended to sort last)
@@ -70,5 +71,5 @@ lanius, all versions:
 	Before written history.
 
 _________________________________________
-$Id: NEWS,v 1.4 2001-07-22 21:05:42 grahn Exp $
+$Id: NEWS,v 1.5 2001-07-22 21:06:11 grahn Exp $
 $Name:  $

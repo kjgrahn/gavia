@@ -1,4 +1,4 @@
-# $Id: default,v 1.9 2002-07-15 14:59:17 grahn Exp $
+# $Id: default,v 1.10 2002-07-15 21:15:57 grahn Exp $
 #
 # Example template file for gavia_stellata(1), with a
 # selection of species you are more or less likely to see.
@@ -255,7 +255,7 @@ taltrast		: : :
 rödvingetrast		: : : 
 dubbeltrast		: : : 
 
-gräshoppssångare	: : : 
+gräshoppsångare		: : : 
 flodsångare		: : : 
 vassångare		: : : 
 sävsångare		: : : 
@@ -463,7 +463,7 @@ blåtrast		: : :
 guldtrast		: : : 
 sibirisk trast		: : : 
 eremitskogstrast	: : : 
-rostskogtrast		: : : 
+rostskogstrast		: : : 
 taigatrast		: : : 
 gråhalsad trast		: : : 
 vandringstrast		: : : 
@@ -478,7 +478,7 @@ rödstrupig sångare	: : :
 sammetshätta		: : : 
 ökensångare		: : : 
 nordsångare		: : : 
-bergtaigasångare	: : : 
+bergstaigasångare	: : : 
 videsångare		: : : 
 brunsångare		: : : 
 bergsångare		: : : 

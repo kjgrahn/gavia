@@ -1,4 +1,4 @@
-# $Id: species,v 1.3 2002-07-15 19:17:44 grahn Exp $
+# $Id: species,v 1.4 2002-07-15 21:15:58 grahn Exp $
 #
 # The canonical list of species accepted by Gavia.
 #
@@ -427,7 +427,7 @@
 416 guldtrast
 417 sibirisk trast
 418 eremitskogstrast
-419 rostskogtrast
+419 rostskogstrast
 420 taigatrast
 421 gråhalsad trast
 422 vandringstrast
@@ -445,14 +445,14 @@
 431 sammetshätta
 432 ökensångare
 433 nordsångare
-434 bergtaigasångare
+434 bergstaigasångare
 435 videsångare
 436 brunsångare
 437 bergsångare
 464 starrsångare
 495 grässångare
 
-222 gräshoppssångare
+222 gräshoppsångare
 223 flodsångare
 224 vassångare
 225 sävsångare

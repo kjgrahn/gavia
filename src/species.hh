@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: species.hh,v 1.4 2000-08-10 19:47:21 grahn Exp $
+ * $Id: species.hh,v 1.5 2004-09-12 21:58:43 grahn Exp $
  *
  * Species.hh
  *
@@ -30,8 +30,6 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *----------------------------------------------------------------------------
  *
- * Species, which really is a C++ string...
- * ###
  *----------------------------------------------------------------------------
  */
 
@@ -39,7 +37,27 @@
 #define SPECIES_HH
 
 #include <string>
+#include <iosfwd>
 
-typedef std::string Species;
+/**
+ * A species, which really just is a species name, as a string ...
+ */
+class Species {
+public:
+    Species(const char * name) : s(name) {}
+    Species(const char * a, const char * b) : s(a,b) {}
+
+    int operator< (const Species& other) const { return s < other.s; }
+    const char * c_str() const { return s.c_str(); }
+    size_t size() const { return s.size(); }
+private:
+    Species();
+    std::string s;
+};
+
+inline std::ostream& operator<< (std::ostream& os, const Species& s)
+{
+    return os << s.c_str();
+}
 
 #endif

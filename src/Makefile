@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.21 2004-08-04 15:49:46 grahn Exp $
+# $Id: Makefile,v 1.22 2004-09-12 21:58:43 grahn Exp $
 #
 # Makefile
 #
@@ -122,7 +122,7 @@ bitmap.o: bitmap.h
 canonorder.o: canonorder.hh speciesorder.hh species.hh specieslist.hh
 dynamicorder.o: species.hh speciesset.hh speciesorder.hh dynamicorder.hh
 exception.o: exception.hh
-excursion.o: excursion.hh species.hh speciesset.hh
+excursion.o: excursion.hh species.hh speciesset.hh exception.hh
 filtersink.o: speciesorder.hh species.hh exception.hh gabsink.hh booksink.hh
 filtersink.o: excursion.hh speciesset.hh filtersink.hh
 gablexer.o: excursion.hh species.hh speciesset.hh exception.hh

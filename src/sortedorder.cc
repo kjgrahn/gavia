@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: sortedorder.cc,v 1.7 2004-08-04 11:50:50 grahn Exp $
+ * $Id: sortedorder.cc,v 1.8 2004-09-12 21:58:43 grahn Exp $
  *
  * sortedorder.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: sortedorder.cc,v 1.7 2004-08-04 11:50:50 grahn Exp $";
+"$Id: sortedorder.cc,v 1.8 2004-09-12 21:58:43 grahn Exp $";
 }
 
 #include "species.hh"
@@ -58,7 +58,7 @@ static bool less(const Species * a, const Species * b) { return *a<*b;}
  * species in [begin..end[ (if given) are chosen.
  *----------------------------------------------------------------------------
  */
-SortedOrder::SortedOrder(const SpeciesOrder * obj, string begin, string end)
+SortedOrder::SortedOrder(const SpeciesOrder * obj)
 {
     assert(obj);
     assert(obj->end() <= MAXEND);
@@ -67,11 +67,7 @@ SortedOrder::SortedOrder(const SpeciesOrder * obj, string begin, string end)
 
     for(int i=0; i!=obj->end(); i++)
     {
-	if((obj->species(i) >= begin) && (obj->species(i) < end))
-	{
-	    internalspecies[j] = &obj->species(i);
-	    j++;
-	}
+	internalspecies[j] = &obj->species(i);
     }
 
     internalend = j;

@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: specieslist.cc,v 1.4 2004-04-23 22:14:29 grahn Exp $
+ * $Id: specieslist.cc,v 1.5 2004-09-12 21:58:43 grahn Exp $
  *
  * specieslist.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: specieslist.cc,v 1.4 2004-04-23 22:14:29 grahn Exp $";
+"$Id: specieslist.cc,v 1.5 2004-09-12 21:58:43 grahn Exp $";
 }
 
 #include <cassert>
@@ -96,7 +96,6 @@ static void readspecies(vector<SpeciesList::Item> * species)
     while(std::fgets(buf, sizeof(buf), fp))
     {
 	int no = -1;
-	Species foo = Species(buf, buf+30);
 	char * p = buf;
 
 	while(isspace(*p)) p++;

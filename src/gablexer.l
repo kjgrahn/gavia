@@ -1,7 +1,7 @@
 %{
 /*----------------------------------------------------------------------------
  *
- * $Id: gablexer.l,v 1.15 2004-08-05 10:16:11 grahn Exp $
+ * $Id: gablexer.l,v 1.16 2004-09-12 21:58:43 grahn Exp $
  *
  * gablexer.l
  *
@@ -35,13 +35,13 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gablexer.l,v 1.15 2004-08-05 10:16:11 grahn Exp $";
+"$Id: gablexer.l,v 1.16 2004-09-12 21:58:43 grahn Exp $";
 }
 
 #include <cctype>
 #include <cstring>
 #include <string>
-#include <iostream>
+#include <sstream>
 #include <map>
 
 #include "excursion.hh"
@@ -61,7 +61,9 @@ static void tryinsert(Excursion * ex,
 
     if(!redro->ismember(s))
     {
-	throw GaviaException("invalid species '" + s + "'");
+	std::ostringstream os;
+	os << "invalid species '" << s << "'";
+	throw GaviaException(os.str());
     }
 
     if(ex->has(s))

@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: latexsink.cc,v 1.3 1999-10-24 20:52:24 grahn Exp $
+ * $Id: latexsink.cc,v 1.4 1999-11-07 19:21:03 grahn Exp $
  *
  * latexsink.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char rcsid[] =
-"$Id: latexsink.cc,v 1.3 1999-10-24 20:52:24 grahn Exp $";
+"$Id: latexsink.cc,v 1.4 1999-11-07 19:21:03 grahn Exp $";
 
 #include <assert.h>
 #include <stdio.h>
@@ -271,7 +271,7 @@ static int putpostamble(FILE * fp)
  * ::latexfputs()
  *
  *
- * As ANSI C fputs(), but escapes or changes "#%_ characters
+ * As ANSI C fputs(), but escapes or changes "#%_& characters
  *----------------------------------------------------------------------------
  */
 static int latexfputs(const char * str, FILE * fp)
@@ -286,6 +286,7 @@ static int latexfputs(const char * str, FILE * fp)
 	case '#':
 	case '%':
 	case '_':
+	case '&':
 	    putc('\\', fp);
 	    /* FALLTHROUGH */
 	default:

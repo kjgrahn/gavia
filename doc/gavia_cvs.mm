@@ -1,7 +1,7 @@
-.\" $Id: gavia_cvs.mm,v 1.6 2001-06-17 20:49:53 grahn Exp $
+.\" $Id: gavia_cvs.mm,v 1.7 2002-09-28 09:58:52 grahn Exp $
 
-.ND "$Date: 2001-06-17 20:49:53 $"
-.PF "$Id: gavia_cvs.mm,v 1.6 2001-06-17 20:49:53 grahn Exp $"
+.ND "$Date: 2002-09-28 09:58:52 $"
+.PF "\s-2$Id: gavia_cvs.mm,v 1.7 2002-09-28 09:58:52 grahn Exp $\s+2"
 
 .COVER
 .TL
@@ -25,7 +25,7 @@ universally useful.
 
 .H 1 "CVS basics"
 
-CVS is \- for our purposes \- much like RCS. It differs in three major ways:
+CVS is\(emfor our purposes\(emmuch like RCS. It differs in three major ways:
 it is intended to work on whole directories rather than individual files,
 several people can work independently on the same file,
 and
@@ -37,6 +37,11 @@ is a special directory, either on the local machine or a server somewhere.
 It is the central place where all revisions of all files are
 stored. Only CVS itself accesses it; you almost never need to touch
 it directly.
+In our case, the repository is the directory
+.B '/home/cvs'
+on
+.IR islaya ,
+the old computer I keep in 'kyffet'.
 
 A
 .I module
@@ -57,6 +62,14 @@ is a normal directory that you own;
 usually you place it somewhere in your home directory.
 You get a working directory when you check out a module from the repository
 and CVS copies the latest version from the repository.
+
+You can have as many working directories as you want, spread over
+several computers (you can have several on
+.I one
+computer, for that matter).
+All of them will, over time, keep in sync with
+what's in the module in the repository, and thus they will
+more or less be in sync with each other.
 
 The working directory is just a normal directory and the files
 in it are just normal files, in the eyes of everyone except CVS.
@@ -104,40 +117,45 @@ The most important ones are:
 .VERBOFF
 .B2
 
-You can give one or more filenames as arguments, but ususally
+You can give one or more filenames as arguments, but usually
 you give none and let CVS work on the whole current directory
 (which means you have to stand in a working directory.)
 
-One stand-alone command may be useful:
-.B cvsstat ,
-which goes through the current directory and generates a report
-on files that need merging, checkin and so on.
-
 .H 1 "Remote CVS over ssh"
 
-There are several ways for CVS to access the repository.
-We use one of them \- CVS over ssh \- to access the repository on
+.I SSH
+is a program for logging in on machines over a network, much like
+.IR telnet .
+Unlike telnet, ssh encrypts the connection and compresses the data
+sent over it.
+Ssh also has several other nifty features.
+One is its ability (using
+.IR ssh-add/ssh-agent )
+to save you from typing your password every time you login;
+another is that it allows other programs use ssh to talk to each other
+over a ssh connection, and thus getting the login procedure,
+the encryption and compression for free.
+CVS is one of many programs which can use this feature of ssh.
+
+There are several ways for CVS to access the repository,
+but we choose to use CVS over ssh to access the repository on
 the host
 .B islaya
-(also known as
+(which is really just an alias for
 .B as3-1-3.ml.g.bonet.se ).
 
 As mentioned above, cvs remembers where the repository was when you
 checked out the working directory, so that isn't usually a problem.
 If you do a new, initial checkout, you may point CVS to the right repository
-by setting an environment variable:
+by setting two environment variables:
 
 .B1
 .VERBON 16
 $CVSROOT :ext:islaya:/home/cvs
+$CVS_RSH ssh
 
 .VERBOFF
 .B2
-
-Another environment variable,
-.B CVS_RSH
-needs to be set to
-.I 'ssh' .
 
 CVS on your local machine (e.g.
 .B pinicola )
@@ -149,38 +167,56 @@ You need to have a user account on islaya to do this, and
 you need to authenticate to access islaya by ssh.
 Ssh has several strategies for authentication, and CVS doesn't care which
 one. We use 'RSAAuthentication'.
-In practice, this means one of two things:
+In practice, this means one of three things:
 .DL
 .LI
 each time you run CVS, ssh will ask you for the passphrase for
 your RSA key, or
 .LI
+you created your RSA key with an empty password
+(this is mildly unsafe),
+or
+.LI
 you unlock your RSA key by running
 .B ssh-add ,
 and CVS/ssh will not
-prompt you for a passphrase, using the unlocked passphrase instead
+prompt you for a passphrase (using the unlocked passphrase instead)
+until you log off your local computer.
 .LE
 
 .H 1 "Multiple editors and conflict resolution"
 
-Right now, we constantly have at least four working directories
+Right now, we constantly have maybe half a dozen working directories
 for the 'obsbok' module:
 .DL
 .LI
 we have one each on
 .B frailea
-(Peppared)
-.LI
-we have one each on
+(Peppared),
 .B pinicola
-(Falköping)
+(Falköping) and
+.B regulus
+(Malmö).
+.LI
+I have one on
+.BR islaya ,
+which I use from work
+.LI
+I keep one on my USB memory,
+which I edit in Lund and sync with the
+repository whenever I get to a computer
+which has both USB and an Internet connection.
 .LE
 
-Thus, there are always at least four working copies of the file 'obsbok'.
+Thus, there are always many working copies of the file 'obsbok'.
 We can edit them as much as we want,
-by running gavia_stellata
+by running
+.I gavia_stellata
 (which in practice just adds text to the end of the file)
 or simply editing it in emacs.
+
+Some of them are used more than others. Some are almost always
+out-of-date.
 
 When you check in obsbok, CVS can't just add your version of
 it as the latest revision. Imagine, for example, that you checked
@@ -226,7 +262,9 @@ the changes you made between 1.11 and what's in your working directory
 the changes someone else made between revisions 1.11 and 1.12
 .LE
 
-The solution is CVS' merge algorithm, which creates a version of 'obsbok'
+The solution is CVS' merge algorithm (the
+.I update
+command), which creates a local version of 'obsbok'
 which contains both your changes since 1.11,
 and the changes to 1.11 made from the other working directory, which
 now are revision 1.12.
@@ -253,14 +291,15 @@ and the other doesn't, the change is included in the result.
 
 In our case, there are almost always problems which have to be resolved
 manually. We always add text to the end of
-.B 'obsbok' ,
+.RB ' obsbok ',
 and when CVS notices that
 both files contains changes at the end of the file, it cannot know if
 one or both of them should be included in the new version
 (and, if both, in which order).
 CVS inserts both changes, puts markers around them
-('<<<<', '====' and '>>>>') and warns you that there is a merge
-conflict and that you have to edit the file manually to resolve it.
+('<<<<', '====' and '>>>>') and warns you that there is a
+.I "merge conflict"
+and that you have to edit the file manually to resolve it.
 
 When the file looks right and you have removed the conflict markers,
 you can check in the changes, which will become revision 1.13:
@@ -273,6 +312,51 @@ you can check in the changes, which will become revision 1.13:
 
 .VERBOFF
 .B2
+
+This is in practice what tends to happen when we check
+in new excursions.
+There is only one way to avoid it, and it is to always keep
+your working directory as up-to-date as possible, i.e. to do a
+.I "cvs update"
+before you add new excursions.
+
+It usually doesn't make sense to do it this way, since it means
+you would be connecting to the Internet first, to update your working copy,
+then add your new excursions, check in, and disconnect.
+We tend to prefer resolving simple conflicts to
+tying up the phone line and paying the fee for maybe half an hour or more.
+Still, there is a general lesson here:
+checking in often and updating often makes life easier.
+
+On rare occasions, we have had more serious conflicts which were hard to
+resolve manually.
+This has happened, for example, when one completed a previously checked-in
+excursion (e.g. added comments) and the other changed the order of excursions
+that were thrown around by earlier update-merge stuff.
+
+.B1
+.VERBON 16
+  --1.10--1.11--1.12
+             |     |
+             +-----+--* ugly mix
+
+.VERBOFF
+.B2
+
+If we're not sure that what CVS suggests makes sense, we try to back out
+from the change.
+.I "cvs update"
+always leaves the original working copy in a backup file
+(in this case it would have been named
+.IR .#obsbok.1.11 ).
+You can thus safely remove the broken, merged file,
+and do a new update. That would place a clean copy of 1.12 in your
+working directory.
+Then you can compare the hidden backup copy with 1.11 to see what
+.I your
+changes really were,
+and introduce them one by one, by hand, into your copy of 1.12,
+and then check it in as 1.13.
 
 .H 1 "References"
 

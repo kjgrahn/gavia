@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: excursion.cc,v 1.9 2004-08-05 09:52:51 grahn Exp $
+ * $Id: excursion.cc,v 1.10 2004-08-05 10:16:11 grahn Exp $
  *
  * excursion.cc
  *
@@ -34,12 +34,14 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: excursion.cc,v 1.9 2004-08-05 09:52:51 grahn Exp $";
+"$Id: excursion.cc,v 1.10 2004-08-05 10:16:11 grahn Exp $";
 }
 
 #include <cassert>
+#include <sstream>
 
 #include "excursion.hh"
+#include "exception.hh"
 
 using std::string;
 #ifndef USE_HASHMAP
@@ -118,8 +120,44 @@ const Excursion& Excursion::operator=(const Excursion& obj)
 void Excursion::setdate(long dat)
 {
     /* Dates are normalized to yyyymmdd before they arrive here.
-     * XXX Do a sanity check here!
+     * Do a sanity check first.
      */
+    const int month = (dat/100) % 100;
+    const int mday = dat % 100;
+
+    bool bad = false;
+
+    switch(month) {
+    case 11:
+    case 4:
+    case 6:
+    case 9:
+	bad = mday<1 || mday>30;
+	break;
+    case 2:
+	bad = mday<1 || mday>29;
+	break;
+    case 1:
+    case 3:
+    case 5:
+    case 7:
+    case 8:
+    case 10:
+    case 12:
+	bad = mday<1 || mday>31;
+	break;
+    default:
+	bad = true;
+	break;
+    }
+
+    if(bad) {
+	std::ostringstream os;
+	os << "malformed date '" << dat << "'";
+	
+	throw GaviaException(os.str());
+    }
+
     date = dat;
 }
 

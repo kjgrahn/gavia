@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gabsource.cc,v 1.7 2002-07-15 22:29:21 grahn Exp $
+ * $Id: gabsource.cc,v 1.8 2004-08-05 10:16:11 grahn Exp $
  *
  * gabsource.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gabsource.cc,v 1.7 2002-07-15 22:29:21 grahn Exp $";
+"$Id: gabsource.cc,v 1.8 2004-08-05 10:16:11 grahn Exp $";
 }
 
 #include <cstdio>
@@ -197,6 +197,12 @@ static int eatexcursion(Excursion& ex, int * line, SpeciesRedro * redro)
 {
     ex = Excursion();			// hack needed to clear ex
 
-    int rc = yylex(&ex, line, redro);
-    return rc;
+    try {
+	return yylex(&ex, line, redro);
+    }
+    catch(const GaviaException& ge)
+    {
+	/* re-throw with line info */
+	throw GaviaException(ge.msg, *line);
+    }
 }

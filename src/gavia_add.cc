@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_add.cc,v 1.3.2.2 1999-11-19 22:40:33 grahn Exp $
+ * $Id: gavia_add.cc,v 1.3.2.3 2000-01-16 20:20:15 grahn Exp $
  *
  * gavia_add.cc
  *
@@ -36,7 +36,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gavia_add.cc,v 1.3.2.2 1999-11-19 22:40:33 grahn Exp $";
+"$Id: gavia_add.cc,v 1.3.2.3 2000-01-16 20:20:15 grahn Exp $";
 }
 
 #include <cstdio>
@@ -46,12 +46,6 @@ static const char* rcsid() { rcsid(); return
 #include <cassert>
 
 #include <vector>
-
-#ifdef NON_FUCKED_UP_READLINE_H
-#include <readline/readline.h>
-#else
-extern "C" char * readline(const char*);
-#endif
 
 #include "version.hh"
 
@@ -76,12 +70,13 @@ int main(int argc, char ** argv)
     if(argc!=2)
     {
 	fprintf(stderr, "usage: gavia_add book\n");
+
 	return 1;
     }
 
     vector<Excursion> exlist;
 
-    // Read in the old book
+    // Read the old book
     //
     {
 	StreamSource src(argv[1]);
@@ -99,7 +94,7 @@ int main(int argc, char ** argv)
 	}
     }
 
-    // Read in the textual excursions,
+    // Read the textual excursions,
     // add to the original
     {
 	GabSource src(stdin);

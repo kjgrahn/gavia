@@ -1,8 +1,8 @@
-# $Id: Makefile,v 1.4 1999-11-09 19:11:50 grahn Exp $
+# $Id: Makefile,v 1.4.2.1 2000-01-16 20:20:14 grahn Exp $
 #
 # Makefile
 #
-# Copyright (c) 1999 Jörgen Grahn <jorgen.grahn@opensoftware.se>
+# Copyright (c) 1999--2000 Jörgen Grahn <jorgen.grahn@opensoftware.se>
 # All rights reserved.
 # 
 # Redistribution and use in source and binary forms, with or without
@@ -30,7 +30,7 @@
 SHELL = /bin/sh
 
 CFLAGS = -Wall -pedantic -ansi -g
-CPPFLAGS = -Wall -g
+CPPFLAGS = -Wall -pedantic -ansi -g
 LDFLAGS =
 LIBS = -lfl
 
@@ -64,6 +64,9 @@ all: $(OUTS)
 
 objs: $(OBJS)
 
+# executables
+#
+
 gavia_cat: gavia_cat.o excursion.o streamsource.o streamsink.o textsink.o htmlsink.o latexsink.o canonorder.o taxonomicorder.o sortedorder.o dynamicorder.o motorola.o bitmap.o
 	g++ $(LDFLAGS) -o $@ $^ $(LIBS)
 
@@ -79,8 +82,17 @@ gavia_sort: gavia_sort.o canonorder.o dynamicorder.o streamsink.o streamsource.o
 gavia_stat:
 	@echo "gavia_stat is not yet implemented"
 
+# targets that need special help
+#
+
 gablexer.cc: gablexer.l
-	flex -ist8 gablexer.l >gablexer.cc
+	flex -ist8 gablexer.l >$@
+
+gablexer.o: gablexer.cc
+	$(CXX) -c -g $(CXXFLAGS) $<
+
+# utility targets
+#
 
 install:
 	false
@@ -111,6 +123,9 @@ gavia_cat.o: streamsource.hh booksource.hh
 gavia_grep.o: version.hh excursion.hh species.hh speciesset.hh
 gavia_grep.o: streamsource.hh booksource.hh streamsink.hh booksink.hh
 gavia_grep.o: canonorder.hh speciesorder.hh dynamicorder.hh
+gavia_sort.o: version.hh excursion.hh species.hh speciesset.hh
+gavia_sort.o: streamsource.hh booksource.hh streamsink.hh booksink.hh
+gavia_sort.o: canonorder.hh speciesorder.hh dynamicorder.hh
 excursion.o: excursion.hh species.hh speciesset.hh
 canonorder.o: canonorder.hh speciesorder.hh species.hh
 sortedorder.o: species.hh speciesorder.hh sortedorder.hh

@@ -1,7 +1,7 @@
 %{
 /*----------------------------------------------------------------------------
  *
- * $Id: gablexer.l,v 1.3.2.2 1999-11-19 22:40:33 grahn Exp $
+ * $Id: gablexer.l,v 1.3.2.3 2000-01-16 20:20:15 grahn Exp $
  *
  * gablexer.l
  *
@@ -35,7 +35,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gablexer.l,v 1.3.2.2 1999-11-19 22:40:33 grahn Exp $";
+"$Id: gablexer.l,v 1.3.2.3 2000-01-16 20:20:15 grahn Exp $";
 }
 
 #include <cctype>
@@ -237,8 +237,7 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
     excursion->insert(species);
 }
 
-<BODY>^{SPECIESFLD}\:[^:\n]*\:{NUMFLD}\:{BLANKFLD}$  |
-<BODY>^{SPECIESFLD}\:[^:\n]*\:{NUMFLD}\:{FREEFLD}$ {
+<BODY>^{SPECIESFLD}\:[^:\n]*\:{NUMFLD}\:.*$ {
     /* <species>: : <no>: (numbers but no comment) */
     /* <species>: :<no>:<comment> */
     /* fprintf(stderr, "%s\n", "at least number"); */

@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: version.hh,v 1.2 1999-10-24 14:56:17 grahn Exp $
+ * $Id: version.hh,v 1.2.2.1 2000-01-16 20:20:15 grahn Exp $
  *
  * version.hh
  *
@@ -42,6 +42,10 @@
 #ifndef VERSION_HH
 #define VERSION_HH
 
+namespace
+{
+    static const char tagname[] = "$Name:  $";
+}
 
 class Version
 {
@@ -49,7 +53,7 @@ public:
     const char * name() const {return tagname;}
 protected:
 private:
-    static const char tagname[] = "$Name:  $";
+
 };
 
 #endif

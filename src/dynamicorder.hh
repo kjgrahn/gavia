@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: dynamicorder.hh,v 1.2 1999-10-24 14:56:16 grahn Exp $
+ * $Id: dynamicorder.hh,v 1.2.2.1 2000-01-16 20:20:14 grahn Exp $
  *
  * dynamicorder.hh
  *
@@ -61,7 +61,7 @@ protected:
 private:
     DynamicOrder();				// constructor
 
-    const int MAXEND = 1000;
+    static const int MAXEND = 1000;
 
     Species internalspecies[MAXEND];
     int internalend;

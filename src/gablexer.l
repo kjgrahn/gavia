@@ -1,11 +1,11 @@
 %{
 /*----------------------------------------------------------------------------
  *
- * $Id: gablexer.l,v 1.13 2002-10-19 19:08:48 grahn Exp $
+ * $Id: gablexer.l,v 1.14 2004-01-04 14:10:41 grahn Exp $
  *
  * gablexer.l
  *
- * Copyright (c) 1999 Jörgen Grahn <jgrahn@algonet.se>
+ * Copyright (c) 1999--2004 Jörgen Grahn <jgrahn@algonet.se>
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -35,7 +35,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gablexer.l,v 1.13 2002-10-19 19:08:48 grahn Exp $";
+"$Id: gablexer.l,v 1.14 2004-01-04 14:10:41 grahn Exp $";
 }
 
 #include <cctype>
@@ -61,14 +61,12 @@ static void tryinsert(Excursion * ex,
 
     if(!redro->ismember(s))
     {
-	throw GaviaException(std::string("invalid species '") + s + "'");
+	throw GaviaException("invalid species '" + s + "'", line);
     }
 
     if(ex->has(s))
     {
-	char buf[10];
-	std::sprintf(buf, "%d", no);
-	throw GaviaException(std::string("duplicate species near line ") + buf);
+	throw GaviaException("duplicate species", line);
     }
 
     ex->insert(s, no, comment);
@@ -156,7 +154,7 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
 <HEAD>^{BLANK}*date{BLANK}*\:{BLANKFLD}$ {
     /* date: */
 
-    throw GaviaException("defaulted dates not implemented");
+    throw GaviaException("defaulted dates not implemented", *inc);
 }
 
 <HEAD>^{BLANK}*time{BLANK}*\:({FREEFLD}|{BLANKFLD})$ {
@@ -319,10 +317,7 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
 <*>. {
     /* something wrong */
 
-    char buf[10];
-    std::sprintf(buf, "%d", *inc);
-
-    throw GaviaException(std::string("parse error near line ") + buf);
+    throw GaviaException("parse error", *inc);
 }
 
 %%

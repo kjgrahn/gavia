@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: exception.hh,v 1.1 2001-12-29 19:14:09 grahn Exp $
+ * $Id: exception.hh,v 1.2 2004-01-04 14:10:41 grahn Exp $
  *
  * exception.hh
  *
@@ -15,13 +15,13 @@
 #define EXCEPTION_HH
 
 #include <string>
-#include <string.h>
 
 
 struct GaviaException
 {
-    GaviaException(int err) {msg = std::string(strerror(err));}
+    GaviaException(int err);
     GaviaException(const std::string& err) : msg(err) {}
+    GaviaException(const std::string& err, int line);
     virtual ~GaviaException() {}
 
     std::string msg;

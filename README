@@ -1,0 +1,86 @@
+GAVIA
+
+
+0. BACKGROUND
+
+Since we started out as birdwatchers in the early 1980s, my brother
+and I have tried to write down all observatione we've made - not
+exactly where we saw each individual bird, but at least approximate
+numbers and locations. Jonas in particular has huge stacks of
+notebooks with detailed info for each excursion.
+
+We believe it is important to not only keep track of which rare
+species one has seen in a year or in a lifetime (as some of the most
+decadent twitchers do) but to keep the raw data on more common species
+as well. 
+
+
+1. GAVIA
+
+Gavia is the latest in a series of tool sets I've written to faciliate
+writing down our observations. Before that, there was "Lanius", a
+GUI-based excursion database thingy for the Commodore-Amiga.
+
+The most important task for Gavia is to make it easy to enter data
+from an excursion by picking from a full list of species (or, rather,
+make it more difficult to forget entering a species).
+
+Ironically, this major part of Gavia now consists of a handful of perl
+scripts and an emacs macro - much of what's left is there to support
+the old legacy, binary, broken Lanius data format. Why write a
+dedicated interactive user interface when you can get an existing text
+editor to do the boring stuff for you free?
+
+Gavia is released under a BSD-style license.
+
+
+2. REQUIREMENTS
+
+You'll need a fairly complete C++ compiler, such as gcc 2.95. Gavia
+uses STL heavily, and also some of the SGI extensions to STL (this is
+possible to hack around).
+
+You also need to be on a Unix-like system. Personally, I'm on a Linux
+box. There are a few GNUisms in the code.
+
+For my daily use of gavia, I rely on perl, RCS or cvs, and GNU
+Emacs. You can avoid some of these depending on how you use gavia and
+how much you're willing to customize the (admittedly trivial) scripts.
+
+This piece of elisp code faciliates picking species for inclusion in
+an excursion by creating a macro tied to F4:
+
+   (fset 'gavia-mark
+      [?\C-a ?\C-s ?: ?\C-m ?\C-d ?# ?\C-a down])
+   (global-set-key   [f4] 'gavia-mark)
+
+Include it somewhere in your .emacs if you want to use that particular
+editor.
+
+
+3. INSTALLATION
+
+% make; make install
+
+should be enough to compile and install gavia. The perl script used to
+enter excursions (gavia_stellata) assumes there is a directory ~gavia/
+where excursions are gathered, and where a template for new excursions
+lives. That directory is up to you or create - either do that or hack
+gavia_stellata.pl.
+
+
+4. DISCLAIMER
+
+You may have noted already that this isn't a ready solution. Correct -
+it's a hack that does what I need it to do and little else.
+
+One /major/ weakness - which has historical reasons - is that the
+accepted bird species are fixed at compile time, and they are
+identified by their name /in Swedish/. You can hack gavia to hide this
+fact if you care to; I'll probably never get around to it.
+
+
+Jörgen Grahn <jgrahn@algonet.se>
+
+$Id: README,v 1.1 2000-09-13 17:20:43 grahn Exp $
+$Name:  $

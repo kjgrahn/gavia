@@ -1,0 +1,511 @@
+{
+place        : 
+date         : 
+time         : 
+observers    : JöG
+weather      : 
+comments     : 
+}{
+
+smålom			: : : 
+storlom			: : : 
+vitnäbbad islom		: : : 
+smådopping		: : : 
+skäggdopping		: : : 
+gråhakedopping		: : : 
+svarthakedopping	: : : 
+svarthalsad dopping	: : : 
+
+stormfågel		: : : 
+grålira			: : : 
+mindre lira		: : : 
+klykstjärtad stormsvala	: : : 
+havssula		: : : 
+
+storskarv		: : : 
+rördrom			: : : 
+häger			: : : 
+svart stork		: : : 
+vit stork		: : : 
+flamingo		: : : 
+knölsvan		: : : 
+mindre sångsvan		: : : 
+sångsvan		: : : 
+sädgås			: : : 
+spetsbergsgås		: : : 
+bläsgås			: : : 
+fjällgås		: : : 
+grågås			: : : 
+stripgås		: : : 
+snögås			: : : 
+kanadagås		: : : 
+vitkindad gås		: : : 
+prutgås			: : : 
+
+rostand			: : : 
+gravand			: : : 
+bläsand			: : : 
+snatterand		: : : 
+kricka			: : : 
+gräsand			: : : 
+stjärtand		: : : 
+årta			: : : 
+skedand			: : : 
+mandarinand		: : : 
+brudand			: : : 
+brunand			: : : 
+vigg			: : : 
+bergand			: : : 
+ejder			: : : 
+praktejder		: : : 
+alförrädare		: : : 
+alfågel			: : : 
+sjöorre			: : : 
+svärta			: : : 
+knipa			: : : 
+salskrake		: : : 
+småskrake		: : : 
+storskrake		: : : 
+
+bivråk			: : : 
+brunglada		: : : 
+glada			: : : 
+havsörn			: : : 
+brun kärrhök		: : : 
+blå kärrhök		: : : 
+stäpphök		: : : 
+ängshök			: : : 
+duvhök			: : : 
+sparvhök		: : : 
+ormvråk			: : : 
+fjällvråk		: : : 
+mindre skrikörn		: : : 
+kungsörn		: : : 
+fiskgjuse		: : : 
+tornfalk		: : : 
+aftonfalk		: : : 
+stenfalk		: : : 
+lärkfalk		: : : 
+jaktfalk		: : : 
+pilgrimsfalk		: : : 
+
+järpe			: : : 
+dalripa			: : : 
+fjällripa		: : : 
+orre			: : : 
+tjäder			: : : 
+rapphöna		: : : 
+vaktel			: : : 
+fasan			: : : 
+
+vattenrall		: : : 
+småfläckig sumphöna	: : : 
+mindre sumphöna		: : : 
+kornknarr		: : : 
+rörhöna			: : : 
+sothöna			: : : 
+trana			: : : 
+
+strandskata		: : : 
+skärfläcka		: : : 
+mindre strandpipare	: : : 
+större strandpipare	: : : 
+svartbent strandpipare	: : : 
+fjällpipare		: : : 
+ljungpipare		: : : 
+kustpipare		: : : 
+tofsvipa		: : : 
+kustsnäppa		: : : 
+sandlöpare		: : : 
+sandsnäppa		: : : 
+småsnäppa		: : : 
+mosnäppa		: : : 
+tuvsnäppa		: : : 
+spovsnäppa		: : : 
+skärsnäppa		: : : 
+kärrsnäppa		: : : 
+myrsnäppa		: : : 
+brushane		: : : 
+
+dvärgbeckasin		: : : 
+enkelbeckasin		: : : 
+dubbelbeckasin		: : : 
+morkulla		: : : 
+rödspov			: : : 
+myrspov			: : : 
+småspov			: : : 
+storspov		: : : 
+svartsnäppa		: : : 
+rödbena			: : : 
+dammsnäppa		: : : 
+gluttsnäppa		: : : 
+skogssnäppa		: : : 
+grönbena		: : : 
+tereksnäppa		: : : 
+drillsnäppa		: : : 
+roskarl			: : : 
+smalnäbbad simsnäppa	: : : 
+
+bredstjärtad labb	: : : 
+labb			: : : 
+fjällabb		: : : 
+storlabb		: : : 
+svarthuvad mås		: : : 
+dvärgmås		: : : 
+tärnmås			: : : 
+skrattmås		: : : 
+fiskmås			: : : 
+silltrut		: : : 
+gråtrut			: : : 
+vitvingad trut		: : : 
+vittrut			: : : 
+havstrut		: : : 
+tretåig mås		: : : 
+sandtärna		: : : 
+skräntärna		: : : 
+kentsk tärna		: : : 
+fisktärna		: : : 
+silvertärna		: : : 
+småtärna		: : : 
+svarttärna		: : : 
+vitvingad tärna		: : : 
+
+sillgrissla		: : : 
+tordmule		: : : 
+tobisgrissla		: : : 
+alkekung		: : : 
+lunnefågel		: : : 
+
+tamduva			: : : 
+skogsduva		: : : 
+ringduva		: : : 
+turkduva		: : : 
+turturduva		: : : 
+större turturduva	: : : 
+
+gök			: : : 
+berguv			: : : 
+fjälluggla		: : : 
+hökuggla		: : : 
+sparvuggla		: : : 
+kattuggla		: : : 
+slaguggla		: : : 
+lappuggla		: : : 
+hornuggla		: : : 
+jorduggla		: : : 
+pärluggla		: : : 
+
+nattskärra		: : : 
+tornseglare		: : : 
+kungsfiskare		: : : 
+biätare			: : : 
+härfågel		: : : 
+
+göktyta			: : : 
+gråspett		: : : 
+gröngöling		: : : 
+spillkråka		: : : 
+större hackspett	: : : 
+vitryggig hackspett	: : : 
+mindre hackspett	: : : 
+tretåig hackspett	: : : 
+
+korttålärka		: : : 
+tofslärka		: : : 
+trädlärka		: : : 
+sånglärka		: : : 
+berglärka		: : : 
+backsvala		: : : 
+ladusvala		: : : 
+hussvala		: : : 
+större piplärka		: : : 
+fältpiplärka		: : : 
+trädpiplärka		: : : 
+ängspiplärka		: : : 
+rödstrupig piplärka	: : : 
+skärpiplärka		: : : 
+gulärla			: : : 
+forsärla		: : : 
+sädesärla		: : : 
+
+sidensvans		: : : 
+strömstare		: : : 
+
+gärdsmyg		: : : 
+järnsparv		: : : 
+rödhake			: : : 
+näktergal		: : : 
+blåhake			: : : 
+svart rödstjärt		: : : 
+rödstjärt		: : : 
+buskskvätta		: : : 
+stenskvätta		: : : 
+
+ringtrast		: : : 
+koltrast		: : : 
+björktrast		: : : 
+taltrast		: : : 
+rödvingetrast		: : : 
+dubbeltrast		: : : 
+
+gräshoppssångare	: : : 
+flodsångare		: : : 
+vassångare		: : : 
+sävsångare		: : : 
+busksångare		: : : 
+kärrsångare		: : : 
+rörsångare		: : : 
+trastsångare		: : : 
+
+härmsångare		: : : 
+höksångare		: : : 
+ärtsångare		: : : 
+törnsångare		: : : 
+trädgårdssångare	: : : 
+svarthätta		: : : 
+lundsångare		: : : 
+kungsfågelsångare	: : : 
+taigasångare		: : : 
+grönsångare		: : : 
+gransångare		: : : 
+lövsångare		: : : 
+
+kungsfågel		: : : 
+brandkronad kungsfågel	: : : 
+
+grå flugsnappare	: : : 
+mindre flugsnappare	: : : 
+halsbandsflugsnappare	: : : 
+svartvit flugsnappare	: : : 
+
+skäggmes		: : : 
+stjärtmes		: : : 
+entita			: : : 
+talltita		: : : 
+lappmes			: : : 
+tofsmes			: : : 
+svartmes		: : : 
+blåmes			: : : 
+talgoxe			: : : 
+nötväcka		: : : 
+trädkrypare		: : : 
+pungmes			: : : 
+
+sommargylling		: : : 
+törnskata		: : : 
+svartpannad törnskata	: : : 
+varfågel		: : : 
+
+nötskrika		: : : 
+lavskrika		: : : 
+skata			: : : 
+nötkråka		: : : 
+kaja			: : : 
+råka			: : : 
+kråka			: : : 
+korp			: : : 
+
+stare			: : : 
+gråsparv		: : : 
+pilfink			: : : 
+bofink			: : : 
+bergfink		: : : 
+gulhämpling		: : : 
+grönfink		: : : 
+steglits		: : : 
+grönsiska		: : : 
+hämpling		: : : 
+vinterhämpling		: : : 
+gråsiska		: : : 
+snösiska		: : : 
+
+bändelkorsnäbb		: : : 
+mindre korsnäbb		: : : 
+större korsnäbb		: : : 
+rosenfink		: : : 
+tallbit			: : : 
+domherre		: : : 
+stenknäck		: : : 
+lappsparv		: : : 
+snösparv		: : : 
+gulsparv		: : : 
+ortolansparv		: : : 
+videsparv		: : : 
+dvärgsparv		: : : 
+sävsparv		: : : 
+kornsparv		: : : 
+
+#---------------------------
+
+svartnäbbad islom	: : : 
+gulnäbbad lira		: : : 
+större lira		: : : 
+medelhavslira		: : : 
+stormsvala		: : : 
+toppskarv		: : : 
+dvärgskarv		: : : 
+dvärgrördrom		: : : 
+natthäger		: : : 
+rallhäger		: : : 
+kohäger			: : : 
+silkeshäger		: : : 
+ägretthäger		: : : 
+purpurhäger		: : : 
+bronsibis		: : : 
+skedstork		: : : 
+rödhalsad gås		: : : 
+amerikansk bläsand	: : : 
+svartand		: : : 
+blåvingad årta		: : : 
+rödhuvad dykand		: : : 
+ringand			: : : 
+vitögd dykand		: : : 
+strömand		: : : 
+vitnackad svärta	: : : 
+kamskrake		: : : 
+smutsgam		: : : 
+gåsgam			: : : 
+ormörn			: : : 
+örnvråk			: : : 
+större skrikörn		: : : 
+stäppörn		: : : 
+kejsarörn		: : : 
+dvärgörn		: : : 
+rödfalk			: : : 
+eleonorafalk		: : : 
+tatarfalk		: : : 
+berghöna		: : : 
+karolinasumphöna	: : : 
+dvärgsumphöna		: : : 
+jungfrutrana		: : : 
+småtrapp		: : : 
+kragtrapp		: : : 
+stortrapp		: : : 
+styltlöpare		: : : 
+tjockfot		: : : 
+ökenlöpare		: : : 
+vadarsvala		: : : 
+svartvingad vadarsvala	: : : 
+ökenpipare		: : : 
+mongolpipare		: : : 
+amerikansk tundrapipare	: : : 
+sibirisk tundrapipare	: : : 
+sumpvipa		: : : 
+stäppvipa		: : : 
+tundrasnäppa		: : : 
+rödhalsad snäppa	: : : 
+långtåsnäppa		: : : 
+vitgumpsnäppa		: : : 
+gulbröstad snäppa	: : : 
+spetsstjärtad snäppa	: : : 
+styltsnäppa		: : : 
+prärielöpare		: : : 
+större beckasinsnäppa	: : : 
+större gulbena		: : : 
+mindre gulbena		: : : 
+amerikansk skogssnäppa	: : : 
+wilsonsimsnäppa		: : : 
+brednäbbad simsnäppa	: : : 
+svarthuvad trut		: : : 
+sotvingad mås		: : : 
+präriemås		: : : 
+trädmås			: : : 
+ringnäbbad mås		: : : 
+kaspisk trut		: : : 
+rosenmås		: : : 
+ismås			: : : 
+rosentärna		: : : 
+sottärna		: : : 
+skäggtärna		: : : 
+spetsbergsgrissla	: : : 
+papegojalka		: : : 
+stäpphöna		: : : 
+skatgök			: : : 
+tornuggla		: : : 
+dvärguv			: : : 
+minervauggla		: : : 
+ökennattskärra		: : : 
+blek tornseglare	: : : 
+alpseglare		: : : 
+stubbstjärtseglare	: : : 
+grön biätare		: : : 
+blåkråka		: : : 
+mellanspett		: : : 
+kalanderlärka		: : : 
+asiatisk kalanderlärka	: : : 
+dvärglärka		: : : 
+svartlärka		: : : 
+rostgumpsvala		: : : 
+sibirisk piplärka	: : : 
+tundrapiplärka		: : : 
+citronärla		: : : 
+sibirisk järnsparv	: : : 
+svartstrupig järnsparv	: : : 
+alpjärnsparv		: : : 
+sydnäktergal		: : : 
+blåstjärt		: : : 
+vitstrupig näktergal	: : : 
+ö svarth buskskvätta	: : : 
+svarthakad buskskvätta	: : : 
+isabellastenskvätta	: : : 
+nunnestenskvätta	: : : 
+medelhavsstenskvätta	: : : 
+ökenstenskvätta		: : : 
+stentrast		: : : 
+blåtrast		: : : 
+guldtrast		: : : 
+sibirisk trast		: : : 
+eremitskogstrast	: : : 
+rostskogtrast		: : : 
+taigatrast		: : : 
+gråhalsad trast		: : : 
+vandringstrast		: : : 
+cettisångare		: : : 
+träsksångare		: : : 
+vattensångare		: : : 
+fältsångare		: : : 
+gråsångare		: : : 
+polyglottsångare	: : : 
+provencesångare		: : : 
+rödstrupig sångare	: : : 
+sammetshätta		: : : 
+ökensångare		: : : 
+nordsångare		: : : 
+bergtaigasångare	: : : 
+videsångare		: : : 
+brunsångare		: : : 
+bergsångare		: : : 
+glasögonflugsnappare	: : : 
+azurmes			: : : 
+trädgårdsträdkrypare	: : : 
+isabellatörnskata	: : : 
+rödhuvad törnskata	: : : 
+masktörnskata		: : : 
+klippkaja		: : : 
+rosenstare		: : : 
+ökentrumpetare		: : : 
+vitstrupig sparv	: : : 
+tallsparv		: : : 
+klippsparv		: : : 
+rostsparv		: : : 
+gyllensparv		: : : 
+svarthuvad sparv	: : : 
+stäppsparv		: : : 
+brokig kardinal		: : : 
+indigosparv		: : : 
+amerikansk kopparand	: : : 
+svart svan		: : : 
+vattenpiplärka		: : : 
+hedpiplärka		: : : 
+taggstjärtseglare	: : : 
+medelhavstrut		: : : 
+fläckdrillsnäppa	: : : 
+tofslunnefågel		: : : 
+starrsångare		: : : 
+bruntrast		: : : 
+mindre bergand		: : : 
+kärrtärna		: : : 
+klippsvala		: : : 
+beigekindad skogstrast	: : : 
+stäppvarfågel		: : : 
+}

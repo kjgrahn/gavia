@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.18 2004-01-07 22:23:00 grahn Exp $
+# $Id: Makefile,v 1.19 2004-04-23 22:14:12 grahn Exp $
 #
 # Makefile
 #
@@ -36,7 +36,8 @@ INSTALLBASE = /usr/local
 #CPPFLAGS = -g -features=no%conststrings
 
 # GCC:
-CPPFLAGS = -DUSE_GETOPT_H -DUSE_HASHMAP
+CPPFLAGS = -DUSE_GETOPT_H
+#CPPFLAGS = -DUSE_GETOPT_H -DUSE_HASHMAP
 CFLAGS = -Wall -pedantic -ansi -g -O2
 CXXFLAGS = -Wall -pedantic -ansi -g -O2
 

@@ -1,8 +1,8 @@
-# $Id: Makefile,v 1.5 2000-01-16 20:45:41 grahn Exp $
+# $Id: Makefile,v 1.6 2000-01-16 21:07:22 grahn Exp $
 #
 # Makefile
 #
-# Copyright (c) 1999 Jörgen Grahn <jorgen.grahn@opensoftware.se>
+# Copyright (c) 1999--2000 Jörgen Grahn <jorgen.grahn@opensoftware.se>
 # All rights reserved.
 # 
 # Redistribution and use in source and binary forms, with or without
@@ -29,8 +29,8 @@
 
 SHELL = /bin/sh
 
-CFLAGS   = -Wall -pedantic -ansi -g -O2
-CPPFLAGS = -Wall                 -g -O2
+CFLAGS = -Wall -pedantic -ansi -g
+CPPFLAGS = -Wall -pedantic -ansi -g
 LDFLAGS =
 LIBS = -lfl
 
@@ -64,6 +64,9 @@ all: $(OUTS)
 
 objs: $(OBJS)
 
+# executables
+#
+
 gavia_cat: gavia_cat.o excursion.o streamsource.o streamsink.o gabsink.o textsink.o htmlsink.o latexsink.o canonorder.o taxonomicorder.o sortedorder.o dynamicorder.o motorola.o bitmap.o
 	g++ $(LDFLAGS) -o $@ $^ $(LIBS)
 
@@ -79,8 +82,17 @@ gavia_sort: gavia_sort.o canonorder.o dynamicorder.o streamsink.o streamsource.o
 gavia_stat:
 	@echo "gavia_stat is not yet implemented"
 
+# targets that need special help
+#
+
 gablexer.cc: gablexer.l
-	flex -ist8 gablexer.l >gablexer.cc
+	flex -ist8 gablexer.l >$@
+
+gablexer.o: gablexer.cc
+	$(CXX) -c -g $(CXXFLAGS) $<
+
+# utility targets
+#
 
 install:
 	false
@@ -105,12 +117,15 @@ gavia_add.o: version.hh streamsource.hh booksource.hh excursion.hh species.hh
 gavia_add.o: speciesset.hh gabsource.hh streamsink.hh booksink.hh
 gavia_add.o: canonorder.hh speciesorder.hh
 gavia_cat.o: version.hh booksink.hh excursion.hh species.hh speciesset.hh
-gavia_cat.o: streamsink.hh textsink.hh htmlsink.hh latexsink.hh
+gavia_cat.o: gabsink.hh streamsink.hh textsink.hh htmlsink.hh latexsink.hh
 gavia_cat.o: speciesorder.hh canonorder.hh sortedorder.hh taxonomicorder.hh
 gavia_cat.o: streamsource.hh booksource.hh
 gavia_grep.o: version.hh excursion.hh species.hh speciesset.hh
 gavia_grep.o: streamsource.hh booksource.hh streamsink.hh booksink.hh
 gavia_grep.o: canonorder.hh speciesorder.hh dynamicorder.hh
+gavia_sort.o: version.hh excursion.hh species.hh speciesset.hh
+gavia_sort.o: streamsource.hh booksource.hh streamsink.hh booksink.hh
+gavia_sort.o: canonorder.hh speciesorder.hh dynamicorder.hh
 excursion.o: excursion.hh species.hh speciesset.hh
 canonorder.o: canonorder.hh speciesorder.hh species.hh
 sortedorder.o: species.hh speciesorder.hh sortedorder.hh
@@ -123,6 +138,8 @@ gabsource.o: speciesorder.hh species.hh canonorder.hh speciesredro.hh
 gabsource.o: gabsource.hh booksource.hh excursion.hh speciesset.hh
 streamsink.o: streamsink.hh booksink.hh excursion.hh species.hh speciesset.hh
 streamsink.o: canonorder.hh speciesorder.hh bitmap.h motorola.h
+gabsink.o: dynamicorder.hh speciesorder.hh species.hh speciesset.hh
+gabsink.o: gabsink.hh booksink.hh excursion.hh
 textsink.o: dynamicorder.hh speciesorder.hh species.hh speciesset.hh
 textsink.o: textsink.hh booksink.hh excursion.hh
 htmlsink.o: dynamicorder.hh speciesorder.hh species.hh speciesset.hh

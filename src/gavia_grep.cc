@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_grep.cc,v 1.4 1999-11-30 22:19:46 grahn Exp $
+ * $Id: gavia_grep.cc,v 1.5 2000-01-16 21:07:22 grahn Exp $
  *
  * gavia_grep.cc
  *
@@ -37,13 +37,13 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gavia_grep.cc,v 1.4 1999-11-30 22:19:46 grahn Exp $";
+"$Id: gavia_grep.cc,v 1.5 2000-01-16 21:07:22 grahn Exp $";
 }
 
 #include <cstdio>
 #include <cstdlib>
-#include <unistd.h>
 #include <cstring>
+#include <getopt.h>
 
 #include <cassert>
 

@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.4 1999-11-09 19:11:50 grahn Exp $
+# $Id: Makefile,v 1.5 2000-01-16 20:45:41 grahn Exp $
 #
 # Makefile
 #
@@ -29,8 +29,8 @@
 
 SHELL = /bin/sh
 
-CFLAGS = -Wall -pedantic -ansi -g
-CPPFLAGS = -Wall -g
+CFLAGS   = -Wall -pedantic -ansi -g -O2
+CPPFLAGS = -Wall                 -g -O2
 LDFLAGS =
 LIBS = -lfl
 
@@ -42,7 +42,7 @@ SRCS = gavia_add.cc \
        canonorder.cc sortedorder.cc dynamicorder.cc taxonomicorder.cc \
        speciesredro.cc \
        streamsource.cc gabsource.cc \
-       streamsink.cc textsink.cc htmlsink.cc latexsink.cc \
+       streamsink.cc gabsink.cc textsink.cc htmlsink.cc latexsink.cc \
        gablexer.cc \
        motorola.c bitmap.c
 OBJS = gavia_add.o  \
@@ -53,7 +53,7 @@ OBJS = gavia_add.o  \
        canonorder.o  sortedorder.o  dynamicorder.o  taxonomicorder.o  \
        speciesredro.o  \
        streamsource.o  gabsource.o  \
-       streamsink.o  textsink.o  htmlsink.o  latexsink.o  \
+       streamsink.o  gabsink.o  textsink.o  htmlsink.o  latexsink.o  \
        gablexer.o  \
        motorola.o bitmap.o
 OUTS = gavia_add gavia_cat gavia_grep gavia_sort gavia_stat
@@ -64,7 +64,7 @@ all: $(OUTS)
 
 objs: $(OBJS)
 
-gavia_cat: gavia_cat.o excursion.o streamsource.o streamsink.o textsink.o htmlsink.o latexsink.o canonorder.o taxonomicorder.o sortedorder.o dynamicorder.o motorola.o bitmap.o
+gavia_cat: gavia_cat.o excursion.o streamsource.o streamsink.o gabsink.o textsink.o htmlsink.o latexsink.o canonorder.o taxonomicorder.o sortedorder.o dynamicorder.o motorola.o bitmap.o
 	g++ $(LDFLAGS) -o $@ $^ $(LIBS)
 
 gavia_add: gavia_add.o excursion.o streamsource.o streamsink.o canonorder.o motorola.o bitmap.o dynamicorder.o gabsource.o gablexer.o speciesredro.o

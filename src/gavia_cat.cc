@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_cat.cc,v 1.4 1999-11-30 22:19:46 grahn Exp $
+ * $Id: gavia_cat.cc,v 1.5 2000-01-16 20:45:41 grahn Exp $
  *
  * gavia_cat.cc
  *
@@ -37,7 +37,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gavia_cat.cc,v 1.4 1999-11-30 22:19:46 grahn Exp $";
+"$Id: gavia_cat.cc,v 1.5 2000-01-16 20:45:41 grahn Exp $";
 }
 
 #include <cstdio>
@@ -51,6 +51,7 @@ static const char* rcsid() { rcsid(); return
 #include "version.hh"
 
 #include "booksink.hh"
+#include "gabsink.hh"
 #include "streamsink.hh"
 #include "textsink.hh"
 #include "htmlsink.hh"
@@ -74,7 +75,7 @@ static const char* rcsid() { rcsid(); return
  */
 int main(int argc, char ** argv)
 {
-    const char optstring[] = "+bthlcxs";
+    const char optstring[] = "+bgthlcxs";
     int ch = EOF;
     int fmtch = 'b';
     int ordch = 'c';
@@ -87,6 +88,7 @@ int main(int argc, char ** argv)
 	switch(ch)
 	{
 	case 'b':		// Lanius book
+	case 'g':		// 'Gab'-formatted text
 	case 't':		// plain text
 	case 'h':		// HTML
 	case 'l':		// LaTeX2e
@@ -111,6 +113,7 @@ int main(int argc, char ** argv)
     case 'b':
 	sink = new StreamSink(stdout);
 	break;
+    case 'g':
     case 't':
     case 'h':
     case 'l':
@@ -131,6 +134,9 @@ int main(int argc, char ** argv)
 	}
 	switch(fmtch)
 	{
+	case 'g':
+	    sink = new GabSink(order, stdout);
+	    break;
 	case 't':
 	    sink = new TextSink(order, stdout);
 	    break;

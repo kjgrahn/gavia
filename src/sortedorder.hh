@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: sortedorder.hh,v 1.2 1999-10-24 14:56:17 grahn Exp $
+ * $Id: sortedorder.hh,v 1.3 2000-01-16 20:45:41 grahn Exp $
  *
  * sortedorder.hh
  *
@@ -60,7 +60,7 @@ protected:
 private:
     SortedOrder();				// constructor
 
-    const int MAXEND = 1000;
+    static const int MAXEND = 1000;
 
     Species internalspecies[MAXEND];
     int internalend;

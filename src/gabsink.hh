@@ -1,8 +1,8 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: dynamicorder.hh,v 1.3 2000-01-16 20:45:41 grahn Exp $
+ * $Id: gabsink.hh,v 1.1 2000-01-16 20:45:41 grahn Exp $
  *
- * dynamicorder.hh
+ * gabsink.hh
  *
  * Copyright (c) 1999 Jörgen Grahn <jorgen.grahn@opensoftware.se>
  * All rights reserved.
@@ -30,41 +30,38 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *----------------------------------------------------------------------------
  *
- * A SpeciesOrder as the one given as an argument, but
- * containing only the Species in the Species set (also given)
- *
- * (SpeciesOrder, Species set) --> SpeciesOrder
+ * Pushes a series of Excursion objects onto an ANSI C stream
+ * as ''Gab-formatted'' text.
+ * Renders species lists using a given SpeciesOrder.
  *----------------------------------------------------------------------------
  */
 
-#ifndef DYNAMICORDER_HH
-#define DYNAMICORDER_HH
+#ifndef GABSINK_HH
+#define GABSINK_HH
 
-#include "speciesorder.hh"
-#include "species.hh"
-#include "speciesset.hh"
+#include "booksink.hh"
+#include <stdio.h>
 
 
-class DynamicOrder: public SpeciesOrder
+class SpeciesOrder;
+
+
+class GabSink: public BookSink
 {
 public:
-    DynamicOrder(const SpeciesOrder *, const SpeciesSet&);
-    DynamicOrder(const DynamicOrder&);		// copy constructor
-    virtual ~DynamicOrder();			// destructor
+    GabSink(const SpeciesOrder *, const char *);	// constructor
+    GabSink(const SpeciesOrder *, FILE *);		// constructor
 
-    virtual const DynamicOrder& operator=(const DynamicOrder&);
+    virtual ~GabSink();				// destructor
 
-    virtual Species species(int) const;
-    virtual int end() const;
+    virtual void put(const Excursion&);
+    virtual bool error() const;
 
 protected:
 private:
-    DynamicOrder();				// constructor
-
-    static const int MAXEND = 1000;
-
-    Species internalspecies[MAXEND];
-    int internalend;
+    FILE * mfp;
+    bool merror;
+    const SpeciesOrder * morder;
 
 };
 

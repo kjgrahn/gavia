@@ -1,4 +1,4 @@
-# $Id: species,v 1.5 2002-07-25 10:30:03 grahn Exp $
+# $Id: species,v 1.6 2002-07-25 13:31:20 grahn Exp $
 #
 # The canonical list of species accepted by Gavia.
 #
@@ -17,8 +17,8 @@
 
 000 smålom
 001 storlom
-002 vitnäbbad islom
 300 svartnäbbad islom
+002 vitnäbbad islom
 
 003 smådopping
 004 skäggdopping
@@ -28,13 +28,13 @@
 
 506 svartbrynad albatross
 008 stormfågel
-009 grålira
-010 mindre lira
 301 gulnäbbad lira
 302 större lira
+009 grålira
+010 mindre lira
 303 medelhavslira
-011 klykstjärtad stormsvala
 304 stormsvala
+011 klykstjärtad stormsvala
 
 012 havssula
 013 storskarv
@@ -59,77 +59,80 @@
 
 018 större flamingo
 
+457 svart svan
 019 knölsvan
 020 mindre sångsvan
 021 sångsvan
-457 svart svan
 
 022 sädgås
+471 tundrasädgås
 023 spetsbergsgås
 024 bläsgås
+472 grönländsk bläsgås
 025 fjällgås
 026 grågås
-027 stripgås
 028 snögås
 507 dvärgsnögås
+027 stripgås
+508 svangås
 029 kanadagås
+473 dvärgkanadagås
 030 vitkindad gås
 031 prutgås
-316 rödhalsad gås
-471 tundrasädgås
-472 grönländsk bläsgås
-473 dvärgkanadagås
-474 svartbukig prutgås
 475 ljusbukig prutgås
-505 nilgås
-508 svangås
+474 svartbukig prutgås
+316 rödhalsad gås
 
-032 rostand
-033 gravand
-034 bläsand
-035 snatterand
-036 kricka
-037 gräsand
-038 stjärtand
-039 årta
-040 skedand
 041 mandarinand
 042 brudand
+032 rostand
+033 gravand
+505 nilgås
+034 bläsand
 317 amerikansk bläsand
-318 svartand
-319 blåvingad årta
-476 amerikansk kricka
+035 snatterand
 509 gulkindad kricka
+036 kricka
+476 amerikansk kricka
+037 gräsand
+318 svartand
+038 stjärtand
+039 årta
+319 blåvingad årta
+040 skedand
 
+320 rödhuvad dykand
 043 brunand
+321 ringand
+322 vitögd dykand
 044 vigg
-045 bergand
 466 mindre bergand
+045 bergand
 046 ejder
 047 praktejder
 048 alförrädare
+323 strömand
 049 alfågel
 050 sjöorre
 477 amerikansk sjöorre
+324 vitnackad svärta
 051 svärta
 052 knipa
-320 rödhuvad dykand
-321 ringand
-322 vitögd dykand
-323 strömand
-324 vitnackad svärta
-487 europeisk kopparand
-456 amerikansk kopparand
 
+325 kamskrake
 053 salskrake
 054 småskrake
 055 storskrake
-325 kamskrake
+456 amerikansk kopparand
+487 europeisk kopparand
 
 056 bivråk
 057 brunglada
 058 glada
 059 havsörn
+326 smutsgam
+327 gåsgam
+328 ormörn
 060 brun kärrhök
 061 blå kärrhök
 062 stäpphök
@@ -137,31 +140,28 @@
 064 duvhök
 065 sparvhök
 066 ormvråk
+329 örnvråk
 067 fjällvråk
 068 mindre skrikörn
-069 kungsörn
-326 smutsgam
-327 gåsgam
-328 ormörn
-329 örnvråk
 330 större skrikörn
 331 stäppörn
 332 kejsarörn
+069 kungsörn
 333 dvärgörn
 488 hökörn
 
 070 fiskgjuse
 
+334 rödfalk
 071 tornfalk
 072 aftonfalk
 073 stenfalk
 074 lärkfalk
+335 eleonorafalk
+510 slagfalk
+336 tatarfalk
 075 jaktfalk
 076 pilgrimsfalk
-334 rödfalk
-335 eleonorafalk
-336 tatarfalk
-510 slagfalk
 
 077 järpe
 078 dalripa
@@ -174,6 +174,15 @@
 337 berghöna
 489 rödhöna
 
+085 vattenrall
+086 småfläckig sumphöna
+338 karolinasumphöna
+087 mindre sumphöna
+339 dvärgsumphöna
+088 kornknarr
+089 rörhöna
+090 sothöna
+490 purpurhöna
 091 trana
 340 jungfrutrana
 
@@ -181,19 +190,9 @@
 342 kragtrapp
 343 stortrapp
 
-085 vattenrall
-086 småfläckig sumphöna
-087 mindre sumphöna
-338 karolinasumphöna
-339 dvärgsumphöna
-088 kornknarr
-089 rörhöna
-090 sothöna
-490 purpurhöna
-
 092 strandskata
-093 skärfläcka
 344 styltlöpare
+093 skärfläcka
 345 tjockfot
 346 ökenlöpare
 347 vadarsvala
@@ -202,31 +201,40 @@
 094 mindre strandpipare
 095 större strandpipare
 096 svartbent strandpipare
-097 fjällpipare
-098 ljungpipare
-099 kustpipare
-349 ökenpipare
 350 mongolpipare
+349 ökenpipare
+097 fjällpipare
 351 amerikansk tundrapipare
 352 sibirisk tundrapipare
-100 tofsvipa
-353 sumpvipa
+098 ljungpipare
+099 kustpipare
 354 stäppvipa
+353 sumpvipa
+100 tofsvipa
+
 101 kustsnäppa
 102 sandlöpare
+355 tundrasnäppa
+356 rödhalsad snäppa
 103 sandsnäppa
 104 småsnäppa
 105 mosnäppa
+357 långtåsnäppa
+358 vitgumpsnäppa
+359 gulbröstad snäppa
 106 tuvsnäppa
+360 spetsstjärtad snäppa
 107 spovsnäppa
 108 skärsnäppa
 109 kärrsnäppa
 110 myrsnäppa
-111 brushane
+361 styltsnäppa
 362 prärielöpare
+111 brushane
 112 dvärgbeckasin
 113 enkelbeckasin
 114 dubbelbeckasin
+363 större beckasinsnäppa
 115 morkulla
 116 rödspov
 117 myrspov
@@ -236,82 +244,73 @@
 121 rödbena
 122 dammsnäppa
 123 gluttsnäppa
-124 skogssnäppa
-366 amerikansk skogssnäppa
-125 grönbena
 364 större gulbena
 365 mindre gulbena
+366 amerikansk skogssnäppa
+124 skogssnäppa
+125 grönbena
 126 tereksnäppa
 127 drillsnäppa
 462 fläckdrillsnäppa
 128 roskarl
-355 tundrasnäppa
-356 rödhalsad snäppa
-357 långtåsnäppa
-358 vitgumpsnäppa
-359 gulbröstad snäppa
-360 spetsstjärtad snäppa
-361 styltsnäppa
-363 större beckasinsnäppa
+367 wilsonsimsnäppa
 129 smalnäbbad simsnäppa
 368 brednäbbad simsnäppa
-367 wilsonsimsnäppa
 
 130 bredstjärtad labb
 131 labb
 132 fjällabb
 133 storlabb
 
+369 svarthuvad trut
 134 svarthuvad mås
+370 sotvingad mås
+371 präriemås
 135 dvärgmås
 136 tärnmås
+372 trädmås
 137 skrattmås
+503 långnäbbad mås
+491 rödnäbbad trut
+373 ringnäbbad mås
 138 fiskmås
 139 silltrut
 140 gråtrut
+478 östersjötrut
+483 sibirisk trut
+374 kaspisk trut
+461 medelhavstrut
 141 vitvingad trut
 142 vittrut
 143 havstrut
 144 tretåig mås
-369 svarthuvad trut
-370 sotvingad mås
-371 präriemås
-372 trädmås
-373 ringnäbbad mås
-374 kaspisk trut
 375 rosenmås
 376 ismås
-461 medelhavstrut
-478 östersjötrut
-483 sibirisk trut
-491 rödnäbbad trut
-503 långnäbbad mås
 
 145 sandtärna
 146 skräntärna
 147 kentsk tärna
+377 rosentärna
 148 fisktärna
 149 silvertärna
-377 rosentärna
+467 kärrtärna
+511 tygeltärna
+378 sottärna
 150 småtärna
 151 svarttärna
 152 vitvingad tärna
-378 sottärna
 379 skäggtärna
-467 kärrtärna
-511 tygeltärna
 
 153 sillgrissla
+380 spetsbergsgrissla
 154 tordmule
 155 tobisgrissla
 156 alkekung
-157 lunnefågel
-380 spetsbergsgrissla
 381 papegojalka
+157 lunnefågel
 463 tofslunnefågel
 
 382 stäpphöna
-
 504 svartbukig flyghöna
 
 158 tamduva
@@ -321,80 +320,80 @@
 162 turturduva
 163 större turturduva
 
-164 gök
 383 skatgök
+164 gök
 
+384 tornuggla
+385 dvärguv
 165 berguv
 166 fjälluggla
 167 hökuggla
 168 sparvuggla
+386 minervauggla
 169 kattuggla
 170 slaguggla
 171 lappuggla
 172 hornuggla
 173 jorduggla
 174 pärluggla
-384 tornuggla
-385 dvärguv
-386 minervauggla
 
 175 nattskärra
 387 ökennattskärra
+460 taggstjärtseglare
 176 tornseglare
 388 blek tornseglare
 389 alpseglare
 390 stubbstjärtseglare
-460 taggstjärtseglare
-468 klippsvala
 
 177 kungsfiskare
-178 biätare
 391 grön biätare
-179 härfågel
+178 biätare
 392 blåkråka
+179 härfågel
 
 180 göktyta
 181 gråspett
 182 gröngöling
 183 spillkråka
 184 större hackspett
+393 mellanspett
 185 vitryggig hackspett
 186 mindre hackspett
 187 tretåig hackspett
-393 mellanspett
 
+394 kalanderlärka
+395 asiatisk kalanderlärka
+397 svartlärka
 188 korttålärka
+396 dvärglärka
 189 tofslärka
+494 lagerlärka
 190 trädlärka
 191 sånglärka
 192 berglärka
-394 kalanderlärka
-395 asiatisk kalanderlärka
-396 dvärglärka
-397 svartlärka
-494 lagerlärka
 
 193 backsvala
+468 klippsvala
 194 ladusvala
-195 hussvala
 398 rostgumpsvala
+195 hussvala
 
 196 större piplärka
 197 fältpiplärka
+399 sibirisk piplärka
 198 trädpiplärka
+400 tundrapiplärka
 199 ängspiplärka
 200 rödstrupig piplärka
 201 skärpiplärka
 458 vattenpiplärka
 459 hedpiplärka
-399 sibirisk piplärka
-400 tundrapiplärka
 
 202 gulärla
+401 citronärla
 203 forsärla
 204 sädesärla
 479 engelsk sädesärla
-401 citronärla
 
 205 sidensvans
 
@@ -410,69 +409,63 @@
 209 rödhake
 210 näktergal
 405 sydnäktergal
-407 vitstrupig näktergal
 211 blåhake
+406 blåstjärt
+407 vitstrupig näktergal
 212 svart rödstjärt
 213 rödstjärt
-406 blåstjärt
 
 214 buskskvätta
-408 östlig svarthakad buskskvätta
 409 svarthakad buskskvätta
-215 stenskvätta
+408 östlig svarthakad buskskvätta
 410 isabellastenskvätta
+215 stenskvätta
 411 nunnestenskvätta
 412 medelhavsstenskvätta
 413 ökenstenskvätta
 486 svart stenskvätta
 
-216 ringtrast
-217 koltrast
-218 björktrast
-219 taltrast
-220 rödvingetrast
-221 dubbeltrast
 414 stentrast
 415 blåtrast
 416 guldtrast
 417 sibirisk trast
 418 eremitskogstrast
+469 beigekindad skogstrast
 419 rostskogstrast
-420 taigatrast
+216 ringtrast
+217 koltrast
 421 gråhalsad trast
+420 taigatrast
+218 björktrast
+219 taltrast
+220 rödvingetrast
+221 dubbeltrast
 422 vandringstrast
 465 bruntrast
-469 beigekindad skogstrast
 
 423 cettisångare
 424 träsksångare
+222 gräshoppsångare
+223 flodsångare
+224 vassångare
 425 vattensångare
+225 sävsångare
 426 fältsångare
+226 busksångare
+227 kärrsångare
+228 rörsångare
+229 trastsångare
+464 starrsångare
+495 grässångare
+
+512 eksångare
 427 gråsångare
+230 härmsångare
 428 polyglottsångare
 429 provencesångare
 430 rödstrupig sångare
 431 sammetshätta
 432 ökensångare
-433 nordsångare
-434 bergstaigasångare
-435 videsångare
-436 brunsångare
-437 bergsångare
-464 starrsångare
-495 grässångare
-512 eksångare
-
-222 gräshoppsångare
-223 flodsångare
-224 vassångare
-225 sävsångare
-226 busksångare
-227 kärrsångare
-228 rörsångare
-229 trastsångare
-230 härmsångare
-
 231 höksångare
 232 ärtsångare
 233 törnsångare
@@ -481,8 +474,13 @@
 501 glasögonsångare
 
 236 lundsångare
+433 nordsångare
 237 kungsfågelsångare
 238 taigasångare
+434 bergstaigasångare
+435 videsångare
+436 brunsångare
+437 bergsångare
 239 grönsångare
 240 gransångare
 480 sibirisk gransångare
@@ -491,16 +489,15 @@
 242 kungsfågel
 243 brandkronad kungsfågel
 
+438 glasögonflugsnappare
 244 grå flugsnappare
 245 mindre flugsnappare
 246 halsbandsflugsnappare
 247 svartvit flugsnappare
-438 glasögonflugsnappare
 
 248 skäggmes
 
 249 stjärtmes
-
 250 entita
 251 talltita
 252 lappmes
@@ -516,30 +513,30 @@
 440 trädgårdsträdkrypare
 
 259 pungmes
+260 sommargylling
 
+441 isabellatörnskata
 261 törnskata
 262 svartpannad törnskata
-441 isabellatörnskata
-442 rödhuvad törnskata
-443 masktörnskata
 470 stäppvarfågel
 485 medelhavsvarfågel
 263 varfågel
+442 rödhuvad törnskata
+443 masktörnskata
 
 264 nötskrika
 265 lavskrika
 266 skata
+499 blåskata
 267 nötkråka
 268 kaja
+444 klippkaja
+500 alpkråka
 269 råka
 270 kråka
 481 svartkråka
 271 korp
-444 klippkaja
-500 alpkråka
-499 blåskata
 
-260 sommargylling
 272 stare
 445 rosenstare
 496 svartstare
@@ -559,35 +556,35 @@
 283 gråsiska
 482 brunsiska
 284 snösiska
-290 domherre
-288 rosenfink
-513 långstjärtad rosenfink
-446 ökentrumpetare
-291 stenknäck
 285 bändelkorsnäbb
 286 mindre korsnäbb
 287 större korsnäbb
+446 ökentrumpetare
+288 rosenfink
 289 tallbit
+513 långstjärtad rosenfink
+290 domherre
+291 stenknäck
 
+447 vitstrupig sparv
 292 lappsparv
 293 snösparv
+448 tallsparv
 294 gulsparv
+449 klippsparv
 295 ortolansparv
+450 rostsparv
 296 videsparv
 297 dvärgsparv
-298 sävsparv
-299 kornsparv
-447 vitstrupig sparv
-448 tallsparv
-449 klippsparv
-450 rostsparv
 451 gyllensparv
+298 sävsparv
 452 svarthuvad sparv
+299 kornsparv
+454 brokig kardinal
 453 stäppsparv
 498 stensparv
 502 häcksparv
 
-454 brokig kardinal
 455 indigosparv
 492 halsbandsparakit
 493 munkparakit

@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: taxonomicorder.cc,v 1.7 2001-07-19 21:33:38 grahn Exp $
+ * $Id: taxonomicorder.cc,v 1.8 2001-07-22 21:03:32 grahn Exp $
  *
  * taxonomicorder.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: taxonomicorder.cc,v 1.7 2001-07-19 21:33:38 grahn Exp $";
+"$Id: taxonomicorder.cc,v 1.8 2001-07-22 21:03:32 grahn Exp $";
 }
 
 #include <cassert>
@@ -42,7 +42,7 @@ static const char* rcsid() { rcsid(); return
 #include "taxonomicorder.hh"
 
 
-#define INTERNALORDERLEN (484)
+#define INTERNALORDERLEN (485)
  
 static char * internalorder[INTERNALORDERLEN] =
 {
@@ -219,6 +219,7 @@ static char * internalorder[INTERNALORDERLEN] =
     "ökenlöpare",	       /* 346 */
     "vadarsvala",	       /* 347 */
     "svartvingad vadarsvala",  /* 348 */
+    "orientvadarsvala",	       /* 484 */
     "mindre strandpipare",     /* 094 */
     "större strandpipare",     /* 095 */
     "svartbent strandpipare",  /* 096 */
@@ -303,7 +304,7 @@ static char * internalorder[INTERNALORDERLEN] =
     "ismås",		       /* 376 */
     "medelhavstrut",	       /* 461 */
     "östersjötrut",	       /* 478 */
-    "sibirisk trut"	       /* 483 */
+    "sibirisk trut",	       /* 483 */
 
     "sandtärna",	       /* 145 */
     "skräntärna",	       /* 146 */

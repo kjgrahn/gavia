@@ -1,10 +1,13 @@
-# $Id: species,v 1.10 2004-01-07 22:30:10 grahn Exp $
+# $Id: species,v 1.11 2004-04-24 10:17:08 grahn Exp $
 # $Name:  $
 #
 # The canonical list of species accepted by Gavia.
 #
 # Empty lines and '#' comment lines are
 # disregarded, everything else is a canonical species number followed by a species name.
+#
+# The list must NOT contain any holes, i.e. if the list contains
+# N species, they MUST be numbered 0 to N-1.
 #
 # Please note that if you want to change this file, it must be
 # done very carefully, since it directly affects the gavia file
@@ -16,22 +19,22 @@
 # <species perl -ne 'print if /^\d{3}/' | wc -l
 #
 
-# + 516 afrikansk klippsvala
-# + 517 alpkaja
-# + 518 atlasgröngöling
-# + 519 berberfalk
-# + 520 ökenberglärka
+#   516 afrikansk klippsvala
+#   517 alpkaja
+#   518 atlasgröngöling
+#   519 berberfalk
+#   520 ökenberglärka
 #   521 vitkronad stenskvätta
 #   522 bergsökenfink
-# + 523 diademrödstjärt
+#   523 diademrödstjärt
 #   524 eremitibis
 #   525 hussparv
 #   526 klipphöna
 #   527 marmorand
 #   528 svartvingad glada
 #   529 palmduva
-# + 531 stenökenlärka
-# + 530 sandökenlärka
+#   531 stenökenlärka
+#   530 sandökenlärka
 #   532 berberstenskvätta
 #   533 trädgårdsbulbyl
 #   534 nordafrikansk blåmes
@@ -185,7 +188,6 @@
 336 tatarfalk
 075 jaktfalk
 076 pilgrimsfalk
-519 berberfalk
 
 077 järpe
 078 dalripa
@@ -378,7 +380,6 @@
 180 göktyta
 181 gråspett
 182 gröngöling
-518 atlasgröngöling
 183 spillkråka
 184 större hackspett
 393 mellanspett
@@ -396,13 +397,9 @@
 190 trädlärka
 191 sånglärka
 192 berglärka
-520 ökenberglärka
-531 stenökenlärka
-530 sandökenlärka
 
 193 backsvala
 468 klippsvala
-516 afrikansk klippsvala
 194 ladusvala
 398 rostgumpsvala
 195 hussvala
@@ -444,7 +441,6 @@
 407 vitstrupig näktergal
 212 svart rödstjärt
 213 rödstjärt
-523 diademrödstjärt
 
 214 buskskvätta
 409 svarthakad buskskvätta
@@ -562,7 +558,6 @@
 267 nötkråka
 268 kaja
 444 klippkaja
-517 alpkaja
 500 alpkråka
 269 råka
 270 kråka

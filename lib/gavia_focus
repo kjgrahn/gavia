@@ -1,4 +1,4 @@
-# $Id: gavia_focus,v 1.1 2001-09-23 20:20:08 grahn Exp $
+# $Id: gavia_focus,v 1.2 2001-09-27 20:13:14 grahn Exp $
 # $Name:  $
 #
 # Example rc file for gavia_focus(1),
@@ -7,38 +7,10 @@
 #
 # See the gavia_focus(1) man page for details.
 #
-häger
-knölsvan
-sångsvan
-grågås
-kanadagås
-gräsand
-knipa
-trana
-skrattmås
-fiskmås
-gråtrut
+
+# expected all year around:
+#
 tamduva
-ringduva
-tornseglare
-större hackspett
-sånglärka
-ladusvala
-hussvala
-trädpiplärka
-sädesärla
-gärdsmyg
-järnsparv
-rödhake
-koltrast
-björktrast
-ärtsångare
-törnsångare
-trädgårdssångare
-svarthätta
-lövsångare
-kungsfågel
-svartvit flugsnappare
 entita
 blåmes
 talgoxe
@@ -47,12 +19,52 @@ skata
 kaja
 kråka
 korp
-stare
 gråsparv
 pilfink
-bofink
+gulsparv
+större hackspett
 grönfink
 grönsiska
-stenknäck
-gulsparv
-sävsparv
+
+# unexpected in winter:
+#
+häger			0401-1130
+knölsvan		0401-1130
+sångsvan		0401-1130
+grågås			0401-1130
+kanadagås		0401-1130
+gräsand			0401-1130
+knipa			0401-1130
+trana			0401-1130
+skrattmås		0401-1130
+fiskmås			0401-1130
+gråtrut			0401-1130
+ringduva		0401-1130
+koltrast		0401-1130
+björktrast		0401-1130
+gärdsmyg		0401-1130
+rödhake			0401-1130
+kungsfågel		0401-1130
+bofink			0401-1130
+stenknäck		0401-1130
+sävsparv		0401-1130
+
+# early spring migrants
+#
+sånglärka		0401-0920
+trädpiplärka		0420-0831
+stare			0401-1130
+sädesärla		0420-0920
+järnsparv		0401-0930
+
+# not-so-early migrants
+#
+tornseglare		0515-0831
+ladusvala		0501-0831
+hussvala		0501-0831
+ärtsångare		0501-0831
+törnsångare		0501-0831
+trädgårdssångare	0501-0831
+svarthätta		0501-0831
+lövsångare		0501-0831
+svartvit flugsnappare	0501-0831

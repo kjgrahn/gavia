@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gabsource.cc,v 1.6 2001-12-29 19:14:09 grahn Exp $
+ * $Id: gabsource.cc,v 1.7 2002-07-15 22:29:21 grahn Exp $
  *
  * gabsource.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gabsource.cc,v 1.6 2001-12-29 19:14:09 grahn Exp $";
+"$Id: gabsource.cc,v 1.7 2002-07-15 22:29:21 grahn Exp $";
 }
 
 #include <cstdio>
@@ -56,7 +56,7 @@ static int eatexcursion(Excursion&, int *, SpeciesRedro *);
 
 
 extern FILE * yyin;
-extern int yylex(Excursion *, int *, SpeciesRedro *);
+extern int yylex(Excursion *, int *, const SpeciesRedro *);
 
 
 /*----------------------------------------------------------------------------

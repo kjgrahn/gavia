@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.1 2000-08-10 19:21:44 grahn Exp $
+# $Id: Makefile,v 1.2 2000-08-10 19:46:55 grahn Exp $
 #
 # Makefile
 #
@@ -32,7 +32,7 @@ SHELL = /bin/sh
 INSTALLBASE = /usr/local
 
 all:
-	false
+	true
 
 install:
 	install -m644 gavia_add.1 $(INSTALLBASE)/man/man1/
@@ -41,7 +41,7 @@ install:
 	install -m644 gavia_sort.1 $(INSTALLBASE)/man/man1/
 
 depend:
-	false
+	true
 
 clean:
 	true

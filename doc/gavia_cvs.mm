@@ -1,12 +1,26 @@
-.\" $Id: gavia_cvs.mm,v 1.3 2001-05-31 21:31:16 grahn Exp $
+.\" $Id: gavia_cvs.mm,v 1.4 2001-06-04 21:07:59 grahn Exp $
 
-.ND "$Date: 2001-05-31 21:31:16 $"
-.PF "$Id: gavia_cvs.mm,v 1.3 2001-05-31 21:31:16 grahn Exp $"
+.ND "$Date: 2001-06-04 21:07:59 $"
+.PF "$Id: gavia_cvs.mm,v 1.4 2001-06-04 21:07:59 grahn Exp $"
 
 .COVER
 .TL
 Using Gavia in combination with CVS
+.AF
 .AU "Jörgen Grahn <jgrahn@algonet.se>"
+.AS
+Gavia is a set of tools to maintain an electronic bird notebook.
+The present document gives a short introduction to
+two pieces of software,
+.B cvs
+and
+.B ssh ,
+and how they are used in practice to give several people simultaneous
+access to Gavia.
+
+The instructions are of a local nature, and might not be
+universally useful.
+.AE
 .COVEND
 
 .H 1 "CVS basics"
@@ -17,11 +31,15 @@ several people can modify a single file at the same time,
 and
 it is distributed; the main repository can live on a different machine.
 
-The repository is the central place where all revisions of all files are
+The
+.I repository
+is the central place where all revisions of all files are
 stored. Only CVS itself accesses it; you almost never need to touch
 it directly.
 
-A module is just a directory within the repository.
+A
+.I module
+is just a directory full of files within the repository.
 In our case,
 .B 'obsbok/'
 is a module within the repository,
@@ -29,20 +47,33 @@ containing gavia books from earlier years as well as
 the current year's 'obsbok'.
 Modules are used to separate different projects sharing
 a single repository;
-in our case the source code to 'gavia'
+in our case the source code to 'gavia' itself
 is another module within the same repository.
 
-The working directory is a normal directory that you own;
+The
+.I "working directory"
+is a normal directory that you own;
 usually you place it somewhere in your home directory.
 You get a working directory when you check out a module from the repository
 and CVS copies the latest version from the repository.
 
 The working directory is just a normal directory and the files
-in it are just normal files, until you use CVS on it.
+in it are just normal files, when you use CVS on it.
 CVS stores some extra information about it (in a subdirectory named
 .B 'CVS/' );
 in particular, the name of the repository it came from,
 and the revision number each file had when it was checked out.
+
+.B1
+.VERBON 16
+% ls ~/view/obsbok/
+1995.book    1997.book    1999.book    Jonas94.book
+1995_2.book  1997_2.book  1999_2.book  krysslistor.book
+1996.book    1998.book    2000.obsbok  obsbok
+1996_2.book  1998_2.book  CVS/
+.VERBOFF
+.B2
+
 
 .H 1 "Remote CVS over ssh"
 
@@ -56,15 +87,19 @@ the host
 
 As mentioned above, cvs remembers where the repository was when you
 checked out the working directory, so that isn't usually a problem.
-If you do a new, initial checkout, you point CVS to the right repository
-by setting two environment variables:
+If you do a new, initial checkout, you may point CVS to the right repository
+by setting an environment variable:
 
 .B1
 .VERBON 16
 $CVSROOT :ext:islaya:/home/cvs
-$CVS_RSH ssh
 .VERBOFF
 .B2
+
+Another environment variable,
+.B CVS_RSH
+needs to be set to
+.I 'ssh' .
 
 CVS on your local machine (e.g.
 .B pinicola )
@@ -90,7 +125,7 @@ prompt you for a passphrase, using the unlocked passphrase instead
 
 .H 1 "Multiple editors and conflict resolution"
 
-Right now, we have at least four working directories
+Right now, we constantly have at least four working directories
 for the 'obsbok' module:
 .DL
 .LI
@@ -103,15 +138,17 @@ we have one each on
 (Falköping)
 .LE
 
-Thus, there are four working copies of the file 'obsbok'.
+Thus, there are always at least four working copies of the file 'obsbok'.
 We can edit them as much as we want,
-by running gavia_stellata (adding text to the end of the file)
+by running gavia_stellata
+(which in practice just adds text to the end of the file)
 or simply editing it in emacs.
 
 When you check in obsbok, CVS can't just add your version of
 it as the latest revision. Imagine, for example, that you checked
 out revision 1.11 of obsbok to your work directory on pinicola,
-and modified it.
+and modified it
+(the star in the figure denotes a changed working copy of obsbok).
 
 .B1
 .VERBON 16
@@ -123,7 +160,8 @@ and modified it.
 .VERBOFF
 .B2
 
-At the same time, someone checked out the same revision on pinicola,
+At the same time, someone checked out the same revision
+(on frailea, for example),
 modified it and later checked it again,
 at which time it became revision 1.12:
 
@@ -177,7 +215,8 @@ manually. We always add text to the end of
 .B 'obsbok' ,
 and when CVS notices that
 both files contains changes at the end of the file, it cannot know if
-one or both of them should be included in the new version.
+one or both of them should be included in the new version
+(and, if both, in which order).
 CVS inserts both changes, puts markers around them
 ('<<<<', '====' and '>>>>') and warns you that there is a merge
 conflict and that you have to edit the file manually to resolve it.
@@ -197,7 +236,17 @@ you can check in the changes, which will become revision 1.13:
 
 .RL
 .LI
-the ssh(1) and ssh-add(1) manpages
+the
+.B ssh (1),
+.B ssh-keygen (1)
+and
+.B ssh-add (1)
+manpages
 .LI
-the cvs(1) manpage and the cvs info sheet
+the
+.B cvs (1)
+manpage and the cvs info sheet (
+.B "info cvs"
+or, from within emacs,
+.B "C-h i" ).
 .LE

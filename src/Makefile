@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.20 2004-08-04 11:50:50 grahn Exp $
+# $Id: Makefile,v 1.21 2004-08-04 15:49:46 grahn Exp $
 #
 # Makefile
 #
@@ -89,7 +89,7 @@ filtersink.o: filtersink.cc
 	$(CXX) -c $(CPPFLAGS) $(CXXFLAGS) -D_POSIX_C_SOURCE=2 $<
 
 gablexer.cc: gablexer.l
-	flex -ist8 gablexer.l >$@
+	flex -i -s -t -8 gablexer.l >$@
 
 gablexer.o: gablexer.cc
 	$(CXX) -c -g $<

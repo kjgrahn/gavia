@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: speciesredro.hh,v 1.2 1999-10-24 14:56:17 grahn Exp $
+ * $Id: speciesredro.hh,v 1.2.2.1 1999-11-30 22:10:10 grahn Exp $
  *
  * speciesredro.hh
  *
@@ -64,7 +64,7 @@ protected:
 private:
     SpeciesRedro();				// constructor
 
-    map<Species, int> species;
+    std::map<Species, int> species;
 
 };
 

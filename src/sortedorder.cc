@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: sortedorder.cc,v 1.2.2.1 1999-11-19 22:40:34 grahn Exp $
+ * $Id: sortedorder.cc,v 1.2.2.2 1999-11-30 22:10:10 grahn Exp $
  *
  * sortedorder.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: sortedorder.cc,v 1.2.2.1 1999-11-19 22:40:34 grahn Exp $";
+"$Id: sortedorder.cc,v 1.2.2.2 1999-11-30 22:10:10 grahn Exp $";
 }
 
 #include "species.hh"
@@ -72,7 +72,7 @@ SortedOrder::SortedOrder(const SpeciesOrder * obj, string begin, string end)
 
     internalend = j;
 
-    sort(internalspecies, internalspecies+internalend);
+    std::sort(internalspecies, internalspecies+internalend);
 }
 
 

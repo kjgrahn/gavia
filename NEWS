@@ -2,7 +2,8 @@
 
 Major changes (with focus on user-visible changes) to Gavia, per version.
 
-
+_________________________________________
+gavia 2.17 (2001-07-08):
 	- gavia_cat: when exporting to text, the day of week is printed:
 	    Date     : 1995-08-03 (Thu)
 	    Place    : ...
@@ -10,14 +11,14 @@ Major changes (with focus on user-visible changes) to Gavia, per version.
 	- `gaviadate' no longer requires the bloated GNU date(1) command.
 	- Minor manpage fix to gavia_stellata(1).
 
-gavia-2.16 (2001-06-19):
+gavia 2.16 (2001-06-19):
 	- Gavia_cat can now output to a regular Unix mailbox (mbox) file.
 	- New manpages gavia(1) and gavia(5) gives an overview and documents
 	  file formats, respectively.
 	- New manpage gavia_stellata(1).
 	- `gavia_cvs.mm' improved.
 
-gavia-2.15 (2001-06-04):
+gavia 2.15 (2001-06-04):
 	- `gavia_cvs.mm' improved.
 
 gavia 2.14 (2001-05-31):
@@ -58,9 +59,9 @@ gavia 2.11 (2000-09-13):
 	- A default template file for gavia_stellata added to the distribution.
 
 gavia 2.1 -- 2.10;
-lanius, all version:
+lanius, all versions:
 	Before written history.
 
 _________________________________________
-$Id: NEWS,v 1.1 2001-07-08 10:03:50 grahn Exp $
+$Id: NEWS,v 1.2 2001-07-08 10:05:39 grahn Exp $
 $Name:  $

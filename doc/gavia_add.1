@@ -1,113 +1,92 @@
-.\" $Id: gavia_add.1,v 1.5 2000-12-28 19:55:33 grahn Exp $
+.\" $Id: gavia_add.1,v 1.6 2001-02-17 19:13:50 grahn Exp $
 .\" 
 .\"
 .TH gavia_add 1 "JULY 1999" Unix "User Manuals"
 .SH "NAME"
-
 gavia_add \- add excursions to a Gavia book
-
 .SH "SYNOPSIS"
-
 gavia_add [-v] bookfile
-
 .SH "DESCRIPTION"
-
 gavia_add takes a single Gavia book as an argument.
 It then reads more excursion descriptions in a special text format
 (see below for a description) from standard input, and
 writes the book with the extra excursions added
 to standard output.
-
 .SH "OPTIONS"
-
 .IP -v
 Print version information.
-
 .SH "INPUT FORMAT"
-
 The ''Gab'' input format is designed so that
 a user can start with a template file
 and quickly edit it, marking the species
 seen during an excursion
 and filling in any extra information.
-
+.LP
 Blank lines are ignored.
 Comment lines (prefixed with a hash (#) sign)
 are ignored.
 Case and extra blank space
 is insignificant except for in species names
 and user-supplied data.
-
+.LP
 Input is line-oriented.
 Never join several fields onto one line, and
 never break fields into several lines.
-
+.LP
 The input consists of zero or more excursions,
 each looking like
-
+.LP
 {
 excursion fields
 }{
 species fields
 }
-
+.LP
 Excursion fields are
-
+.LP
 Place: <place description>
 Date: <yymmhh>
 Time: <description of time out>
 Observers: <names of any persons involved>
 Weather: <weather description>
 Comments: <anything else you want to note>
-
+.LP
 All but place and date are optional and
 can be left unfilled or left out entirely.
 If date is unfilled, the current date is used.
-
+.LP
 Species fields have the format
-
+.LP
 <species name>: <mark>: <number of individuals>: <comment>
-
+.LP
 The species name must be exactly one of those defined internally
 in gavia_add.
 They are in swedish...
-
+.LP
 A species field can be unfilled, in which case that species
 won't be included in the excursion.
-
+.LP
 The number of individuals and/or comment may still be left out,
 but in that case the user must fill in the mark field
 with some non-blank characters. An 'x' is sufficient. 
-
 .SH "FILES"
-
 N/A.
-
 .SH "ENVIRONMENT"
-
 The current locale settings might influence certain aspects.
 TBD.
-
 .SH "DIAGNOSTICS"
-
 Badly-formed standard input causes a message on stderr.
 The original book is output unchanged.
-
 .SH "BUGS"
-
 Error handling and error reporting is rudimentary, at the most.
 Bad file contents give unrecoverable errors.
 The Gavia book format is fucked up.
 .B gavia_add
 is written in C++ and might be
 fragile and/or non-portable because of that.
-
 .SH "AUTHOR"
-
 Jörgen Grahn <jgrahn@algonet.se>
-
 .SH "SEE ALSO"
-
 .BR gavia_cat (1),
 .BR gavia_grep (1),
 .BR gavia_sort (1),

@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gabsink.cc,v 1.2 2000-08-10 19:47:21 grahn Exp $
+ * $Id: gabsink.cc,v 1.3 2001-02-17 19:13:50 grahn Exp $
  *
  * gabsink.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char rcsid[] =
-"$Id: gabsink.cc,v 1.2 2000-08-10 19:47:21 grahn Exp $";
+"$Id: gabsink.cc,v 1.3 2001-02-17 19:13:50 grahn Exp $";
 
 #include <assert.h>
 #include <stdio.h>
@@ -147,10 +147,33 @@ void GabSink::put(const Excursion& ex)
     const DynamicOrder order(morder, ex.speciesset());
     for(int i = 0; i!=order.end(); i++)
     {
-	fprintf(mfp, "%s :-: %d : %s\n",
-		order.species(i).c_str(),
-		ex.speciescount(order.species(i)),
-		ex.speciescomment(order.species(i)).c_str());
+	Species sp(order.species(i));
+
+	/*
+	  Format the entries so that ':-: ...'
+	  begins at column 24 (three tabs off) if possible
+	*/
+	fputs(sp.c_str(), mfp);
+	if(sp.size()<8)
+	{
+	    fputs("\t\t\t", mfp);
+	}
+	else if(sp.size()<16)
+	{
+	    fputs("\t\t", mfp);
+	}
+	else if(sp.size()<24)
+	{
+	    fputs("\t", mfp);
+	}
+	else
+	{
+	    fputs(" ", mfp);
+	}
+
+	fprintf(mfp, ":-: %d : %s\n",
+		ex.speciescount(sp),
+		ex.speciescomment(sp).c_str());
     }
 
     fprintf(mfp, "%s\n\n", "}");

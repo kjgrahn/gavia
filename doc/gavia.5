@@ -1,4 +1,4 @@
-.\" $Id: gavia.5,v 1.1 2001-06-17 20:51:37 grahn Exp $
+.\" $Id: gavia.5,v 1.2 2001-06-19 20:49:06 grahn Exp $
 .\" 
 .\"
 .TH gavia 5 "JUN 2001" Gavia "User Manuals"
@@ -16,17 +16,17 @@ a user can start with a template file
 and quickly edit it, marking the species
 seen during an excursion
 and filling in any extra information.
-.LP
+
 Blank lines are ignored.
 Comment lines (prefixed with a hash (#) sign)
 are ignored.
 Case and extra blank space
-is not significant except for in species names
+is not significant except in species names
 and user-supplied data.
-.LP
+
 Input is line-oriented; fields may never
 be broken into several lines.
-.LP
+
 The input consists of a series of excursions,
 each looking like
 .IP
@@ -42,7 +42,7 @@ species fields
 }
 .LP
 Excursion fields are
-.LP
+
 Place: <place description>
 .br
 Date: <yyyymmhh>
@@ -54,10 +54,10 @@ Observers: <names of any persons involved>
 Weather: <weather description>
 .br
 Comments: <anything else you want to note>
-.LP
+
 All but place and date are optional and
 can be left unfilled or left out entirely.
-.LP
+
 Species fields have the format
 .IP
 .ft CW
@@ -65,16 +65,64 @@ Species fields have the format
 .LP
 The species name must be exactly one of those defined internally
 in gavia_add.
-They are in swedish...
-.LP
+
 A species field can be unfilled, in which case that species
-won't be regarded as included in the excursion.
-.LP
+is not to be regarded as included in the excursion.
+
 The number of individuals and/or comment may still be left out,
 but in that case the user must fill in the mark field
 with some non-blank characters, for example an '#'.
 .SH "LANIUS BOOK"
-Not documented yet.
+The binary Lanius book format was inherited by Gavia from its
+Commodore-Amiga-based predecessor.
+
+Integer values are stored in big-endian (network) byteorder.
+Strings are encoded in the
+.IR ISO_8859-1 (7)
+charset.
+They start with a 2-octet length and are not NUL-terminated.
+
+The book itself consists of a preamble, the string
+.LP
+.ft CW
+Lanius Book v1.0
+.LP
+followed by zero or more excursion records and terminated by
+.LP
+.ft CW
+NIL:
+.LP
+A excursion record consists of the sequence:
+.IP \(bu
+An empty string.
+.IP \(bu
+Place (string).
+.IP \(bu
+Date, in seconds since Jan 1, 1978 00:00:00, as a 4-octet integer.
+Considering the Amiga's system clock always lives in local time
+(including DST) this is obviously not a good way to encode dates.
+.IP \(bu
+Time (string).
+.IP \(bu
+Observers (string).
+.IP \(bu
+Weather (string).
+.IP \(bu
+Comments (string).
+.IP \(bu
+An empty string.
+.IP \(bu
+A 200-octet bitmap identifying the birds seen,
+arranged so that MSB of the first octet represents the first bird,
+LSB represents the eighth bird, and so on.
+Undefined positions are zeroed.
+See the source code for the mapping from number to species name.
+.IP \(bu
+For each species marked in the bitmap, a two-octet
+count of individuals. A zero means no count was given.
+.IP \(bu
+For each species marked in the bitmap, a comment
+string.
 .SH "AUTHOR"
 Jörgen Grahn <jgrahn@algonet.se>
 .SH "SEE ALSO"

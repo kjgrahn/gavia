@@ -1,7 +1,7 @@
-.\" $Id: gavia_focus.1,v 1.5 2002-10-13 17:03:19 grahn Exp $
+.\" $Id: gavia_focus.1,v 1.6 2002-10-18 20:05:18 grahn Exp $
 .\" 
 .\"
-.TH gavia_focus 1 "JULY 2002" Gavia "User Manuals"
+.TH gavia_focus 1 "OCTOBER 2002" Gavia "User Manuals"
 .SH "NAME"
 gavia_focus \- filter away species from a ''Gab'' book
 .SH "SYNOPSIS"
@@ -31,14 +31,16 @@ observed during parts of the year:
 .ft CW
 species name  mmdd-mmdd
 .PP
-As an example, the following two lines will show the first
+As an example, the following lines will show the first
 species only in swedish summer, while the second only is
-shown in winter:
+shown in winter. The last species is never shown.
 .IP
 .ft CW
-fjällvråk   1001-0331
+fj\(:allvr\(oak   1001-0331
 .br
-sånglärka   0315-1031
+s\(oangl\(:arka   0315-1031
+.br
+tamduva
 .PP
 Comment lines (starting with a hash sign) may be used.
 .SH "FILES"

@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_cat.cc,v 1.1 1999-10-24 08:10:52 grahn Exp $
+ * $Id: gavia_cat.cc,v 1.2 1999-10-24 09:00:45 grahn Exp $
  *
  * gavia_cat.cc
  *
@@ -19,7 +19,7 @@
  */
 
 static const char rcsid[] =
-"$Id: gavia_cat.cc,v 1.1 1999-10-24 08:10:52 grahn Exp $";
+"$Id: gavia_cat.cc,v 1.2 1999-10-24 09:00:45 grahn Exp $";
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -28,6 +28,8 @@ static const char rcsid[] =
 #include <string.h>
 
 #include <assert.h>
+
+#include "version.hh"
 
 #include "booksink.hh"
 #include "streamsink.hh"
@@ -57,6 +59,8 @@ int main(int argc, char ** argv)
     int ch = EOF;
     int fmtch = 'b';
     int ordch = 'c';
+
+    Version version;
 
 
     while((ch = getopt(argc, argv, optstring))!=EOF)

@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.1 1999-10-24 08:10:52 grahn Exp $
+# $Id: Makefile,v 1.2 1999-10-24 09:00:45 grahn Exp $
 #
 # Makefile
 #
@@ -82,16 +82,16 @@ love:
 
 # DO NOT DELETE
 
-gavia_add.o: streamsource.hh booksource.hh excursion.hh species.hh
+gavia_add.o: version.hh streamsource.hh booksource.hh excursion.hh species.hh
 gavia_add.o: speciesset.hh gabsource.hh streamsink.hh booksink.hh
 gavia_add.o: canonorder.hh speciesorder.hh
-gavia_cat.o: booksink.hh excursion.hh species.hh speciesset.hh streamsink.hh
-gavia_cat.o: textsink.hh htmlsink.hh latexsink.hh speciesorder.hh
-gavia_cat.o: canonorder.hh sortedorder.hh taxonomicorder.hh streamsource.hh
-gavia_cat.o: booksource.hh
-gavia_grep.o: excursion.hh species.hh speciesset.hh streamsource.hh
-gavia_grep.o: booksource.hh streamsink.hh booksink.hh canonorder.hh
-gavia_grep.o: speciesorder.hh dynamicorder.hh
+gavia_cat.o: version.hh booksink.hh excursion.hh species.hh speciesset.hh
+gavia_cat.o: streamsink.hh textsink.hh htmlsink.hh latexsink.hh
+gavia_cat.o: speciesorder.hh canonorder.hh sortedorder.hh taxonomicorder.hh
+gavia_cat.o: streamsource.hh booksource.hh
+gavia_grep.o: version.hh excursion.hh species.hh speciesset.hh
+gavia_grep.o: streamsource.hh booksource.hh streamsink.hh booksink.hh
+gavia_grep.o: canonorder.hh speciesorder.hh dynamicorder.hh
 excursion.o: excursion.hh species.hh speciesset.hh
 canonorder.o: canonorder.hh speciesorder.hh species.hh
 sortedorder.o: species.hh speciesorder.hh sortedorder.hh

@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_grep.cc,v 1.1 1999-10-24 08:10:52 grahn Exp $
+ * $Id: gavia_grep.cc,v 1.2 1999-10-24 09:00:45 grahn Exp $
  *
  * gavia_grep.cc
  *
@@ -19,7 +19,7 @@
  */
 
 static const char rcsid[] =
-"$Id: gavia_grep.cc,v 1.1 1999-10-24 08:10:52 grahn Exp $";
+"$Id: gavia_grep.cc,v 1.2 1999-10-24 09:00:45 grahn Exp $";
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -29,6 +29,8 @@ static const char rcsid[] =
 #include <assert.h>
 
 #include <regex.h>
+
+#include "version.hh"
 
 #include "excursion.hh"
 #include "streamsource.hh"
@@ -55,6 +57,9 @@ int main(int argc, char ** argv)
     const char optstring[] = "+v";
     int ch = EOF;
     bool invert = false;
+
+    Version version;
+
 
     while((ch = getopt(argc, argv, optstring))!=EOF)
     {

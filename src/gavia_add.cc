@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_add.cc,v 1.1 1999-10-24 08:10:52 grahn Exp $
+ * $Id: gavia_add.cc,v 1.2 1999-10-24 09:00:45 grahn Exp $
  *
  * gavia_add.cc
  *
@@ -18,7 +18,7 @@
  */
 
 static const char rcsid[] =
-"$Id: gavia_add.cc,v 1.1 1999-10-24 08:10:52 grahn Exp $";
+"$Id: gavia_add.cc,v 1.2 1999-10-24 09:00:45 grahn Exp $";
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -32,6 +32,8 @@ static const char rcsid[] =
 #else
 extern "C" char * readline(const char*);
 #endif
+
+#include "version.hh"
 
 #include "streamsource.hh"
 #include "gabsource.hh"
@@ -48,6 +50,9 @@ extern "C" char * readline(const char*);
  */
 int main(int argc, char ** argv)
 {
+    Version version;
+
+
     if(argc!=2)
     {
 	fprintf(stderr, "usage: gavia_add book\n");

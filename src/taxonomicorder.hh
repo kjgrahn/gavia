@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: taxonomicorder.hh,v 1.3 2000-08-10 19:47:21 grahn Exp $
+ * $Id: taxonomicorder.hh,v 1.4 2002-07-15 20:32:52 grahn Exp $
  *
  * taxonomicorder.hh
  *
@@ -51,7 +51,7 @@ public:
 
     virtual const TaxonomicOrder& operator=(const SpeciesOrder&);
 
-    virtual Species species(int) const;
+    virtual const Species& species(int) const;
     virtual int end() const;
 
 protected:

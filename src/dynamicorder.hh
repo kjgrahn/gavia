@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: dynamicorder.hh,v 1.5 2000-08-10 19:47:21 grahn Exp $
+ * $Id: dynamicorder.hh,v 1.6 2002-07-15 20:32:52 grahn Exp $
  *
  * dynamicorder.hh
  *
@@ -54,7 +54,7 @@ public:
 
     virtual const DynamicOrder& operator=(const DynamicOrder&);
 
-    virtual Species species(int) const;
+    virtual const Species& species(int) const;
     virtual int end() const;
 
 protected:
@@ -63,7 +63,7 @@ private:
 
     static const int MAXEND = 1000;
 
-    Species internalspecies[MAXEND];
+    const Species * internalspecies[MAXEND];
     int internalend;
 
 };

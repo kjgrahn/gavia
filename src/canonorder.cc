@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: canonorder.cc,v 1.14 2002-07-15 13:40:52 grahn Exp $
+ * $Id: canonorder.cc,v 1.15 2002-07-15 20:32:52 grahn Exp $
  *
  * canonorder.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: canonorder.cc,v 1.14 2002-07-15 13:40:52 grahn Exp $";
+"$Id: canonorder.cc,v 1.15 2002-07-15 20:32:52 grahn Exp $";
 }
 
 #include "canonorder.hh"
@@ -126,7 +126,7 @@ const CanonOrder& CanonOrder::operator=(const SpeciesOrder& obj)
  *
  *----------------------------------------------------------------------------
  */
-Species CanonOrder::species(int i) const
+const Species& CanonOrder::species(int i) const
 {
     assert(i>=0);
     assert(i<end());

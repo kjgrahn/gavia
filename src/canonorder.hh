@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: canonorder.hh,v 1.6 2002-07-15 13:40:52 grahn Exp $
+ * $Id: canonorder.hh,v 1.7 2002-07-15 20:32:52 grahn Exp $
  *
  * canonorder.hh
  *
@@ -53,7 +53,7 @@ public:
 
     virtual const CanonOrder& operator=(const SpeciesOrder&);
 
-    virtual Species species(int i) const;
+    virtual const Species& species(int i) const;
 
     virtual int end() const;
 

@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: taxonomicorder.cc,v 1.16 2002-07-15 13:40:53 grahn Exp $
+ * $Id: taxonomicorder.cc,v 1.17 2002-07-15 20:32:52 grahn Exp $
  *
  * taxonomicorder.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: taxonomicorder.cc,v 1.16 2002-07-15 13:40:53 grahn Exp $";
+"$Id: taxonomicorder.cc,v 1.17 2002-07-15 20:32:52 grahn Exp $";
 }
 
 #include <cassert>
@@ -123,7 +123,7 @@ const TaxonomicOrder& TaxonomicOrder::operator=(const SpeciesOrder& obj)
  *
  *----------------------------------------------------------------------------
  */
-Species TaxonomicOrder::species(int i) const
+const Species& TaxonomicOrder::species(int i) const
 {
     assert(i>=0);
     assert(i<end());

@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: dynamicorder.cc,v 1.5 2001-01-18 23:25:20 grahn Exp $
+ * $Id: dynamicorder.cc,v 1.6 2002-07-15 20:32:52 grahn Exp $
  *
  * dynamicorder.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: dynamicorder.cc,v 1.5 2001-01-18 23:25:20 grahn Exp $";
+"$Id: dynamicorder.cc,v 1.6 2002-07-15 20:32:52 grahn Exp $";
 }
 
 #include "species.hh"
@@ -66,7 +66,7 @@ DynamicOrder::DynamicOrder(const SpeciesOrder * obj, const SpeciesSet& set)
     {
 	if(set.count(obj->species(i)) > 0)
 	{
-	    internalspecies[j] = obj->species(i);
+	    internalspecies[j] = &obj->species(i);
 	    j++;
 	}
     }
@@ -133,12 +133,12 @@ const DynamicOrder& DynamicOrder::operator=(const DynamicOrder& obj)
  *
  *----------------------------------------------------------------------------
  */
-Species DynamicOrder::species(int i) const
+const Species& DynamicOrder::species(int i) const
 {
     assert(i>=0);
     assert(i<end());
 
-    return internalspecies[i];
+    return *internalspecies[i];
 }
 
 

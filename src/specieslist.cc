@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: specieslist.cc,v 1.2 2002-07-15 19:17:44 grahn Exp $
+ * $Id: specieslist.cc,v 1.3 2002-07-15 20:32:52 grahn Exp $
  *
  * specieslist.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: specieslist.cc,v 1.2 2002-07-15 19:17:44 grahn Exp $";
+"$Id: specieslist.cc,v 1.3 2002-07-15 20:32:52 grahn Exp $";
 }
 
 #include <cassert>
@@ -57,6 +57,14 @@ static vector<SpeciesList::Item> species;
 static void readspecies(vector<SpeciesList::Item> * species);
 
 
+/* Return a list of <species number, species name> pairs,
+ * in (somewhat) taxonomical order.
+ * 
+ * Note that other classes (SpeciesOrder) rely on
+ * the Species embedded in this structure being
+ * valid through the lifetime of the program.
+ *
+ */
 const std::vector<SpeciesList::Item>& SpeciesList::names() const
 {
     if(!species.size())

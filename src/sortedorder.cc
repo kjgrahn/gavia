@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: sortedorder.cc,v 1.5 2001-01-18 23:25:20 grahn Exp $
+ * $Id: sortedorder.cc,v 1.6 2002-07-15 20:32:52 grahn Exp $
  *
  * sortedorder.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: sortedorder.cc,v 1.5 2001-01-18 23:25:20 grahn Exp $";
+"$Id: sortedorder.cc,v 1.6 2002-07-15 20:32:52 grahn Exp $";
 }
 
 #include "species.hh"
@@ -46,6 +46,8 @@ static const char* rcsid() { rcsid(); return
 #include "sortedorder.hh"
 
 using std::string;
+
+static bool less(const Species * a, const Species * b) { return *a<*b;}
 
 /*----------------------------------------------------------------------------
  *
@@ -67,14 +69,14 @@ SortedOrder::SortedOrder(const SpeciesOrder * obj, string begin, string end)
     {
 	if((obj->species(i) >= begin) && (obj->species(i) < end))
 	{
-	    internalspecies[j] = obj->species(i);
+	    internalspecies[j] = &obj->species(i);
 	    j++;
 	}
     }
 
     internalend = j;
 
-    std::sort(internalspecies, internalspecies+internalend);
+    std::sort(internalspecies, internalspecies+internalend, less);
 }
 
 
@@ -136,12 +138,12 @@ const SortedOrder& SortedOrder::operator=(const SortedOrder& obj)
  *
  *----------------------------------------------------------------------------
  */
-Species SortedOrder::species(int i) const
+const Species& SortedOrder::species(int i) const
 {
     assert(i>=0);
     assert(i<end());
 
-    return internalspecies[i];
+    return *internalspecies[i];
 }
 
 

@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: sortedorder.hh,v 1.6 2001-01-18 23:25:20 grahn Exp $
+ * $Id: sortedorder.hh,v 1.7 2002-07-15 20:32:52 grahn Exp $
  *
  * sortedorder.hh
  *
@@ -53,7 +53,7 @@ public:
 
     virtual const SortedOrder& operator=(const SortedOrder&);
 
-    virtual Species species(int) const;
+    virtual const Species& species(int) const;
     virtual int end() const;
 
 protected:
@@ -62,7 +62,7 @@ private:
 
     static const int MAXEND = 1000;
 
-    Species internalspecies[MAXEND];
+    const Species * internalspecies[MAXEND];
     int internalend;
 
 };

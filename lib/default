@@ -1,4 +1,4 @@
-# $Id: default,v 1.12 2002-09-29 19:48:36 grahn Exp $
+# $Id: default,v 1.13 2002-10-09 09:05:49 grahn Exp $
 # $Name:  $
 #
 # Example template file for gavia_stellata(1), with a
@@ -347,6 +347,7 @@ kornsparv		: : :
 #--- selected rarities ------
 
 svartnäbbad islom	: : : 
+svartbrynad albatross	: : : 
 gulnäbbad lira		: : : 
 större lira		: : : 
 medelhavslira		: : : 
@@ -362,6 +363,7 @@ silkeshäger		: : :
 purpurhäger		: : : 
 bronsibis		: : : 
 skedstork		: : : 
+dvärgsnögås		: : : 
 rödhalsad gås		: : : 
 amerikansk bläsand	: : : 
 svartand		: : : 
@@ -382,6 +384,7 @@ kejsarörn		: : :
 dvärgörn		: : : 
 rödfalk			: : : 
 eleonorafalk		: : : 
+slagfalk		: : : 
 tatarfalk		: : : 
 berghöna		: : : 
 karolinasumphöna	: : : 
@@ -424,6 +427,7 @@ kaspisk trut		: : :
 rosenmås		: : : 
 ismås			: : : 
 rosentärna		: : : 
+tygeltärna		: : : 
 sottärna		: : : 
 skäggtärna		: : : 
 spetsbergsgrissla	: : : 
@@ -473,6 +477,7 @@ cettisångare		: : :
 träsksångare		: : : 
 vattensångare		: : : 
 fältsångare		: : : 
+eksångare		: : : 
 gråsångare		: : : 
 polyglottsångare	: : : 
 provencesångare		: : : 
@@ -493,6 +498,7 @@ masktörnskata		: : :
 klippkaja		: : : 
 rosenstare		: : : 
 ökentrumpetare		: : : 
+långstjärtad rosenfink	: : : 
 vitstrupig sparv	: : : 
 tallsparv		: : : 
 klippsparv		: : : 
@@ -520,9 +526,11 @@ stäppvarfågel		: : :
 
 tundrasädgås		: : : 
 grönländsk bläsgås	: : : 
+svangås			: : : 
 dvärgkanadagås		: : : 
 svartbukig prutgås	: : : 
 ljusbukig prutgås	: : : 
+gulkindad kricka	: : : 
 amerikansk kricka	: : : 
 amerikansk sjöorre	: : : 
 östersjötrut		: : : 

@@ -1,4 +1,4 @@
-.\" $Id: gavia_stat.1,v 1.4 2001-06-17 20:52:20 grahn Exp $
+.\" $Id: gavia_stat.1,v 1.5 2001-12-29 19:10:55 grahn Exp $
 .\" 
 .\"
 .TH gavia_stat 1 "DECEMBER 2000" Gavia "User Manuals"
@@ -23,6 +23,37 @@ storskrake : 20000401 : Toarpsdammen, Oxie :  1: 1 hona : JoG
 .PP
 This makes further manipulation and mangling using standard
 utilites and customized scripts easy. 
+.SH "EXAMPLES"
+.IP
+.ft CW
+gavia_stat obsbok | sort
+.PP
+List all observations sorted by species, then by date.
+.IP
+.ft CW
+gavia_stat obsbok | sort -k2 -t:
+.PP
+List all observations, sorted by date.
+.IP
+.ft CW
+gavia_stat obsbok | egrep ^enkelbeckasin | sort
+.PP
+List all observations of 'enkelbeckasin', sorted by date.
+.IP
+.ft CW
+gavia_stat obsbok | awk -F: '{print $1 $4;}' | sort
+.PP
+List all observations, with species and number of individuals,
+sorted by name. (This won't work if there is a colon ':' in the
+excursion name.)
+.IP
+.ft CW
+gavia_stat obsbok | egrep ^enkelbeckasin | wc -l
+.PP
+Count the number of observations (
+.I not
+the individuals)
+of 'enkelbeckasin'.
 .SH "AUTHOR"
 Jörgen Grahn <jgrahn@algonet.se>
 .SH "SEE ALSO"

@@ -1,4 +1,4 @@
-.\" $Id: gavia_cat.1,v 1.4 2000-08-10 19:46:55 grahn Exp $
+.\" $Id: gavia_cat.1,v 1.5 2000-12-04 21:23:21 grahn Exp $
 .\" 
 .\"
 .TH gavia_cat 1 "JAN 2000" Unix "User Manuals"
@@ -25,7 +25,7 @@ or LaTeX2e source code.
 .SH "OPTIONS"
 .IP -b
 (default) Output as a Gavia Book.
-.IP -b
+.IP -g
 Output as ''gab'' text, which gavia_add(1) can read.
 .IP -t
 Output as plain text.
@@ -39,7 +39,7 @@ to the "canonical" order.
 To be honest, this ordering is fairly meaningless
 and just an artifact of how Gavia works internally.
 This option - and the ones below - is not meaningful
-unless the -b option is active.
+if the -b option is active.
 .IP -x
 Output the species according to
 a generally accepted taxonomical ordering.

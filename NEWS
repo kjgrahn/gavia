@@ -4,6 +4,7 @@ Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
 
+gavia 2.27 (2002-08-11)
 	- gavia_cat(1) can now output as troff+tbl source; this
 	  is probably the best way to create a PostScript, PDF or
 	  printed version of your observations so far
@@ -170,5 +171,5 @@ lanius, all versions:
 	Before written history.
 
 _________________________________________
-$Id: NEWS,v 1.18 2002-08-11 20:43:05 grahn Exp $
+$Id: NEWS,v 1.19 2002-08-11 20:46:27 grahn Exp $
 $Name:  $

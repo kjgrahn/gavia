@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: excursion.hh,v 1.6 2001-01-18 23:25:20 grahn Exp $
+ * $Id: excursion.hh,v 1.7 2002-06-16 14:38:58 grahn Exp $
  *
  * excursion.hh
  *
@@ -85,6 +85,8 @@ public:
     const std::string& getobservers() const;
     const std::string& getweather() const;
     const std::string& getcomments() const;
+
+    bool has(const Species&) const;
 
     const SpeciesSet& speciesset() const;
 

@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: excursion.cc,v 1.6 2002-01-18 17:34:08 grahn Exp $
+ * $Id: excursion.cc,v 1.7 2002-06-16 14:38:58 grahn Exp $
  *
  * excursion.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: excursion.cc,v 1.6 2002-01-18 17:34:08 grahn Exp $";
+"$Id: excursion.cc,v 1.7 2002-06-16 14:38:58 grahn Exp $";
 }
 
 #include <cassert>
@@ -112,6 +112,19 @@ const Excursion& Excursion::operator=(const Excursion& obj)
     smap = obj.smap;
 
     return *this;
+}
+
+
+/*----------------------------------------------------------------------------
+ *
+ * has()
+ *
+ *
+ *----------------------------------------------------------------------------
+ */
+bool Excursion::has(const Species& species) const
+{
+    return sset.count(species)>0;
 }
 
 

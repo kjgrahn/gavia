@@ -1,7 +1,7 @@
 %{
 /*----------------------------------------------------------------------------
  *
- * $Id: gablexer.l,v 1.8 2001-12-29 19:14:09 grahn Exp $
+ * $Id: gablexer.l,v 1.9 2002-06-16 14:38:58 grahn Exp $
  *
  * gablexer.l
  *
@@ -35,7 +35,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gablexer.l,v 1.8 2001-12-29 19:14:09 grahn Exp $";
+"$Id: gablexer.l,v 1.9 2002-06-16 14:38:58 grahn Exp $";
 }
 
 #include <cctype>
@@ -234,6 +234,12 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
 	throw GaviaException(std::string("invalid species '") + s + "'");
     }
 
+    if(excursion->has(species))
+    {
+	char buf[10]; std::sprintf(buf, "%d", *inc);
+	throw GaviaException(std::string("duplicate species near line ") + buf);
+    }
+
     excursion->insert(species);
 }
 
@@ -272,6 +278,12 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
 	throw GaviaException(std::string("invalid species '") + s + "'");
     }
 
+    if(excursion->has(species))
+    {
+	char buf[10]; std::sprintf(buf, "%d", *inc);
+	throw GaviaException(std::string("duplicate species near line ") + buf);
+    }
+
     excursion->insert(species, num, u);
 }
 
@@ -304,6 +316,12 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
     if(!redro->ismember(species))
     {
 	throw GaviaException(std::string("invalid species '") + s + "'");
+    }
+
+    if(excursion->has(species))
+    {
+	char buf[10]; std::sprintf(buf, "%d", *inc);
+	throw GaviaException(std::string("duplicate species near line ") + buf);
     }
 
     excursion->insert(species, 0, u);

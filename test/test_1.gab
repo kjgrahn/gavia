@@ -1,0 +1,57 @@
+# $Id: test_1.gab,v 1.1 1999-10-24 08:10:53 grahn Exp $
+#
+# test file with the following main points:
+# - comments (like this)
+# - empty lines
+# - several excursions not in date order
+# - excursions from the 21st century
+# - six species not in canonical, taxonomical or lexical order
+# - unticked species
+# - silly formatting
+#
+#############################
+{
+place        : Sjötorpasjön, Hulesjön
+date         : 010228
+time         : 10.00--11.00
+observers    : JöG
+weather      : klart
+comments     :
+}{
+flodsångare	: : 10: nummer ett
+enkelbeckasin   : : 11: nummer två
+duvhök		: : 12: nummer tre
+stäpphök	: : 13: nummer fyra
+brun kärrhök	: : 14: nummer fem
+alfågel		: : 15: nummer sex
+}
+#############################
+{
+  place        : Viken--Agnestadssjön
+  date         : 19990920
+  time         : eftermiddagen
+  observers:		JoG, IHe
+  weather      :mulet
+  comments     :		
+}{
+
+
+rördrom         : : :
+häger           :c: :
+svart stork     :c:1:
+vit stork       :c:2:Viken
+flamingo        :c: :Snösbäck
+knölsvan        : :0:
+mindre sångsvan : :3:
+sångsvan        : :4:Leaby
+sädgås          : : :Ållebergs Änne
+duvhök          :c: :
+
+
+
+bläsgås:::           
+				# foo
+fjällgås:c::
+		grågås         : c :42 : really long : and really long and really long and really long and really long and really long and really long and really long and really long and really long and really long and really long and really long and really long and really long and really long and really long and really long and really long and really long and really long and really long and really long and really long and really long and really long and really long and really long and really long and stressful comment
+}
+#     bar

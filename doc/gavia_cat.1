@@ -1,0 +1,66 @@
+.\" $Id: gavia_cat.1,v 1.1 1999-10-24 08:10:38 grahn Exp $
+.\" 
+.\"
+.TH gavia_cat 1 "JULY 1999" Unix "User Manuals"
+.SH NAME
+gavia_cat \- concatenate and translate Gavia books
+.SH SYNOPSIS
+.B gavia_cat [-bthl] [-cxs]
+.I bookfile
+.B ...
+.SH DESCRIPTION
+.B gavia_cat
+concatenates one or more Gavia book files
+given on the command line.
+A dash '-' denotes standard input.
+Standard input is also used if no
+book files are mentioned.
+The resulting aggregate book is then written to
+standard output, either as a
+Gavia book (i.e. binary),
+as text,
+as HTML,
+or LaTeX2e source code.
+.SH OPTIONS
+.IP -b
+(default) Output as a Gavia Book.
+.IP -t
+Output as plain text.
+.IP -h
+Output as HTML.
+.IP -l
+Output as LaTeX2e source.
+.IP -c
+(default) Output the species according
+to the "canonical" order.
+To be honest, this ordering is fairly meaningless
+and just an artifact of how Gavia works internally.
+This option - and the ones below - is meaningless
+unless the -t, -h or -l options are active.
+.IP -x
+Output the species according to
+a generally accepted taxonomical ordering.
+.IP -s
+Output the species sorted by name.
+.SH FILES
+N/A.
+.SH ENVIRONMENT
+The current locale settings might influence certain aspects.
+TBD.
+.SH DIAGNOSTICS
+TBD.
+.SH BUGS
+Error handling and error reporting is rudimentary, at the most.
+Bad file contents give unrecoverable errors.
+The Gavia book format is fucked up.
+.B gavia_cat
+is written in C++ and might be
+fragile and/or non-portable because of that.
+.SH AUTHOR
+Jörgen Grahn <jorgen.grahn@opensoftware.se>
+.SH "SEE ALSO"
+.BR gavia (1),
+.BR gavia_add (1),
+.BR gavia_grep (1),
+.BR gavia_sort (1),
+.BR gavia_stat (1)

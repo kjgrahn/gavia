@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: sortedorder.cc,v 1.2 1999-10-24 14:56:17 grahn Exp $
+ * $Id: sortedorder.cc,v 1.2.2.1 1999-11-19 22:40:34 grahn Exp $
  *
  * sortedorder.cc
  *
@@ -33,8 +33,9 @@
  *----------------------------------------------------------------------------
  */
 
-static const char rcsid[] =
-"$Id: sortedorder.cc,v 1.2 1999-10-24 14:56:17 grahn Exp $";
+static const char* rcsid() { rcsid(); return
+"$Id: sortedorder.cc,v 1.2.2.1 1999-11-19 22:40:34 grahn Exp $";
+}
 
 #include "species.hh"
 #include "speciesorder.hh"

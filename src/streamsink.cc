@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: streamsink.cc,v 1.2.2.1 1999-11-18 20:55:50 grahn Exp $
+ * $Id: streamsink.cc,v 1.2.2.2 1999-11-19 22:40:34 grahn Exp $
  *
  * streamsink.cc
  *
@@ -33,8 +33,9 @@
  *----------------------------------------------------------------------------
  */
 
-static const char rcsid[] =
-"$Id: streamsink.cc,v 1.2.2.1 1999-11-18 20:55:50 grahn Exp $";
+static const char* rcsid() { rcsid(); return
+"$Id: streamsink.cc,v 1.2.2.2 1999-11-19 22:40:34 grahn Exp $";
+}
 
 #include <cstdio>
 #include <cstring>

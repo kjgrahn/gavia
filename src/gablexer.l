@@ -1,7 +1,7 @@
 %{
 /*----------------------------------------------------------------------------
  *
- * $Id: gablexer.l,v 1.3.2.1 1999-11-18 20:55:49 grahn Exp $
+ * $Id: gablexer.l,v 1.3.2.2 1999-11-19 22:40:33 grahn Exp $
  *
  * gablexer.l
  *
@@ -34,8 +34,9 @@
  *----------------------------------------------------------------------------
  */
 
-    static const char rcsid[] =
-"$Id: gablexer.l,v 1.3.2.1 1999-11-18 20:55:49 grahn Exp $";
+static const char* rcsid() { rcsid(); return
+"$Id: gablexer.l,v 1.3.2.2 1999-11-19 22:40:33 grahn Exp $";
+}
 
 #include <cctype>
 #include <cstring>

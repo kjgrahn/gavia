@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: motorola.c,v 1.2 1999-10-24 14:56:17 grahn Exp $
+ * $Id: motorola.c,v 1.2.2.1 1999-11-19 22:40:34 grahn Exp $
  *
  * motorola.c
  *
@@ -38,8 +38,9 @@
  *----------------------------------------------------------------------------
  */
 
-static const char rcsid[] =
-"$Id: motorola.c,v 1.2 1999-10-24 14:56:17 grahn Exp $";
+static const char* rcsid(void) { rcsid(); return
+"$Id: motorola.c,v 1.2.2.1 1999-11-19 22:40:34 grahn Exp $";
+}
 
 #include <stdio.h>
 

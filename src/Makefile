@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.3 1999-10-24 14:56:16 grahn Exp $
+# $Id: Makefile,v 1.4 1999-11-09 19:11:50 grahn Exp $
 #
 # Makefile
 #
@@ -37,6 +37,7 @@ LIBS = -lfl
 SRCS = gavia_add.cc \
        gavia_cat.cc \
        gavia_grep.cc \
+       gavia_sort.cc \
        excursion.cc \
        canonorder.cc sortedorder.cc dynamicorder.cc taxonomicorder.cc \
        speciesredro.cc \
@@ -47,6 +48,7 @@ SRCS = gavia_add.cc \
 OBJS = gavia_add.o  \
        gavia_cat.o  \
        gavia_grep.o  \
+       gavia_sort.o  \
        excursion.o  \
        canonorder.o  sortedorder.o  dynamicorder.o  taxonomicorder.o  \
        speciesredro.o  \
@@ -71,8 +73,8 @@ gavia_add: gavia_add.o excursion.o streamsource.o streamsink.o canonorder.o moto
 gavia_grep: gavia_grep.o canonorder.o dynamicorder.o streamsink.o streamsource.o excursion.o motorola.o bitmap.o
 	g++ $(LDFLAGS) -o $@ $^ $(LIBS)
 
-gavia_sort:
-	@echo "gavia_sort is not yet implemented"
+gavia_sort: gavia_sort.o canonorder.o dynamicorder.o streamsink.o streamsource.o excursion.o motorola.o bitmap.o
+	g++ $(LDFLAGS) -o $@ $^ $(LIBS)
 
 gavia_stat:
 	@echo "gavia_stat is not yet implemented"

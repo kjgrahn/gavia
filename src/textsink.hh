@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: textsink.hh,v 1.3 1999-11-30 22:19:47 grahn Exp $
+ * $Id: textsink.hh,v 1.4 2000-08-10 19:47:22 grahn Exp $
  *
  * textsink.hh
  *
- * Copyright (c) 1999 Jörgen Grahn <jorgen.grahn@opensoftware.se>
+ * Copyright (c) 1999 Jörgen Grahn <jgrahn@algonet.se>
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without

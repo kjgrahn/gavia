@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: excursion.hh,v 1.4 2000-06-01 14:13:03 grahn Exp $
+ * $Id: excursion.hh,v 1.5 2000-08-10 19:47:21 grahn Exp $
  *
  * excursion.hh
  *
- * Copyright (c) 1999 Jörgen Grahn <jorgen.grahn@opensoftware.se>
+ * Copyright (c) 1999, 2000 Jörgen Grahn <jgrahn@algonet.se>
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without

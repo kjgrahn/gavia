@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: bitmap.c,v 1.2 1999-11-30 22:19:46 grahn Exp $
+ * $Id: bitmap.c,v 1.3 2000-08-10 19:47:21 grahn Exp $
  *
  * bitmap.c
  *
- * Jörgen Grahn <jorgen.grahn@opensoftware.se>
+ * Jörgen Grahn <jgrahn@algonet.se>
  * 1998-09-26
  *----------------------------------------------------------------------------
  *
@@ -15,7 +15,7 @@
  */
 
 static const char* rcsid(void) { rcsid(); return
-"$Id: bitmap.c,v 1.2 1999-11-30 22:19:46 grahn Exp $";
+"$Id: bitmap.c,v 1.3 2000-08-10 19:47:21 grahn Exp $";
 }
 
 #include <stdio.h>

@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: latexsink.cc,v 1.5 1999-11-30 22:19:46 grahn Exp $
+ * $Id: latexsink.cc,v 1.6 2000-08-10 19:47:21 grahn Exp $
  *
  * latexsink.cc
  *
- * Copyright (c) 1999 Jörgen Grahn <jorgen.grahn@opensoftware.se>
+ * Copyright (c) 1999 Jörgen Grahn <jgrahn@algonet.se>
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: latexsink.cc,v 1.5 1999-11-30 22:19:46 grahn Exp $";
+"$Id: latexsink.cc,v 1.6 2000-08-10 19:47:21 grahn Exp $";
 }
 
 #include <cassert>

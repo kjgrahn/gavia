@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: canonorder.hh,v 1.2 1999-10-24 14:56:16 grahn Exp $
+ * $Id: canonorder.hh,v 1.3 2000-08-10 19:47:21 grahn Exp $
  *
  * canonorder.hh
  *
- * Copyright (c) 1999 Jörgen Grahn <jorgen.grahn@opensoftware.se>
+ * Copyright (c) 1999 Jörgen Grahn <jgrahn@algonet.se>
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without

@@ -1,8 +1,8 @@
-# $Id: Makefile,v 1.8 2000-08-10 19:17:24 grahn Exp $
+# $Id: Makefile,v 1.9 2000-08-10 19:47:21 grahn Exp $
 #
 # Makefile
 #
-# Copyright (c) 1999--2000 Jörgen Grahn <jorgen.grahn@opensoftware.se>
+# Copyright (c) 1999--2000 Jörgen Grahn <jgrahn@algonet.se>
 # All rights reserved.
 # 
 # Redistribution and use in source and binary forms, with or without

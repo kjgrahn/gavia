@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: motorola.c,v 1.3 1999-11-30 22:19:46 grahn Exp $
+ * $Id: motorola.c,v 1.4 2000-08-10 19:47:21 grahn Exp $
  *
  * motorola.c
  *
- * Copyright (c) 1999 Jörgen Grahn <jorgen.grahn@opensoftware.se>
+ * Copyright (c) 1999 Jörgen Grahn <jgrahn@algonet.se>
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -39,7 +39,7 @@
  */
 
 static const char* rcsid(void) { rcsid(); return
-"$Id: motorola.c,v 1.3 1999-11-30 22:19:46 grahn Exp $";
+"$Id: motorola.c,v 1.4 2000-08-10 19:47:21 grahn Exp $";
 }
 
 #include <stdio.h>

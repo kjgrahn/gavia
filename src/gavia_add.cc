@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_add.cc,v 1.7 2000-08-10 19:17:24 grahn Exp $
+ * $Id: gavia_add.cc,v 1.8 2000-08-10 19:47:21 grahn Exp $
  *
  * gavia_add.cc
  *
- * Copyright (c) 1999 Jörgen Grahn <jorgen.grahn@opensoftware.se>
+ * Copyright (c) 1999, 2000 Jörgen Grahn <jgrahn@algonet.se>
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -36,7 +36,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gavia_add.cc,v 1.7 2000-08-10 19:17:24 grahn Exp $";
+"$Id: gavia_add.cc,v 1.8 2000-08-10 19:47:21 grahn Exp $";
 }
 
 #include <cstdio>
@@ -77,7 +77,8 @@ int main(int argc, char ** argv)
 	{
 	    fprintf(stderr,
 		    "gavia_add, part of %s\n"
-		    "(c) 2000 Jörgen Grahn\n",
+		    "Copyright (c) 2000 Jörgen Grahn "
+		    "<jgrahn@algonet.se>\n",
 		    version.name());
 	    return 0;
 	}

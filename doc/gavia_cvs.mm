@@ -1,7 +1,7 @@
-.\" $Id: gavia_cvs.mm,v 1.2 2001-05-31 21:27:59 grahn Exp $
+.\" $Id: gavia_cvs.mm,v 1.3 2001-05-31 21:31:16 grahn Exp $
 
-.ND $Date: 2001-05-31 21:27:59 $
-.PF $Id: gavia_cvs.mm,v 1.2 2001-05-31 21:27:59 grahn Exp $
+.ND "$Date: 2001-05-31 21:31:16 $"
+.PF "$Id: gavia_cvs.mm,v 1.3 2001-05-31 21:31:16 grahn Exp $"
 
 .COVER
 .TL

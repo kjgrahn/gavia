@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_cat.cc,v 1.10 2001-01-18 23:25:20 grahn Exp $
+ * $Id: gavia_cat.cc,v 1.11 2001-06-09 20:07:51 grahn Exp $
  *
  * gavia_cat.cc
  *
- * Copyright (c) 1999, 2000 Jörgen Grahn <jgrahn@algonet.se>
+ * Copyright (c) 1999--2001 Jörgen Grahn <jgrahn@algonet.se>
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -37,7 +37,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gavia_cat.cc,v 1.10 2001-01-18 23:25:20 grahn Exp $";
+"$Id: gavia_cat.cc,v 1.11 2001-06-09 20:07:51 grahn Exp $";
 }
 
 #include <cstdio>
@@ -57,6 +57,7 @@ static const char* rcsid() { rcsid(); return
 #include "textsink.hh"
 #include "htmlsink.hh"
 #include "latexsink.hh"
+#include "mboxsink.hh"
 
 #include "speciesorder.hh"
 #include "canonorder.hh"
@@ -76,7 +77,7 @@ static const char* rcsid() { rcsid(); return
  */
 int main(int argc, char ** argv)
 {
-    const char optstring[] = "+bgthlcxsv";
+    const char optstring[] = "+bgthlmcxsv";
     int ch = EOF;
     int fmtch = 'b';
     int ordch = 'c';
@@ -93,6 +94,7 @@ int main(int argc, char ** argv)
 	case 't':		// plain text
 	case 'h':		// HTML
 	case 'l':		// LaTeX2e
+	case 'm':		// mbox
 	    fmtch = ch;
 	    break;
 	case 'c':		// 'canonical' order
@@ -103,7 +105,7 @@ int main(int argc, char ** argv)
 	case 'v':
 	    fprintf(stderr,
 		    "gavia_cat, part of %s\n"
-		    "Copyright (c) 2000 Jörgen Grahn "
+		    "Copyright (c) 1999--2001 Jörgen Grahn "
 		    "<jgrahn@algonet.se>\n",
 		    version.name());
 	    return 0;
@@ -126,6 +128,7 @@ int main(int argc, char ** argv)
     case 't':
     case 'h':
     case 'l':
+    case 'm':
 	switch(ordch)
 	{
 	case 'c':
@@ -154,6 +157,9 @@ int main(int argc, char ** argv)
 	    break;
 	case 'l':
 	    sink = new LaTeXSink(order, stdout);
+	    break;
+	case 'm':
+	    sink = new MboxSink(order, stdout);
 	    break;
 	default:
 	    assert(!"extremely impossible");

@@ -1,11 +1,11 @@
-.\" $Id: gavia_cat.1,v 1.7 2001-03-03 12:20:22 grahn Exp $
+.\" $Id: gavia_cat.1,v 1.8 2001-06-09 20:07:51 grahn Exp $
 .\" 
 .\"
-.TH gavia_cat 1 "JAN 2000" Unix "User Manuals"
+.TH gavia_cat 1 "JUN 2001" Unix "User Manuals"
 .SH "NAME"
 gavia_cat \- concatenate and translate Gavia books
 .SH "SYNOPSIS"
-.B gavia_cat [-bgthlv] [-cxs]
+.B gavia_cat [-bgthlmv] [-cxs]
 .I bookfile
 .B ...
 .SH "DESCRIPTION"
@@ -21,7 +21,8 @@ Gavia book (i.e. binary),
 as text,
 as ''gab'' formatted text,
 as HTML,
-or LaTeX2e source code.
+LaTeX2e source code,
+or a mbox mail file.
 .SH "OPTIONS"
 .IP -b
 (default) Output as a Gavia Book.
@@ -33,12 +34,17 @@ Output as plain text.
 Output as HTML.
 .IP -l
 Output as LaTeX2e source.
+.IP -m
+Output as a mbox file, readable by mail user agents such as
+.BR mail (1)
+or
+.BR mutt (1).
 .IP -c
 (default) Output the species according
 to the "canonical" order.
 To be honest, this ordering is fairly meaningless
 and just an artifact of how Gavia works internally.
-This option - and the ones below - is not meaningful
+This option \- and the ones below \- is not meaningful
 if the -b option is active.
 .IP -x
 Output the species according to

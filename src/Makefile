@@ -1,8 +1,8 @@
-# $Id: Makefile,v 1.11 2001-03-03 12:20:22 grahn Exp $
+# $Id: Makefile,v 1.12 2001-06-09 20:07:51 grahn Exp $
 #
 # Makefile
 #
-# Copyright (c) 1999--2000 Jörgen Grahn <jgrahn@algonet.se>
+# Copyright (c) 1999--2001 Jörgen Grahn <jgrahn@algonet.se>
 # All rights reserved.
 # 
 # Redistribution and use in source and binary forms, with or without
@@ -51,7 +51,7 @@ SRCS = gavia_add.cc \
        canonorder.cc sortedorder.cc dynamicorder.cc taxonomicorder.cc \
        speciesredro.cc \
        streamsource.cc gabsource.cc \
-       streamsink.cc gabsink.cc textsink.cc htmlsink.cc latexsink.cc \
+       streamsink.cc gabsink.cc textsink.cc htmlsink.cc latexsink.cc mboxsink.cc \
        gablexer.cc \
        motorola.c bitmap.c \
        version.cc
@@ -63,7 +63,7 @@ OBJS = gavia_add.o  \
        canonorder.o  sortedorder.o  dynamicorder.o  taxonomicorder.o  \
        speciesredro.o  \
        streamsource.o  gabsource.o  \
-       streamsink.o  gabsink.o  textsink.o  htmlsink.o  latexsink.o  \
+       streamsink.o  gabsink.o  textsink.o  htmlsink.o  latexsink.o  mboxsink.o  \
        gablexer.o  \
        motorola.o bitmap.o \
        version.o
@@ -76,7 +76,7 @@ objs: $(OBJS)
 # executables
 #
 
-gavia_cat: gavia_cat.o excursion.o streamsource.o streamsink.o gabsink.o textsink.o htmlsink.o latexsink.o canonorder.o taxonomicorder.o sortedorder.o dynamicorder.o motorola.o bitmap.o version.o
+gavia_cat: gavia_cat.o excursion.o streamsource.o streamsink.o gabsink.o textsink.o htmlsink.o latexsink.o mboxsink.o canonorder.o taxonomicorder.o sortedorder.o dynamicorder.o motorola.o bitmap.o version.o
 	$(CXX) $(LDFLAGS) -o $@ $^ $(LIBS)
 
 gavia_add: gavia_add.o excursion.o streamsource.o streamsink.o canonorder.o motorola.o bitmap.o dynamicorder.o gabsource.o gablexer.o speciesredro.o version.o
@@ -110,7 +110,7 @@ tags: $(SRCS)
 	etags *.c *.h *.cc *.hh
 
 depend: $(SRCS)
-	makedepend -- $(CFLAGS) -- -Y $(SRCS)
+	makedepend -- $(CFLAGS) -- -Y -I. $(SRCS)
 
 clean:
 	rm -f $(OUTS) *.o gablexer.cc Makefile.bak core TAGS
@@ -125,8 +125,8 @@ gavia_add.o: speciesset.hh gabsource.hh streamsink.hh booksink.hh
 gavia_add.o: canonorder.hh speciesorder.hh
 gavia_cat.o: version.hh booksink.hh excursion.hh species.hh speciesset.hh
 gavia_cat.o: gabsink.hh streamsink.hh textsink.hh htmlsink.hh latexsink.hh
-gavia_cat.o: speciesorder.hh canonorder.hh sortedorder.hh taxonomicorder.hh
-gavia_cat.o: streamsource.hh booksource.hh
+gavia_cat.o: mboxsink.hh speciesorder.hh canonorder.hh sortedorder.hh
+gavia_cat.o: taxonomicorder.hh streamsource.hh booksource.hh
 gavia_grep.o: version.hh excursion.hh species.hh speciesset.hh
 gavia_grep.o: streamsource.hh booksource.hh streamsink.hh booksink.hh
 gavia_grep.o: canonorder.hh speciesorder.hh dynamicorder.hh
@@ -153,6 +153,8 @@ htmlsink.o: dynamicorder.hh speciesorder.hh species.hh speciesset.hh
 htmlsink.o: htmlsink.hh booksink.hh excursion.hh
 latexsink.o: dynamicorder.hh speciesorder.hh species.hh speciesset.hh
 latexsink.o: latexsink.hh booksink.hh excursion.hh
+mboxsink.o: dynamicorder.hh speciesorder.hh species.hh speciesset.hh
+mboxsink.o: mboxsink.hh booksink.hh excursion.hh
 gablexer.o: excursion.hh species.hh speciesset.hh speciesredro.hh
 gablexer.o: speciesorder.hh
 motorola.o: motorola.h

@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.1 2000-08-10 19:21:46 grahn Exp $
+# $Id: Makefile,v 1.2 2000-08-10 19:47:02 grahn Exp $
 #
 # Makefile
 #
@@ -32,7 +32,7 @@ SHELL = /bin/sh
 INSTALLBASE = /usr/local
 
 all:
-	false
+	true
 
 install:
 	install -m555 gavia_stat.pl $(INSTALLBASE)/bin/gavia_stat
@@ -41,7 +41,7 @@ install:
 	install -m555 gaviadeexpand.pl $(INSTALLBASE)/bin/gaviadeexpand
 
 depend:
-	false
+	true
 
 clean:
 	true

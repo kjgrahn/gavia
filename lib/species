@@ -1,13 +1,17 @@
-# $Id: species,v 1.4 2002-07-15 21:15:58 grahn Exp $
+# $Id: species,v 1.5 2002-07-25 10:30:03 grahn Exp $
 #
 # The canonical list of species accepted by Gavia.
 #
 # Empty lines and '#' comment lines are
 # disregarded, everything else is a canonical species number followed by a species name.
 #
+# Please note that if you want to change this file, it must be
+# done very carefully, since it directly affects the gavia file
+# formats -- see gavia(5).
+#
 # The species should appear in taxonomic order.
 #
-# Number of species: 506 ([0..506[)
+# Number of species: 514 ([0..513])
 # <species perl -ne 'print if /^\d{3}/' | wc -l
 #
 
@@ -22,6 +26,7 @@
 006 svarthakedopping
 007 svarthalsad dopping
 
+506 svartbrynad albatross
 008 stormfågel
 009 grålira
 010 mindre lira
@@ -66,6 +71,7 @@
 026 grågås
 027 stripgås
 028 snögås
+507 dvärgsnögås
 029 kanadagås
 030 vitkindad gås
 031 prutgås
@@ -76,6 +82,7 @@
 474 svartbukig prutgås
 475 ljusbukig prutgås
 505 nilgås
+508 svangås
 
 032 rostand
 033 gravand
@@ -92,6 +99,7 @@
 318 svartand
 319 blåvingad årta
 476 amerikansk kricka
+509 gulkindad kricka
 
 043 brunand
 044 vigg
@@ -153,6 +161,7 @@
 334 rödfalk
 335 eleonorafalk
 336 tatarfalk
+510 slagfalk
 
 077 järpe
 078 dalripa
@@ -290,6 +299,7 @@
 378 sottärna
 379 skäggtärna
 467 kärrtärna
+511 tygeltärna
 
 153 sillgrissla
 154 tordmule
@@ -451,6 +461,7 @@
 437 bergsångare
 464 starrsångare
 495 grässångare
+512 eksångare
 
 222 gräshoppsångare
 223 flodsångare
@@ -550,6 +561,7 @@
 284 snösiska
 290 domherre
 288 rosenfink
+513 långstjärtad rosenfink
 446 ökentrumpetare
 291 stenknäck
 285 bändelkorsnäbb

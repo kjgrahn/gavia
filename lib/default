@@ -1,9 +1,10 @@
-# $Id: default,v 1.10 2002-07-15 21:15:57 grahn Exp $
+# $Id: default,v 1.11 2002-07-25 10:30:03 grahn Exp $
 #
 # Example template file for gavia_stellata(1), with a
 # selection of species you are more or less likely to see.
 # You may edit this file to pre-fill e.g. the
 # 'observers' field.
+# You may also keep a personal copy, as `~/.gavia_template'.
 #
 {
 place        : 

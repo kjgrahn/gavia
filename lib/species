@@ -1,8 +1,8 @@
-# $Id: species,v 1.2 2002-07-15 14:59:17 grahn Exp $
+# $Id: species,v 1.3 2002-07-15 19:17:44 grahn Exp $
 #
 # The canonical list of species accepted by Gavia.
 #
-# Empty lines, '#' comment lines and '#' line ending comments are
+# Empty lines and '#' comment lines are
 # disregarded, everything else is a canonical species number followed by a species name.
 #
 # The species should appear in taxonomic order.

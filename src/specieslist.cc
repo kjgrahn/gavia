@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: specieslist.cc,v 1.1 2002-07-15 13:40:52 grahn Exp $
+ * $Id: specieslist.cc,v 1.2 2002-07-15 19:17:44 grahn Exp $
  *
  * specieslist.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: specieslist.cc,v 1.1 2002-07-15 13:40:52 grahn Exp $";
+"$Id: specieslist.cc,v 1.2 2002-07-15 19:17:44 grahn Exp $";
 }
 
 #include <cassert>
@@ -99,7 +99,7 @@ static void readspecies(vector<SpeciesList::Item> * species)
 	while(isspace(*p)) p++;
 
 	char * namestart = p;
-	while(*p!='#' && *p!='\n' && *p)
+	while(*p!='\n' && *p)
 	{
 	    p++;
 	}

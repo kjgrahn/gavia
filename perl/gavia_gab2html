@@ -1,0 +1,36 @@
+#!/usr/bin/perl -w # -*- perl -*-
+#
+# $Id: gavia_gab2html,v 1.1 2002-09-29 19:44:37 grahn Exp $
+# $Name:  $
+#
+# gavia_gab2html - transform gab (see gavia(5)) formatted excursions
+# to HTML.
+#
+# Copyright (c) 2002 Jörgen Grahn <jgrahn@algonet.se>
+# All rights reserved.
+#
+
+use strict;
+
+print <<EOF;
+<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 3.2 Final//EN\">\n
+<HTML>
+<HEAD>
+<META HTTP-EQUIV=\"Content-Type\" 
+ CONTENT=\"text/html; charset=iso-8859-1\">
+<TITLE>Gavia contents</TITLE>
+</HEAD>
+<BODY>
+EOF
+
+while(<>) {
+    print;
+}
+
+print <<EOF;
+<hr>
+</BODY>
+</HTML>
+EOF
+
+exit 0;

@@ -1,0 +1,57 @@
+#!/usr/bin/perl -w # -*- perl -*-
+#
+# $Id: gavia_gab2text,v 1.1 2002-09-29 19:44:37 grahn Exp $
+# $Name:  $
+#
+# gavia_gab2text - transform gab (see gavia(5)) formatted excursions
+# to plain text
+#
+# Copyright (c) 2002 Jörgen Grahn <jgrahn@algonet.se>
+# All rights reserved.
+#
+
+use strict;
+
+while(<>) {
+
+    chomp;
+    s/^\s+//;
+
+    SWITCH: {
+
+	my $hdrs = "place|date|time|observers|weather|comments";
+      
+	/^($hdrs)\s*:\s*(.+)/i && do {
+
+	    printf("%-9s: %s\n", $1, $2);
+	    last SWITCH;
+	};
+
+	/^({|}{)/ && do {
+
+	    print "------------------------------\n";
+	    last SWITCH;
+	};
+
+	/^(.+?)\s*:.*?:\s*(\d+)\s*:\s*(.*)/ && do {
+
+	    printf("%s (%d) %s\n", $1, $2, $3);
+	    last SWITCH;
+	};
+
+	/^(.+?)\s*:.*?:.*?:\s*(.*)/ && do {
+
+	    printf("%s (0) %s\n", $1, $2, $3);
+	    last SWITCH;
+	};
+
+	(/^$/ || /^\s*\#/ || /^}/) && do {
+
+	    last SWITCH;
+	};
+
+	print STDERR "gavia_gab2html: funny stuff on line $.: $_\n";
+    }
+}
+
+exit 0;

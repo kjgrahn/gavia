@@ -1,0 +1,34 @@
+.\" $Id: gavia_stellata.1,v 1.1 2001-06-17 20:52:20 grahn Exp $
+.\" 
+.\"
+.TH gavia_stellata 1 "JUN 2001" Gavia "User Manuals"
+.SH "NAME"
+gavia_stellata \- add excursions to a Gavia book
+.SH "SYNOPSIS"
+.B gavia_stellata
+.I file
+.SH "DESCRIPTION"
+.B gavia_stellata
+is a perl script which makes it reasonably convenient to add
+excursions to a 'Gab'-formatted Gavia book.
+
+A template file,
+.B ~/.gavia_template ,
+is read into a text editor (emacs), with the current date filled in.
+When the user has edited and saved it, gavia_stellata strips
+away all non-selected species and fires up the editor again,
+so that the user can e.g. add comments.
+When the user saves the excusions the second time, gavia_stellata
+appends the result to
+.I file
+and exits.
+.SH "FILES"
+.TP
+.I  ~/.gavia_template
+Personal excursion template file. May contain only a subset of
+all species. Fields, e.g. 'observers', may be pre-filled.
+.SH "AUTHOR"
+Jörgen Grahn <jgrahn@algonet.se>
+.SH "SEE ALSO"
+.BR gavia (1),
+.BR gavia (5)

@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gabsink.cc,v 1.3 2001-02-17 19:13:50 grahn Exp $
+ * $Id: gabsink.cc,v 1.4 2001-05-31 19:59:41 grahn Exp $
  *
  * gabsink.cc
  *
- * Copyright (c) 1999 Jörgen Grahn <jgrahn@algonet.se>
+ * Copyright (c) 1999, 2001 Jörgen Grahn <jgrahn@algonet.se>
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -34,7 +34,7 @@
  */
 
 static const char rcsid[] =
-"$Id: gabsink.cc,v 1.3 2001-02-17 19:13:50 grahn Exp $";
+"$Id: gabsink.cc,v 1.4 2001-05-31 19:59:41 grahn Exp $";
 
 #include <assert.h>
 #include <stdio.h>
@@ -150,7 +150,7 @@ void GabSink::put(const Excursion& ex)
 	Species sp(order.species(i));
 
 	/*
-	  Format the entries so that ':-: ...'
+	  Format the entries so that the part after the species name (":...")
 	  begins at column 24 (three tabs off) if possible
 	*/
 	fputs(sp.c_str(), mfp);
@@ -171,9 +171,19 @@ void GabSink::put(const Excursion& ex)
 	    fputs(" ", mfp);
 	}
 
-	fprintf(mfp, ":-: %d : %s\n",
-		ex.speciescount(sp),
-		ex.speciescomment(sp).c_str());
+	const int n = ex.speciescount(sp);
+	
+	if(n)
+	{
+	    fprintf(mfp, ":#: %3d: %s\n",
+		    n,
+		    ex.speciescomment(sp).c_str());
+	}
+	else
+	{
+	    fprintf(mfp, ":#:    : %s\n",
+		    ex.speciescomment(sp).c_str());
+	}
     }
 
     fprintf(mfp, "%s\n\n", "}");

@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: gavia_stellata.pl,v 1.10 2002-07-15 15:02:57 grahn Exp $
+# $Id: gavia_stellata.pl,v 1.11 2002-07-15 19:25:19 grahn Exp $
 # $Name:  $
 #
 # gavia_stellata.pl - interactively adding
@@ -85,6 +85,8 @@ if(system("$editor $tmpname1")) {
     die;
 }
 
+syntaxcheck($tmpname1);
+
 if(system("cat >>$obsbok $tmpname1")) {
     unlink $tmpname1;
     die "Failed to add the new data to $obsbok, exiting.\n";
@@ -93,3 +95,47 @@ if(system("cat >>$obsbok $tmpname1")) {
 unlink $tmpname1;
 
 exit 0;
+
+
+# syntax check '$file', including validating species lists,
+# but only _warn_ the user.
+# Some things are not caught, e.g. duplicate lines and
+# other line-spanning syntax errors.
+#
+sub syntaxcheck {
+    my $file = shift;
+    my %species;
+
+    open SPECIES, "INSTALLBASE/lib/gavia/species"
+	or return;
+
+    while(<SPECIES>) {
+	chomp;
+	$species{$1} = 1 if /^\s*\d{3}\s+(.+)/;
+    }
+    close SPECIES;
+
+    open FILE, $file;
+    while(<FILE>) {
+	chomp;
+
+	next if /^\s*(time|observers|weather|comments)\s*:/i;
+	next if /^\s*$/;
+	next if /^\s*\#/;
+	next if /^\s*[{}]\s*$/;
+	next if /^\s*\}\s*\{\s*$/;
+	if(/^\s*(place|date)\s*:\s*(.*)/i) {
+	    if($2 eq "") {
+		print STDERR "warning: field '$1' is empty\n";
+	    }
+	    next;
+	}
+	if(/\s*([a-zедц ]+?)\s*:.*?:\s*\d*\s*:/i) {
+	    print STDERR "warning: species '$1' is unknown/misspelled\n"
+		unless defined($species{$1});
+	    next;
+	}
+	print STDERR "warning: malformed line\n   $_\n";
+    }
+    close FILE;
+}

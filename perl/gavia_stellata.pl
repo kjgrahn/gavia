@@ -1,12 +1,12 @@
 #!/usr/bin/perl -w
 #
-# $Id: gavia_stellata.pl,v 1.9 2002-04-07 09:17:52 grahn Exp $
+# $Id: gavia_stellata.pl,v 1.10 2002-07-15 15:02:57 grahn Exp $
 # $Name:  $
 #
 # gavia_stellata.pl - interactively adding
 # excursions to the default .gab file
 #
-# Copyright (c) 1999, 2000, 2001 Jörgen Grahn <jgrahn@algonet.se>
+# Copyright (c) 1999--2002 Jörgen Grahn <jgrahn@algonet.se>
 # All rights reserved.
 # 
 # Redistribution and use in source and binary forms, with or without
@@ -26,7 +26,7 @@
 $obsbok = shift
     or die "usage: $0 filename\n";
 $template = (glob "~/.gavia_template"
-    or glob "~gavia/template/default")
+    or "INSTALLBASE/lib/gavia/default")
     or die "Cannot find an excursion template to use.\n";
 $tmpname0 = "/tmp/gavia_stellata.tmp0.$$";
 $tmpname1 = "/tmp/gavia_stellata.tmp1.$$";

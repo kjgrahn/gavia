@@ -1,8 +1,8 @@
-# $Id: Makefile,v 1.4 2002-06-16 15:05:04 grahn Exp $
+# $Id: Makefile,v 1.5 2002-07-15 15:02:57 grahn Exp $
 #
 # Makefile
 #
-# Copyright (c) 2000 Jörgen Grahn <jgrahn@algonet.se>
+# Copyright (c) 2000--2002 Jörgen Grahn <jgrahn@algonet.se>
 # All rights reserved.
 # 
 # Redistribution and use in source and binary forms, with or without
@@ -34,19 +34,25 @@ INSTALLBASE = /usr/local
 all:
 	true
 
-install:
+install: gavia_stat.pl _gavia_stellata gaviadate.pl gaviadeexpand.pl _gavia_focus gavia_score
 	install -m555 gavia_stat.pl $(INSTALLBASE)/bin/gavia_stat
-	install -m555 gavia_stellata.pl $(INSTALLBASE)/bin/gavia_stellata
+	install -m555 _gavia_stellata $(INSTALLBASE)/bin/gavia_stellata
 	install -m555 gaviadate.pl $(INSTALLBASE)/bin/gaviadate
 	install -m555 gaviadeexpand.pl $(INSTALLBASE)/bin/gaviadeexpand
-	install -m555 gavia_focus $(INSTALLBASE)/bin/
+	install -m555 _gavia_focus $(INSTALLBASE)/bin/gavia_focus
 	install -m555 gavia_score $(INSTALLBASE)/bin/
+
+_gavia_stellata: gavia_stellata.pl
+	sed "s|INSTALLBASE|$(INSTALLBASE)|" <$< >$@
+
+_gavia_focus: gavia_focus
+	sed "s|INSTALLBASE|$(INSTALLBASE)|" <$< >$@
 
 depend:
 	true
 
 clean:
-	true
+	$(RM) _gavia_stellata _gavia_focus
 
 love:
 	@echo "not war?"

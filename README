@@ -44,9 +44,9 @@ To compile, you'll also need flex, the lex replacement.
 The lex that comes with Solaris isn't enough, for example.
 
 You also need to be on a Unix-like system. Personally, I'm on a Linux
-box. There are probably a few GNUisms in the code.
+box. There are probably a few GNUisms in the code and the build scripts.
 
-For my daily use of gavia, I rely on perl, RCS or cvs, and GNU
+For my daily use of gavia, I rely on perl, RCS or CVS, and GNU
 Emacs. You can avoid some of these depending on how you use gavia and
 how much you're willing to customize the (admittedly trivial) scripts.
 
@@ -67,12 +67,13 @@ editor.
 % make && make install
 
 should be enough to compile and install gavia into /usr/local.
+To install it elsewhere, you have to edit all or most of the Makefiles.
 
-A few of the programs require a template or config file; example files
-are found in the 'lib/' subdirectory, but these have to be installed
-manually. Usually, you'd want a personal copy in your home directory,
-but they can also be kept in a system-wide location -- see the man
-pages for details.
+This creates files in bin/, man/ and lib/gavia/.
+
+Some of the files in lib/gavia/ are more or less example config files
+for various gavia comamnds.  You are encouraged to create custom
+versions in your home directory -- see the man pages for details.
 
 There is at least one non-manpage piece of documentation. Like the
 example config files, it is not installed by default.
@@ -84,12 +85,12 @@ You may have noted already that this isn't a ready solution. Correct -
 it's a hack that does what I need it to do and little else.
 
 One /major/ weakness - which has historical reasons - is that the
-accepted bird species are fixed at compile time, and they are
-identified by their name /in Swedish/. You can hack gavia to hide this
-fact if you care to; I'll probably never get around to it.
+accepted bird species are fixed, and they are identified by their name
+/in Swedish/. You can hack gavia to hide this fact if you care to;
+I'll probably never get around to it.
 
 
 Jörgen Grahn <jgrahn@algonet.se>
 
-$Id: README,v 1.5 2001-12-22 10:27:38 grahn Exp $
+$Id: README,v 1.6 2002-07-15 16:06:39 grahn Exp $
 $Name:  $

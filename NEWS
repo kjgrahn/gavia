@@ -3,6 +3,10 @@
 Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
+gavia 2.20 (2001-09-30):
+	- gavia_focus now has a '-v' flag for inverting the filter
+	- the 'bookfile' argument to gavia_add is finally optional
+
 gavia 2.19 (2001-09-27):
 	- a new tool, 'gavia_focus', lets you filter away common species
 	  during parts of the year -- useful for quickly browsing a large
@@ -76,5 +80,5 @@ lanius, all versions:
 	Before written history.
 
 _________________________________________
-$Id: NEWS,v 1.7 2001-09-27 20:37:18 grahn Exp $
+$Id: NEWS,v 1.8 2001-09-30 11:44:37 grahn Exp $
 $Name:  $

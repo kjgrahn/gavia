@@ -4,8 +4,11 @@ Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
 
+gavia 2.29 (2003-01-05)
 	- one new species added (new total 516):
 	  buffelhuvud
+	- gavia_cat(1): output to text, *roff and html prints the
+	  weekday alongside the date
 
 gavia 2.28 (2002-10-20)
 	- one new species added (new total 515):
@@ -199,5 +202,5 @@ lanius, all versions:
 	Before written history.
 
 _________________________________________
-$Id: NEWS,v 1.24 2002-12-28 22:23:28 grahn Exp $
+$Id: NEWS,v 1.25 2003-01-05 09:49:25 grahn Exp $
 $Name:  $

@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: mboxsink.cc,v 1.2 2001-12-29 19:14:09 grahn Exp $
+ * $Id: mboxsink.cc,v 1.3 2005-01-02 11:14:58 grahn Exp $
  *
  * mboxsink.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char rcsid[] =
-"$Id: mboxsink.cc,v 1.2 2001-12-29 19:14:09 grahn Exp $";
+"$Id: mboxsink.cc,v 1.3 2005-01-02 11:14:58 grahn Exp $";
 
 #include <cassert>
 #include <cstdio>
@@ -139,7 +139,7 @@ void MboxSink::put(const Excursion& ex)
     fprintf(mfp, "\n");
     fprintf(mfp, "Subject: %s\n", ex.getplace().c_str());
 
-    fprintf(mfp, "\n");
+    fprintf(mfp, "\n{\n");
 
     fprintf(mfp, "place        : %s\n", ex.getplace().c_str());
     fprintf(mfp, "date         : %08ld\n", ex.getdate());

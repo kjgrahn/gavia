@@ -1,11 +1,11 @@
-.\" $Id: gavia_cat.1,v 1.10 2001-06-17 20:52:20 grahn Exp $
+.\" $Id: gavia_cat.1,v 1.11 2002-07-20 20:51:26 grahn Exp $
 .\" 
 .\"
 .TH gavia_cat 1 "JUN 2001" Gavia "User Manuals"
 .SH "NAME"
 gavia_cat \- concatenate and translate Gavia books
 .SH "SYNOPSIS"
-.B gavia_cat [-bgthlmv] [-cxs]
+.B gavia_cat [\-bgthlmv] [\-cxs]
 .I bookfile
 .B ...
 .SH "DESCRIPTION"
@@ -22,45 +22,51 @@ as text,
 as ''gab'' formatted text,
 as HTML,
 LaTeX2e source code,
-or a mbox mail file.
+or a Unix mailbox file.
 .SH "OPTIONS"
-.IP -b
+.IP \-b
 (default) Output as a Gavia Book.
-.IP -g
+.IP \-g
 Output as ''gab'' text, which gavia_add(1) can read.
-.IP -t
+.IP \-t
 Output as plain text.
-.IP -h
+.IP \-h
 Output as HTML.
-.IP -l
+.IP \-l
 Output as LaTeX2e source.
-.IP -m
+.IP \-m
 Output as a mbox file, readable by mail user agents such as
 .BR mail (1)
 or
 .BR mutt (1).
-.IP -c
+.IP \-c
 (default) Output the species according
 to the "canonical" order.
 To be honest, this ordering is fairly meaningless
 and just an artifact of how Gavia works internally.
-This option \- and the ones below \- is not meaningful
-if the -b option is active.
-.IP -x
+This option\(emand the ones below\(emis not meaningful
+if the \-b option is active.
+.IP \-x
 Output the species according to
-a generally accepted taxonomical ordering.
-.IP -s
+a generally accepted taxonomic ordering.
+.IP \-s
 Output the species sorted by name.
-.IP -v
+.IP \-v
 Print version information and exit.
 .SH "FILES"
-N/A.
+.TP
+.I lib/gavia/species
+The list of supported species and their taxonomic ordering.
 .SH "ENVIRONMENT"
 The current locale settings might influence certain aspects.
 .SH "BUGS"
 Error handling and error reporting is rudimentary, at the most.
 Bad file contents give unrecoverable errors.
 The Gavia book format is fucked up.
+.LP
+Mbox output isn't MIME-encoded; some mail user agents
+may be confused when encountering 8-bit characters in
+mail headers and bodies.
 .SH "AUTHOR"
 Jörgen Grahn <jgrahn@algonet.se>
 .SH "SEE ALSO"

@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: specieslist.cc,v 1.3 2002-07-15 20:32:52 grahn Exp $
+ * $Id: specieslist.cc,v 1.4 2004-04-23 22:14:29 grahn Exp $
  *
  * specieslist.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: specieslist.cc,v 1.3 2002-07-15 20:32:52 grahn Exp $";
+"$Id: specieslist.cc,v 1.4 2004-04-23 22:14:29 grahn Exp $";
 }
 
 #include <cassert>
@@ -47,7 +47,7 @@ static const char* rcsid() { rcsid(); return
 #include "exception.hh"
 
 
-#define JOIN(a, b) a ## b
+#define JOIN(a, b) (a b)
 
 using std::vector;
 

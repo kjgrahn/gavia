@@ -1,4 +1,4 @@
-# $Id: species,v 1.7 2002-09-29 19:48:36 grahn Exp $
+# $Id: species,v 1.8 2002-10-19 18:21:20 grahn Exp $
 # $Name:  $
 #
 # The canonical list of species accepted by Gavia.
@@ -12,7 +12,7 @@
 #
 # The species should appear in taxonomic order.
 #
-# Number of species: 514 ([0..513])
+# Number of species: 515 ([0..514])
 # <species perl -ne 'print if /^\d{3}/' | wc -l
 #
 
@@ -380,6 +380,7 @@
 195 hussvala
 
 196 större piplärka
+514 mongolpiplärka
 197 fältpiplärka
 399 sibirisk piplärka
 198 trädpiplärka

@@ -1,4 +1,4 @@
-# $Id: default,v 1.13 2002-10-09 09:05:49 grahn Exp $
+# $Id: default,v 1.14 2002-10-19 18:21:20 grahn Exp $
 # $Name:  $
 #
 # Example template file for gavia_stellata(1), with a
@@ -449,6 +449,7 @@ asiatisk kalanderlärka	: : :
 dvärglärka		: : : 
 svartlärka		: : : 
 rostgumpsvala		: : : 
+mongolpiplärka		: : : 
 sibirisk piplärka	: : : 
 tundrapiplärka		: : : 
 citronärla		: : : 

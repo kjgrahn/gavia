@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_grep.cc,v 1.9 2001-01-18 23:25:20 grahn Exp $
+ * $Id: gavia_grep.cc,v 1.10 2001-03-24 18:54:01 grahn Exp $
  *
  * gavia_grep.cc
  *
@@ -37,7 +37,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gavia_grep.cc,v 1.9 2001-01-18 23:25:20 grahn Exp $";
+"$Id: gavia_grep.cc,v 1.10 2001-03-24 18:54:01 grahn Exp $";
 }
 
 #include <cstdio>
@@ -211,8 +211,7 @@ static bool internalmatchex(const Excursion& ex, regex_t * preg)
     // time
     if(regexec(preg,
 	       ex.gettime().c_str(),
-	       0, 0, 0)
-       ==0)
+	       0, 0, 0) ==0)
     {
 	return true;
     }
@@ -220,8 +219,7 @@ static bool internalmatchex(const Excursion& ex, regex_t * preg)
     // observers
     if(regexec(preg,
 	       ex.getobservers().c_str(),
-	       0, 0, 0)
-       ==0)
+	       0, 0, 0) ==0)
     {
 	return true;
     }
@@ -229,8 +227,7 @@ static bool internalmatchex(const Excursion& ex, regex_t * preg)
     // weather
     if(regexec(preg,
 	       ex.getweather().c_str(),
-	       0, 0, 0)
-       ==0)
+	       0, 0, 0) ==0)
     {
 	return true;
     }
@@ -238,8 +235,7 @@ static bool internalmatchex(const Excursion& ex, regex_t * preg)
     // comments
     if(regexec(preg,
 	       ex.getcomments().c_str(),
-	       0, 0, 0)
-       ==0)
+	       0, 0, 0) ==0)
     {
 	return true;
     }
@@ -252,16 +248,14 @@ static bool internalmatchex(const Excursion& ex, regex_t * preg)
     {
 	if(regexec(preg,
 		   order.species(i).c_str(),
-		   0, 0, 0)
-	   ==0)
+		   0, 0, 0) ==0)
 	{
 	    return true;
 	}
 
 	if(regexec(preg,
 		   ex.speciescomment(order.species(i)).c_str(),
-		   0, 0, 0)
-	   ==0)
+		   0, 0, 0) ==0)
 	{
 	    return true;
 	}

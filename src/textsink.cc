@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: textsink.cc,v 1.4 2000-08-10 19:47:21 grahn Exp $
+ * $Id: textsink.cc,v 1.5 2001-06-30 13:35:06 grahn Exp $
  *
  * textsink.cc
  *
@@ -34,12 +34,13 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: textsink.cc,v 1.4 2000-08-10 19:47:21 grahn Exp $";
+"$Id: textsink.cc,v 1.5 2001-06-30 13:35:06 grahn Exp $";
 }
 
 #include <cassert>
 #include <cstdio>
 #include <cstring>
+#include <ctime>
 
 #include "dynamicorder.hh"
 
@@ -134,12 +135,26 @@ void TextSink::put(const Excursion& ex)
 	return;			// no need to keep writing at I/O error
     }
 
-    fprintf(mfp, "%s\n", "------------------------------");
+    static const char * wdays[] = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
+
     long date = ex.getdate();
-    fprintf(mfp, "Date     : %04ld-%02ld-%02ld\n",
-	    date/10000,
-	    (date%10000)/100,
-	    date%100);
+    struct tm tm =
+    {
+	0, 0, 0,
+	date%100,
+	(date%10000)/100 - 1,
+	date/10000 - 1900,
+	0, 0, -1
+    };
+
+    std::mktime(&tm);
+
+    fprintf(mfp, "%s\n", "------------------------------");
+    fprintf(mfp, "Date     : %04d-%02d-%02d (%s)\n",
+	    tm.tm_year+1900,
+	    tm.tm_mon+1,
+	    tm.tm_mday,
+	    wdays[tm.tm_wday]);
     fprintf(mfp, "Place    : %s\n", ex.getplace().c_str());
     fprintf(mfp, "Time     : %s\n", ex.gettime().c_str());
     fprintf(mfp, "Observers: %s\n", ex.getobservers().c_str());

@@ -3,6 +3,25 @@
 Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
+	- 17 new species added (new total 502)
+	  större flamingo
+	  medelhavsvarfågel
+	  svart stenskvätta
+	  europeisk kopparand
+	  hökörn
+	  rödhöna
+	  purpurhöna
+	  rödnäbbad trut
+	  halsbandsparakit
+	  munkparakit
+	  lagerlärka
+	  grässångare
+	  svartstare
+	  spansk sparv
+	  stensparv
+	  blåskata
+	  alpkråka
+
 gavia 2.20 (2001-09-30):
 	- gavia_focus now has a '-v' flag for inverting the filter
 	- the 'bookfile' argument to gavia_add is finally optional
@@ -80,5 +99,5 @@ lanius, all versions:
 	Before written history.
 
 _________________________________________
-$Id: NEWS,v 1.8 2001-09-30 11:44:37 grahn Exp $
+$Id: NEWS,v 1.9 2001-12-14 19:50:14 grahn Exp $
 $Name:  $

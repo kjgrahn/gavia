@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: taxonomicorder.cc,v 1.9 2001-12-06 21:06:28 grahn Exp $
+ * $Id: taxonomicorder.cc,v 1.10 2001-12-14 19:50:14 grahn Exp $
  *
  * taxonomicorder.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: taxonomicorder.cc,v 1.9 2001-12-06 21:06:28 grahn Exp $";
+"$Id: taxonomicorder.cc,v 1.10 2001-12-14 19:50:14 grahn Exp $";
 }
 
 #include <cassert>
@@ -439,7 +439,7 @@ static char * internalorder[INTERNALORDERLEN] =
     "blåstjärt",	       /* 406 */
 
     "buskskvätta",	       /* 214 */
-    "ö svarth buskskvätta",    /* 408 */
+    "östlig svarthakad buskskvätta",
     "svarthakad buskskvätta",  /* 409 */
     "stenskvätta",	       /* 215 */
     "isabellastenskvätta",     /* 410 */

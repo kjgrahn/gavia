@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: canonorder.cc,v 1.9 2001-12-06 21:06:28 grahn Exp $
+ * $Id: canonorder.cc,v 1.10 2001-12-14 19:50:14 grahn Exp $
  *
  * canonorder.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: canonorder.cc,v 1.9 2001-12-06 21:06:28 grahn Exp $";
+"$Id: canonorder.cc,v 1.10 2001-12-14 19:50:14 grahn Exp $";
 }
 
 #include "canonorder.hh"
@@ -453,7 +453,7 @@ char * CanonOrder::internalcanon[INTERNALCANONLEN] =
     "sydnäktergal",	       /* 405 */
     "blåstjärt",	       /* 406 */
     "vitstrupig näktergal",    /* 407 */
-    "ö svarth buskskvätta",    /* 408 */
+    "östlig svarthakad buskskvätta",
     "svarthakad buskskvätta",  /* 409 */
     "isabellastenskvätta",     /* 410 */
     "nunnestenskvätta",	       /* 411 */

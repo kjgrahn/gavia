@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.1 2000-08-10 19:15:23 grahn Exp $
+# $Id: Makefile,v 1.2 2002-07-15 15:00:20 grahn Exp $
 #
 # Makefile
 #
@@ -32,16 +32,19 @@ SHELL = /bin/sh
 all:
 	cd src; $(MAKE)
 	cd perl; $(MAKE)
+	cd lib; $(MAKE)
 	cd doc; $(MAKE)
 
 install:
 	cd src; $(MAKE) install
 	cd perl; $(MAKE) install
+	cd lib; $(MAKE) install
 	cd doc; $(MAKE) install
 
 clean:
 	cd src; $(MAKE) clean
 	cd perl; $(MAKE) clean
+	cd lib; $(MAKE) clean
 	cd doc; $(MAKE) clean
 
 love:

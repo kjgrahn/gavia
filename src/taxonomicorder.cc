@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: taxonomicorder.cc,v 1.4 2000-08-10 19:47:21 grahn Exp $
+ * $Id: taxonomicorder.cc,v 1.5 2000-12-28 19:55:33 grahn Exp $
  *
  * taxonomicorder.cc
  *
@@ -34,13 +34,13 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: taxonomicorder.cc,v 1.4 2000-08-10 19:47:21 grahn Exp $";
+"$Id: taxonomicorder.cc,v 1.5 2000-12-28 19:55:33 grahn Exp $";
 }
 
 #include "taxonomicorder.hh"
 
 
-#define INTERNALORDERLEN (471)
+#define INTERNALORDERLEN (484)
  
 static char * internalorder[INTERNALORDERLEN] =
 {
@@ -515,6 +515,19 @@ static char * internalorder[INTERNALORDERLEN] =
     "klippsvala",	       /* 468 */
     "beigekindad skogstrast",  /* 469 */
     "stäppvarfågel",	       /* 470 */
+    "tundrasädgås",	       /* 471 */
+    "grönländsk bläsgås",      /* 472 */
+    "dvärgkanadagås",	       /* 473 */
+    "svartbukig prutgås",      /* 474 */
+    "ljusbukig prutgås",       /* 475 */
+    "amerikansk kricka",       /* 476 */
+    "amerikansk sjöorre",      /* 477 */
+    "östersjötrut",	       /* 478 */
+    "engelsk sädesärla",       /* 479 */
+    "sibirisk gransångare",    /* 480 */
+    "svartkråka",	       /* 481 */
+    "brunsiska",	       /* 482 */
+    "sibirisk trut"	       /* 483 */
 };
 
 

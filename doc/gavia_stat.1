@@ -1,0 +1,39 @@
+.\" $Id: gavia_stat.1,v 1.1 2000-12-28 19:55:33 grahn Exp $
+.\" 
+.\"
+.TH gavia_stat 1 "DECEMBER 2000" Unix "User Manuals"
+.SH "NAME"
+
+gavia_stat \- extract species info from a ''Gab'' book
+
+.SH "SYNOPSIS"
+
+gavia_stat file ...
+
+.SH "DESCRIPTION"
+
+gavia_stat takes one or more files (stdin if none given),
+in ''Gab'' format and outputs basically the same data but
+rearranged with the species name as major key.
+.PP
+Fields are colon-separated:
+.IP
+species : date : place : number : comment : observers
+.PP
+For example,
+.IP
+storskrake : 20000401 : Toarpsdammen, Oxie :  1: 1 hona : JoG
+.PP
+This makes further manipulation and mangling using standard
+utilites and customized scripts easy. 
+
+.SH "AUTHOR"
+
+Jörgen Grahn <jgrahn@algonet.se>
+
+.SH "SEE ALSO"
+
+.BR gavia_add (1),
+.BR gavia_cat (1),
+.BR gavia_grep (1),
+.BR gavia_sort (1)

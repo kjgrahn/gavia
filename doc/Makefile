@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.2 2000-08-10 19:46:55 grahn Exp $
+# $Id: Makefile,v 1.3 2000-12-28 19:55:33 grahn Exp $
 #
 # Makefile
 #
@@ -39,6 +39,7 @@ install:
 	install -m644 gavia_cat.1 $(INSTALLBASE)/man/man1/
 	install -m644 gavia_grep.1 $(INSTALLBASE)/man/man1/
 	install -m644 gavia_sort.1 $(INSTALLBASE)/man/man1/
+	install -m644 gavia_stat.1 $(INSTALLBASE)/man/man1/
 
 depend:
 	true

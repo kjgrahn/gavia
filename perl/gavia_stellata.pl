@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: gavia_stellata.pl,v 1.5 2000-12-17 14:49:24 grahn Exp $
+# $Id: gavia_stellata.pl,v 1.6 2000-12-28 19:55:33 grahn Exp $
 # $Name:  $
 #
 # gavia_stellata.pl - interactively adding
@@ -25,8 +25,8 @@
 
 $obsbok = shift
     or die "usage: $0 filename\n";
-$template = glob "~/.gavia_template"
-    or glob "~gavia/template/default"
+$template = (glob "~/.gavia_template"
+    or glob "~gavia/template/default")
     or die "Cannot find an excursion template to use.\n";
 $tmpname0 = "/tmp/gavia_stellata.tmp0.$$";
 $tmpname1 = "/tmp/gavia_stellata.tmp1.$$";
@@ -37,20 +37,20 @@ $tmpname1 = "/tmp/gavia_stellata.tmp1.$$";
 
 if(system("gaviadate <$template >$tmpname0")) {
     unlink $tmpname0;
-    die;
+    die "\'gaviadate\' failed, exiting.\n";
 }
 
 print "Invoking editor...\n";
 
 if(system("emacs $tmpname0")) {
     unlink $tmpname0;
-    die;
+    die "Couldn't execute 'emacs'.\n";
 }
 
 if(system("gaviadeexpand <$tmpname0 >$tmpname1")) {
     unlink $tmpname0;
     unlink $tmpname1;
-    die;
+    die "'gaviadeexpand' failed, exiting.\n";
 }
 
 unlink $tmpname0;
@@ -64,7 +64,7 @@ if(system("emacs $tmpname1")) {
 
 if(system("cat >>$obsbok $tmpname1")) {
     unlink $tmpname1;
-    die;
+    die "Failed to add the new data to $obsbok, exiting.\n";
 }
 
 unlink $tmpname1;

@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: gavia_stat.pl,v 1.2 2000-12-17 14:49:24 grahn Exp $
+# $Id: gavia_stat.pl,v 1.3 2000-12-28 19:55:33 grahn Exp $
 # $Name:  $
 #
 # gavia_stat.pl - take a book in 'gab' format and output its content
@@ -34,9 +34,9 @@ while(<>)
     elsif(/^\s*\#/) {
 	;
     }
-    elsif(/\s*([a-zедц ]+)\s*:[^:]*:([^:]*:.*$)/i) {
+    elsif(/\s*([a-zедц ]+?)\s*:[^:]*:([^:]*:.*$)/i) {
 
-	print "$1 : $date : $place : $observers : $2\n";
+	print "$1 : $date : $place : $2 : $observers\n";
     }
 }
 

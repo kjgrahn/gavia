@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: gavia_stellata.pl,v 1.7 2001-07-08 12:56:11 grahn Exp $
+# $Id: gavia_stellata.pl,v 1.8 2002-04-07 09:13:44 grahn Exp $
 # $Name:  $
 #
 # gavia_stellata.pl - interactively adding
@@ -54,11 +54,20 @@ if(system("gaviadate <$template >$tmpname0")) {
     die "\'gaviadate\' failed, exiting.\n";
 }
 
+($a,$a,$a,$a,$a,$a,$a,$a,$a,$mtime0,$a,$a,$a) = stat($tmpname0);
+
 print "Invoking editor...\n";
 
 if(system("$editor $tmpname0")) {
     unlink $tmpname0;
     die "Couldn't execute '$editor'.\n";
+}
+
+($a,$a,$a,$a,$a,$a,$a,$a,$a,$mtime,$a,$a,$a) = stat($tmpname0);
+if($mtime == $mtime0) {
+    unlink $tmpname0;
+    print "Aborted unmodified excursion.\n";
+    exit 0;
 }
 
 if(system("gaviadeexpand <$tmpname0 >$tmpname1")) {

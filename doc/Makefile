@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.8 2002-06-16 15:05:04 grahn Exp $
+# $Id: Makefile,v 1.9 2002-09-29 19:43:41 grahn Exp $
 #
 # Makefile
 #
@@ -44,6 +44,10 @@ install:
 	install -m644 gavia_focus.1 $(INSTALLBASE)/man/man1/
 	install -m644 gavia_score.1 $(INSTALLBASE)/man/man1/
 	install -m644 gavia.5 $(INSTALLBASE)/man/man5/
+	install -m644 gavia_gab2roff.1 $(INSTALLBASE)/man/man1/
+	install -m644 gavia_gab2latex.1 $(INSTALLBASE)/man/man1/
+	install -m644 gavia_gab2text.1 $(INSTALLBASE)/man/man1/
+	install -m644 gavia_gab2html.1 $(INSTALLBASE)/man/man1/
 
 gavia_cvs.txt: gavia_cvs.mm
 	nroff -mm $^ >$@

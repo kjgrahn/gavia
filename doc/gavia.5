@@ -1,4 +1,4 @@
-.\" $Id: gavia.5,v 1.4 2002-07-20 20:51:26 grahn Exp $
+.\" $Id: gavia.5,v 1.5 2002-09-29 19:43:41 grahn Exp $
 .\" 
 .\"
 .TH gavia 5 "JUN 2001" Gavia "User Manuals"
@@ -64,8 +64,9 @@ Species fields have the format
 .ft CW
 <species name>: <mark>: <number of individuals>: <comment>
 .LP
-The species name must be exactly one of those defined internally
-in gavia_add.
+The species name must be exactly one of those defined by Gavia
+(which currently keeps them in a file,
+.IR lib/gavia/species ).
 
 A species field can be unfilled, in which case that species
 is not to be regarded as included in the excursion.

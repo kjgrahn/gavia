@@ -1,7 +1,7 @@
-.\" $Id: gavia_add.1,v 1.7 2001-03-03 12:20:22 grahn Exp $
+.\" $Id: gavia_add.1,v 1.8 2001-06-17 20:51:37 grahn Exp $
 .\" 
 .\"
-.TH gavia_add 1 "JULY 1999" Unix "User Manuals"
+.TH gavia_add 1 "JULY 1999" Gavia "User Manuals"
 .SH "NAME"
 gavia_add \- add excursions to a Gavia book
 .SH "SYNOPSIS"
@@ -16,70 +16,8 @@ to standard output.
 .IP -v
 Print version information.
 .SH "INPUT FORMAT"
-The ''Gab'' input format is designed so that
-a user can start with a template file
-and quickly edit it, marking the species
-seen during an excursion
-and filling in any extra information.
-.LP
-Blank lines are ignored.
-Comment lines (prefixed with a hash (#) sign)
-are ignored.
-Case and extra blank space
-is insignificant except for in species names
-and user-supplied data.
-.LP
-Input is line-oriented.
-Never join several fields onto one line, and
-never break fields into several lines.
-.LP
-The input consists of zero or more excursions,
-each looking like
-.IP
-.ft CW
-{
-.br
-excursion fields
-.br
-}{
-.br
-species fields
-.br
-}
-.LP
-Excursion fields are
-.LP
-Place: <place description>
-.br
-Date: <yymmhh>
-.br
-Time: <description of time out>
-.br
-Observers: <names of any persons involved>
-.br
-Weather: <weather description>
-.br
-Comments: <anything else you want to note>
-.LP
-All but place and date are optional and
-can be left unfilled or left out entirely.
-If date is unfilled, the current date is used.
-.LP
-Species fields have the format
-.IP
-.ft CW
-<species name>: <mark>: <number of individuals>: <comment>
-.LP
-The species name must be exactly one of those defined internally
-in gavia_add.
-They are in swedish...
-.LP
-A species field can be unfilled, in which case that species
-won't be included in the excursion.
-.LP
-The number of individuals and/or comment may still be left out,
-but in that case the user must fill in the mark field
-with some non-blank characters. An 'x' is sufficient. 
+See
+.BR gavia (5).
 .SH "FILES"
 N/A.
 .SH "ENVIRONMENT"
@@ -98,4 +36,5 @@ Jörgen Grahn <jgrahn@algonet.se>
 .BR gavia_cat (1),
 .BR gavia_grep (1),
 .BR gavia_sort (1),
-.BR gavia_stat (1)
+.BR gavia_stat (1),
+.BR gavia (5)

@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: htmlsink.hh,v 1.5 2001-12-29 19:14:09 grahn Exp $
+ * $Id: filtersink.hh,v 1.1 2002-09-29 19:47:56 grahn Exp $
  *
- * htmlsink.hh
+ * filtersink.hh
  *
- * Copyright (c) 1999 Jörgen Grahn <jgrahn@algonet.se>
+ * Copyright (c) 2002 Jörgen Grahn <jgrahn@algonet.se>
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -30,35 +30,34 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *----------------------------------------------------------------------------
  *
- * Pushes a series of Excursion objects onto an ANSI C stream
- * as HTML-formatted text. Renders species lists using a given SpeciesOrder.
+ * Pushes a series of Excursion objects into an external filter
+ * throuch a GabSink, which pre-renders the
+ * species lists using a given SpeciesOrder.
+ *
  *----------------------------------------------------------------------------
  */
 
-#ifndef HTMLSINK_HH
-#define HTMLSINK_HH
+#ifndef FILTERSINK_HH
+#define FILTERSINK_HH
 
-#include "booksink.hh"
 #include <cstdio>
-
-
+#include "booksink.hh"
+ 
+class GabSink;
 class SpeciesOrder;
+class Excursion;
 
 
-class HtmlSink: public BookSink
+class FilterSink: public BookSink
 {
 public:
-    HtmlSink(const SpeciesOrder *, const char *);	// constructor
-    HtmlSink(const SpeciesOrder *, FILE *);		// constructor
-
-    virtual ~HtmlSink();				// destructor
+    FilterSink(const SpeciesOrder *, const char *);
+    virtual ~FilterSink();
 
     virtual void put(const Excursion&);
 
-protected:
 private:
-    FILE * mfp;
-    const SpeciesOrder * morder;
+    GabSink * gsink;
 
 };
 

@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.15 2002-08-11 20:43:05 grahn Exp $
+# $Id: Makefile,v 1.16 2002-09-29 19:47:56 grahn Exp $
 #
 # Makefile
 #
@@ -51,7 +51,7 @@ SRCS = gavia_add.cc \
        canonorder.cc sortedorder.cc dynamicorder.cc taxonomicorder.cc \
        speciesredro.cc \
        streamsource.cc gabsource.cc \
-       streamsink.cc gabsink.cc textsink.cc htmlsink.cc latexsink.cc mboxsink.cc roffsink.cc \
+       streamsink.cc gabsink.cc mboxsink.cc filtersink.cc \
        gablexer.cc \
        motorola.c bitmap.c \
        version.cc specieslist.cc
@@ -63,7 +63,7 @@ OBJS = gavia_add.o  \
        canonorder.o  sortedorder.o  dynamicorder.o  taxonomicorder.o  \
        speciesredro.o  \
        streamsource.o  gabsource.o  \
-       streamsink.o  gabsink.o  textsink.o  htmlsink.o  latexsink.o  mboxsink.o  roffsink.o  \
+       streamsink.o  gabsink.o  mboxsink.o  filtersink.o  \
        gablexer.o  \
        motorola.o bitmap.o \
        version.o  specieslist.o
@@ -76,7 +76,7 @@ objs: $(OBJS)
 # executables
 #
 
-gavia_cat: gavia_cat.o excursion.o streamsource.o streamsink.o gabsink.o textsink.o htmlsink.o latexsink.o mboxsink.o roffsink.o canonorder.o taxonomicorder.o sortedorder.o dynamicorder.o motorola.o bitmap.o version.o specieslist.o
+gavia_cat: gavia_cat.o excursion.o streamsource.o streamsink.o gabsink.o mboxsink.o filtersink.o canonorder.o taxonomicorder.o sortedorder.o dynamicorder.o motorola.o bitmap.o version.o specieslist.o
 	$(CXX) $(LDFLAGS) -o $@ $^ $(LIBS)
 
 gavia_add: gavia_add.o excursion.o streamsource.o streamsink.o canonorder.o motorola.o bitmap.o dynamicorder.o gabsource.o gablexer.o speciesredro.o version.o specieslist.o
@@ -93,6 +93,9 @@ gavia_sort: gavia_sort.o canonorder.o dynamicorder.o streamsink.o streamsource.o
 
 specieslist.o: specieslist.cc
 	$(CXX) -c $(CPPFLAGS) $(CXXFLAGS) -DINSTALLBASE=\"$(INSTALLBASE)\" $<
+
+filtersink.o: filtersink.cc
+	$(CXX) -c $(CPPFLAGS) $(CXXFLAGS) -D_POSIX_C_SOURCE=2 $<
 
 gablexer.cc: gablexer.l
 	flex -ist8 gablexer.l >$@
@@ -127,10 +130,9 @@ gavia_add.o: version.hh streamsource.hh booksource.hh excursion.hh species.hh
 gavia_add.o: speciesset.hh gabsource.hh streamsink.hh booksink.hh
 gavia_add.o: canonorder.hh speciesorder.hh exception.hh
 gavia_cat.o: version.hh booksink.hh excursion.hh species.hh speciesset.hh
-gavia_cat.o: gabsink.hh streamsink.hh textsink.hh htmlsink.hh latexsink.hh
-gavia_cat.o: mboxsink.hh roffsink.hh speciesorder.hh canonorder.hh
-gavia_cat.o: sortedorder.hh taxonomicorder.hh streamsource.hh booksource.hh
-gavia_cat.o: exception.hh
+gavia_cat.o: gabsink.hh filtersink.hh streamsink.hh mboxsink.hh
+gavia_cat.o: speciesorder.hh canonorder.hh sortedorder.hh taxonomicorder.hh
+gavia_cat.o: streamsource.hh booksource.hh exception.hh
 gavia_grep.o: version.hh streamsource.hh booksource.hh excursion.hh
 gavia_grep.o: species.hh speciesset.hh streamsink.hh booksink.hh exception.hh
 gavia_grep.o: canonorder.hh speciesorder.hh dynamicorder.hh
@@ -153,16 +155,10 @@ streamsink.o: streamsink.hh booksink.hh excursion.hh species.hh speciesset.hh
 streamsink.o: canonorder.hh speciesorder.hh exception.hh bitmap.h motorola.h
 gabsink.o: dynamicorder.hh speciesorder.hh species.hh speciesset.hh
 gabsink.o: exception.hh gabsink.hh booksink.hh excursion.hh
-textsink.o: dynamicorder.hh speciesorder.hh species.hh speciesset.hh
-textsink.o: exception.hh textsink.hh booksink.hh excursion.hh
-htmlsink.o: dynamicorder.hh speciesorder.hh species.hh speciesset.hh
-htmlsink.o: exception.hh htmlsink.hh booksink.hh excursion.hh
-latexsink.o: dynamicorder.hh speciesorder.hh species.hh speciesset.hh
-latexsink.o: exception.hh latexsink.hh booksink.hh excursion.hh
 mboxsink.o: dynamicorder.hh speciesorder.hh species.hh speciesset.hh
 mboxsink.o: exception.hh mboxsink.hh booksink.hh excursion.hh
-roffsink.o: dynamicorder.hh speciesorder.hh species.hh speciesset.hh
-roffsink.o: exception.hh roffsink.hh booksink.hh excursion.hh
+filtersink.o: speciesorder.hh species.hh exception.hh gabsink.hh booksink.hh
+filtersink.o: excursion.hh speciesset.hh filtersink.hh
 gablexer.o: excursion.hh species.hh speciesset.hh exception.hh
 gablexer.o: speciesredro.hh speciesorder.hh
 motorola.o: motorola.h

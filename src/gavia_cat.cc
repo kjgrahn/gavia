@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_cat.cc,v 1.13 2002-08-11 20:43:05 grahn Exp $
+ * $Id: gavia_cat.cc,v 1.14 2002-09-29 19:47:56 grahn Exp $
  *
  * gavia_cat.cc
  *
@@ -37,7 +37,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gavia_cat.cc,v 1.13 2002-08-11 20:43:05 grahn Exp $";
+"$Id: gavia_cat.cc,v 1.14 2002-09-29 19:47:56 grahn Exp $";
 }
 
 #include <iostream>
@@ -53,12 +53,9 @@ static const char* rcsid() { rcsid(); return
 
 #include "booksink.hh"
 #include "gabsink.hh"
+#include "filtersink.hh"
 #include "streamsink.hh"
-#include "textsink.hh"
-#include "htmlsink.hh"
-#include "latexsink.hh"
 #include "mboxsink.hh"
-#include "roffsink.hh"
 
 #include "speciesorder.hh"
 #include "canonorder.hh"
@@ -108,7 +105,7 @@ int main(int argc, char ** argv)
 	case 'v':
 	    std::cerr << 
 		"gavia_cat, part of " << version.name() << std::endl <<
-		"Copyright (c) 1999--2001 Jörgen Grahn "
+		"Copyright (c) 1999--2002 Jörgen Grahn "
 		"<jgrahn@algonet.se>" << std::endl;
 	    return 0;
 	    break;
@@ -153,19 +150,19 @@ int main(int argc, char ** argv)
 	    sink = new GabSink(order, stdout);
 	    break;
 	case 't':
-	    sink = new TextSink(order, stdout);
+	    sink = new FilterSink(order, "gavia_gab2text");
 	    break;
 	case 'h':
-	    sink = new HtmlSink(order, stdout);
+	    sink = new FilterSink(order, "gavia_gab2html");
 	    break;
 	case 'l':
-	    sink = new LaTeXSink(order, stdout);
+	    sink = new FilterSink(order, "gavia_gab2latex");
 	    break;
 	case 'm':
 	    sink = new MboxSink(order, stdout);
 	    break;
 	case 'r':
-	    sink = new RoffSink(order, stdout);
+	    sink = new FilterSink(order, "gavia_gab2roff");
 	    break;
 	default:
 	    assert(!"extremely impossible");

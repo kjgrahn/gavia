@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: htmlsink.cc,v 1.2 1999-10-24 14:56:17 grahn Exp $
+ * $Id: htmlsink.cc,v 1.3 1999-10-24 21:16:18 grahn Exp $
  *
  * htmlsink.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char rcsid[] =
-"$Id: htmlsink.cc,v 1.2 1999-10-24 14:56:17 grahn Exp $";
+"$Id: htmlsink.cc,v 1.3 1999-10-24 21:16:18 grahn Exp $";
 
 #include <assert.h>
 #include <stdio.h>
@@ -167,11 +167,25 @@ void HtmlSink::put(const Excursion& ex)
     const DynamicOrder order(morder, ex.speciesset());
     for(int i = 0; i!=order.end(); i++)
     {
-	fprintf(mfp, "<dt><em>%s</em>\n<dd>(%d) ",
-		order.species(i).c_str(),
-		ex.speciescount(order.species(i))
+	const Species species(order.species(i));
+	int count = ex.speciescount(species);
+
+	assert(count>=0);
+
+	if(count>0)
+	{
+	    fprintf(mfp, "<dt><em>%s</em>\n<dd>(%d) ",
+		    species.c_str(),
+		    count
 		);
-	::htmlfputs(ex.speciescomment(order.species(i)).c_str(), // comments
+	}
+	else
+	{
+	    fprintf(mfp, "<dt><em>%s</em>\n<dd> ",
+		    species.c_str()
+		);
+	}
+	::htmlfputs(ex.speciescomment(species).c_str(), // comments
 		    mfp);
 	fputs("\n", mfp);
     }

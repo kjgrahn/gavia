@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: canonorder.hh,v 1.7 2002-07-15 20:32:52 grahn Exp $
+ * $Id: canonorder.hh,v 1.8 2004-08-04 11:50:50 grahn Exp $
  *
  * canonorder.hh
  *
@@ -47,18 +47,16 @@ class CanonOrder: public SpeciesOrder
 {
 public:
     CanonOrder();				// constructor
-    CanonOrder(const CanonOrder&);		// copy constructor
 
     virtual ~CanonOrder();			// destructor
-
-    virtual const CanonOrder& operator=(const SpeciesOrder&);
 
     virtual const Species& species(int i) const;
 
     virtual int end() const;
 
-protected:
 private:
+    CanonOrder(const CanonOrder&);
+    const CanonOrder& operator=(const SpeciesOrder&);
     static std::vector<const Species *> internalcanon;
 };
 

@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: streamsource.hh,v 1.5 2001-12-29 19:14:09 grahn Exp $
+ * $Id: streamsource.hh,v 1.6 2004-08-04 11:50:50 grahn Exp $
  *
  * streamsource.hh
  *
@@ -48,10 +48,10 @@ class SpeciesOrder;
 class StreamSource: public BookSource
 {
 public:
-    StreamSource(const char *);		// constructor
-    StreamSource(FILE *);		// constructor
+    explicit StreamSource(const char *);
+    explicit StreamSource(FILE *);
 
-    virtual ~StreamSource();		// destructor
+    virtual ~StreamSource();
 
     virtual Excursion excursion();
     virtual void next();
@@ -59,6 +59,7 @@ public:
 
 protected:
 private:
+
     Excursion mexcursion;
     int mstate;
     FILE * mfp;

@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: dynamicorder.cc,v 1.6 2002-07-15 20:32:52 grahn Exp $
+ * $Id: dynamicorder.cc,v 1.7 2004-08-04 11:50:50 grahn Exp $
  *
  * dynamicorder.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: dynamicorder.cc,v 1.6 2002-07-15 20:32:52 grahn Exp $";
+"$Id: dynamicorder.cc,v 1.7 2004-08-04 11:50:50 grahn Exp $";
 }
 
 #include "species.hh"
@@ -77,24 +77,6 @@ DynamicOrder::DynamicOrder(const SpeciesOrder * obj, const SpeciesSet& set)
 
 /*----------------------------------------------------------------------------
  *
- * copy constructor
- *
- *
- *----------------------------------------------------------------------------
- */
-DynamicOrder::DynamicOrder(const DynamicOrder& obj)
-{
-    for(int i=0; i!=MAXEND; i++)
-    {
-	internalspecies[i] = obj.internalspecies[i];
-    }
-
-    internalend = obj.internalend;
-}
-
-
-/*----------------------------------------------------------------------------
- *
  * destructor
  *
  *
@@ -103,26 +85,6 @@ DynamicOrder::DynamicOrder(const DynamicOrder& obj)
 DynamicOrder::~DynamicOrder()
 {
     ;
-}
-
-
-/*----------------------------------------------------------------------------
- *
- * operator=()
- *
- *
- *----------------------------------------------------------------------------
- */
-const DynamicOrder& DynamicOrder::operator=(const DynamicOrder& obj)
-{
-    for(int i=0; i!=MAXEND; i++)
-    {
-	internalspecies[i] = obj.internalspecies[i];
-    }
-
-    internalend = obj.internalend;
-
-    return *this;
 }
 
 

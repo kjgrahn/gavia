@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: sortedorder.cc,v 1.6 2002-07-15 20:32:52 grahn Exp $
+ * $Id: sortedorder.cc,v 1.7 2004-08-04 11:50:50 grahn Exp $
  *
  * sortedorder.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: sortedorder.cc,v 1.6 2002-07-15 20:32:52 grahn Exp $";
+"$Id: sortedorder.cc,v 1.7 2004-08-04 11:50:50 grahn Exp $";
 }
 
 #include "species.hh"
@@ -82,24 +82,6 @@ SortedOrder::SortedOrder(const SpeciesOrder * obj, string begin, string end)
 
 /*----------------------------------------------------------------------------
  *
- * copy constructor
- *
- *
- *----------------------------------------------------------------------------
- */
-SortedOrder::SortedOrder(const SortedOrder& obj)
-{
-    for(int i=0; i!=MAXEND; i++)
-    {
-	internalspecies[i] = obj.internalspecies[i];
-    }
-
-    internalend = obj.internalend;
-}
-
-
-/*----------------------------------------------------------------------------
- *
  * destructor
  *
  *
@@ -108,26 +90,6 @@ SortedOrder::SortedOrder(const SortedOrder& obj)
 SortedOrder::~SortedOrder()
 {
     ;
-}
-
-
-/*----------------------------------------------------------------------------
- *
- * operator=()
- *
- *
- *----------------------------------------------------------------------------
- */
-const SortedOrder& SortedOrder::operator=(const SortedOrder& obj)
-{
-    for(int i=0; i!=MAXEND; i++)
-    {
-	internalspecies[i] = obj.internalspecies[i];
-    }
-
-    internalend = obj.internalend;
-
-    return *this;
 }
 
 

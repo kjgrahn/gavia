@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: dynamicorder.hh,v 1.6 2002-07-15 20:32:52 grahn Exp $
+ * $Id: dynamicorder.hh,v 1.7 2004-08-04 11:50:50 grahn Exp $
  *
  * dynamicorder.hh
  *
@@ -49,10 +49,7 @@ class DynamicOrder: public SpeciesOrder
 {
 public:
     DynamicOrder(const SpeciesOrder *, const SpeciesSet&);
-    DynamicOrder(const DynamicOrder&);		// copy constructor
     virtual ~DynamicOrder();			// destructor
-
-    virtual const DynamicOrder& operator=(const DynamicOrder&);
 
     virtual const Species& species(int) const;
     virtual int end() const;
@@ -60,6 +57,8 @@ public:
 protected:
 private:
     DynamicOrder();				// constructor
+    DynamicOrder(const DynamicOrder&);
+    const DynamicOrder& operator=(const DynamicOrder&);
 
     static const int MAXEND = 1000;
 

@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: speciesorder.hh,v 1.4 2002-07-15 20:32:52 grahn Exp $
+ * $Id: speciesorder.hh,v 1.5 2004-08-04 11:50:50 grahn Exp $
  *
  * speciesorder.hh
  *
@@ -47,10 +47,11 @@ public:
     virtual const Species& species(int) const = 0;
     virtual int end() const = 0;
 
+    SpeciesOrder() {}
     virtual ~SpeciesOrder() {}
 
-protected:
 private:
+    SpeciesOrder(const SpeciesOrder&);
 
 };
 

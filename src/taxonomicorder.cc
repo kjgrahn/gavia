@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: taxonomicorder.cc,v 1.17 2002-07-15 20:32:52 grahn Exp $
+ * $Id: taxonomicorder.cc,v 1.18 2004-08-04 11:50:50 grahn Exp $
  *
  * taxonomicorder.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: taxonomicorder.cc,v 1.17 2002-07-15 20:32:52 grahn Exp $";
+"$Id: taxonomicorder.cc,v 1.18 2004-08-04 11:50:50 grahn Exp $";
 }
 
 #include <cassert>
@@ -79,19 +79,6 @@ TaxonomicOrder::TaxonomicOrder()
 
 /*----------------------------------------------------------------------------
  *
- * copy constructor
- *
- *
- *----------------------------------------------------------------------------
- */
-TaxonomicOrder::TaxonomicOrder(const TaxonomicOrder& obj)
-{
-    ;
-}
-
-
-/*----------------------------------------------------------------------------
- *
  * destructor
  *
  *
@@ -100,19 +87,6 @@ TaxonomicOrder::TaxonomicOrder(const TaxonomicOrder& obj)
 TaxonomicOrder::~TaxonomicOrder()
 {
     ;
-}
-
-
-/*----------------------------------------------------------------------------
- *
- * operator=()
- *
- *
- *----------------------------------------------------------------------------
- */
-const TaxonomicOrder& TaxonomicOrder::operator=(const SpeciesOrder& obj)
-{
-    return *this;
 }
 
 

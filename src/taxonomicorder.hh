@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: taxonomicorder.hh,v 1.4 2002-07-15 20:32:52 grahn Exp $
+ * $Id: taxonomicorder.hh,v 1.5 2004-08-04 11:50:50 grahn Exp $
  *
  * taxonomicorder.hh
  *
@@ -45,17 +45,15 @@ class TaxonomicOrder: public SpeciesOrder
 {
 public:
     TaxonomicOrder();				// constructor
-    TaxonomicOrder(const TaxonomicOrder&);	// copy constructor
 
     virtual ~TaxonomicOrder();			// destructor
-
-    virtual const TaxonomicOrder& operator=(const SpeciesOrder&);
 
     virtual const Species& species(int) const;
     virtual int end() const;
 
-protected:
 private:
+    TaxonomicOrder(const TaxonomicOrder&);
+    const TaxonomicOrder& operator=(const SpeciesOrder&);
 
 };
 

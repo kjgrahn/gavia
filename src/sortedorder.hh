@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: sortedorder.hh,v 1.7 2002-07-15 20:32:52 grahn Exp $
+ * $Id: sortedorder.hh,v 1.8 2004-08-04 11:50:50 grahn Exp $
  *
  * sortedorder.hh
  *
@@ -48,10 +48,7 @@ class SortedOrder: public SpeciesOrder
 {
 public:
     SortedOrder(const SpeciesOrder *, std::string="aaaaa", std::string="ýýýýý");
-    SortedOrder(const SortedOrder&);		// copy constructor
     virtual ~SortedOrder();			// destructor
-
-    virtual const SortedOrder& operator=(const SortedOrder&);
 
     virtual const Species& species(int) const;
     virtual int end() const;
@@ -59,6 +56,8 @@ public:
 protected:
 private:
     SortedOrder();				// constructor
+    SortedOrder(const SortedOrder&);
+    const SortedOrder& operator=(const SortedOrder&);
 
     static const int MAXEND = 1000;
 

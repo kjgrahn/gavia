@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: canonorder.cc,v 1.15 2002-07-15 20:32:52 grahn Exp $
+ * $Id: canonorder.cc,v 1.16 2004-08-04 11:50:50 grahn Exp $
  *
  * canonorder.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: canonorder.cc,v 1.15 2002-07-15 20:32:52 grahn Exp $";
+"$Id: canonorder.cc,v 1.16 2004-08-04 11:50:50 grahn Exp $";
 }
 
 #include "canonorder.hh"
@@ -82,19 +82,6 @@ CanonOrder::CanonOrder()
 
 /*----------------------------------------------------------------------------
  *
- * copy constructor
- *
- *
- *----------------------------------------------------------------------------
- */
-CanonOrder::CanonOrder(const CanonOrder& obj)
-{
-    ;
-}
-
-
-/*----------------------------------------------------------------------------
- *
  * destructor
  *
  *
@@ -103,19 +90,6 @@ CanonOrder::CanonOrder(const CanonOrder& obj)
 CanonOrder::~CanonOrder()
 {
     ;
-}
-
-
-/*----------------------------------------------------------------------------
- *
- * operator=()
- *
- *
- *----------------------------------------------------------------------------
- */
-const CanonOrder& CanonOrder::operator=(const SpeciesOrder& obj)
-{
-    return *this;
 }
 
 

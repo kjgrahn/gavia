@@ -1,7 +1,7 @@
-.\" $Id: gavia_cvs.mm,v 1.5 2001-06-17 17:24:21 grahn Exp $
+.\" $Id: gavia_cvs.mm,v 1.6 2001-06-17 20:49:53 grahn Exp $
 
-.ND "$Date: 2001-06-17 17:24:21 $"
-.PF "$Id: gavia_cvs.mm,v 1.5 2001-06-17 17:24:21 grahn Exp $"
+.ND "$Date: 2001-06-17 20:49:53 $"
+.PF "$Id: gavia_cvs.mm,v 1.6 2001-06-17 20:49:53 grahn Exp $"
 
 .COVER
 .TL
@@ -68,6 +68,7 @@ in it are just normal files, in the eyes of everyone except CVS.
 1995_2.book  1997_2.book  1999_2.book  krysslistor.book
 1996.book    1998.book    2000.obsbok  obsbok
 1996_2.book  1998_2.book  CVS/
+
 .VERBOFF
 .B2
 
@@ -80,6 +81,37 @@ Using this information, CVS can correlate the working directory and
 the information in the repository.
 
 .H 1 "The cvs command"
+
+RCS consists of many commands;
+.B ci ,
+.B ci ,
+.B rcsdiff ,
+.B rlog
+and so on.
+CVS is one single command,
+.B cvs ,
+with approximately 25 sub-commands and many more options.
+The most important ones are:
+
+.B1
+.VERBON 16
+% cvs co
+% cvs ci
+% cvs update
+% cvs diff
+% cvs log
+
+.VERBOFF
+.B2
+
+You can give one or more filenames as arguments, but ususally
+you give none and let CVS work on the whole current directory
+(which means you have to stand in a working directory.)
+
+One stand-alone command may be useful:
+.B cvsstat ,
+which goes through the current directory and generates a report
+on files that need merging, checkin and so on.
 
 .H 1 "Remote CVS over ssh"
 
@@ -98,6 +130,7 @@ by setting an environment variable:
 .B1
 .VERBON 16
 $CVSROOT :ext:islaya:/home/cvs
+
 .VERBOFF
 .B2
 
@@ -162,6 +195,7 @@ and modified it
   --1.10--1.11
              |
              +--*
+
 .VERBOFF
 .B2
 
@@ -175,6 +209,7 @@ at which time it became revision 1.12:
   --1.10--1.11--1.12
              |
              +--*
+
 .VERBOFF
 .B2
 
@@ -203,6 +238,7 @@ now are revision 1.12.
   --1.10--1.11--1.12
              |     |
              +-----+--*
+
 .VERBOFF
 .B2
 
@@ -234,6 +270,7 @@ you can check in the changes, which will become revision 1.13:
 % cvs ci
 
   --1.10--1.11--1.12--1.13
+
 .VERBOFF
 .B2
 

@@ -3,11 +3,20 @@
 Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
-	- four new species added (new total 505)
+
+gavia 2.23 (2002-06-16)
+	- five new species added (new total 506)
 	  glasögonsångare
 	  häcksparv
 	  långnäbbad mås
 	  svartbukig flyghöna
+	  nilgås
+	- new utility gavia_score(1) for finding out how frequently
+	  different species have been seen
+	- gavia_add(1) detects and prevents multiple entries for
+	  a species within excursions
+	- gavia_stellata(1) can now be aborted by exiting the
+	  editor without changes
 
 gavia 2.22 (2001-12-29)
         - "större flamingo" was a synonym for the existing
@@ -119,5 +128,5 @@ lanius, all versions:
 	Before written history.
 
 _________________________________________
-$Id: NEWS,v 1.12 2002-06-16 11:21:55 grahn Exp $
+$Id: NEWS,v 1.13 2002-06-16 15:12:03 grahn Exp $
 $Name:  $

@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: latexsink.cc,v 1.2 1999-10-24 14:56:17 grahn Exp $
+ * $Id: latexsink.cc,v 1.3 1999-10-24 20:52:24 grahn Exp $
  *
  * latexsink.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char rcsid[] =
-"$Id: latexsink.cc,v 1.2 1999-10-24 14:56:17 grahn Exp $";
+"$Id: latexsink.cc,v 1.3 1999-10-24 20:52:24 grahn Exp $";
 
 #include <assert.h>
 #include <stdio.h>
@@ -175,10 +175,23 @@ void LaTeXSink::put(const Excursion& ex)
 
 	for(int i = 0; i!=order.end(); i++)
 	{
-	    fprintf(mfp, "  %s & %d & ",
-		    order.species(i).c_str(),
-		    ex.speciescount(order.species(i)));
-	    latexfputs(ex.speciescomment(order.species(i)).c_str(), mfp);
+	    const Species species(order.species(i));
+	    int count = ex.speciescount(species);
+
+	    assert(count>=0);
+
+	    if(count>0)
+	    {
+		fprintf(mfp, "  %s & %d & ",
+			species.c_str(),
+			count);
+	    }
+	    else
+	    {
+		fprintf(mfp, "  %s &    & ",
+			species.c_str());
+	    }
+	    latexfputs(ex.speciescomment(species).c_str(), mfp);
 	    fputs("\\\\\n", mfp);
 	}
 

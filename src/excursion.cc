@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: excursion.cc,v 1.7 2002-06-16 14:38:58 grahn Exp $
+ * $Id: excursion.cc,v 1.8 2002-06-16 14:45:02 grahn Exp $
  *
  * excursion.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: excursion.cc,v 1.7 2002-06-16 14:38:58 grahn Exp $";
+"$Id: excursion.cc,v 1.8 2002-06-16 14:45:02 grahn Exp $";
 }
 
 #include <cassert>
@@ -161,7 +161,7 @@ int Excursion::nofspecies() const
  *
  *----------------------------------------------------------------------------
  */
-bool Excursion::species(Species species) const
+bool Excursion::species(const Species& species) const
 {
     return sset.count(species)>0;
 }
@@ -174,7 +174,7 @@ bool Excursion::species(Species species) const
  *
  *----------------------------------------------------------------------------
  */
-int Excursion::speciescount(Species species) const
+int Excursion::speciescount(const Species& species) const
 {
     assert(smap.count(species)>0);
 
@@ -189,7 +189,7 @@ int Excursion::speciescount(Species species) const
  *
  *----------------------------------------------------------------------------
  */
-string Excursion::speciescomment(Species species) const
+string Excursion::speciescomment(const Species& species) const
 {
     assert(smap.count(species)>0);
 
@@ -204,7 +204,7 @@ string Excursion::speciescomment(Species species) const
  *
  *----------------------------------------------------------------------------
  */
-void Excursion::speciescomment(Species species, string comment)
+void Excursion::speciescomment(const Species& species, const string& comment)
 {
     assert(smap.count(species)>0);
 
@@ -219,7 +219,7 @@ void Excursion::speciescomment(Species species, string comment)
  *
  *----------------------------------------------------------------------------
  */
-const Excursion::SpeciesData& Excursion::speciesdata(Species species) const
+const Excursion::SpeciesData& Excursion::speciesdata(const Species& species) const
 {
     assert(smap.count(species)>0);
 
@@ -234,7 +234,7 @@ const Excursion::SpeciesData& Excursion::speciesdata(Species species) const
  *
  *----------------------------------------------------------------------------
  */
-void Excursion::insert(Species species, int count, string comment)
+void Excursion::insert(const Species& species, int count, const string& comment)
 {
     SpeciesData sd;
 
@@ -253,7 +253,7 @@ void Excursion::insert(Species species, int count, string comment)
  *
  *----------------------------------------------------------------------------
  */
-void Excursion::remove(Species species)
+void Excursion::remove(const Species& species)
 {
     sset.erase(species);
     smap.erase(species);

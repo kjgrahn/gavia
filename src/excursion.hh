@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: excursion.hh,v 1.7 2002-06-16 14:38:58 grahn Exp $
+ * $Id: excursion.hh,v 1.8 2002-06-16 14:45:02 grahn Exp $
  *
  * excursion.hh
  *
@@ -97,16 +97,16 @@ public:
     } SpeciesData;
 
     int nofspecies() const;
-    bool species(Species) const;
-    int speciescount(Species) const;
-    std::string speciescomment(Species) const;
+    bool species(const Species&) const;
+    int speciescount(const Species&) const;
+    std::string speciescomment(const Species&) const;
 
-    void speciescomment(Species, std::string);
+    void speciescomment(const Species&, const std::string&);
 
-    const SpeciesData& speciesdata(Species) const;
+    const SpeciesData& speciesdata(const Species&) const;
 
-    void insert(Species, int=0, std::string="");
-    void remove(Species);
+    void insert(const Species&, int=0, const std::string& = "");
+    void remove(const Species&);
 
 protected:
 private:

@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: gavia_stellata.pl,v 1.3 2000-08-10 19:17:09 grahn Exp $
+# $Id: gavia_stellata.pl,v 1.4 2000-08-10 19:20:17 grahn Exp $
 # $Name:  $
 #
 # gavia_stellata.pl - interactively adding

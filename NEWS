@@ -4,7 +4,7 @@ Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
 
-
+gavia 2.28 (2002-10-20)
 	- one new species added (new total 515):
 	  mongolpiplärka
 	- the script 'deka', used for pulling out statistics and plotting
@@ -196,5 +196,5 @@ lanius, all versions:
 	Before written history.
 
 _________________________________________
-$Id: NEWS,v 1.22 2002-10-20 12:20:53 grahn Exp $
+$Id: NEWS,v 1.23 2002-10-20 12:21:33 grahn Exp $
 $Name:  $

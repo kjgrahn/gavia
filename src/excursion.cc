@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: excursion.cc,v 1.5 2001-01-18 23:25:20 grahn Exp $
+ * $Id: excursion.cc,v 1.6 2002-01-18 17:34:08 grahn Exp $
  *
  * excursion.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: excursion.cc,v 1.5 2001-01-18 23:25:20 grahn Exp $";
+"$Id: excursion.cc,v 1.6 2002-01-18 17:34:08 grahn Exp $";
 }
 
 #include <cassert>
@@ -42,7 +42,9 @@ static const char* rcsid() { rcsid(); return
 #include "excursion.hh"
 
 using std::string;
+#ifndef USE_HASHMAP
 using std::map;
+#endif
 
 /*----------------------------------------------------------------------------
  *

@@ -3,6 +3,17 @@
 Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
+gavia 2.22 (2001-12-29)
+        - "större flamingo" was a synonym for the existing
+	  species "flamingo", so the latter was retained and
+	  the former ditched. This means that gavia 2.21 is
+	  incompatible with all other versions. Fortunately,
+	  pretty much noone used it.
+	- gavia_stat(1) manpage updated with a couple of examples
+	- example gavia_focus(1) rc file made more realistic (Jonas)
+	- gavia_cat -m output slightly fixed
+	- slightly improved error handling
+
 gavia 2.21 (2001-12-14)
 	- 17 new species added (new total 502)
 	  större flamingo
@@ -102,5 +113,5 @@ lanius, all versions:
 	Before written history.
 
 _________________________________________
-$Id: NEWS,v 1.10 2001-12-14 19:52:09 grahn Exp $
+$Id: NEWS,v 1.11 2001-12-29 19:15:13 grahn Exp $
 $Name:  $

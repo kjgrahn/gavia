@@ -1,4 +1,4 @@
-.\" $Id: gavia.5,v 1.2 2001-06-19 20:49:06 grahn Exp $
+.\" $Id: gavia.5,v 1.3 2002-07-15 15:36:23 grahn Exp $
 .\" 
 .\"
 .TH gavia 5 "JUN 2001" Gavia "User Manuals"
@@ -22,6 +22,7 @@ Comment lines (prefixed with a hash (#) sign)
 are ignored.
 Case and extra blank space
 is not significant except in species names
+(which are by convention in all lowercase)
 and user-supplied data.
 
 Input is line-oriented; fields may never
@@ -116,7 +117,12 @@ A 200-octet bitmap identifying the birds seen,
 arranged so that MSB of the first octet represents the first bird,
 LSB represents the eighth bird, and so on.
 Undefined positions are zeroed.
-See the source code for the mapping from number to species name.
+The mapping from number to species name, defined by
+the file
+.I lib/gavia/species
+in a Gavia installation.
+is guaranteed never to change (although new species will be added
+and existing species may have their names changed).
 .IP \(bu
 For each species marked in the bitmap, a two-octet
 count of individuals. A zero means no count was given.

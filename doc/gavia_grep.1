@@ -1,11 +1,11 @@
-.\" $Id: gavia_grep.1,v 1.10 2002-07-20 20:51:26 grahn Exp $
+.\" $Id: gavia_grep.1,v 1.11 2002-08-25 11:30:04 grahn Exp $
 .\" 
 .\"
 .TH gavia_grep 1 "JULY 1999" Gavia "User Manuals"
 .SH "NAME"
 gavia_grep \- filter Gavia books through regular expression
 .SH "SYNOPSIS"
-.B gavia_grep [-v|-V]
+.B gavia_grep [\-v|\-V]
 .I pattern
 .I bookfiles
 .B ...
@@ -27,11 +27,11 @@ Gavia book (i.e. binary).
 .PP
 The pattern syntax follows that of regex(7).
 .SH "OPTIONS"
-.IP -v
+.IP \-v
 Inverts handling,
 so that excursions not matching the pattern
 are passed through.
-.IP -V
+.IP \-V
 Print version information and exit.
 .SH "FILES"
 .TP

@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.10 2002-10-19 19:08:48 grahn Exp $
+# $Id: Makefile,v 1.11 2003-01-04 16:07:24 grahn Exp $
 #
 # Makefile
 #
@@ -49,10 +49,10 @@ install:
 	install -m644 gavia_gab2html.1 $(INSTALLBASE)/man/man1/
 
 gavia_cvs.txt: gavia_cvs.mm
-	nroff -mm $^ >$@
+	nroff -ms $^ >$@
 
 gavia_cvs.ps: gavia_cvs.mm
-	groff -Tps -mm $^ >$@
+	groff -Tps -ms $^ >$@
 
 depend:
 	true

@@ -29,7 +29,7 @@ Ironically, this major part of Gavia now consists of a handful of perl
 scripts and an emacs macro - much of what's left is there to support
 the old legacy, binary, broken Lanius data format. Why write a
 dedicated interactive user interface when you can get an existing text
-editor to do the boring stuff for you free?
+editor to do the boring stuff for you for free?
 
 Gavia is released under a BSD-style license.
 
@@ -50,8 +50,9 @@ For my daily use of gavia, I rely on perl, RCS or cvs, and GNU
 Emacs. You can avoid some of these depending on how you use gavia and
 how much you're willing to customize the (admittedly trivial) scripts.
 
-This piece of elisp code faciliates picking species for inclusion in
-an excursion by creating a macro tied to F4:
+When using gavia_stellata(1), this piece of elisp code faciliates
+picking species for inclusion in an excursion, by creating a macro tied
+to F4:
 
    (fset 'gavia-mark
       [?\C-a ?\C-s ?: ?\C-m ?\C-d ?# ?\C-a down])
@@ -90,5 +91,5 @@ fact if you care to; I'll probably never get around to it.
 
 Jörgen Grahn <jgrahn@algonet.se>
 
-$Id: README,v 1.4 2001-09-27 20:33:19 grahn Exp $
+$Id: README,v 1.5 2001-12-22 10:27:38 grahn Exp $
 $Name:  $

@@ -1,4 +1,4 @@
-.\" $Id: gavia_stellata.1,v 1.1 2001-06-17 20:52:20 grahn Exp $
+.\" $Id: gavia_stellata.1,v 1.2 2001-07-08 10:02:45 grahn Exp $
 .\" 
 .\"
 .TH gavia_stellata 1 "JUN 2001" Gavia "User Manuals"
@@ -24,9 +24,13 @@ appends the result to
 and exits.
 .SH "FILES"
 .TP
-.I  ~/.gavia_template
+.I ~/.gavia_template
 Personal excursion template file. May contain only a subset of
 all species. Fields, e.g. 'observers', may be pre-filled.
+.TP
+.I ~gavia/template/default
+Global excursion template file, used if the personal template isn't
+available.
 .SH "AUTHOR"
 Jörgen Grahn <jgrahn@algonet.se>
 .SH "SEE ALSO"

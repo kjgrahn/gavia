@@ -1,11 +1,11 @@
-.\" $Id: gavia_focus.1,v 1.3 2002-07-15 15:02:56 grahn Exp $
+.\" $Id: gavia_focus.1,v 1.4 2002-08-11 15:06:39 grahn Exp $
 .\" 
 .\"
 .TH gavia_focus 1 "JULY 2002" Gavia "User Manuals"
 .SH "NAME"
 gavia_focus \- filter away species from a ''Gab'' book
 .SH "SYNOPSIS"
-gavia_focus [-v] [-f filter]
+gavia_focus [\-v] [\-f filter]
 .I file
 .B ...
 .SH "DESCRIPTION"
@@ -15,11 +15,11 @@ mentioned in a filter file (or ''blacklist'', or ''kill file'').
 This may be used when quickly browsing a book, to avoid listing
 common or ''trivial'' species.
 .SH "OPTIONS"
-.IP -v
+.IP \-v
 Invert the filter, so that it points out which species to
 .I include
 in the output rather than which ones to exclude.
-.IP -f\ filter
+.IP \-f\ filter
 The filter file. If none is given, defaults to one of those
 described below (''FILES'').
 .SH "FILE FORMAT"

@@ -4,6 +4,10 @@ Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
 
+	- gavia_cat(1) can now output as troff+tbl source; this
+	  is probably the best way to create a PostScript, PDF or
+	  printed version of your observations so far
+	  (and it looks good on a text screen, too)
         - eight new species added (new total 514):
 	  svartbrynad albatross
 	  dvärgsnögås
@@ -166,5 +170,5 @@ lanius, all versions:
 	Before written history.
 
 _________________________________________
-$Id: NEWS,v 1.17 2002-07-25 15:43:11 grahn Exp $
+$Id: NEWS,v 1.18 2002-08-11 20:43:05 grahn Exp $
 $Name:  $

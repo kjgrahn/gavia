@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_cat.cc,v 1.12 2001-12-29 19:14:09 grahn Exp $
+ * $Id: gavia_cat.cc,v 1.13 2002-08-11 20:43:05 grahn Exp $
  *
  * gavia_cat.cc
  *
@@ -37,7 +37,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gavia_cat.cc,v 1.12 2001-12-29 19:14:09 grahn Exp $";
+"$Id: gavia_cat.cc,v 1.13 2002-08-11 20:43:05 grahn Exp $";
 }
 
 #include <iostream>
@@ -58,6 +58,7 @@ static const char* rcsid() { rcsid(); return
 #include "htmlsink.hh"
 #include "latexsink.hh"
 #include "mboxsink.hh"
+#include "roffsink.hh"
 
 #include "speciesorder.hh"
 #include "canonorder.hh"
@@ -78,7 +79,7 @@ static const char* rcsid() { rcsid(); return
  */
 int main(int argc, char ** argv)
 {
-    const char optstring[] = "+bgthlmcxsv";
+    const char optstring[] = "+bgthlmrcxsv";
     int ch = EOF;
     int fmtch = 'b';
     int ordch = 'c';
@@ -96,6 +97,7 @@ int main(int argc, char ** argv)
 	case 'h':		// HTML
 	case 'l':		// LaTeX2e
 	case 'm':		// mbox
+	case 'r':		// {,t,n,g}roff
 	    fmtch = ch;
 	    break;
 	case 'c':		// 'canonical' order
@@ -129,6 +131,7 @@ int main(int argc, char ** argv)
     case 'h':
     case 'l':
     case 'm':
+    case 'r':
 	switch(ordch)
 	{
 	case 'c':
@@ -160,6 +163,9 @@ int main(int argc, char ** argv)
 	    break;
 	case 'm':
 	    sink = new MboxSink(order, stdout);
+	    break;
+	case 'r':
+	    sink = new RoffSink(order, stdout);
 	    break;
 	default:
 	    assert(!"extremely impossible");

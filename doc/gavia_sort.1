@@ -1,14 +1,14 @@
-.\" $Id: gavia_sort.1,v 1.2 2000-01-16 20:48:09 grahn Exp $
+.\" $Id: gavia_sort.1,v 1.3 2000-08-10 19:17:05 grahn Exp $
 .\" 
 .\"
 .TH gavia_sort 1 "NOVEMBER 1999" Unix "User Manuals"
-.SH NAME
+.SH "NAME"
 gavia_sort \- sort excursions in Gavia books
-.SH SYNOPSIS
-.B gavia_sort [-d] [-p]
+.SH "SYNOPSIS"
+.B gavia_sort [-dv] [-p]
 .I bookfiles
 .B ...
-.SH DESCRIPTION
+.SH "DESCRIPTION"
 .B gavia_sort
 sorts one or more Gavia book files
 given on the command line.
@@ -22,26 +22,28 @@ book files are mentioned.
 The resulting book is then written to
 standard output, as a
 Gavia book (i.e. binary).
-.SH OPTIONS
+.SH "OPTIONS"
 .IP -d
 Use date as primary sorting key (default).
 .IP -p
 Use place as primary sorting key.
-.SH FILES
+.IP -v
+Print version information and exit.
+.SH "FILES"
 N/A.
-.SH ENVIRONMENT
+.SH "ENVIRONMENT"
 The current locale settings might influence certain aspects.
 TBD.
-.SH DIAGNOSTICS
+.SH "DIAGNOSTICS"
 TBD.
-.SH BUGS
+.SH "BUGS"
 Error handling and error reporting is rudimentary, at the most.
 Bad file contents may give unrecoverable errors.
 The Gavia book format is fucked up.
 .B gavia_sort
 is written in C++ and might be
 fragile and/or non-portable because of that.
-.SH AUTHOR
+.SH "AUTHOR"
 Jorgen Grahn <jorgen.grahn@opensoftware.se>
 .SH "SEE ALSO"
 .BR gavia (1),

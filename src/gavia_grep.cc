@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_grep.cc,v 1.6 2000-06-01 14:13:03 grahn Exp $
+ * $Id: gavia_grep.cc,v 1.7 2000-08-10 19:17:24 grahn Exp $
  *
  * gavia_grep.cc
  *
@@ -37,7 +37,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gavia_grep.cc,v 1.6 2000-06-01 14:13:03 grahn Exp $";
+"$Id: gavia_grep.cc,v 1.7 2000-08-10 19:17:24 grahn Exp $";
 }
 
 #include <cstdio>
@@ -73,7 +73,7 @@ static bool internalmatchex(const Excursion&, regex_t *);
  */
 int main(int argc, char ** argv)
 {
-    const char optstring[] = "+v";
+    const char optstring[] = "+vV";
     int ch = EOF;
     bool invert = false;
 
@@ -86,6 +86,13 @@ int main(int argc, char ** argv)
 	{
 	case 'v':		// inverse grep
 	    invert = true;
+	    break;
+	case 'V':
+	    fprintf(stderr,
+		    "gavia_grep, part of %s\n"
+		    "(c) 2000 Jörgen Grahn\n",
+		    version.name());
+	    return 0;
 	    break;
 	default:
 	    break;

@@ -1,14 +1,14 @@
-.\" $Id: gavia_cat.1,v 1.2 2000-01-16 20:48:09 grahn Exp $
+.\" $Id: gavia_cat.1,v 1.3 2000-08-10 19:17:05 grahn Exp $
 .\" 
 .\"
 .TH gavia_cat 1 "JAN 2000" Unix "User Manuals"
-.SH NAME
+.SH "NAME"
 gavia_cat \- concatenate and translate Gavia books
-.SH SYNOPSIS
-.B gavia_cat [-bgthl] [-cxs]
+.SH "SYNOPSIS"
+.B gavia_cat [-bgthlv] [-cxs]
 .I bookfile
 .B ...
-.SH DESCRIPTION
+.SH "DESCRIPTION"
 .B gavia_cat
 concatenates one or more Gavia book files
 given on the command line.
@@ -22,7 +22,7 @@ as text,
 as ''gab'' formatted text,
 as HTML,
 or LaTeX2e source code.
-.SH OPTIONS
+.SH "OPTIONS"
 .IP -b
 (default) Output as a Gavia Book.
 .IP -b
@@ -45,21 +45,23 @@ Output the species according to
 a generally accepted taxonomical ordering.
 .IP -s
 Output the species sorted by name.
-.SH FILES
+.IP -v
+Print version information and exit.
+.SH "FILES"
 N/A.
-.SH ENVIRONMENT
+.SH "ENVIRONMENT"
 The current locale settings might influence certain aspects.
 TBD.
-.SH DIAGNOSTICS
+.SH "DIAGNOSTICS"
 TBD.
-.SH BUGS
+.SH "BUGS"
 Error handling and error reporting is rudimentary, at the most.
 Bad file contents give unrecoverable errors.
 The Gavia book format is fucked up.
 .B gavia_cat
 is written in C++ and might be
 fragile and/or non-portable because of that.
-.SH AUTHOR
+.SH "AUTHOR"
 Jorgen Grahn <jorgen.grahn@opensoftware.se>
 .SH "SEE ALSO"
 .BR gavia (1),

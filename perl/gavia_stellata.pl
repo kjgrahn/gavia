@@ -1,12 +1,12 @@
 #!/usr/bin/perl -w
 #
-# $Id: gavia_stellata.pl,v 1.2 1999-10-24 20:51:38 grahn Exp $
+# $Id: gavia_stellata.pl,v 1.3 2000-08-10 19:17:09 grahn Exp $
 # $Name:  $
 #
 # gavia_stellata.pl - interactively adding
 # excursions to the default .gab file
 #
-# Copyright (c) 1999 Jörgen Grahn <jorgen.grahn@opensoftware.se>
+# Copyright (c) 1999, 2000 Jörgen Grahn <jgrahn@algonet.se>
 # All rights reserved.
 # 
 # Redistribution and use in source and binary forms, with or without
@@ -32,22 +32,19 @@ $tmpname1 = "/tmp/gavia_stellata.tmp1.$$";
     or die
     "You won't be able to write to $obsbok (maybe you should checkout?)\n";
 
-`gaviadate <$template >$tmpname0`;
-if($?) {
+if(system("gaviadate <$template >$tmpname0")) {
     unlink $tmpname0;
     die;
 }
 
 print "Invoking editor...\n";
 
-`emacs $tmpname0`;
-if($?) {
+if(system("emacs $tmpname0")) {
     unlink $tmpname0;
     die;
 }
 
-`gaviadeexpand <$tmpname0 >$tmpname1`;
-if($?) {
+if(system("gaviadeexpand <$tmpname0 >$tmpname1")) {
     unlink $tmpname0;
     unlink $tmpname1;
     die;
@@ -57,14 +54,12 @@ unlink $tmpname0;
 
 print "Invoking editor... again...\n";
 
-`emacs $tmpname1`;
-if($?) {
+if(system("emacs $tmpname1")) {
     unlink $tmpname1;
     die;
 }
 
-`cat >>$obsbok $tmpname1`;
-if($?) {
+if(system("cat >>$obsbok $tmpname1")) {
     unlink $tmpname1;
     die;
 }

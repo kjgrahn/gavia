@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.7 2000-06-01 14:13:03 grahn Exp $
+# $Id: Makefile,v 1.8 2000-08-10 19:17:24 grahn Exp $
 #
 # Makefile
 #
@@ -28,6 +28,8 @@
 # THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 SHELL = /bin/sh
+
+INSTALLBASE = /usr/local
 
 #CFLAGS = -Wall -pedantic -ansi -g
 #CPPFLAGS = -Wall -pedantic -ansi -g
@@ -60,7 +62,7 @@ OBJS = gavia_add.o  \
        gablexer.o  \
        motorola.o bitmap.o \
        version.o
-OUTS = gavia_add gavia_cat gavia_grep gavia_sort gavia_stat
+OUTS = gavia_add gavia_cat gavia_grep gavia_sort
 
 OBSOLETE = test.cc exeditor.cc exeditor.hh
 
@@ -98,8 +100,9 @@ gablexer.o: gablexer.cc
 # utility targets
 #
 
-install:
-	false
+install: $(OUTS)
+	strip $(OUTS)
+	install -m755 $(OUTS) $(INSTALLBASE)/bin/
 
 TAGS: tags
 

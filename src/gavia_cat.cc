@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_cat.cc,v 1.7 2000-06-01 14:13:03 grahn Exp $
+ * $Id: gavia_cat.cc,v 1.8 2000-08-10 19:17:24 grahn Exp $
  *
  * gavia_cat.cc
  *
@@ -37,7 +37,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gavia_cat.cc,v 1.7 2000-06-01 14:13:03 grahn Exp $";
+"$Id: gavia_cat.cc,v 1.8 2000-08-10 19:17:24 grahn Exp $";
 }
 
 #include <cstdio>
@@ -75,7 +75,7 @@ static const char* rcsid() { rcsid(); return
  */
 int main(int argc, char ** argv)
 {
-    const char optstring[] = "+bgthlcxs";
+    const char optstring[] = "+bgthlcxsv";
     int ch = EOF;
     int fmtch = 'b';
     int ordch = 'c';
@@ -98,6 +98,13 @@ int main(int argc, char ** argv)
 	case 'x':		// taxonomical order
 	case 's':		// sorted by name
 	    ordch = ch;
+	    break;
+	case 'v':
+	    fprintf(stderr,
+		    "gavia_cat, part of %s\n"
+		    "(c) 2000 Jörgen Grahn\n",
+		    version.name());
+	    return 0;
 	    break;
 	default:
 	    break;

@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_add.cc,v 1.6 2000-06-01 14:13:03 grahn Exp $
+ * $Id: gavia_add.cc,v 1.7 2000-08-10 19:17:24 grahn Exp $
  *
  * gavia_add.cc
  *
@@ -36,12 +36,13 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gavia_add.cc,v 1.6 2000-06-01 14:13:03 grahn Exp $";
+"$Id: gavia_add.cc,v 1.7 2000-08-10 19:17:24 grahn Exp $";
 }
 
 #include <cstdio>
 #include <cstdlib>
 #include <cctype>
+#include <getopt.h>
 
 #include <cassert>
 
@@ -64,12 +65,27 @@ static const char* rcsid() { rcsid(); return
  */
 int main(int argc, char ** argv)
 {
+    const char optstring[] = "+v";
+    int ch = EOF;
+
     Version version("$Name:  $");
 
 
-    if(argc!=2)
+    while((ch = getopt(argc, argv, optstring))!=EOF)
     {
-	fprintf(stderr, "usage: gavia_add book\n");
+	if(ch=='v')
+	{
+	    fprintf(stderr,
+		    "gavia_add, part of %s\n"
+		    "(c) 2000 Jörgen Grahn\n",
+		    version.name());
+	    return 0;
+	}
+    }
+
+    if(argc==optind)
+    {
+	fprintf(stderr,	"usage: gavia_add book\n");
 
 	return 1;
     }
@@ -79,7 +95,7 @@ int main(int argc, char ** argv)
     // Read the old book
     //
     {
-	StreamSource src(argv[1]);
+	StreamSource src(argv[optind]);
 
 	while(!(src.eof()||src.error()))
 	{

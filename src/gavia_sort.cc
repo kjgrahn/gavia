@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_sort.cc,v 1.5 2000-06-01 14:13:03 grahn Exp $
+ * $Id: gavia_sort.cc,v 1.6 2000-08-10 19:17:24 grahn Exp $
  *
  * gavia_sort.cc
  *
@@ -36,7 +36,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gavia_sort.cc,v 1.5 2000-06-01 14:13:03 grahn Exp $";
+"$Id: gavia_sort.cc,v 1.6 2000-08-10 19:17:24 grahn Exp $";
 }
 
 #include <cstdio>
@@ -74,7 +74,7 @@ static bool internaldate(const Excursion& a, const Excursion& b);
  */
 int main(int argc, char ** argv)
 {
-    const char optstring[] = "+pd";
+    const char optstring[] = "+pdv";
     int ch = EOF;
     bool byplace = false;
 
@@ -90,6 +90,12 @@ int main(int argc, char ** argv)
 	    break;
 	case 'd':		// sort by date, then place
 	    byplace = false;
+	case 'v':
+	    fprintf(stderr,
+		    "gavia_sort, part of %s\n"
+		    "(c) 2000 Jörgen Grahn\n",
+		    version.name());
+	    return 0;
 	    break;
 	default:
 	    break;

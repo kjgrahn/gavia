@@ -1,16 +1,16 @@
-.\" $Id: gavia_add.1,v 1.2 2000-01-16 20:48:09 grahn Exp $
+.\" $Id: gavia_add.1,v 1.3 2000-08-10 19:17:05 grahn Exp $
 .\" 
 .\"
 .TH gavia_add 1 "JULY 1999" Unix "User Manuals"
-.SH NAME
+.SH "NAME"
 
 gavia_add - add excursions to a Gavia book
 
-.SH SYNOPSIS
+.SH "SYNOPSIS"
 
-gavia_add bookfile
+gavia_add [-v] bookfile
 
-.SH DESCRIPTION
+.SH "DESCRIPTION"
 
 gavia_add takes a single Gavia book as an argument.
 It then reads more excursion descriptions in a special text format
@@ -18,11 +18,12 @@ It then reads more excursion descriptions in a special text format
 writes the book with the extra excursions added
 to standard output.
 
-.SH OPTIONS
+.SH "OPTIONS"
 
-N/A.
+.IP -v
+Print version information.
 
-.SH "FORMAT OF STANDARD INPUT"
+.SH "INPUT FORMAT"
 
 The ''Gab'' input format is designed so that
 a user can start with a template file
@@ -69,6 +70,7 @@ Species fields have the format
 
 The species name must be exactly one of those defined internally
 in gavia_add.
+They are in swedish...
 
 A species field can be unfilled, in which case that species
 won't be included in the excursion.
@@ -77,21 +79,21 @@ The number of individuals and/or comment may still be left out,
 but in that case the user must fill in the mark field
 with some non-blank characters. An 'x' is sufficient. 
 
-.SH FILES
+.SH "FILES"
 
 N/A.
 
-.SH ENVIRONMENT
+.SH "ENVIRONMENT"
 
 The current locale settings might influence certain aspects.
 TBD.
 
-.SH DIAGNOSTICS
+.SH "DIAGNOSTICS"
 
 Badly-formed standard input causes a message on stderr.
 The original book is output unchanged.
 
-.SH BUGS
+.SH "BUGS"
 
 Error handling and error reporting is rudimentary, at the most.
 Bad file contents give unrecoverable errors.
@@ -100,7 +102,7 @@ The Gavia book format is fucked up.
 is written in C++ and might be
 fragile and/or non-portable because of that.
 
-.SH AUTHOR
+.SH "AUTHOR"
 
 Jorgen Grahn <jorgen.grahn@opensoftware.se>
 

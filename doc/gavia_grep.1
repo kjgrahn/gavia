@@ -1,4 +1,4 @@
-.\" $Id: gavia_grep.1,v 1.7 2000-12-28 19:55:33 grahn Exp $
+.\" $Id: gavia_grep.1,v 1.8 2001-03-03 12:20:22 grahn Exp $
 .\" 
 .\"
 .TH gavia_grep 1 "JULY 1999" Unix "User Manuals"
@@ -18,7 +18,7 @@ Any excursion matching the pattern
 comments, species name or species comment)
 is passed through.
 .PP
-A dash '-' denotes standard input.
+A dash '\-' denotes standard input.
 Standard input is also used if no
 book files are mentioned.
 The resulting aggregate book is then written to
@@ -44,9 +44,6 @@ TBD.
 Error handling and error reporting is rudimentary, at the most.
 Bad file contents may give unrecoverable errors.
 The Gavia book format is fucked up.
-.B gavia_grep
-is written in C++ and might be
-fragile and/or non-portable because of that.
 .SH "AUTHOR"
 Jörgen Grahn <jgrahn@algonet.se>
 .SH "SEE ALSO"

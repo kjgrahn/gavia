@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_sort.cc,v 1.8 2001-01-18 23:25:20 grahn Exp $
+ * $Id: gavia_sort.cc,v 1.9 2001-03-03 12:20:22 grahn Exp $
  *
  * gavia_sort.cc
  *
@@ -36,7 +36,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gavia_sort.cc,v 1.8 2001-01-18 23:25:20 grahn Exp $";
+"$Id: gavia_sort.cc,v 1.9 2001-03-03 12:20:22 grahn Exp $";
 }
 
 #include <cstdio>
@@ -57,7 +57,6 @@ static const char* rcsid() { rcsid(); return
 #include "streamsink.hh"
 
 #include "canonorder.hh"
-#include "dynamicorder.hh"
 
 #include "excursion.hh"
 

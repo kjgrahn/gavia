@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: canonorder.hh,v 1.3 2000-08-10 19:47:21 grahn Exp $
+ * $Id: canonorder.hh,v 1.4 2001-03-03 12:20:22 grahn Exp $
  *
  * canonorder.hh
  *
@@ -51,12 +51,13 @@ public:
 
     virtual const CanonOrder& operator=(const SpeciesOrder&);
 
-    virtual Species species(int) const;
+    virtual Species species(int i) const;
+
     virtual int end() const;
 
 protected:
 private:
-
+    static char * internalcanon[];
 };
 
 #endif

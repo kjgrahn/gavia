@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.10 2001-01-18 23:25:19 grahn Exp $
+# $Id: Makefile,v 1.11 2001-03-03 12:20:22 grahn Exp $
 #
 # Makefile
 #
@@ -77,19 +77,16 @@ objs: $(OBJS)
 #
 
 gavia_cat: gavia_cat.o excursion.o streamsource.o streamsink.o gabsink.o textsink.o htmlsink.o latexsink.o canonorder.o taxonomicorder.o sortedorder.o dynamicorder.o motorola.o bitmap.o version.o
-	g++ $(LDFLAGS) -o $@ $^ $(LIBS)
+	$(CXX) $(LDFLAGS) -o $@ $^ $(LIBS)
 
 gavia_add: gavia_add.o excursion.o streamsource.o streamsink.o canonorder.o motorola.o bitmap.o dynamicorder.o gabsource.o gablexer.o speciesredro.o version.o
-	g++ $(LDFLAGS) -o $@ $^ $(LIBS)
+	$(CXX) $(LDFLAGS) -o $@ $^ $(LIBS)
 
 gavia_grep: gavia_grep.o canonorder.o dynamicorder.o streamsink.o streamsource.o excursion.o motorola.o bitmap.o version.o
-	g++ $(LDFLAGS) -o $@ $^ $(LIBS)
+	$(CXX) $(LDFLAGS) -o $@ $^ $(LIBS)
 
 gavia_sort: gavia_sort.o canonorder.o dynamicorder.o streamsink.o streamsource.o excursion.o motorola.o bitmap.o version.o
-	g++ $(LDFLAGS) -o $@ $^ $(LIBS)
-
-gavia_stat:
-	@echo "gavia_stat is not yet implemented"
+	$(CXX) $(LDFLAGS) -o $@ $^ $(LIBS)
 
 # targets that need special help
 #
@@ -135,7 +132,7 @@ gavia_grep.o: streamsource.hh booksource.hh streamsink.hh booksink.hh
 gavia_grep.o: canonorder.hh speciesorder.hh dynamicorder.hh
 gavia_sort.o: version.hh excursion.hh species.hh speciesset.hh
 gavia_sort.o: streamsource.hh booksource.hh streamsink.hh booksink.hh
-gavia_sort.o: canonorder.hh speciesorder.hh dynamicorder.hh
+gavia_sort.o: canonorder.hh speciesorder.hh
 excursion.o: excursion.hh species.hh speciesset.hh
 canonorder.o: canonorder.hh speciesorder.hh species.hh
 sortedorder.o: species.hh speciesorder.hh sortedorder.hh

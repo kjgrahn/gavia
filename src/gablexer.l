@@ -1,7 +1,7 @@
 %{
 /*----------------------------------------------------------------------------
  *
- * $Id: gablexer.l,v 1.6 2000-08-10 19:47:21 grahn Exp $
+ * $Id: gablexer.l,v 1.7 2001-03-03 12:20:22 grahn Exp $
  *
  * gablexer.l
  *
@@ -35,11 +35,12 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gablexer.l,v 1.6 2000-08-10 19:47:21 grahn Exp $";
+"$Id: gablexer.l,v 1.7 2001-03-03 12:20:22 grahn Exp $";
 }
 
 #include <cctype>
 #include <cstring>
+#include <string>
 
 #include "excursion.hh"
 #include "speciesredro.hh"
@@ -87,7 +88,7 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
     s += strlen(":");
     while(isspace(*s)) s++;
 
-    excursion->setplace(string(s));
+    excursion->setplace(std::string(s));
 }
 
 <HEAD>^{BLANK}*date{BLANK}*\:{LDATEFLD}$ {
@@ -149,7 +150,7 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
     s += strlen(":");
     while(isspace(*s)) s++;
 
-    excursion->settime(string(s));
+    excursion->settime(std::string(s));
 }
 
 <HEAD>^{BLANK}*observers{BLANK}*\:({FREEFLD}|{BLANKFLD})$ {
@@ -164,7 +165,7 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
     s += strlen(":");
     while(isspace(*s)) s++;
 
-    excursion->setobservers(string(s));
+    excursion->setobservers(std::string(s));
 }
 
 <HEAD>^{BLANK}*weather{BLANK}*\:({FREEFLD}|{BLANKFLD})$ {
@@ -179,7 +180,7 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
     s += strlen(":");
     while(isspace(*s)) s++;
 
-    excursion->setweather(string(s));
+    excursion->setweather(std::string(s));
 }
 
 <HEAD>^{BLANK}*comments{BLANK}*\:({FREEFLD}|{BLANKFLD})$ {
@@ -194,7 +195,7 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
     s += strlen(":");
     while(isspace(*s)) s++;
 
-    excursion->setcomments(string(s));
+    excursion->setcomments(std::string(s));
 }
 
 <HEAD>^{BLANK}*\}{BLANK}*\{{BLANK}*$ {

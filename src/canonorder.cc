@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: canonorder.cc,v 1.6 2001-01-18 23:25:19 grahn Exp $
+ * $Id: canonorder.cc,v 1.7 2001-03-03 12:20:22 grahn Exp $
  *
  * canonorder.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: canonorder.cc,v 1.6 2001-01-18 23:25:19 grahn Exp $";
+"$Id: canonorder.cc,v 1.7 2001-03-03 12:20:22 grahn Exp $";
 }
 
 #include "canonorder.hh"
@@ -43,7 +43,7 @@ static const char* rcsid() { rcsid(); return
 
 #define INTERNALCANONLEN (484)
  
-static char * internalcanon[INTERNALCANONLEN] =
+char * CanonOrder::internalcanon[INTERNALCANONLEN] =
 {
     "smålom",  	       	       /* 000 */
     "storlom",		       /* 001 */

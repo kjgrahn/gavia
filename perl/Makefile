@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.7 2002-09-29 19:44:37 grahn Exp $
+# $Id: Makefile,v 1.8 2002-10-19 19:08:49 grahn Exp $
 #
 # Makefile
 #
@@ -32,7 +32,7 @@ SHELL = /bin/sh
 INSTALLBASE = /usr/local
 
 all: gavia_stat.pl _gavia_stellata gaviadate.pl gaviadeexpand.pl _gavia_focus gavia_score
-all: gavia_gab2text gavia_gab2roff gavia_gab2latex gavia_gab2html
+all: gavia_gab2text gavia_gab2roff gavia_gab2html
 
 install: all
 	install -m555 gavia_stat.pl $(INSTALLBASE)/bin/gavia_stat
@@ -43,7 +43,6 @@ install: all
 	install -m555 gavia_score $(INSTALLBASE)/bin/
 	install -m555 gavia_gab2text $(INSTALLBASE)/bin/
 	install -m555 gavia_gab2roff $(INSTALLBASE)/bin/
-	install -m555 gavia_gab2latex $(INSTALLBASE)/bin/
 	install -m555 gavia_gab2html $(INSTALLBASE)/bin/
 
 _gavia_stellata: gavia_stellata.pl

@@ -1,4 +1,4 @@
-.\" $Id: gavia_cat.1,v 1.13 2002-10-13 17:03:19 grahn Exp $
+.\" $Id: gavia_cat.1,v 1.14 2002-10-19 19:08:48 grahn Exp $
 .\" 
 .\"
 .TH gavia_cat 1 "AUG 2002" Gavia "User Manuals"
@@ -21,7 +21,6 @@ Gavia book (i.e. binary),
 as text,
 as ''gab'' formatted text,
 as HTML,
-LaTeX2e source code,
 troff source code,
 or a Unix mailbox file.
 .SH "OPTIONS"
@@ -33,8 +32,6 @@ Output as ''gab'' text, which gavia_add(1) can read.
 Output as plain text.
 .IP \-h
 Output as HTML.
-.IP \-l
-Output as LaTeX2e source.
 .IP \-m
 Output as a mbox file, readable by mail user agents such as
 .BR mail (1)
@@ -73,10 +70,6 @@ The list of supported species and their taxonomic ordering.
 .SH "ENVIRONMENT"
 The current locale settings might influence certain aspects.
 .SH "BUGS"
-You'd probably be better off with a set of filters that can
-translate ''gab'' format into LaTeX, HTML, text et cetera,
-than with all the switches described above.
-.LP
 Error handling and error reporting is rudimentary, at the most.
 Bad file contents give unrecoverable errors.
 The Gavia book format is fucked up.
@@ -84,11 +77,6 @@ The Gavia book format is fucked up.
 Mbox output isn't MIME-encoded; some mail user agents
 may be confused when encountering 8-bit characters in
 mail headers and bodies.
-.LP
-Troff output is probably not working very well as of yet.
-For example, there is no translation of national characters
-into troff character input codes, so you need a troff which
-understands Latin-1 \(em which probably implies GNU groff.
 .SH "AUTHOR"
 J\(:orgen Grahn <jgrahn@algonet.se>
 .SH "SEE ALSO"

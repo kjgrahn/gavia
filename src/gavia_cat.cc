@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_cat.cc,v 1.14 2002-09-29 19:47:56 grahn Exp $
+ * $Id: gavia_cat.cc,v 1.15 2002-10-19 19:08:49 grahn Exp $
  *
  * gavia_cat.cc
  *
@@ -32,12 +32,12 @@
  *
  * Concatenate one or more Gavia books and dump them to
  * stdout as a Gavia book or some other specified format
- * (plain text, HTML, LaTeX).
+ * (plain text, HTML, troff, etc).
  *----------------------------------------------------------------------------
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gavia_cat.cc,v 1.14 2002-09-29 19:47:56 grahn Exp $";
+"$Id: gavia_cat.cc,v 1.15 2002-10-19 19:08:49 grahn Exp $";
 }
 
 #include <iostream>
@@ -76,7 +76,7 @@ static const char* rcsid() { rcsid(); return
  */
 int main(int argc, char ** argv)
 {
-    const char optstring[] = "+bgthlmrcxsv";
+    const char optstring[] = "+bgthmrcxsv";
     int ch = EOF;
     int fmtch = 'b';
     int ordch = 'c';
@@ -92,7 +92,6 @@ int main(int argc, char ** argv)
 	case 'g':		// 'Gab'-formatted text
 	case 't':		// plain text
 	case 'h':		// HTML
-	case 'l':		// LaTeX2e
 	case 'm':		// mbox
 	case 'r':		// {,t,n,g}roff
 	    fmtch = ch;
@@ -126,7 +125,6 @@ int main(int argc, char ** argv)
     case 'g':
     case 't':
     case 'h':
-    case 'l':
     case 'm':
     case 'r':
 	switch(ordch)
@@ -154,9 +152,6 @@ int main(int argc, char ** argv)
 	    break;
 	case 'h':
 	    sink = new FilterSink(order, "gavia_gab2html");
-	    break;
-	case 'l':
-	    sink = new FilterSink(order, "gavia_gab2latex");
 	    break;
 	case 'm':
 	    sink = new MboxSink(order, stdout);

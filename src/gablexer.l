@@ -1,7 +1,7 @@
 %{
 /*----------------------------------------------------------------------------
  *
- * $Id: gablexer.l,v 1.12 2002-09-29 09:50:50 grahn Exp $
+ * $Id: gablexer.l,v 1.13 2002-10-19 19:08:48 grahn Exp $
  *
  * gablexer.l
  *
@@ -35,7 +35,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gablexer.l,v 1.12 2002-09-29 09:50:50 grahn Exp $";
+"$Id: gablexer.l,v 1.13 2002-10-19 19:08:48 grahn Exp $";
 }
 
 #include <cctype>
@@ -61,22 +61,7 @@ static void tryinsert(Excursion * ex,
 
     if(!redro->ismember(s))
     {
-	// allow for a few old misspellings
-	map<Species, Species> alias;
-	alias["gräshoppssångare"] = "gräshoppsångare";
-	alias["rostskogtrast"] = "rostskogstrast";
-	alias["bergtaigasångare"] = "bergstaigasångare";
-
-	map<Species, Species>::const_iterator i = alias.find(s);
-	if(i==alias.end())
-	{
-	    throw GaviaException(std::string("invalid species '") + s + "'");
-	}
-	
-	std::cerr << "warning: '" << 
-	    alias[s] << "' misspelled as '" << s <<
-	    "' near line " << line << std::endl;
-	s = alias[s];
+	throw GaviaException(std::string("invalid species '") + s + "'");
     }
 
     if(ex->has(s))

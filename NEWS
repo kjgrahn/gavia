@@ -3,8 +3,12 @@
 Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
+	- taxonomic order (gavia_cat -x) now actually presents something
+	  resembling what it should (used to be the same as canonical order,
+	  i.e. newly added (rare) species tended to sort last)
 	- gavia_stellata now uses $GAVIAEDITOR, $VISUAL or $EDITOR
 	  for picking the right editor.
+	- added 'orientvadarsvala' as a species (new total 485)
 
 gavia 2.17 (2001-07-08):
 	- gavia_cat: when exporting to text, the day of week is printed:
@@ -66,5 +70,5 @@ lanius, all versions:
 	Before written history.
 
 _________________________________________
-$Id: NEWS,v 1.3 2001-07-08 12:56:10 grahn Exp $
+$Id: NEWS,v 1.4 2001-07-22 21:05:42 grahn Exp $
 $Name:  $

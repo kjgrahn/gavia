@@ -1,6 +1,7 @@
 #!/usr/bin/perl -w
 #
-# $Id: gaviadeexpand.pl,v 1.1 1999-10-24 14:30:41 grahn Exp $
+# $Id: gaviadeexpand.pl,v 1.2 1999-10-24 20:51:38 grahn Exp $
+# $Name:  $
 #
 # gaviadeexpand.pl - remove fluff and unused species
 # from a 'gab' file

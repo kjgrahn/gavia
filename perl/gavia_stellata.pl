@@ -1,6 +1,7 @@
 #!/usr/bin/perl -w
 #
-# $Id: gavia_stellata.pl,v 1.1 1999-10-24 14:30:41 grahn Exp $
+# $Id: gavia_stellata.pl,v 1.2 1999-10-24 20:51:38 grahn Exp $
+# $Name:  $
 #
 # gavia_stellata.pl - interactively adding
 # excursions to the default .gab file

@@ -1,11 +1,11 @@
-.\" $Id: gavia_cat.1,v 1.1 1999-10-24 08:10:38 grahn Exp $
+.\" $Id: gavia_cat.1,v 1.2 2000-01-16 20:48:09 grahn Exp $
 .\" 
 .\"
-.TH gavia_cat 1 "JULY 1999" Unix "User Manuals"
+.TH gavia_cat 1 "JAN 2000" Unix "User Manuals"
 .SH NAME
 gavia_cat \- concatenate and translate Gavia books
 .SH SYNOPSIS
-.B gavia_cat [-bthl] [-cxs]
+.B gavia_cat [-bgthl] [-cxs]
 .I bookfile
 .B ...
 .SH DESCRIPTION
@@ -19,11 +19,14 @@ The resulting aggregate book is then written to
 standard output, either as a
 Gavia book (i.e. binary),
 as text,
+as ''gab'' formatted text,
 as HTML,
 or LaTeX2e source code.
 .SH OPTIONS
 .IP -b
 (default) Output as a Gavia Book.
+.IP -b
+Output as ''gab'' text, which gavia_add(1) can read.
 .IP -t
 Output as plain text.
 .IP -h
@@ -35,8 +38,8 @@ Output as LaTeX2e source.
 to the "canonical" order.
 To be honest, this ordering is fairly meaningless
 and just an artifact of how Gavia works internally.
-This option - and the ones below - is meaningless
-unless the -t, -h or -l options are active.
+This option - and the ones below - is not meaningful
+unless the -b option is active.
 .IP -x
 Output the species according to
 a generally accepted taxonomical ordering.
@@ -57,7 +60,7 @@ The Gavia book format is fucked up.
 is written in C++ and might be
 fragile and/or non-portable because of that.
 .SH AUTHOR
-Jörgen Grahn <jorgen.grahn@opensoftware.se>
+Jorgen Grahn <jorgen.grahn@opensoftware.se>
 .SH "SEE ALSO"
 .BR gavia (1),
 .BR gavia_add (1),

@@ -1,27 +1,49 @@
-.\" $Id: gavia_stellata.1,v 1.6 2002-10-13 17:03:20 grahn Exp $
+.\" $Id: gavia_stellata.1,v 1.7 2004-01-06 12:07:23 grahn Exp $
 .\" 
 .\"
-.TH gavia_stellata 1 "JUL 2002" Gavia "User Manuals"
+.TH gavia_stellata 1 "JAN 2004" Gavia "User Manuals"
+.
+.
 .SH "NAME"
 gavia_stellata \- add excursions to a Gavia book
+.
 .SH "SYNOPSIS"
 .B gavia_stellata
+[\-f
+.IR template ]
 .I file
+.
 .SH "DESCRIPTION"
 .B gavia_stellata
-is a perl script which makes it reasonably convenient to add
+makes it convenient to add
 excursions to a 'Gab'-formatted Gavia book.
-
-A template file,
-.B ~/.gavia_template ,
+.LP
+An excursion template file,
+.IR ~/.gavia_template ,
 is read into a text editor (e.g. emacs), with the current date filled in.
-When the user has edited and saved it, gavia_stellata strips
-away all non-selected species and fires up the editor again,
-so that the user can e.g. add comments.
-When the user saves the excusions the second time, gavia_stellata
+.LP
+When the user has edited and saved it,
+.I gavia_stellata
+strips away all non-selected species and fires up the editor again,
+so that the user can add numbers and comments
+without being distracted by the full species list.
+.LP
+When the user saves the excursions the second time,
+.I gavia_stellata
+adjusts column widths to make it more readable,
 appends the result to
 .I file
 and exits.
+.
+.SH "OPTIONS"
+.IP \-f\ \fItemplate
+Use
+.I template
+instead of
+.I ~/.gavia_template
+or
+.IR lib/gavia/default .
+.
 .SH "FILES"
 .TP
 .I ~/.gavia_template
@@ -30,18 +52,27 @@ all species. Fields, e.g. 'observers', may be pre-filled.
 .TP
 .I lib/gavia/default
 Global excursion template file, used if the personal template isn't
-available.
+available
+and none has been given using the
+.B \-f
+flag.
 .TP
 .I lib/gavia/species
 The list of supported species and their taxonomic ordering.
+Used by
+.I gavia_stellata
+only to issue warnings about misspelled species names.
+.
 .SH "ENVIRONMENT"
 .IP GAVIAEDITOR
 Specifies the editor to use.
 If not set, VISUAL or EDITOR is used instead.
 If none of these are set, the default is
 .BR emacs .
+.
 .SH "AUTHOR"
-J\(:orgen Grahn <jgrahn@algonet.se>
+J\(:orgen Grahn \fI<jgrahn@algonet.se>
+.
 .SH "SEE ALSO"
 .BR gavia (1),
 .BR gavia (5)

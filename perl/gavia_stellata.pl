@@ -1,12 +1,12 @@
 #!/usr/bin/perl -w
 #
-# $Id: gavia_stellata.pl,v 1.12 2002-11-23 17:07:03 grahn Exp $
+# $Id: gavia_stellata.pl,v 1.13 2004-01-06 12:07:23 grahn Exp $
 # $Name:  $
 #
 # gavia_stellata.pl - interactively adding
 # excursions to the default .gab file
 #
-# Copyright (c) 1999--2002 Jörgen Grahn <jgrahn@algonet.se>
+# Copyright (c) 1999--2004 Jörgen Grahn <jgrahn@algonet.se>
 # All rights reserved.
 # 
 # Redistribution and use in source and binary forms, with or without
@@ -23,13 +23,29 @@
 # THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' ...etc
 #
 
-$obsbok = shift
-    or die "usage: $0 filename\n";
-$template = (glob "~/.gavia_template"
-    or "INSTALLBASE/lib/gavia/default")
-    or die "Cannot find an excursion template to use.\n";
-$tmpname0 = "/tmp/gavia_stellata.tmp0.$$";
-$tmpname1 = "/tmp/gavia_stellata.tmp1.$$";
+use strict;
+use vars qw($opt_f);
+use Getopt::Std;
+
+sub syntaxcheck;
+sub mtime;
+
+
+getopts('f:') and
+    my $obsbok = shift
+    or die "usage: $0 [-f template] file\n";
+
+my $template = "INSTALLBASE/lib/gavia/default";
+my $hometempl = glob "~/.gavia_template";
+$template = $hometempl
+    if -f $hometempl;
+$template = $opt_f
+    if defined $opt_f;
+
+my $tmpname0 = "/tmp/gavia_stellata.tmp0.$$";
+my $tmpname1 = "/tmp/gavia_stellata.tmp1.$$";
+
+my $editor = "emacs";
 
 if(defined $ENV{"GAVIAEDITOR"}) {
     $editor = $ENV{"GAVIAEDITOR"};
@@ -40,21 +56,32 @@ elsif(defined $ENV{"VISUAL"}) {
 elsif(defined $ENV{"EDITOR"}) {
     $editor = $ENV{"EDITOR"};
 }
-else {
-    # rudely assume emacs is installed and in the path
-    $editor = "emacs";
-}
 
 -w $obsbok
-    or die
-    "\'$obsbok\' is not writeable.\n";
+    or die "`$obsbok' is not writeable.\n";
 
-if(system("gaviadate <$template >$tmpname0")) {
-    unlink $tmpname0;
-    die "\'gaviadate\' failed, exiting.\n";
+my ($d0, $d1, $d2, $mday, $mon, $year, $d3, $d4, $d5) = localtime(time);
+my $datestr = sprintf "%04d%02d%02d", 1900+$year, 1+$mon, $mday;
+
+open TMPL, "<$template"
+    or die "cannot open `$template' for reading: $!\n";
+open TMP0, ">$tmpname0"
+    or die "cannot open `$tmpname0': $!\n";
+
+while(<TMPL>) {
+    # fill in date fields with today's date
+    if(/^(\s*date\s*):\s+$/) {
+	print TMP0 "$1: $datestr\n";
+    }
+    else {
+	print TMP0;
+    }
 }
 
-($a,$a,$a,$a,$a,$a,$a,$a,$a,$mtime0,$a,$a,$a) = stat($tmpname0);
+close TMPL;
+close TMP0;
+
+my $mtime0 = mtime($tmpname0);
 
 print STDERR "Invoking editor... ";
 
@@ -63,20 +90,31 @@ if(system("$editor $tmpname0")) {
     die "Couldn't execute '$editor'.\n";
 }
 
-($a,$a,$a,$a,$a,$a,$a,$a,$a,$mtime,$a,$a,$a) = stat($tmpname0);
+my $mtime = mtime($tmpname0);
 if($mtime == $mtime0) {
     unlink $tmpname0;
     print STDERR "\nAborted unmodified excursion.\n";
     exit 0;
 }
 
-if(system("gaviadeexpand <$tmpname0 >$tmpname1")) {
-    unlink $tmpname0;
-    unlink $tmpname1;
-    die "'gaviadeexpand' failed, exiting.\n";
+open TMP0, "<$tmpname0"
+    or die "cannot open `$tmpname0': $!\n";
+open TMP1, ">$tmpname1"
+    or die "cannot open `$tmpname1': $!\n";
+
+while(<TMP0>) {
+    # trim away species and comments, add line spacing
+    next if /^[a-zåäö \t]+:\s*:\s*:\s*$/;
+    next if /^\s*\#/;
+    next if /^\s*$/;
+
+    print TMP1;
+    print TMP1 "\n" if /^\s*}\s*$/;
 }
 
+close TMP0;
 unlink $tmpname0;
+close TMP1;
 
 print STDERR "again...\n";
 
@@ -85,14 +123,28 @@ if(system("$editor $tmpname1")) {
     die;
 }
 
-syntaxcheck($tmpname1);
+my ($smax, $nmax) = syntaxcheck($tmpname1);
+# avoid too much jaggedness
+$smax = 17 if $smax<17;
 
-if(system("cat >>$obsbok $tmpname1")) {
-    unlink $tmpname1;
-    die "Failed to add the new data to $obsbok, exiting.\n";
+open TMP1, "<$tmpname1"
+    or die "cannot open `$tmpname1': $!\n";
+open BOOK, ">>$obsbok"
+    or unlink $tmpname1, die "cannot append to $obsbok: $!\n";
+
+while(<TMP1>) {
+    if(/^(\s*[a-zåäö ]+?)\s*:(.*?):\s*(\d*)\s*:(.*)/i) {
+
+	printf BOOK "%-${smax}s :%s: %${nmax}s:%s\n", $1, $2, $3, $4;
+	next;
+    }
+
+    print BOOK;
 }
 
+close TMP1;
 unlink $tmpname1;
+close BOOK;
 
 exit 0;
 
@@ -102,12 +154,16 @@ exit 0;
 # Some things are not caught, e.g. duplicate lines and
 # other line-spanning syntax errors.
 #
+# Also, return max widths for the species and number columns,
+# to make it possible to align them later for readability.
+#
 sub syntaxcheck {
     my $file = shift;
     my %species;
+    my ($smax, $nmax) = (0,0);
 
     open SPECIES, "INSTALLBASE/lib/gavia/species"
-	or return;
+	or return ($smax, $nmax);
 
     while(<SPECIES>) {
 	chomp;
@@ -130,12 +186,23 @@ sub syntaxcheck {
 	    }
 	    next;
 	}
-	if(/\s*([a-zåäö ]+?)\s*:.*?:\s*\d*\s*:/i) {
-	    print STDERR "warning: species '$1' is unknown/misspelled\n"
-		unless defined($species{$1});
+	if(/(\s*([a-zåäö ]+?))\s*:.*?:\s*(\d*)\s*:/i) {
+	    print STDERR "warning: species '$2' is unknown/misspelled\n"
+		unless defined($species{$2});
+	    my ($s, $n) = (length $1, length $3);
+	    $smax = ($s > $smax)? $s: $smax;
+	    $nmax = ($n > $nmax)? $n: $nmax;
 	    next;
 	}
 	print STDERR "warning: malformed line\n   $_\n";
     }
     close FILE;
+    return ($smax, $nmax);
+}
+
+
+sub mtime {
+    my $path = shift;
+    my @stats = stat($path);
+    return $stats[9];
 }

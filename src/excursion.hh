@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: excursion.hh,v 1.2 1999-10-24 14:56:16 grahn Exp $
+ * $Id: excursion.hh,v 1.3 1999-11-30 22:19:46 grahn Exp $
  *
  * excursion.hh
  *
@@ -101,7 +101,7 @@ private:
     string comments;
 
     SpeciesSet sset;
-    map<Species, SpeciesData> smap;
+    std::map<Species, SpeciesData> smap;
 
 };
 

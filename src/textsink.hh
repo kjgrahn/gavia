@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: textsink.hh,v 1.2 1999-10-24 14:56:17 grahn Exp $
+ * $Id: textsink.hh,v 1.3 1999-11-30 22:19:47 grahn Exp $
  *
  * textsink.hh
  *
@@ -39,7 +39,7 @@
 #define TEXTSINK_HH
 
 #include "booksink.hh"
-#include <stdio.h>
+#include <cstdio>
 
 
 class SpeciesOrder;

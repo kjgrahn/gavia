@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_add.cc,v 1.3 1999-10-24 14:56:16 grahn Exp $
+ * $Id: gavia_add.cc,v 1.4 1999-11-30 22:19:46 grahn Exp $
  *
  * gavia_add.cc
  *
@@ -35,15 +35,17 @@
  *----------------------------------------------------------------------------
  */
 
-static const char rcsid[] =
-"$Id: gavia_add.cc,v 1.3 1999-10-24 14:56:16 grahn Exp $";
+static const char* rcsid() { rcsid(); return
+"$Id: gavia_add.cc,v 1.4 1999-11-30 22:19:46 grahn Exp $";
+}
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <ctype.h>
-#include <vector.h>
+#include <cstdio>
+#include <cstdlib>
+#include <cctype>
 
-#include <assert.h>
+#include <cassert>
+
+#include <vector>
 
 #ifdef NON_FUCKED_UP_READLINE_H
 #include <readline/readline.h>

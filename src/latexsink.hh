@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: latexsink.hh,v 1.2 1999-10-24 14:56:17 grahn Exp $
+ * $Id: latexsink.hh,v 1.3 1999-11-30 22:19:46 grahn Exp $
  *
  * latexsink.hh
  *
@@ -40,7 +40,7 @@
 #define LATEXSINK_HH
 
 #include "booksink.hh"
-#include <stdio.h>
+#include <cstdio>
 
 
 class SpeciesOrder;

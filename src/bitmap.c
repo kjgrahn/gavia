@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: bitmap.c,v 1.1 1999-10-24 08:10:52 grahn Exp $
+ * $Id: bitmap.c,v 1.2 1999-11-30 22:19:46 grahn Exp $
  *
  * bitmap.c
  *
@@ -14,8 +14,9 @@
  *----------------------------------------------------------------------------
  */
 
-static const char rcsid[] =
-"$Id: bitmap.c,v 1.1 1999-10-24 08:10:52 grahn Exp $";
+static const char* rcsid(void) { rcsid(); return
+"$Id: bitmap.c,v 1.2 1999-11-30 22:19:46 grahn Exp $";
+}
 
 #include <stdio.h>
 

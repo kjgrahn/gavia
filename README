@@ -1,4 +1,4 @@
-GAVIA
+GAVIA - BIRD NOTEBOK TOOLS
 
 
 0. BACKGROUND
@@ -43,8 +43,10 @@ some of the SGI extensions to STL.
 To compile, you'll also need flex, the lex replacement.
 The lex that comes with Solaris isn't enough, for example.
 
-You also need to be on a Unix-like system. Personally, I'm on a Linux
-box. There are probably a few GNUisms in the code and the build scripts.
+You may also need to be on a Unix-like system. Personally, I'm on a
+Linux box and have never tried to compile for (for example) Win32.
+There may be a few GNUisms in the C++ code, and I know there are
+several in the Makefile.
 
 For my daily use of gavia, I rely on perl, RCS or CVS, and GNU
 Emacs. You can avoid some of these depending on how you use gavia and
@@ -92,5 +94,5 @@ I'll probably never get around to it.
 
 Jörgen Grahn <jgrahn@algonet.se>
 
-$Id: README,v 1.6 2002-07-15 16:06:39 grahn Exp $
+$Id: README,v 1.7 2004-01-06 12:10:57 grahn Exp $
 $Name:  $

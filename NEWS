@@ -4,6 +4,17 @@ Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
 
+gavia 2.30 (2004-01-06)
+	- gavia_stellata: column formatting is applied before the new
+	  excursion(s) are appended to the book, so that the species
+	  and number columns aren't unnecessarily wide.
+	- gavia_stellata: the user may specify an excursion template
+	  on the command line
+	- gaviadate and gaviadeexpand utilities (which gavia_stellata
+	  used to call, alongside cat(1)) removed.  Gavia_stellata now
+	  calls no external programs except the editor.
+	- gavia_add: slightly better diagnostics
+
 gavia 2.29 (2003-01-05)
 	- one new species added (new total 516):
 	  buffelhuvud
@@ -202,5 +213,5 @@ lanius, all versions:
 	Before written history.
 
 _________________________________________
-$Id: NEWS,v 1.25 2003-01-05 09:49:25 grahn Exp $
+$Id: NEWS,v 1.26 2004-01-06 12:10:57 grahn Exp $
 $Name:  $

@@ -1,22 +1,29 @@
-.\" $Id: gavia.5,v 1.8 2004-01-04 14:10:41 grahn Exp $
+.\" $Id: gavia.5,v 1.9 2004-01-06 12:10:19 grahn Exp $
 .\" 
 .\"
-.TH gavia 5 "JUN 2001" Gavia "User Manuals"
+.TH gavia 5 "JAN 2004" Gavia "User Manuals"
+.
+.
+.
 .SH "NAME"
-gavia \- Gavia bird note book formats
+gavia \- Gavia bird notebook formats
+.
 .SH "DESCRIPTION"
 Two different file formats are used with Gavia:
-the text format tentatively called ''gab'', and
-the older, binary format ''Lanius book''.
+the text format tentatively called \(lqgab\(rq, and
+the older, binary format \(lqLanius book\(rq.
 Different Gavia commands work on different kinds of
 files.
+.
+.
+.
 .SH "GAB FILES"
-The ''Gab'' input format is designed so that
+The \(lqGab\(rq input format is designed so that
 a user can start with a template file
 and quickly edit it, marking the species
 seen during an excursion
 and filling in any extra information.
-
+.LP
 Blank lines are ignored.
 Comment lines (prefixed with a hash (#) sign)
 are ignored.
@@ -24,10 +31,10 @@ Case and extra blank space
 is not significant except in species names
 (which are by convention in all lowercase)
 and user-supplied data.
-
+.LP
 Input is line-oriented; fields may never
 be broken into several lines.
-
+.LP
 The input consists of a series of excursions,
 each looking like
 .IP
@@ -43,7 +50,8 @@ species fields
 }
 .LP
 Excursion fields are
-
+.IP
+.ft CW
 Place: <place description>
 .br
 Date: <yyyymmdd>
@@ -55,42 +63,46 @@ Observers: <names of any persons involved>
 Weather: <weather description>
 .br
 Comments: <anything else you want to note>
-
+.LP
 All but place and date are optional and
 can be left unfilled or left out entirely.
-
+.LP
 Species fields have the format
 .IP
 .ft CW
 <species name>: <mark>: <number of individuals>: <comment>
 .LP
 The species name must be exactly one of those defined by Gavia
-(which currently keeps them in a file,
+(i.e. the file
 .IR lib/gavia/species ).
-
+.LP
 A species field can be unfilled, in which case that species
 is not to be regarded as included in the excursion.
-
+.LP
 The number of individuals and/or comment may still be left out,
 but in that case the user must fill in the mark field
-with some non-blank characters, for example an '#'.
+with some non-blank characters, for example an `#'.
+.
+.
+.
 .SH "LANIUS BOOK"
 The binary Lanius book format was inherited by Gavia from its
 Commodore-Amiga-based predecessor.
-
+.LP
 Integer values are stored in big-endian (network) byteorder.
 Strings are encoded in the
 .BR ISO_8859-1 (7)
 charset.
 They start with a 2-octet length and are not NUL-terminated.
-
-The book itself consists of a preamble, the string
 .LP
+The book itself consists of a preamble, the string
+.IP
 .ft CW
 Lanius Book v1.0
 .LP
 followed by zero or more excursion records and terminated by
-.LP
+the string
+.IP
 .ft CW
 NIL:
 .LP
@@ -121,7 +133,7 @@ Undefined positions are zeroed.
 The mapping from number to species name, defined by
 the file
 .I lib/gavia/species
-in a Gavia installation.
+in a Gavia installation,
 is guaranteed never to change (although new species will be added
 and existing species may have their names changed,
 or maybe translated to some language other than Swedish).
@@ -131,7 +143,11 @@ count of individuals. A zero means no count was given.
 .IP \(bu
 For each species marked in the bitmap, a comment
 string.
+.
+.
 .SH "AUTHOR"
-J\(:orgen Grahn <jgrahn@algonet.se>
+J\(:orgen Grahn \fI<jgrahn@algonet.se>
+.
+.
 .SH "SEE ALSO"
 .BR gavia (1)

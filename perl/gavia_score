@@ -1,9 +1,9 @@
 #!/usr/bin/perl -w # -*- perl -*-
 #
-# $Id: gavia_score,v 1.1 2002-06-16 11:21:55 grahn Exp $
+# $Id: gavia_score,v 1.2 2002-06-16 15:03:28 grahn Exp $
 # $Name:  $
 #
-# gavia_score - 
+# gavia_score - find out how frequently different species are seen
 #
 # Copyright (c) 2002 Jörgen Grahn <jgrahn@algonet.se>
 # All rights reserved.

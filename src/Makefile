@@ -1,8 +1,8 @@
-# $Id: Makefile,v 1.13 2001-12-29 19:14:09 grahn Exp $
+# $Id: Makefile,v 1.14 2002-07-15 13:40:52 grahn Exp $
 #
 # Makefile
 #
-# Copyright (c) 1999--2001 Jörgen Grahn <jgrahn@algonet.se>
+# Copyright (c) 1999--2002 Jörgen Grahn <jgrahn@algonet.se>
 # All rights reserved.
 # 
 # Redistribution and use in source and binary forms, with or without
@@ -54,7 +54,7 @@ SRCS = gavia_add.cc \
        streamsink.cc gabsink.cc textsink.cc htmlsink.cc latexsink.cc mboxsink.cc \
        gablexer.cc \
        motorola.c bitmap.c \
-       version.cc
+       version.cc specieslist.cc
 OBJS = gavia_add.o  \
        gavia_cat.o  \
        gavia_grep.o  \
@@ -66,7 +66,7 @@ OBJS = gavia_add.o  \
        streamsink.o  gabsink.o  textsink.o  htmlsink.o  latexsink.o  mboxsink.o  \
        gablexer.o  \
        motorola.o bitmap.o \
-       version.o
+       version.o  specieslist.o
 OUTS = gavia_add gavia_cat gavia_grep gavia_sort
 
 all: $(OUTS)
@@ -76,20 +76,23 @@ objs: $(OBJS)
 # executables
 #
 
-gavia_cat: gavia_cat.o excursion.o streamsource.o streamsink.o gabsink.o textsink.o htmlsink.o latexsink.o mboxsink.o canonorder.o taxonomicorder.o sortedorder.o dynamicorder.o motorola.o bitmap.o version.o
+gavia_cat: gavia_cat.o excursion.o streamsource.o streamsink.o gabsink.o textsink.o htmlsink.o latexsink.o mboxsink.o canonorder.o taxonomicorder.o sortedorder.o dynamicorder.o motorola.o bitmap.o version.o specieslist.o
 	$(CXX) $(LDFLAGS) -o $@ $^ $(LIBS)
 
-gavia_add: gavia_add.o excursion.o streamsource.o streamsink.o canonorder.o motorola.o bitmap.o dynamicorder.o gabsource.o gablexer.o speciesredro.o version.o
+gavia_add: gavia_add.o excursion.o streamsource.o streamsink.o canonorder.o motorola.o bitmap.o dynamicorder.o gabsource.o gablexer.o speciesredro.o version.o specieslist.o
 	$(CXX) $(LDFLAGS) -o $@ $^ $(LIBS)
 
-gavia_grep: gavia_grep.o canonorder.o dynamicorder.o streamsink.o streamsource.o excursion.o motorola.o bitmap.o version.o
+gavia_grep: gavia_grep.o canonorder.o dynamicorder.o streamsink.o streamsource.o excursion.o motorola.o bitmap.o version.o specieslist.o
 	$(CXX) $(LDFLAGS) -o $@ $^ $(LIBS)
 
-gavia_sort: gavia_sort.o canonorder.o dynamicorder.o streamsink.o streamsource.o excursion.o motorola.o bitmap.o version.o
+gavia_sort: gavia_sort.o canonorder.o dynamicorder.o streamsink.o streamsource.o excursion.o motorola.o bitmap.o version.o specieslist.o
 	$(CXX) $(LDFLAGS) -o $@ $^ $(LIBS)
 
 # targets that need special help
 #
+
+specieslist.o: specieslist.cc
+	$(CXX) -c $(CPPFLAGS) $(CXXFLAGS) -DINSTALLBASE=\"$(INSTALLBASE)\" $<
 
 gablexer.cc: gablexer.l
 	flex -ist8 gablexer.l >$@
@@ -134,10 +137,10 @@ gavia_sort.o: version.hh excursion.hh species.hh speciesset.hh
 gavia_sort.o: streamsource.hh booksource.hh streamsink.hh booksink.hh
 gavia_sort.o: exception.hh canonorder.hh speciesorder.hh
 excursion.o: excursion.hh species.hh speciesset.hh
-canonorder.o: canonorder.hh speciesorder.hh species.hh
+canonorder.o: canonorder.hh speciesorder.hh species.hh specieslist.hh
 sortedorder.o: species.hh speciesorder.hh sortedorder.hh
 dynamicorder.o: species.hh speciesset.hh speciesorder.hh dynamicorder.hh
-taxonomicorder.o: taxonomicorder.hh speciesorder.hh species.hh
+taxonomicorder.o: taxonomicorder.hh speciesorder.hh species.hh specieslist.hh
 speciesredro.o: speciesredro.hh species.hh speciesorder.hh
 streamsource.o: motorola.h bitmap.h speciesorder.hh species.hh canonorder.hh
 streamsource.o: exception.hh streamsource.hh booksource.hh excursion.hh
@@ -162,3 +165,4 @@ gablexer.o: speciesredro.hh speciesorder.hh
 motorola.o: motorola.h
 bitmap.o: bitmap.h
 version.o: version.hh
+specieslist.o: specieslist.hh species.hh exception.hh

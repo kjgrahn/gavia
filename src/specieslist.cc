@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: canonorder.hh,v 1.6 2002-07-15 13:40:52 grahn Exp $
+ * $Id: specieslist.cc,v 1.1 2002-07-15 13:40:52 grahn Exp $
  *
- * canonorder.hh
+ * specieslist.cc
  *
- * Copyright (c) 1999--2002 Jörgen Grahn <jgrahn@algonet.se>
+ * Copyright (c) 2002 Jörgen Grahn <jgrahn@algonet.se>
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -30,36 +30,87 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *----------------------------------------------------------------------------
  *
- * The canonical ordering of all Species.
  *----------------------------------------------------------------------------
  */
 
-#ifndef CANONORDER_HH
-#define CANONORDER_HH
+static const char* rcsid() { rcsid(); return
+"$Id: specieslist.cc,v 1.1 2002-07-15 13:40:52 grahn Exp $";
+}
 
-#include "speciesorder.hh"
-#include "species.hh"
+#include <cassert>
+#include <cstdlib>
+#include <cstdio>
+#include <cctype>
+#include <cerrno>
 
-#include <vector>
+#include "specieslist.hh"
+#include "exception.hh"
 
 
-class CanonOrder: public SpeciesOrder
+#define JOIN(a, b) a ## b
+
+using std::vector;
+
+
+static vector<SpeciesList::Item> species;
+
+static void readspecies(vector<SpeciesList::Item> * species);
+
+
+const std::vector<SpeciesList::Item>& SpeciesList::names() const
 {
-public:
-    CanonOrder();				// constructor
-    CanonOrder(const CanonOrder&);		// copy constructor
+    if(!species.size())
+    {
+	readspecies(&species);
+    }
 
-    virtual ~CanonOrder();			// destructor
+    return species;
+}
 
-    virtual const CanonOrder& operator=(const SpeciesOrder&);
 
-    virtual Species species(int i) const;
-
-    virtual int end() const;
-
-protected:
-private:
-    static std::vector<const Species *> internalcanon;
-};
-
+static void readspecies(vector<SpeciesList::Item> * species)
+{
+    const char filename[] =
+#ifdef INSTALLBASE
+	JOIN(INSTALLBASE, "/lib/gavia/species");
+#else
+	"./lib/species";
 #endif
+
+    char buf[512];
+
+    FILE * fp = std::fopen(filename, "r");
+    if(!fp)
+    {
+	throw GaviaException(errno);
+    }
+
+    while(std::fgets(buf, sizeof(buf), fp))
+    {
+	int no = -1;
+	Species foo = Species(buf, buf+30);
+	char * p = buf;
+
+	while(isspace(*p)) p++;
+	if(!isdigit(*p)) continue;
+	no = std::atoi(p);
+
+	while(isdigit(*p)) p++;
+	while(isspace(*p)) p++;
+
+	char * namestart = p;
+	while(*p!='#' && *p!='\n' && *p)
+	{
+	    p++;
+	}
+	// back up to last non-blank
+	while(isspace(*--p)) {}
+	p++;
+
+	if(p<=namestart) continue;
+
+	species->push_back(SpeciesList::Item(no, Species(namestart, p)));
+    }
+
+    std::fclose(fp);
+}

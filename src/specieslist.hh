@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: canonorder.hh,v 1.6 2002-07-15 13:40:52 grahn Exp $
+ * $Id: specieslist.hh,v 1.1 2002-07-15 13:40:53 grahn Exp $
  *
- * canonorder.hh
+ * SpeciesList.hh
  *
- * Copyright (c) 1999--2002 Jörgen Grahn <jgrahn@algonet.se>
+ * Copyright (c) 2002 Jörgen Grahn <jgrahn@algonet.se>
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -30,36 +30,32 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *----------------------------------------------------------------------------
  *
- * The canonical ordering of all Species.
+ * Wrapper around the text file containing the canonical list of
+ * species names and numbers, and their taxonomic ordering.
  *----------------------------------------------------------------------------
  */
 
-#ifndef CANONORDER_HH
-#define CANONORDER_HH
+#ifndef SPECIESLIST_HH
+#define SPECIESLIST_HH
 
-#include "speciesorder.hh"
 #include "species.hh"
+#include "vector.h"
 
-#include <vector>
-
-
-class CanonOrder: public SpeciesOrder
+class SpeciesList
 {
 public:
-    CanonOrder();				// constructor
-    CanonOrder(const CanonOrder&);		// copy constructor
+    struct Item
+    {
+	Item(int no, const Species& name) : _no(no), _name(name) {}
+	int _no;
+	Species _name;
+    };
 
-    virtual ~CanonOrder();			// destructor
+    SpeciesList() {}
+    ~SpeciesList() {}
 
-    virtual const CanonOrder& operator=(const SpeciesOrder&);
-
-    virtual Species species(int i) const;
-
-    virtual int end() const;
-
-protected:
-private:
-    static std::vector<const Species *> internalcanon;
+    const std::vector<Item>& names() const;
+    
 };
 
 #endif

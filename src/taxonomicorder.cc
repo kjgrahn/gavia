@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: taxonomicorder.cc,v 1.11 2001-12-14 23:00:04 grahn Exp $
+ * $Id: taxonomicorder.cc,v 1.12 2001-12-29 19:07:02 grahn Exp $
  *
  * taxonomicorder.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: taxonomicorder.cc,v 1.11 2001-12-14 23:00:04 grahn Exp $";
+"$Id: taxonomicorder.cc,v 1.12 2001-12-29 19:07:02 grahn Exp $";
 }
 
 #include <cassert>
@@ -42,7 +42,7 @@ static const char* rcsid() { rcsid(); return
 #include "taxonomicorder.hh"
 
 
-#define INTERNALORDERLEN (502)
+#define INTERNALORDERLEN (501)
  
 static char * internalorder[INTERNALORDERLEN] =
 {
@@ -88,7 +88,6 @@ static char * internalorder[INTERNALORDERLEN] =
     "skedstork",	       /* 315 */
 
     "flamingo",		       /* 018 */
-    "större flamingo",	       /* 485 */
 
     "knölsvan",		       /* 019 */
     "mindre sångsvan",	       /* 020 */
@@ -145,7 +144,7 @@ static char * internalorder[INTERNALORDERLEN] =
     "vitögd dykand",	       /* 322 */
     "strömand",		       /* 323 */
     "vitnackad svärta",	       /* 324 */
-    "europeisk kopparand",     /* 488 */
+    "europeisk kopparand",     /* 487 */
     "amerikansk kopparand",    /* 456 */
 
     "salskrake",	       /* 053 */
@@ -175,7 +174,7 @@ static char * internalorder[INTERNALORDERLEN] =
     "stäppörn",		       /* 331 */
     "kejsarörn",	       /* 332 */
     "dvärgörn",		       /* 333 */
-    "hökörn",		       /* 489 */
+    "hökörn",		       /* 487 */
 
     "fiskgjuse",	       /* 070 */
 
@@ -198,7 +197,7 @@ static char * internalorder[INTERNALORDERLEN] =
     "vaktel",		       /* 083 */
     "fasan",		       /* 084 */
     "berghöna",		       /* 337 */
-    "rödhöna",		       /* 490 */
+    "rödhöna",		       /* 489 */
 
     "trana",		       /* 091 */
     "jungfrutrana",	       /* 340 */
@@ -215,7 +214,7 @@ static char * internalorder[INTERNALORDERLEN] =
     "kornknarr",	       /* 088 */
     "rörhöna",		       /* 089 */
     "sothöna",		       /* 090 */
-    "purpurhöna",	       /* 491 */
+    "purpurhöna",	       /* 490 */
 
     "strandskata",	       /* 092 */
     "skärfläcka",	       /* 093 */
@@ -310,7 +309,7 @@ static char * internalorder[INTERNALORDERLEN] =
     "medelhavstrut",	       /* 461 */
     "östersjötrut",	       /* 478 */
     "sibirisk trut",	       /* 483 */
-    "rödnäbbad trut",	       /* 492 */
+    "rödnäbbad trut",	       /* 491 */
 
     "sandtärna",	       /* 145 */
     "skräntärna",	       /* 146 */
@@ -394,7 +393,7 @@ static char * internalorder[INTERNALORDERLEN] =
     "asiatisk kalanderlärka",  /* 395 */
     "dvärglärka",	       /* 396 */
     "svartlärka",	       /* 397 */
-    "lagerlärka",	       /* 495 */
+    "lagerlärka",	       /* 494 */
 
     "backsvala",	       /* 193 */
     "ladusvala",	       /* 194 */
@@ -446,7 +445,7 @@ static char * internalorder[INTERNALORDERLEN] =
     "nunnestenskvätta",	       /* 411 */
     "medelhavsstenskvätta",    /* 412 */
     "ökenstenskvätta",	       /* 413 */
-    "svart stenskvätta",       /* 487 */
+    "svart stenskvätta",       /* 486 */
 
     "ringtrast",	       /* 216 */
     "koltrast",		       /* 217 */
@@ -482,7 +481,7 @@ static char * internalorder[INTERNALORDERLEN] =
     "brunsångare",	       /* 436 */
     "bergsångare",	       /* 437 */
     "starrsångare",	       /* 464 */
-    "grässångare",	       /* 496 */
+    "grässångare",	       /* 495 */
 
     "gräshoppssångare",	       /* 222 */
     "flodsångare",	       /* 223 */
@@ -543,7 +542,7 @@ static char * internalorder[INTERNALORDERLEN] =
     "rödhuvad törnskata",      /* 442 */
     "masktörnskata",	       /* 443 */
     "stäppvarfågel",	       /* 470 */
-    "medelhavsvarfågel",       /* 486 */
+    "medelhavsvarfågel",       /* 485 */
     "varfågel",		       /* 263 */
 
     "nötskrika",	       /* 264 */
@@ -556,17 +555,17 @@ static char * internalorder[INTERNALORDERLEN] =
     "svartkråka",	       /* 481 */
     "korp",		       /* 271 */
     "klippkaja",	       /* 444 */
-    "alpkråka",		       /* 501 */
-    "blåskata",		       /* 500 */
+    "alpkråka",		       /* 500 */
+    "blåskata",		       /* 499 */
 
     "sommargylling",	       /* 260 */
     "stare",		       /* 272 */
     "rosenstare",	       /* 445 */
-    "svartstare",	       /* 497 */
+    "svartstare",	       /* 496 */
 
     "gråsparv",		       /* 273 */
     "pilfink",		       /* 274 */
-    "spansk sparv",	       /* 498 */
+    "spansk sparv",	       /* 497 */
 
     "bofink",		       /* 275 */
     "bergfink",		       /* 276 */
@@ -603,12 +602,12 @@ static char * internalorder[INTERNALORDERLEN] =
     "gyllensparv",	       /* 451 */
     "svarthuvad sparv",	       /* 452 */
     "stäppsparv",	       /* 453 */
-    "stensparv",	       /* 499 */
+    "stensparv",	       /* 498 */
 
     "brokig kardinal",	       /* 454 */
     "indigosparv",	       /* 455 */
-    "halsbandsparakit",	       /* 493 */
-    "munkparakit",	       /* 494 */
+    "halsbandsparakit",	       /* 492 */
+    "munkparakit",	       /* 493 */
 };
 
 

@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: canonorder.cc,v 1.10 2001-12-14 19:50:14 grahn Exp $
+ * $Id: canonorder.cc,v 1.11 2001-12-29 19:07:02 grahn Exp $
  *
  * canonorder.cc
  *
@@ -34,14 +34,14 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: canonorder.cc,v 1.10 2001-12-14 19:50:14 grahn Exp $";
+"$Id: canonorder.cc,v 1.11 2001-12-29 19:07:02 grahn Exp $";
 }
 
 #include "canonorder.hh"
 
 #include <cassert>
 
-#define INTERNALCANONLEN (502)
+#define INTERNALCANONLEN (501)
  
 char * CanonOrder::internalcanon[INTERNALCANONLEN] =
 {
@@ -63,7 +63,7 @@ char * CanonOrder::internalcanon[INTERNALCANONLEN] =
     "häger",		       /* 015 */
     "svart stork",	       /* 016 */
     "vit stork",	       /* 017 */
-    "flamingo",		       /* 018 */
+    "större flamingo",	       /* 018 */
     "knölsvan",		       /* 019 */
     "mindre sångsvan",	       /* 020 */
     "sångsvan",		       /* 021 */
@@ -530,23 +530,22 @@ char * CanonOrder::internalcanon[INTERNALCANONLEN] =
     "brunsiska",	       /* 482 */
     "sibirisk trut",	       /* 483 */
     "orientvadarsvala",	       /* 484 */
-    "större flamingo",	       /* 485 */
-    "medelhavsvarfågel",       /* 486 */
-    "svart stenskvätta",       /* 487 */
-    "europeisk kopparand",     /* 488 */
-    "hökörn",		       /* 489 */
-    "rödhöna",		       /* 490 */
-    "purpurhöna",	       /* 491 */
-    "rödnäbbad trut",	       /* 492 */
-    "halsbandsparakit",	       /* 493 */
-    "munkparakit",	       /* 494 */
-    "lagerlärka",	       /* 495 */
-    "grässångare",	       /* 496 */
-    "svartstare",	       /* 497 */
-    "spansk sparv",	       /* 498 */
-    "stensparv",	       /* 499 */
-    "blåskata",		       /* 500 */
-    "alpkråka",		       /* 501 */
+    "medelhavsvarfågel",       /* 485 */
+    "svart stenskvätta",       /* 486 */
+    "europeisk kopparand",     /* 487 */
+    "hökörn",		       /* 488 */
+    "rödhöna",		       /* 489 */
+    "purpurhöna",	       /* 490 */
+    "rödnäbbad trut",	       /* 491 */
+    "halsbandsparakit",	       /* 492 */
+    "munkparakit",	       /* 493 */
+    "lagerlärka",	       /* 494 */
+    "grässångare",	       /* 495 */
+    "svartstare",	       /* 496 */
+    "spansk sparv",	       /* 497 */
+    "stensparv",	       /* 498 */
+    "blåskata",		       /* 499 */
+    "alpkråka",		       /* 500 */
 };
 
 

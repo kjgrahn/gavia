@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_sort.cc,v 1.1 1999-11-09 19:11:50 grahn Exp $
+ * $Id: gavia_sort.cc,v 1.2 1999-11-09 21:59:22 grahn Exp $
  *
  * gavia_sort.cc
  *
@@ -36,7 +36,7 @@
  */
 
 static const char rcsid[] =
-"$Id: gavia_sort.cc,v 1.1 1999-11-09 19:11:50 grahn Exp $";
+"$Id: gavia_sort.cc,v 1.2 1999-11-09 21:59:22 grahn Exp $";
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -75,7 +75,7 @@ int main(int argc, char ** argv)
 {
     const char optstring[] = "+pd";
     int ch = EOF;
-    bool byplace = true;
+    bool byplace = false;
 
     Version version;
 
@@ -162,15 +162,43 @@ int main(int argc, char ** argv)
 }
 
 
-
+/*----------------------------------------------------------------------------
+ *
+ * ::internalplace()
+ *
+ * Orders excursions primarily on place string (case-sensitive),
+ * secondarily on date
+ *----------------------------------------------------------------------------
+ */
 static bool internalplace(const Excursion& a, const Excursion& b)
 {
-    return false;
+    if(a.getplace() != b.getplace())
+    {
+	return a.getplace() < b.getplace();
+    }
+    else
+    {
+	return a.getdate() < b.getdate();
+    }
 }
 
 
-
+/*----------------------------------------------------------------------------
+ *
+ * ::internaldate()
+ *
+ * Orders excursions primarily on date,
+ * secondarily on place string (case-sensitive)
+ *----------------------------------------------------------------------------
+ */
 static bool internaldate(const Excursion& a, const Excursion& b)
 {
-    return false;
+    if(a.getdate() != b.getdate())
+    {
+	return a.getdate() < b.getdate();
+    }
+    else
+    {
+	return a.getplace() < b.getplace();
+    }
 }

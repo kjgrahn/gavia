@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: specieslist.hh,v 1.1 2002-07-15 13:40:53 grahn Exp $
+ * $Id: specieslist.hh,v 1.2 2003-03-16 20:05:54 grahn Exp $
  *
  * SpeciesList.hh
  *
@@ -39,7 +39,7 @@
 #define SPECIESLIST_HH
 
 #include "species.hh"
-#include "vector.h"
+#include <vector>
 
 class SpeciesList
 {

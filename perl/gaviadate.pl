@@ -1,10 +1,12 @@
 #!/usr/bin/perl -w
 #
-# $Id: gaviadate.pl,v 1.2 1999-10-24 20:51:38 grahn Exp $
+# $Id: gaviadate.pl,v 1.3 2001-06-17 20:49:18 grahn Exp $
 # $Name:  $
 #
 # gaviadate.pl - insert today's date in any empty
 # date: header
+#
+# Requires GNU date from gnu sh-utils.
 #
 
 while(<>)

@@ -1,7 +1,7 @@
-.\" $Id: gavia_cvs.mm,v 1.4 2001-06-04 21:07:59 grahn Exp $
+.\" $Id: gavia_cvs.mm,v 1.5 2001-06-17 17:24:21 grahn Exp $
 
-.ND "$Date: 2001-06-04 21:07:59 $"
-.PF "$Id: gavia_cvs.mm,v 1.4 2001-06-04 21:07:59 grahn Exp $"
+.ND "$Date: 2001-06-17 17:24:21 $"
+.PF "$Id: gavia_cvs.mm,v 1.5 2001-06-17 17:24:21 grahn Exp $"
 
 .COVER
 .TL
@@ -25,15 +25,16 @@ universally useful.
 
 .H 1 "CVS basics"
 
-CVS is \- for our purposes \- much like RCS. CVS differs in three major ways:
+CVS is \- for our purposes \- much like RCS. It differs in three major ways:
 it is intended to work on whole directories rather than individual files,
-several people can modify a single file at the same time,
+several people can work independently on the same file,
 and
 it is distributed; the main repository can live on a different machine.
 
 The
 .I repository
-is the central place where all revisions of all files are
+is a special directory, either on the local machine or a server somewhere.
+It is the central place where all revisions of all files are
 stored. Only CVS itself accesses it; you almost never need to touch
 it directly.
 
@@ -58,11 +59,7 @@ You get a working directory when you check out a module from the repository
 and CVS copies the latest version from the repository.
 
 The working directory is just a normal directory and the files
-in it are just normal files, when you use CVS on it.
-CVS stores some extra information about it (in a subdirectory named
-.B 'CVS/' );
-in particular, the name of the repository it came from,
-and the revision number each file had when it was checked out.
+in it are just normal files, in the eyes of everyone except CVS.
 
 .B1
 .VERBON 16
@@ -74,11 +71,19 @@ and the revision number each file had when it was checked out.
 .VERBOFF
 .B2
 
+CVS stores some extra information about the working directory
+(in a subdirectory named
+.B 'CVS/' );
+in particular, the name of the repository it came from,
+and the revision number each file had when it was checked out.
+Using this information, CVS can correlate the working directory and
+the information in the repository.
+
+.H 1 "The cvs command"
 
 .H 1 "Remote CVS over ssh"
 
 There are several ways for CVS to access the repository.
-
 We use one of them \- CVS over ssh \- to access the repository on
 the host
 .B islaya

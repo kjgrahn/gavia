@@ -1,4 +1,4 @@
-# $Id: default,v 1.14 2002-10-19 18:21:20 grahn Exp $
+# $Id: default,v 1.15 2002-12-28 22:23:28 grahn Exp $
 # $Name:  $
 #
 # Example template file for gavia_stellata(1), with a
@@ -373,6 +373,7 @@ ringand			: : :
 vitögd dykand		: : : 
 strömand		: : : 
 vitnackad svärta	: : : 
+buffelhuvud		: : : 
 kamskrake		: : : 
 smutsgam		: : : 
 gåsgam			: : : 

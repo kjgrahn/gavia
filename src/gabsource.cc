@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gabsource.cc,v 1.1 1999-10-24 08:10:52 grahn Exp $
+ * $Id: gabsource.cc,v 1.2 1999-10-24 12:05:01 grahn Exp $
  *
  * gabsource.cc
  *
@@ -16,7 +16,7 @@
  */
 
 static const char rcsid[] =
-"$Id: gabsource.cc,v 1.1 1999-10-24 08:10:52 grahn Exp $";
+"$Id: gabsource.cc,v 1.2 1999-10-24 12:05:01 grahn Exp $";
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -31,11 +31,11 @@ static const char rcsid[] =
 #include "gabsource.hh"
 
 
-static int eatexcursion(Excursion&, SpeciesRedro *);
+static int eatexcursion(Excursion&, int *, SpeciesRedro *);
 
 
 extern FILE * yyin;
-extern int yylex(Excursion *, SpeciesRedro *);
+extern int yylex(Excursion *, int *, SpeciesRedro *);
 
 
 /*----------------------------------------------------------------------------
@@ -54,6 +54,8 @@ GabSource::GabSource(const char* path)
 
     redro = new SpeciesRedro(&order);
 
+    line = 1;
+
     if(::strcmp(path, "-")==0)
     {
 	mfp = stdin;
@@ -71,7 +73,7 @@ GabSource::GabSource(const char* path)
 
     yyin = mfp;
 
-    mstate = ::eatexcursion(mexcursion, redro);
+    mstate = ::eatexcursion(mexcursion, &line, redro);
 }
 
 
@@ -88,6 +90,8 @@ GabSource::GabSource(FILE * fp)
 
     redro = new SpeciesRedro(&order);
 
+    line = 1;
+
     if(!fp)
     {
 	mstate = -1;
@@ -98,7 +102,7 @@ GabSource::GabSource(FILE * fp)
 
     yyin = mfp;
 
-    mstate = ::eatexcursion(mexcursion, redro);
+    mstate = ::eatexcursion(mexcursion, &line, redro);
 }
 
 
@@ -146,7 +150,7 @@ void GabSource::next()
 {
     assert(!(eof() || error()));
 
-    mstate = ::eatexcursion(mexcursion, redro);
+    mstate = ::eatexcursion(mexcursion, &line, redro);
 }
 
 
@@ -187,9 +191,9 @@ bool GabSource::error() const
  * 'ex' has an undefined value if not success.
  *----------------------------------------------------------------------------
  */
-static int eatexcursion(Excursion& ex, SpeciesRedro * redro)
+static int eatexcursion(Excursion& ex, int * line, SpeciesRedro * redro)
 {
     ex = Excursion();			// hack needed to clear ex
 
-    return yylex(&ex, redro);
+    return yylex(&ex, line, redro);
 }

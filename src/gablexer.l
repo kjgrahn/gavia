@@ -1,7 +1,7 @@
 %{
 /*----------------------------------------------------------------------------
  *
- * $Id: gablexer.l,v 1.1 1999-10-24 08:10:52 grahn Exp $
+ * $Id: gablexer.l,v 1.2 1999-10-24 12:04:47 grahn Exp $
  *
  * gablexer.l
  *
@@ -17,7 +17,7 @@
  */
 
     static const char rcsid[] =
-"$Id: gablexer.l,v 1.1 1999-10-24 08:10:52 grahn Exp $";
+"$Id: gablexer.l,v 1.2 1999-10-24 12:04:47 grahn Exp $";
 
 #include <ctype.h>
 #include <string.h>
@@ -25,7 +25,7 @@
 #include "excursion.hh"
 #include "speciesredro.hh"
 
-#define YY_DECL int yylex(Excursion * excursion, SpeciesRedro * redro)
+#define YY_DECL int yylex(Excursion * excursion, int * inc, SpeciesRedro * redro)
 
 %}
 
@@ -38,20 +38,25 @@ FREEFLD [[:blank:]]*[^ \t\n].*
 BLANKFLD [[:blank:]]*
 CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
 
+%x HEAD
+%x BODY
+
 %%
 
-^{BLANK}*\#.*$ {
+<*>^{BLANK}*\#.*$ {
     /* comment lines (#) are ignored */
 
     ;
 }
 
-^{BLANK}*\{{BLANK}*$ {
+<INITIAL>^{BLANK}*\{{BLANK}*$ {
     /* { (excursion intro) */
     /* fprintf(stderr, "%s\n", "intro"); */
+
+    BEGIN(HEAD);
 }
 
-^{BLANK}*place{BLANK}*\:{FREEFLD}$ {
+<HEAD>^{BLANK}*place{BLANK}*\:{FREEFLD}$ {
     /* place: <name> */
     /* fprintf(stderr, "%s\n", "place"); */
 
@@ -66,7 +71,7 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
     excursion->setplace(string(s));
 }
 
-^{BLANK}*date{BLANK}*\:{LDATEFLD}$ {
+<HEAD>^{BLANK}*date{BLANK}*\:{LDATEFLD}$ {
     /* date: <yyyymmdd> */
     /* fprintf(stderr, "%s\n", "date"); */
 
@@ -81,7 +86,7 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
     excursion->setdate(atol(s));
 }
 
-^{BLANK}*date{BLANK}*\:{DATEFLD}$ {
+<HEAD>^{BLANK}*date{BLANK}*\:{DATEFLD}$ {
     /* date: <yymmdd> */
     /* fprintf(stderr, "%s\n", "date"); */
 
@@ -105,7 +110,7 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
     excursion->setdate(n);
 }
 
-^{BLANK}*date{BLANK}*\:{BLANKFLD}$ {
+<HEAD>^{BLANK}*date{BLANK}*\:{BLANKFLD}$ {
     /* date: */
     /* fprintf(stderr, "%s\n", "date, empty"); */
 
@@ -113,7 +118,7 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
     return -1;
 }
 
-^{BLANK}*time{BLANK}*\:({FREEFLD}|{BLANKFLD})$ {
+<HEAD>^{BLANK}*time{BLANK}*\:({FREEFLD}|{BLANKFLD})$ {
     /* time: <time> */
     /* fprintf(stderr, "%s\n", "time"); */
 
@@ -128,7 +133,7 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
     excursion->settime(string(s));
 }
 
-^{BLANK}*observers{BLANK}*\:({FREEFLD}|{BLANKFLD})$ {
+<HEAD>^{BLANK}*observers{BLANK}*\:({FREEFLD}|{BLANKFLD})$ {
     /* observers: <observers> */
     /* fprintf(stderr, "%s\n", "observers"); */
 
@@ -143,7 +148,7 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
     excursion->setobservers(string(s));
 }
 
-^{BLANK}*weather{BLANK}*\:({FREEFLD}|{BLANKFLD})$ {
+<HEAD>^{BLANK}*weather{BLANK}*\:({FREEFLD}|{BLANKFLD})$ {
     /* weather: <weather> */
     /* fprintf(stderr, "%s\n", "weather"); */
 
@@ -158,7 +163,7 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
     excursion->setweather(string(s));
 }
 
-^{BLANK}*comments{BLANK}*\:({FREEFLD}|{BLANKFLD})$ {
+<HEAD>^{BLANK}*comments{BLANK}*\:({FREEFLD}|{BLANKFLD})$ {
     /* comments: <comments> */
     /* fprintf(stderr, "%s\n", "comments"); */
 
@@ -173,17 +178,19 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
     excursion->setcomments(string(s));
 }
 
-^{BLANK}*\}{BLANK}*\{{BLANK}*$ {
+<HEAD>^{BLANK}*\}{BLANK}*\{{BLANK}*$ {
     /* }{ (excursion data/species data border) */
     /* fprintf(stderr, "%s\n", "border"); */
+
+    BEGIN(BODY);
 }
 
-^{SPECIESFLD}\:{BLANKFLD}\:{BLANKFLD}\:{BLANKFLD}$ {
+<BODY>^{SPECIESFLD}\:{BLANKFLD}\:{BLANKFLD}\:{BLANKFLD}$ {
     /* <species>: : : (left out) */
     /* fprintf(stderr, "%s\n", "dead"); */
 }
 
-^{SPECIESFLD}\:{CHECKFLD}\:{BLANKFLD}\:{BLANKFLD}$ {
+<BODY>^{SPECIESFLD}\:{CHECKFLD}\:{BLANKFLD}\:{BLANKFLD}$ {
     /* <species>:x: : (just checked) */
     /* fprintf(stderr, "%s\n", "checked"); */
 
@@ -211,8 +218,8 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
     excursion->insert(species);
 }
 
-^{SPECIESFLD}\:[^:\n]*\:{NUMFLD}\:{BLANKFLD}$  |
-^{SPECIESFLD}\:[^:\n]*\:{NUMFLD}\:{FREEFLD}$ {
+<BODY>^{SPECIESFLD}\:[^:\n]*\:{NUMFLD}\:{BLANKFLD}$  |
+<BODY>^{SPECIESFLD}\:[^:\n]*\:{NUMFLD}\:{FREEFLD}$ {
     /* <species>: : <no>: (numbers but no comment) */
     /* <species>: :<no>:<comment> */
     /* fprintf(stderr, "%s\n", "at least number"); */
@@ -251,7 +258,7 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
     excursion->insert(species, num, u);
 }
 
-^{SPECIESFLD}\:[^:\n]*\:{BLANK}*\:{FREEFLD}$ {
+<BODY>{SPECIESFLD}\:[^:\n]*\:{BLANK}*\:{FREEFLD}$ {
     /* <species>: : : <comment> (comment but no numbers) */
     /* fprintf(stderr, "%s\n", "just comment"); */
 
@@ -286,20 +293,27 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
     excursion->insert(species, 0, u);
 }
 
-^{BLANK}*\}{BLANK}* {
+<BODY>^{BLANK}*\}{BLANK}* {
     /* } excursion end */
     /* fprintf(stderr, "%s\n", "end"); */
+
+    BEGIN(INITIAL);
 
     return 1;
 
 }
 
-[ \t\n] ;
+<*>[ \t] ;
 
-. {
+<*>\n {
+    /* count lines */
+    (*inc)++;
+}
+
+<*>. {
     /* something wrong */
 
-    fprintf(stderr, "***Parse error (somewhere)\n");
+    fprintf(stderr, "***Parse error near line %d\n", *inc);
     return -1;
 }
 

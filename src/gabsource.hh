@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gabsource.hh,v 1.1 1999-10-24 08:10:52 grahn Exp $
+ * $Id: gabsource.hh,v 1.2 1999-10-24 12:05:01 grahn Exp $
  *
  * gabsource.hh
  *
@@ -76,7 +76,7 @@ private:
     int mstate;
     FILE * mfp;
     SpeciesRedro * redro;
-
+    int line;
 };
 
 #endif

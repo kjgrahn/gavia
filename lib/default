@@ -1,4 +1,4 @@
-# $Id: default,v 1.17 2004-08-04 14:47:59 grahn Exp $
+# $Id: default,v 1.18 2004-08-05 09:07:44 grahn Exp $
 # $Name:  $
 #
 # Example template file for gavia_stellata(1), with species
@@ -493,6 +493,7 @@ sibirisk piplärka	: : :
 tundrapiplärka		: : : 
 vattenpiplärka		: : : 
 hedpiplärka		: : : 
+svarthuvad gulärla	: : : 
 citronärla		: : : 
 engelsk sädesärla	: : : 
 trädgårdsbulbyl		: : : 
@@ -550,6 +551,7 @@ sibirisk gransångare	: : :
 brandkronad kungsfågel	: : : 
 glasögonflugsnappare	: : : 
 halsbandsflugsnappare	: : : 
+nordafrikansk blåmes	: : : 
 azurmes			: : : 
 trädgårdsträdkrypare	: : : 
 isabellatörnskata	: : : 

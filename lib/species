@@ -1,4 +1,4 @@
-# $Id: species,v 1.14 2004-08-04 13:29:33 grahn Exp $
+# $Id: species,v 1.15 2004-08-05 09:07:45 grahn Exp $
 # $Name:  $
 #
 # The canonical list of species accepted by Gavia.
@@ -15,11 +15,9 @@
 #
 # The species should appear in taxonomic order.
 #
-# Number of species: 535 ([0..534])
+# Number of species: 537 ([0..536])
 # <species perl -ne 'print if /^\d{3}/' | wc -l
 #
-
-#   535 nordafrikansk blåmes
 
 000 smålom
 001 storlom
@@ -408,6 +406,7 @@
 459 hedpiplärka
 
 202 gulärla
+536 svarthuvad gulärla
 401 citronärla
 203 forsärla
 204 sädesärla
@@ -524,6 +523,7 @@
 253 tofsmes
 254 svartmes
 255 blåmes
+535 nordafrikansk blåmes
 439 azurmes
 256 talgoxe
 

@@ -1,4 +1,4 @@
-# $Id: species,v 1.13 2004-08-04 13:20:43 grahn Exp $
+# $Id: species,v 1.14 2004-08-04 13:29:33 grahn Exp $
 # $Name:  $
 #
 # The canonical list of species accepted by Gavia.
@@ -26,11 +26,11 @@
 300 svartnäbbad islom
 002 vitnäbbad islom
 
+006 svarthakedopping
+007 svarthalsad dopping
 003 smådopping
 004 skäggdopping
 005 gråhakedopping
-006 svarthakedopping
-007 svarthalsad dopping
 
 506 svartbrynad albatross
 008 stormfågel
@@ -70,16 +70,13 @@
 020 mindre sångsvan
 021 sångsvan
 
-022 sädgås
-471 tundrasädgås
-023 spetsbergsgås
 024 bläsgås
 472 grönländsk bläsgås
 025 fjällgås
+022 sädgås
+471 tundrasädgås
+023 spetsbergsgås
 026 grågås
-028 snögås
-507 dvärgsnögås
-508 svangås
 029 kanadagås
 473 dvärgkanadagås
 030 vitkindad gås
@@ -87,6 +84,9 @@
 475 ljusbukig prutgås
 474 svartbukig prutgås
 316 rödhalsad gås
+028 snögås
+507 dvärgsnögås
+508 svangås
 033 gravand
 032 rostand
 505 nilgås
@@ -445,22 +445,22 @@
 409 svarthakad buskskvätta
 408 östlig svarthakad buskskvätta
 
-414 stentrast
 415 blåtrast
-416 guldtrast
-417 sibirisk trast
-418 eremitskogstrast
-469 beigekindad skogstrast
-419 rostskogstrast
-216 ringtrast
-217 koltrast
-421 gråhalsad trast
-420 taigatrast
-218 björktrast
+414 stentrast
 219 taltrast
 220 rödvingetrast
 221 dubbeltrast
+218 björktrast
+217 koltrast
+216 ringtrast
+469 beigekindad skogstrast
+418 eremitskogstrast
+419 rostskogstrast
+416 guldtrast
+417 sibirisk trast
 422 vandringstrast
+420 taigatrast
+421 gråhalsad trast
 465 bruntrast
 
 423 cettisångare

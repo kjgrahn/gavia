@@ -1,7 +1,7 @@
 %{
 /*----------------------------------------------------------------------------
  *
- * $Id: gablexer.l,v 1.3 1999-10-24 14:56:16 grahn Exp $
+ * $Id: gablexer.l,v 1.3.2.1 1999-11-18 20:55:49 grahn Exp $
  *
  * gablexer.l
  *
@@ -35,10 +35,10 @@
  */
 
     static const char rcsid[] =
-"$Id: gablexer.l,v 1.3 1999-10-24 14:56:16 grahn Exp $";
+"$Id: gablexer.l,v 1.3.2.1 1999-11-18 20:55:49 grahn Exp $";
 
-#include <ctype.h>
-#include <string.h>
+#include <cctype>
+#include <cstring>
 
 #include "excursion.hh"
 #include "speciesredro.hh"

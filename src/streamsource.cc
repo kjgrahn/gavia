@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: streamsource.cc,v 1.2 1999-10-24 14:56:17 grahn Exp $
+ * $Id: streamsource.cc,v 1.2.2.1 1999-11-18 20:55:50 grahn Exp $
  *
  * streamsource.cc
  *
@@ -34,12 +34,12 @@
  */
 
 static const char rcsid[] =
-"$Id: streamsource.cc,v 1.2 1999-10-24 14:56:17 grahn Exp $";
+"$Id: streamsource.cc,v 1.2.2.1 1999-11-18 20:55:50 grahn Exp $";
 
-#include <stdio.h>
-#include <string.h>
-#include <time.h>
-#include <assert.h>
+#include <cstdio>
+#include <cstring>
+#include <ctime>
+#include <cassert>
 
 #include "motorola.h"
 #include "bitmap.h"

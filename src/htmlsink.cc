@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: htmlsink.cc,v 1.3 1999-10-24 21:16:18 grahn Exp $
+ * $Id: htmlsink.cc,v 1.3.2.1 1999-11-18 20:55:49 grahn Exp $
  *
  * htmlsink.cc
  *
@@ -34,11 +34,11 @@
  */
 
 static const char rcsid[] =
-"$Id: htmlsink.cc,v 1.3 1999-10-24 21:16:18 grahn Exp $";
+"$Id: htmlsink.cc,v 1.3.2.1 1999-11-18 20:55:49 grahn Exp $";
 
-#include <assert.h>
-#include <stdio.h>
-#include <string.h>
+#include <cassert>
+#include <cstdio>
+#include <cstring>
 
 #include "dynamicorder.hh"
 

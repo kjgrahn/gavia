@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: speciesredro.cc,v 1.2 1999-10-24 14:56:17 grahn Exp $
+ * $Id: speciesredro.cc,v 1.2.2.1 1999-11-18 20:55:50 grahn Exp $
  *
  * speciesredro.cc
  *
@@ -34,9 +34,9 @@
  */
 
 static const char rcsid[] =
-"$Id: speciesredro.cc,v 1.2 1999-10-24 14:56:17 grahn Exp $";
+"$Id: speciesredro.cc,v 1.2.2.1 1999-11-18 20:55:50 grahn Exp $";
 
-#include <assert.h>
+#include <cassert>
 
 #include "speciesredro.hh"
 

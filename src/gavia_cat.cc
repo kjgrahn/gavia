@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_cat.cc,v 1.3 1999-10-24 14:56:16 grahn Exp $
+ * $Id: gavia_cat.cc,v 1.3.2.1 1999-11-18 20:55:49 grahn Exp $
  *
  * gavia_cat.cc
  *
@@ -37,15 +37,15 @@
  */
 
 static const char rcsid[] =
-"$Id: gavia_cat.cc,v 1.3 1999-10-24 14:56:16 grahn Exp $";
+"$Id: gavia_cat.cc,v 1.3.2.1 1999-11-18 20:55:49 grahn Exp $";
 
-#include <stdio.h>
-#include <stdlib.h>
+#include <cstdio>
+#include <cstdlib>
 #include <unistd.h>
 
-#include <string.h>
+#include <cstring>
 
-#include <assert.h>
+#include <cassert>
 
 #include "version.hh"
 

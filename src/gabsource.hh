@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gabsource.hh,v 1.3 1999-10-24 14:56:16 grahn Exp $
+ * $Id: gabsource.hh,v 1.3.2.1 1999-11-18 20:55:49 grahn Exp $
  *
  * gabsource.hh
  *
@@ -67,7 +67,7 @@
 #define GABSOURCE_HH
 
 #include "booksource.hh"
-#include <stdio.h>
+#include <cstdio>
 
 
 class SpeciesRedro;

@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: streamsink.hh,v 1.2 1999-10-24 14:56:17 grahn Exp $
+ * $Id: streamsink.hh,v 1.2.2.1 1999-11-18 20:55:50 grahn Exp $
  *
  * streamsink.hh
  *
@@ -40,7 +40,7 @@
 #define STREAMSINK_HH
 
 #include "booksink.hh"
-#include <stdio.h>
+#include <cstdio>
 
 class StreamSink: public BookSink
 {

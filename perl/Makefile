@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.5 2002-07-15 15:02:57 grahn Exp $
+# $Id: Makefile,v 1.6 2002-07-15 15:39:24 grahn Exp $
 #
 # Makefile
 #
@@ -31,10 +31,9 @@ SHELL = /bin/sh
 
 INSTALLBASE = /usr/local
 
-all:
-	true
+all: gavia_stat.pl _gavia_stellata gaviadate.pl gaviadeexpand.pl _gavia_focus gavia_score
 
-install: gavia_stat.pl _gavia_stellata gaviadate.pl gaviadeexpand.pl _gavia_focus gavia_score
+install: all
 	install -m555 gavia_stat.pl $(INSTALLBASE)/bin/gavia_stat
 	install -m555 _gavia_stellata $(INSTALLBASE)/bin/gavia_stellata
 	install -m555 gaviadate.pl $(INSTALLBASE)/bin/gaviadate

@@ -1,0 +1,37 @@
+#!/usr/bin/perl -w # -*- perl -*-
+#
+# $Id: gavia_score,v 1.1 2002-06-16 11:21:55 grahn Exp $
+# $Name:  $
+#
+# gavia_score - 
+#
+# Copyright (c) 2002 Jörgen Grahn <jgrahn@algonet.se>
+# All rights reserved.
+#
+
+use strict;
+
+my %species;
+
+while(<>)
+{
+    next unless /^[a-zåäö \t]+:.+?:[0-9 \t]+?:/i;
+
+    my ($name) = /\s*([a-zåäö ]+?)\s*:/i
+	or die;
+
+    if(not defined($species{$name})) {
+	$species{$name} = 1;
+	next;
+    }
+
+    $species{$name} += 1;
+}
+
+my $i;
+
+foreach $i (keys %species) {
+    print "$species{$i}  $i\n";
+}
+
+exit 0;

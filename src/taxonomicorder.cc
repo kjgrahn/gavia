@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: taxonomicorder.cc,v 1.12 2001-12-29 19:07:02 grahn Exp $
+ * $Id: taxonomicorder.cc,v 1.13 2002-06-16 11:21:56 grahn Exp $
  *
  * taxonomicorder.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: taxonomicorder.cc,v 1.12 2001-12-29 19:07:02 grahn Exp $";
+"$Id: taxonomicorder.cc,v 1.13 2002-06-16 11:21:56 grahn Exp $";
 }
 
 #include <cassert>
@@ -42,9 +42,7 @@ static const char* rcsid() { rcsid(); return
 #include "taxonomicorder.hh"
 
 
-#define INTERNALORDERLEN (501)
- 
-static char * internalorder[INTERNALORDERLEN] =
+static char * internalorder[] =
 {
     "smålom",  	       	       /* 000 */
     "storlom",		       /* 001 */
@@ -310,6 +308,7 @@ static char * internalorder[INTERNALORDERLEN] =
     "östersjötrut",	       /* 478 */
     "sibirisk trut",	       /* 483 */
     "rödnäbbad trut",	       /* 491 */
+    "långnäbbad mås",	       /* 503 */
 
     "sandtärna",	       /* 145 */
     "skräntärna",	       /* 146 */
@@ -334,6 +333,8 @@ static char * internalorder[INTERNALORDERLEN] =
     "tofslunnefågel",	       /* 463 */
 
     "stäpphöna",	       /* 382 */
+
+    "svartbukig flyghöna",     /* 504 */
 
     "tamduva",		       /* 158 */
     "skogsduva",	       /* 159 */
@@ -498,6 +499,7 @@ static char * internalorder[INTERNALORDERLEN] =
     "törnsångare",	       /* 233 */
     "trädgårdssångare",	       /* 234 */
     "svarthätta",	       /* 235 */
+    "glasögonsångare",	       /* 501 */
 
     "lundsångare",	       /* 236 */
     "kungsfågelsångare",       /* 237 */
@@ -603,6 +605,7 @@ static char * internalorder[INTERNALORDERLEN] =
     "svarthuvad sparv",	       /* 452 */
     "stäppsparv",	       /* 453 */
     "stensparv",	       /* 498 */
+    "häcksparv",	       /* 502 */
 
     "brokig kardinal",	       /* 454 */
     "indigosparv",	       /* 455 */
@@ -610,6 +613,9 @@ static char * internalorder[INTERNALORDERLEN] =
     "munkparakit",	       /* 493 */
 };
 
+
+#define INTERNALORDERLEN (int)(sizeof(internalorder)/\
+	sizeof(internalorder[0]))
 
 
 /*----------------------------------------------------------------------------

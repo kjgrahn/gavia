@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: canonorder.hh,v 1.4 2001-03-03 12:20:22 grahn Exp $
+ * $Id: canonorder.hh,v 1.5 2002-06-16 11:21:56 grahn Exp $
  *
  * canonorder.hh
  *
@@ -57,7 +57,7 @@ public:
 
 protected:
 private:
-    static char * internalcanon[];
+    static const char * internalcanon[];
 };
 
 #endif

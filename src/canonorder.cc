@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: canonorder.cc,v 1.11 2001-12-29 19:07:02 grahn Exp $
+ * $Id: canonorder.cc,v 1.12 2002-06-16 11:21:55 grahn Exp $
  *
  * canonorder.cc
  *
@@ -34,16 +34,14 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: canonorder.cc,v 1.11 2001-12-29 19:07:02 grahn Exp $";
+"$Id: canonorder.cc,v 1.12 2002-06-16 11:21:55 grahn Exp $";
 }
 
 #include "canonorder.hh"
 
 #include <cassert>
 
-#define INTERNALCANONLEN (501)
- 
-char * CanonOrder::internalcanon[INTERNALCANONLEN] =
+const char * CanonOrder::internalcanon[] =
 {
     "smålom",  	       	       /* 000 */
     "storlom",		       /* 001 */
@@ -546,8 +544,15 @@ char * CanonOrder::internalcanon[INTERNALCANONLEN] =
     "stensparv",	       /* 498 */
     "blåskata",		       /* 499 */
     "alpkråka",		       /* 500 */
+    "glasögonsångare",	       /* 501 */
+    "häcksparv",	       /* 502 */
+    "långnäbbad mås",	       /* 503 */
+    "svartbukig flyghöna",     /* 504 */
 };
 
+
+#define INTERNALCANONLEN (int)(sizeof(CanonOrder::internalcanon)/\
+	sizeof(CanonOrder::internalcanon[0]))
 
 
 /*----------------------------------------------------------------------------

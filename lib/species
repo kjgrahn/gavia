@@ -1,12 +1,14 @@
-# $Id: species,v 1.1 2002-07-15 13:40:52 grahn Exp $
+# $Id: species,v 1.2 2002-07-15 14:59:17 grahn Exp $
 #
 # The canonical list of species accepted by Gavia.
 #
 # Empty lines, '#' comment lines and '#' line ending comments are
 # disregarded, everything else is a canonical species number followed by a species name.
 #
+# The species should appear in taxonomic order.
+#
 # Number of species: 506 ([0..506[)
-# <gavia.species perl -ne 'print if /^\d{3}/' | wc -l
+# <species perl -ne 'print if /^\d{3}/' | wc -l
 #
 
 000 smålom

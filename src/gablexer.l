@@ -1,7 +1,7 @@
 %{
 /*----------------------------------------------------------------------------
  *
- * $Id: gablexer.l,v 1.9 2002-06-16 14:38:58 grahn Exp $
+ * $Id: gablexer.l,v 1.10 2002-07-15 21:50:43 grahn Exp $
  *
  * gablexer.l
  *
@@ -35,7 +35,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gablexer.l,v 1.9 2002-06-16 14:38:58 grahn Exp $";
+"$Id: gablexer.l,v 1.10 2002-07-15 21:50:43 grahn Exp $";
 }
 
 #include <cctype>
@@ -72,14 +72,12 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
 
 <INITIAL>^{BLANK}*\{{BLANK}*$ {
     /* { (excursion intro) */
-    /* fprintf(stderr, "%s\n", "intro"); */
 
     BEGIN(HEAD);
 }
 
 <HEAD>^{BLANK}*place{BLANK}*\:{FREEFLD}$ {
     /* place: <name> */
-    /* fprintf(stderr, "%s\n", "place"); */
 
     char * s = yytext;
 
@@ -94,7 +92,6 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
 
 <HEAD>^{BLANK}*date{BLANK}*\:{LDATEFLD}$ {
     /* date: <yyyymmdd> */
-    /* fprintf(stderr, "%s\n", "date"); */
 
     char * s = yytext;
 
@@ -109,7 +106,6 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
 
 <HEAD>^{BLANK}*date{BLANK}*\:{DATEFLD}$ {
     /* date: <yymmdd> */
-    /* fprintf(stderr, "%s\n", "date"); */
 
     char * s = yytext;
 
@@ -133,14 +129,12 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
 
 <HEAD>^{BLANK}*date{BLANK}*\:{BLANKFLD}$ {
     /* date: */
-    /* fprintf(stderr, "%s\n", "date, empty"); */
 
     throw GaviaException("defaulted dates not implemented");
 }
 
 <HEAD>^{BLANK}*time{BLANK}*\:({FREEFLD}|{BLANKFLD})$ {
     /* time: <time> */
-    /* fprintf(stderr, "%s\n", "time"); */
 
     char * s = yytext;
 
@@ -155,7 +149,6 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
 
 <HEAD>^{BLANK}*observers{BLANK}*\:({FREEFLD}|{BLANKFLD})$ {
     /* observers: <observers> */
-    /* fprintf(stderr, "%s\n", "observers"); */
 
     char * s = yytext;
 
@@ -170,7 +163,6 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
 
 <HEAD>^{BLANK}*weather{BLANK}*\:({FREEFLD}|{BLANKFLD})$ {
     /* weather: <weather> */
-    /* fprintf(stderr, "%s\n", "weather"); */
 
     char * s = yytext;
 
@@ -185,7 +177,6 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
 
 <HEAD>^{BLANK}*comments{BLANK}*\:({FREEFLD}|{BLANKFLD})$ {
     /* comments: <comments> */
-    /* fprintf(stderr, "%s\n", "comments"); */
 
     char * s = yytext;
 
@@ -200,19 +191,16 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
 
 <HEAD>^{BLANK}*\}{BLANK}*\{{BLANK}*$ {
     /* }{ (excursion data/species data border) */
-    /* fprintf(stderr, "%s\n", "border"); */
 
     BEGIN(BODY);
 }
 
 <BODY>^{SPECIESFLD}\:{BLANKFLD}\:{BLANKFLD}\:{BLANKFLD}$ {
     /* <species>: : : (left out) */
-    /* fprintf(stderr, "%s\n", "dead"); */
 }
 
 <BODY>^{SPECIESFLD}\:{CHECKFLD}\:{BLANKFLD}\:{BLANKFLD}$ {
     /* <species>:x: : (just checked) */
-    /* fprintf(stderr, "%s\n", "checked"); */
 
     char * s = yytext;
 
@@ -246,7 +234,6 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
 <BODY>^{SPECIESFLD}\:[^:\n]*\:{NUMFLD}\:.*$ {
     /* <species>: : <no>: (numbers but no comment) */
     /* <species>: :<no>:<comment> */
-    /* fprintf(stderr, "%s\n", "at least number"); */
 
     char * s = yytext;
 
@@ -289,7 +276,6 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
 
 <BODY>{SPECIESFLD}\:[^:\n]*\:{BLANK}*\:{FREEFLD}$ {
     /* <species>: : : <comment> (comment but no numbers) */
-    /* fprintf(stderr, "%s\n", "just comment"); */
 
     char * s = yytext;
 
@@ -329,7 +315,6 @@ CHECKFLD [[:blank:]]*[^ \t\n:]+[[:blank:]]*
 
 <BODY>^{BLANK}*\}{BLANK}* {
     /* } excursion end */
-    /* fprintf(stderr, "%s\n", "end"); */
 
     BEGIN(INITIAL);
 

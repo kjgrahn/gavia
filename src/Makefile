@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.6 2000-01-16 21:07:22 grahn Exp $
+# $Id: Makefile,v 1.7 2000-06-01 14:13:03 grahn Exp $
 #
 # Makefile
 #
@@ -29,8 +29,10 @@
 
 SHELL = /bin/sh
 
-CFLAGS = -Wall -pedantic -ansi -g
-CPPFLAGS = -Wall -pedantic -ansi -g
+#CFLAGS = -Wall -pedantic -ansi -g
+#CPPFLAGS = -Wall -pedantic -ansi -g
+CFLAGS = -Wall -pedantic -ansi -g -O2
+CPPFLAGS = -Wall -pedantic -ansi -g -O2
 LDFLAGS =
 LIBS = -lfl
 
@@ -44,7 +46,8 @@ SRCS = gavia_add.cc \
        streamsource.cc gabsource.cc \
        streamsink.cc gabsink.cc textsink.cc htmlsink.cc latexsink.cc \
        gablexer.cc \
-       motorola.c bitmap.c
+       motorola.c bitmap.c \
+       version.cc
 OBJS = gavia_add.o  \
        gavia_cat.o  \
        gavia_grep.o  \
@@ -55,7 +58,8 @@ OBJS = gavia_add.o  \
        streamsource.o  gabsource.o  \
        streamsink.o  gabsink.o  textsink.o  htmlsink.o  latexsink.o  \
        gablexer.o  \
-       motorola.o bitmap.o
+       motorola.o bitmap.o \
+       version.o
 OUTS = gavia_add gavia_cat gavia_grep gavia_sort gavia_stat
 
 OBSOLETE = test.cc exeditor.cc exeditor.hh
@@ -67,16 +71,16 @@ objs: $(OBJS)
 # executables
 #
 
-gavia_cat: gavia_cat.o excursion.o streamsource.o streamsink.o gabsink.o textsink.o htmlsink.o latexsink.o canonorder.o taxonomicorder.o sortedorder.o dynamicorder.o motorola.o bitmap.o
+gavia_cat: gavia_cat.o excursion.o streamsource.o streamsink.o gabsink.o textsink.o htmlsink.o latexsink.o canonorder.o taxonomicorder.o sortedorder.o dynamicorder.o motorola.o bitmap.o version.o
 	g++ $(LDFLAGS) -o $@ $^ $(LIBS)
 
-gavia_add: gavia_add.o excursion.o streamsource.o streamsink.o canonorder.o motorola.o bitmap.o dynamicorder.o gabsource.o gablexer.o speciesredro.o
+gavia_add: gavia_add.o excursion.o streamsource.o streamsink.o canonorder.o motorola.o bitmap.o dynamicorder.o gabsource.o gablexer.o speciesredro.o version.o
 	g++ $(LDFLAGS) -o $@ $^ $(LIBS)
 
-gavia_grep: gavia_grep.o canonorder.o dynamicorder.o streamsink.o streamsource.o excursion.o motorola.o bitmap.o
+gavia_grep: gavia_grep.o canonorder.o dynamicorder.o streamsink.o streamsource.o excursion.o motorola.o bitmap.o version.o
 	g++ $(LDFLAGS) -o $@ $^ $(LIBS)
 
-gavia_sort: gavia_sort.o canonorder.o dynamicorder.o streamsink.o streamsource.o excursion.o motorola.o bitmap.o
+gavia_sort: gavia_sort.o canonorder.o dynamicorder.o streamsink.o streamsource.o excursion.o motorola.o bitmap.o version.o
 	g++ $(LDFLAGS) -o $@ $^ $(LIBS)
 
 gavia_stat:
@@ -150,3 +154,4 @@ gablexer.o: excursion.hh species.hh speciesset.hh speciesredro.hh
 gablexer.o: speciesorder.hh
 motorola.o: motorola.h
 bitmap.o: bitmap.h
+version.o: version.hh

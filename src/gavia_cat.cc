@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_cat.cc,v 1.6 2000-01-16 21:07:22 grahn Exp $
+ * $Id: gavia_cat.cc,v 1.7 2000-06-01 14:13:03 grahn Exp $
  *
  * gavia_cat.cc
  *
@@ -37,7 +37,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gavia_cat.cc,v 1.6 2000-01-16 21:07:22 grahn Exp $";
+"$Id: gavia_cat.cc,v 1.7 2000-06-01 14:13:03 grahn Exp $";
 }
 
 #include <cstdio>
@@ -80,7 +80,7 @@ int main(int argc, char ** argv)
     int fmtch = 'b';
     int ordch = 'c';
 
-    Version version;
+    Version version("$Name:  $");
 
 
     while((ch = getopt(argc, argv, optstring))!=EOF)

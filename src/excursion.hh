@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: excursion.hh,v 1.3 1999-11-30 22:19:46 grahn Exp $
+ * $Id: excursion.hh,v 1.4 2000-06-01 14:13:03 grahn Exp $
  *
  * excursion.hh
  *
@@ -40,9 +40,20 @@
 #define EXCURSION_HH
 
 #include <string>
-#include <map>
+#include <hash_map>
 #include "species.hh"
 #include "speciesset.hh"
+
+class SpeciesHash
+{
+    hash<const char *> cstrh;
+
+public:
+    size_t operator() (const Species & s) const
+    {
+	return cstrh(s.c_str());
+    }
+};
 
 
 class Excursion
@@ -101,7 +112,7 @@ private:
     string comments;
 
     SpeciesSet sset;
-    std::map<Species, SpeciesData> smap;
+    hash_map<Species, SpeciesData, SpeciesHash> smap;
 
 };
 

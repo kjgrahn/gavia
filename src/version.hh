@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: version.hh,v 1.3 2000-01-16 21:07:22 grahn Exp $
+ * $Id: version.hh,v 1.4 2000-06-01 14:13:03 grahn Exp $
  *
  * version.hh
  *
- * Copyright (c) 1999 Jörgen Grahn <jorgen.grahn@opensoftware.se>
+ * Copyright (c) 1999--2000 Jörgen Grahn <jorgen.grahn@opensoftware.se>
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -31,28 +31,25 @@
  *----------------------------------------------------------------------------
  *
  * A class that stores the version (revision) of the project it
- * is contained in. This might or might not be the revision of a
- * certain executable; if one project is under CVS (or possibly RCS)
- * control, all executables should share one release tag.
- * Dollar-Id tags should be used to identify the individual files that
- * contributed to a build.
+ * is used in.
+ * For now, this is realized by initializing it with the RCS or CVS
+ * dollar-Name tag.
  *----------------------------------------------------------------------------
  */
 
 #ifndef VERSION_HH
 #define VERSION_HH
 
-namespace
-{
-    static const char tagname[] = "$Name:  $";
-}
 
 class Version
 {
 public:
-    const char * name() const {return tagname;}
+    Version(const char *);
+    const char * name() const;
+
 protected:
 private:
+    Version();
 
 };
 

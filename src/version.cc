@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_add.cc,v 1.6 2000-06-01 14:13:03 grahn Exp $
+ * $Id: version.cc,v 1.1 2000-06-01 14:13:03 grahn Exp $
  *
- * gavia_add.cc
+ * version.cc
  *
- * Copyright (c) 1999 Jörgen Grahn <jorgen.grahn@opensoftware.se>
+ * Copyright (C) 2000 Jörgen Grahn <jorgen.grahn@opensoftware.se>
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -30,106 +30,40 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *----------------------------------------------------------------------------
  *
- * Interactively add an Excursion to
- * a Gavia book.
  *----------------------------------------------------------------------------
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gavia_add.cc,v 1.6 2000-06-01 14:13:03 grahn Exp $";
+"$Id: version.cc,v 1.1 2000-06-01 14:13:03 grahn Exp $";
 }
-
-#include <cstdio>
-#include <cstdlib>
-#include <cctype>
 
 #include <cassert>
 
-#include <vector>
-
 #include "version.hh"
-
-#include "streamsource.hh"
-#include "gabsource.hh"
-#include "streamsink.hh"
-#include "canonorder.hh"
 
 
 /*----------------------------------------------------------------------------
  *
- * main()
+ * constructor
  *
  *
  *----------------------------------------------------------------------------
  */
-int main(int argc, char ** argv)
+Version::Version(const char *name)
 {
-    Version version("$Name:  $");
+    ;
+}
 
 
-    if(argc!=2)
-    {
-	fprintf(stderr, "usage: gavia_add book\n");
 
-	return 1;
-    }
-
-    vector<Excursion> exlist;
-
-    // Read the old book
-    //
-    {
-	StreamSource src(argv[1]);
-
-	while(!(src.eof()||src.error()))
-	{
-	    exlist.push_back(src.excursion());
-	    src.next();
-	}
-
-	if(src.error())
-	{
-	    perror("gavia_add");
-	    return 1;
-	}
-    }
-
-    // Read the textual excursions,
-    // add to the original
-    {
-	GabSource src(stdin);
-
-	while(!(src.eof()||src.error()))
-	{
-	    exlist.push_back(src.excursion());
-	    src.next();
-	}
-
-	if(src.error())
-	{
-	    perror("gavia_add");
-	    return 1;
-	}
-    }
-
-    // Dump the result to stdout
-    //
-    {
-	CanonOrder co;
-	StreamSink sink(stdout);
-
-	unsigned int i;
-	for(i=0; i<exlist.size(); i++)
-	{
-	    sink.put(exlist[i]);
-	}
-
-	if(sink.error())
-	{
-	    perror("gavia_add");
-	    return 1;
-	}
-    }
-
-    return 0;
+/*----------------------------------------------------------------------------
+ *
+ * name()
+ *
+ *
+ *----------------------------------------------------------------------------
+ */
+const char * Version::name() const
+{
+    return "foo";
 }

@@ -1,7 +1,7 @@
 %{
 /*----------------------------------------------------------------------------
  *
- * $Id: gablexer.l,v 1.11 2002-07-15 22:29:21 grahn Exp $
+ * $Id: gablexer.l,v 1.12 2002-09-29 09:50:50 grahn Exp $
  *
  * gablexer.l
  *
@@ -35,7 +35,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gablexer.l,v 1.11 2002-07-15 22:29:21 grahn Exp $";
+"$Id: gablexer.l,v 1.12 2002-09-29 09:50:50 grahn Exp $";
 }
 
 #include <cctype>
@@ -47,6 +47,8 @@ static const char* rcsid() { rcsid(); return
 #include "excursion.hh"
 #include "exception.hh"
 #include "speciesredro.hh"
+
+using std::map;
 
 #define YY_DECL int yylex(Excursion * excursion, int * inc, const SpeciesRedro * redro)
 

@@ -1,0 +1,66 @@
+-*- text -*-
+
+Major changes (with focus on user-visible changes) to Gavia, per version.
+
+
+	- gavia_cat: when exporting to text, the day of week is printed:
+	    Date     : 1995-08-03 (Thu)
+	    Place    : ...
+	- Bug fix: 'make install' now installs the gavia(1) manpage properly.
+	- `gaviadate' no longer requires the bloated GNU date(1) command.
+	- Minor manpage fix to gavia_stellata(1).
+
+gavia-2.16 (2001-06-19):
+	- Gavia_cat can now output to a regular Unix mailbox (mbox) file.
+	- New manpages gavia(1) and gavia(5) gives an overview and documents
+	  file formats, respectively.
+	- New manpage gavia_stellata(1).
+	- `gavia_cvs.mm' improved.
+
+gavia-2.15 (2001-06-04):
+	- `gavia_cvs.mm' improved.
+
+gavia 2.14 (2001-05-31):
+	- New piece of documentation: `Using Gavia in combination with CVS'.
+	- Formatting/layout of the generated GAB source changed slightly
+	  so that it's easier to read, and matches the template file better.
+	- Some manpage, Makefile and source fixes.
+
+gavia 2.13 (2001-01-18):
+	- Thirteen new species added (new total 484)
+	  "tundrasädgås",
+	  "grönländsk bläsgås",
+	  "dvärgkanadagås",
+	  "svartbukig prutgås",
+	  "ljusbukig prutgås",
+	  "amerikansk kricka",
+	  "amerikansk sjöorre",
+	  "östersjötrut",
+	  "engelsk sädesärla",
+	  "sibirisk gransångare",
+	  "svartkråka",
+	  "brunsiska",
+	  "sibirisk trut"
+	- Minor fixes in gavia_stellata(1) and gavia_stat(1).
+	- More conformant C++ code; std:: namespace enforced, more or less.
+	- gavia_stat(1) documented.
+	- Other minor manpage fixes.
+	- Misc. Makefile cleanup; some Sun/Forte-support added.
+	- Conditional compilation for use of the hash_map container
+	  (USE_HASHMAP) and getopt.h (USE_GETOPT_H).
+
+gavia 2.12 (2000-12-17):
+	- 'gavia_stellata' now takes the book file as an argument;
+	  the name of the template file changed to ~/.gavia_template.
+	- Some documentation fixes.
+
+gavia 2.11 (2000-09-13):
+	- A default template file for gavia_stellata added to the distribution.
+
+gavia 2.1 -- 2.10;
+lanius, all version:
+	Before written history.
+
+_________________________________________
+$Id: NEWS,v 1.1 2001-07-08 10:03:50 grahn Exp $
+$Name:  $

@@ -1,15 +1,35 @@
 #!/usr/bin/perl -w # -*- perl -*-
 #
-# $Id: gavia_focus,v 1.1 2001-09-23 20:20:08 grahn Exp $
+# $Id: gavia_focus,v 1.2 2001-09-29 22:10:57 grahn Exp $
 # $Name:  $
 #
-# gaviafocus - remove certain species
+# gaviafocus - filter out certain species
 # from a 'gab' file
 #
+# Copyright (c) 2001 Jörgen Grahn <jgrahn@algonet.se>
+# All rights reserved.
+# 
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions
+# are met:
+# 1. Redistributions of source code must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+# 2. Redistributions in binary form must reproduce the above copyright
+#    notice, this list of conditions and the following disclaimer in the
+#    documentation and/or other materials provided with the distribution.
+# 3. The name of the author may not be used to endorse or promote products
+#    derived from this software without specific prior written permission.
+# 
+# THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' ...etc
+#
 
+use strict;
 use Getopt::Std;
+use vars qw($opt_v $opt_f);
 
 getopt("f");
+
+my $invert = defined($opt_v);
 
 if(defined($opt_f)) {
     open BLACKLIST, $opt_f
@@ -41,8 +61,12 @@ while(<BLACKLIST>) {
     }
 }
 
+my $date;
+
 while(<>)
 {
+    my ($start, $end);
+
     if(/^date\s*:\s*(\d+)/i) {
 	$date = $1 % 10000;
     }
@@ -53,15 +77,19 @@ while(<>)
     my ($name) = /\s*([a-zåäö ]+?)\s*:/i
 	or die;
 
-    print, next unless defined($blacklist{$name});
+    if(not defined($blacklist{$name})) {
+	print unless $invert;
+	next;
+    }
 
     # print it anyways, iff out of blacklist range
     ($start, $end) = $blacklist{$name} =~ /(\d+)\-(\d+)/;
+
     if($start < $end) {
-	print if $date<$start || $date>$end;
+	print if $date<$start || $date>$end xor $invert;
     }
     else {
-	print if $date<$start && $date>$end;
+	print if $date<$start && $date>$end xor $invert;
     }
 }
 

@@ -1,22 +1,27 @@
-.\" $Id: gavia_focus.1,v 1.1 2001-09-23 20:20:07 grahn Exp $
+.\" $Id: gavia_focus.1,v 1.2 2001-09-29 22:10:57 grahn Exp $
 .\" 
 .\"
 .TH gavia_focus 1 "SEPTEMBER 2001" Gavia "User Manuals"
 .SH "NAME"
 gavia_focus \- filter away species from a ''Gab'' book
 .SH "SYNOPSIS"
-gavia_focus [-f filter] file ...
+gavia_focus [-v] [-f filter]
+.I file
+.B ...
 .SH "DESCRIPTION"
 gavia_focus takes one or more files (stdin if none given),
 in ''Gab'' format and outputs them as-is, except for species
 mentioned in a filter file (or ''blacklist'', or ''kill file'').
 This may be used when quickly browsing a book, to avoid listing
 common or ''trivial'' species.
-.PP
-The filter can be given on the command line (using the
-.B -f
-switch); otherwise, it defaults to one of the files
-described below.
+.SH "OPTIONS"
+.IP -v
+Invert the filter, so that it points out which species to
+.I include
+in the output rather than which ones to exclude.
+.IP -f\ filter
+The filter file. If none is given, defaults to one of those
+described below (''FILES'').
 .SH "FILE FORMAT"
 The filter file is a sequence of species names, one per line.
 Species mentioned in this file will not be printed.

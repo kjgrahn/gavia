@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: canonorder.cc,v 1.8 2001-07-22 21:04:12 grahn Exp $
+ * $Id: canonorder.cc,v 1.9 2001-12-06 21:06:28 grahn Exp $
  *
  * canonorder.cc
  *
@@ -34,14 +34,14 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: canonorder.cc,v 1.8 2001-07-22 21:04:12 grahn Exp $";
+"$Id: canonorder.cc,v 1.9 2001-12-06 21:06:28 grahn Exp $";
 }
 
 #include "canonorder.hh"
 
 #include <cassert>
 
-#define INTERNALCANONLEN (485)
+#define INTERNALCANONLEN (502)
  
 char * CanonOrder::internalcanon[INTERNALCANONLEN] =
 {
@@ -530,6 +530,23 @@ char * CanonOrder::internalcanon[INTERNALCANONLEN] =
     "brunsiska",	       /* 482 */
     "sibirisk trut",	       /* 483 */
     "orientvadarsvala",	       /* 484 */
+    "större flamingo",	       /* 485 */
+    "medelhavsvarfågel",       /* 486 */
+    "svart stenskvätta",       /* 487 */
+    "europeisk kopparand",     /* 488 */
+    "hökörn",		       /* 489 */
+    "rödhöna",		       /* 490 */
+    "purpurhöna",	       /* 491 */
+    "rödnäbbad trut",	       /* 492 */
+    "halsbandsparakit",	       /* 493 */
+    "munkparakit",	       /* 494 */
+    "lagerlärka",	       /* 495 */
+    "grässångare",	       /* 496 */
+    "svartstare",	       /* 497 */
+    "spansk sparv",	       /* 498 */
+    "stensparv",	       /* 499 */
+    "blåskata",		       /* 500 */
+    "alpkråka",		       /* 501 */
 };
 
 

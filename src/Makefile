@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.17 2004-01-04 14:10:41 grahn Exp $
+# $Id: Makefile,v 1.18 2004-01-07 22:23:00 grahn Exp $
 #
 # Makefile
 #
@@ -116,8 +116,8 @@ love:
 
 # DO NOT DELETE
 
-bitmap.o: bitmap.h
 motorola.o: motorola.h
+bitmap.o: bitmap.h
 canonorder.o: canonorder.hh speciesorder.hh species.hh specieslist.hh
 dynamicorder.o: species.hh speciesset.hh speciesorder.hh dynamicorder.hh
 exception.o: exception.hh

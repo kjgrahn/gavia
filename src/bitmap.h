@@ -1,41 +1,44 @@
-/*----------------------------------------------------------------------------
+/*----*- c++ -*---------------------------------------------------------------
  *
- * $Id: bitmap.h,v 1.2 2000-08-10 19:47:21 grahn Exp $
+ * $Id: bitmap.h,v 1.3 2004-01-07 22:23:00 grahn Exp $
  *
  * bitmap.h
  *
  * Jörgen Grahn <jgrahn@algonet.se>
- * 1998-09-26
+ * 1998-09-26, 2004
  *----------------------------------------------------------------------------
  *
  *----------------------------------------------------------------------------
  */
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-#define BMAPNR (200)
+#include <cstdio>
 
 
-typedef struct
+class Bitmap
 {
+private:
+    static const int BMAPNR = 200;
     unsigned char map[BMAPNR];
 
-} Bitmap;
+public:
+    Bitmap() {
+	for(int i=0; i!=sizeof(map); i++) map[i] = 0x00;
+    }
 
+    void set(int n) {
+	map[n/8] |= (1<< (7 - (n%8)));
+    }
+    void clear(int n) {
+	map[n/8] &= ~(1<< (7 - (n%8)));
+    }
+    bool isset(int n) const {
+	return (map[n/8] >> (7-(n%8))) & 1;
+    }
 
-void bitmapcreate(Bitmap *);
-void bitmapdestroy(Bitmap *);
+    int count() const;
 
-int bitmapread(Bitmap *, FILE *);
-int bitmapwrite(Bitmap *, FILE *);
+    int size() const { return BMAPNR * 8; }
 
-void bitmapset(Bitmap *, int);
-void bitmapclear(Bitmap *, int);
-int bitmapisset(Bitmap *, int);
-int bitmapcount(Bitmap *);
-
-#ifdef __cplusplus
-}
-#endif
+    int read(std::FILE * fp);
+    int write(std::FILE * fp) const;
+};

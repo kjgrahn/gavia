@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: streamsource.cc,v 1.6 2001-12-29 19:14:09 grahn Exp $
+ * $Id: streamsource.cc,v 1.7 2004-01-07 22:23:00 grahn Exp $
  *
  * streamsource.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: streamsource.cc,v 1.6 2001-12-29 19:14:09 grahn Exp $";
+"$Id: streamsource.cc,v 1.7 2004-01-07 22:23:00 grahn Exp $";
 }
 
 #include <cstdio>
@@ -301,16 +301,15 @@ static int eatexcursion(FILE * fp, SpeciesOrder * order, Excursion& ex)
     }
 
     Bitmap bitmap;			// set of species
-    ::bitmapcreate(&bitmap);
-    i = ::bitmapread(&bitmap, fp);
+    i = bitmap.read(fp);
     if(!i)
     {
 	throw GaviaException("garbage in excursion");
     }
 
-    for(i=0; i<BMAPNR*8; i++)		// speciescounts
+    for(i=0; i<bitmap.size(); i++)	// speciescounts
     {
-	if(::bitmapisset(&bitmap, i))
+	if(bitmap.isset(i))
 	{
 	    unsigned int n;
 	    if(::motorolareadword(fp, &n) <= 0)
@@ -321,9 +320,9 @@ static int eatexcursion(FILE * fp, SpeciesOrder * order, Excursion& ex)
 	}
     }
 
-    for(i=0; i<BMAPNR*8; i++)		// speciescomments
+    for(i=0; i<bitmap.size(); i++)	// speciescomments
     {
-	if(::bitmapisset(&bitmap, i))
+	if(bitmap.isset(i))
 	{
 	    int n = ::eatstring(fp, tmp);
 	    if(n<=0)

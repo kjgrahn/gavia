@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: streamsink.cc,v 1.6 2001-12-29 19:14:09 grahn Exp $
+ * $Id: streamsink.cc,v 1.7 2004-01-07 22:23:00 grahn Exp $
  *
  * streamsink.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: streamsink.cc,v 1.6 2001-12-29 19:14:09 grahn Exp $";
+"$Id: streamsink.cc,v 1.7 2004-01-07 22:23:00 grahn Exp $";
 }
 
 #include <cstdio>
@@ -175,23 +175,19 @@ void StreamSink::put(const Excursion& ex)
     const CanonOrder co;
     Bitmap bmap;
 
-    bitmapcreate(&bmap);
-
     for(int i=0; i!=co.end(); i++)
     {
 	if(ex.species(co.species(i)))
 	{
-	    ::bitmapset(&bmap, i);
+	    bmap.set(i);
 	}
     }
 
-    rc = ::bitmapwrite(&bmap, mfp);
+    rc = bmap.write(mfp);
     if(!rc)
     {
 	throw GaviaException(errno);
     }
-
-    bitmapdestroy(&bmap);
 
     // dump the number-of-individuals for all
     // species recorded in 'ex', also in CanonOrder.

@@ -31,18 +31,14 @@ the old legacy, binary, broken Lanius data format. Why write a
 dedicated interactive user interface when you can get an existing text
 editor to do the boring stuff for you for free?
 
-Gavia is (C) 1999-2005 Jörgen Grahn, and released under a BSD-style
-license.
+Gavia is released under a BSD-style license; see the LICENSE file.
 
 
 2. REQUIREMENTS
 
-You'll need a fairly complete C++ compiler, such as gcc 2.95. Gavia
-uses STL heavily, and also (when compiled with USE_HASHMAP set)
-some of the SGI extensions to STL.
-
-To compile, you'll also need flex, the lex replacement.
-The lex that comes with Solaris isn't enough, for example.
+To compile and install gavia, you'll need a C++ compiler and also
+flex, the lex replacement. (The lex that comes with Solaris wasn't
+enough last time I checked).
 
 You may also need to be on a Unix-like system. Personally, I'm on a
 Linux box and have never tried to compile for (for example) Win32.
@@ -52,17 +48,6 @@ several in the Makefile.
 For my daily use of gavia, I rely on perl, RCS or CVS, and GNU
 Emacs. You can avoid some of these depending on how you use gavia and
 how much you're willing to customize the (admittedly trivial) scripts.
-
-When using gavia_stellata(1), this piece of elisp code faciliates
-picking species for inclusion in an excursion, by creating a macro tied
-to F4:
-
-   (fset 'gavia-mark
-      [?\C-a ?\C-s ?: ?\C-m ?\C-d ?# ?\C-a down])
-   (global-set-key   [f4] 'gavia-mark)
-
-Include it somewhere in your .emacs if you want to use that particular
-editor.
 
 
 3. INSTALLATION
@@ -75,14 +60,35 @@ To install it elsewhere, you have to edit all or most of the Makefiles.
 This creates files in bin/, man/ and lib/gavia/.
 
 Some of the files in lib/gavia/ are more or less example config files
-for various gavia comamnds.  You are encouraged to create custom
+for various gavia commands.  You are encouraged to create custom
 versions in your home directory -- see the man pages for details.
 
-There is at least one non-manpage piece of documentation. Like the
-example config files, it is not installed by default.
+There is at least one non-manpage piece of documentation -- "Using
+Gavia in combination with CVS". It is not installed by default.
 
 
-4. DISCLAIMER
+4. EDITING SUPPORT
+
+What Gavia does is primarily to simplify data entry, and it does that
+partly by relying on a standard text editor.
+
+Thus, Gavia includes gavia-mode, a GNU Emacs editing mode which adds
+color highlighting to gavia_stellata(1) and the excursion files in
+general. You may have to install it manually.
+
+Also, when using gavia_stellata(1), this piece of elisp code
+faciliates picking species for inclusion in an excursion, by creating
+a macro tied to F4:
+
+   (fset 'gavia-mark
+      [?\C-a ?\C-s ?: ?\C-m ?\C-d ?# ?\C-a down])
+   (global-set-key   [f4] 'gavia-mark)
+
+Include it somewhere in your .emacs if you want to use that particular
+editor.
+
+
+5. DISCLAIMER
 
 You may have noted already that this isn't a ready solution. Correct -
 it's a hack that does what I need it to do and little else.
@@ -95,5 +101,5 @@ I'll probably never get around to it.
 
 Jörgen Grahn <jgrahn@algonet.se>
 
-$Id: README,v 1.8 2005-01-06 15:50:40 grahn Exp $
+$Id: README,v 1.9 2005-10-30 08:10:18 grahn Exp $
 $Name:  $

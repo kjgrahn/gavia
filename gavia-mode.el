@@ -7,29 +7,33 @@
 ;; http://two-wugs.net/emacs/mode-tutorial.html
 ;; and http://www.emacswiki.org/cgi-bin/wiki?SampleMode
 ;; and http://www.emacswiki.org/cgi-bin/wiki/DerivedMode
+;; and ps-mode.
+
+(defconst gavia-font-lock-keywords
+  '(("^#.*" . font-lock-comment-face)
+    ("^place *:" . font-lock-constant-face)
+    ("^date *:" . font-lock-constant-face)
+    ("^time *:" . font-lock-constant-face)
+    ("^observers *:" . font-lock-constant-face)
+    ("^weather *:" . font-lock-constant-face)
+    ("^comments *:" . font-lock-constant-face)
+    ("^.+?:.:" . font-lock-variable-name-face)
+    ("XXX" . font-lock-warning-face))
+  "Syntax highlighting for Gavia mode.")
 
 (define-derived-mode gavia-mode text-mode "Gavia"
   "Major mode for editing Gavia 'GAB' files."
 
-
   (setq comment-start "#")
-  (setq comment-start-skip "#\\W*")
+  (setq comment-start-skip "#+\\s-*")
 
-
-  ;;register keywords
-  (setq gavia-font-lock-keywords
-	(list '("#.*"
-		. font-lock-comment-face)
-	      '("^[\t ]*:.*"
-		. font-lock-type-face)
-	      '("[A-Za-z_]+=.*"
-		. font-lock-keyword-face)
-	      '("^[\t ]*\\*.*"
-		. font-lock-doc-string-face)
-	      '("\$[A-Za-z0-9_]+"
-		. font-lock-function-name-face)))
-
-
-  (font-lock-mode))
+  (set (make-local-variable 'font-lock-defaults)
+       '((gavia-font-lock-keywords
+ 	  gavia-font-lock-keywords
+ 	  gavia-font-lock-keywords
+ 	  gavia-font-lock-keywords)
+ 	 t)))
 
 (add-to-list 'auto-mode-alist '("\\.gavia\\'" . gavia-mode))
+
+(provide 'gavia-mode)

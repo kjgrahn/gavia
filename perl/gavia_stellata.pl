@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: gavia_stellata.pl,v 1.14 2005-01-17 21:09:30 grahn Exp $
+# $Id: gavia_stellata.pl,v 1.15 2005-10-30 08:07:41 grahn Exp $
 # $Name:  $
 #
 # gavia_stellata.pl - interactively adding
@@ -42,8 +42,8 @@ $template = $hometempl
 $template = $opt_f
     if defined $opt_f;
 
-my $tmpname0 = "/tmp/gavia_stellata.tmp0.$$.txt";
-my $tmpname1 = "/tmp/gavia_stellata.tmp1.$$.txt";
+my $tmpname0 = "/tmp/gavia_stellata.tmp0.$$.gavia";
+my $tmpname1 = "/tmp/gavia_stellata.tmp1.$$.gavia";
 
 my $editor = "emacs";
 

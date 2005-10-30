@@ -4,6 +4,17 @@ Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
 
+gavia 2.35 (2005-10-30)
+	- Implemented gavia-mode, a GNU Emacs editing mode for 'gab'
+	  excursion files in general and gavia_stellata(1) in
+	  particular. This adds some color highlighting, and also
+	  makes the [F4] key mark a species as seen.
+
+	  See README for details.
+
+	- Removed the old recipe for marking a species as seen using a
+	  crude Emacs macro.
+
 gavia 2.34 (2005-01-06)
 	- simple error checking on dates in 'gab' files added.  Broken
 	  dates kept popping up in various files (typically like
@@ -252,5 +263,5 @@ lanius, all versions:
 	Before written history.
 
 _________________________________________
-$Id: NEWS,v 1.31 2005-01-06 15:50:40 grahn Exp $
+$Id: NEWS,v 1.32 2005-10-30 10:35:05 grahn Exp $
 $Name:  $

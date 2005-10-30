@@ -72,20 +72,22 @@ Gavia in combination with CVS". It is not installed by default.
 What Gavia does is primarily to simplify data entry, and it does that
 partly by relying on a standard text editor.
 
-Thus, Gavia includes gavia-mode, a GNU Emacs editing mode which adds
-color highlighting to gavia_stellata(1) and the excursion files in
-general. You may have to install it manually.
+Thus, Gavia includes gavia-mode, a simple GNU Emacs editing mode which
+adds color highlighting to gavia_stellata(1) and the excursion files
+in general. You may have to install it manually.
 
-Also, when using gavia_stellata(1), this piece of elisp code
-faciliates picking species for inclusion in an excursion, by creating
-a macro tied to F4:
+A user can make use of gavia-mode by customizing her ~/.emacs to
+include something like either of these two lines:
 
-   (fset 'gavia-mark
-      [?\C-a ?\C-s ?: ?\C-m ?\C-d ?# ?\C-a down])
-   (global-set-key   [f4] 'gavia-mark)
+    (require 'gavia-mode)
+    (load "~/elisp/gavia-mode.el")
 
-Include it somewhere in your .emacs if you want to use that particular
-editor.
+Files with the filename suffix ".gavia" or the "*- gavia -*-" tag on
+the first line will then get some syntax highlighting, and the [F4]
+key will mark a species as seen.
+
+It should be fairly easy to implement similar things for other quality
+text editors.
 
 
 5. DISCLAIMER
@@ -101,5 +103,5 @@ I'll probably never get around to it.
 
 Jörgen Grahn <jgrahn@algonet.se>
 
-$Id: README,v 1.9 2005-10-30 08:10:18 grahn Exp $
+$Id: README,v 1.10 2005-10-30 10:20:33 grahn Exp $
 $Name:  $

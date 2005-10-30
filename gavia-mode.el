@@ -21,9 +21,27 @@
     ("XXX" . font-lock-warning-face))
   "Syntax highlighting for Gavia mode.")
 
-(define-derived-mode gavia-mode text-mode "Gavia"
-  "Major mode for editing Gavia 'GAB' files."
+(defun gavia-tick-species ()
+  "Mark the species on the current line as seen
+(with a '#' character) and advance."
+  (interactive)
+  (save-excursion
+    (beginning-of-line)
+    (if (looking-at "^[^:]+: :")
+	(if (search-forward ": :" nil t)
+	  (replace-match ":#:" nil t))
+      )
+    )
+  (next-line 1)
+  )
 
+(define-derived-mode gavia-mode text-mode "Gavia"
+  "Major mode for editing Gavia 'GAB' files.
+This is merely text mode, plus some colorization, plus
+a command to mark a species as seen (with a '#' character).
+A file whose name ends in '.gavia' gets this mode."
+
+  (define-key gavia-mode-map [f4] 'gavia-tick-species)
   (setq comment-start "#")
   (setq comment-start-skip "#+\\s-*")
 

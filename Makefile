@@ -1,8 +1,8 @@
-# $Id: Makefile,v 1.2 2002-07-15 15:00:20 grahn Exp $
+# $Id: Makefile,v 1.3 2005-10-30 08:08:25 grahn Exp $
 #
 # Makefile
 #
-# Copyright (c) 2000 Jörgen Grahn <jgrahn@algonet.se>
+# Copyright (c) 2000-2005 Jörgen Grahn <jgrahn@algonet.se>
 # All rights reserved.
 # 
 # Redistribution and use in source and binary forms, with or without
@@ -29,17 +29,21 @@
 
 SHELL = /bin/sh
 
+INSTALLBASE = /usr/local
+ELISPDIR=$(INSTALLBASE)/share/emacs/site-lisp
+
 all:
 	cd src; $(MAKE)
 	cd perl; $(MAKE)
 	cd lib; $(MAKE)
 	cd doc; $(MAKE)
 
-install:
+install: gavia-mode.el
 	cd src; $(MAKE) install
 	cd perl; $(MAKE) install
 	cd lib; $(MAKE) install
 	cd doc; $(MAKE) install
+	[ -d  $(ELISPDIR) ] && install -m444 gavia-mode.el $(ELISPDIR)
 
 clean:
 	cd src; $(MAKE) clean

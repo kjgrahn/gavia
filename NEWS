@@ -1,8 +1,14 @@
--*- text -*-
-
 Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
+
+	- Bug fix: if you called 'gavia_stellata foo' with 'foo' being
+	  a directory or something, you would lose the excursion you
+	  entered, and not told until the end.
+
+	  gavia_stellata now checks 'foo' so it's both writeable and a
+	  normal file, and does not delete the temporary file
+	  containing the excursion in case of error.
 
 gavia 2.35 (2005-10-30)
 	- Implemented gavia-mode, a GNU Emacs editing mode for 'gab'
@@ -263,5 +269,5 @@ lanius, all versions:
 	Before written history.
 
 _________________________________________
-$Id: NEWS,v 1.32 2005-10-30 10:35:05 grahn Exp $
+$Id: NEWS,v 1.33 2006-01-02 22:02:05 grahn Exp $
 $Name:  $

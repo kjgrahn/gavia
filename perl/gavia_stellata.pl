@@ -1,12 +1,12 @@
 #!/usr/bin/perl -w
 #
-# $Id: gavia_stellata.pl,v 1.15 2005-10-30 08:07:41 grahn Exp $
+# $Id: gavia_stellata.pl,v 1.16 2006-01-02 22:02:05 grahn Exp $
 # $Name:  $
 #
 # gavia_stellata.pl - interactively adding
 # excursions to the default .gab file
 #
-# Copyright (c) 1999--2004 Jörgen Grahn <jgrahn@algonet.se>
+# Copyright (c) 1999--2006 Jörgen Grahn
 # All rights reserved.
 # 
 # Redistribution and use in source and binary forms, with or without
@@ -57,8 +57,8 @@ elsif(defined $ENV{"EDITOR"}) {
     $editor = $ENV{"EDITOR"};
 }
 
--w $obsbok
-    or die "`$obsbok' is not writeable.\n";
+-w $obsbok and -f $obsbok
+    or die "`$obsbok' is not a writeable file.\n";
 
 my ($d0, $d1, $d2, $mday, $mon, $year, $d3, $d4, $d5) = localtime(time);
 my $datestr = sprintf "%04d%02d%02d", 1900+$year, 1+$mon, $mday;
@@ -119,7 +119,6 @@ close TMP1;
 print STDERR "again...\n";
 
 if(system("$editor $tmpname1")) {
-    unlink $tmpname1;
     die;
 }
 
@@ -130,7 +129,7 @@ $smax = 17 if $smax<17;
 open TMP1, "<$tmpname1"
     or die "cannot open `$tmpname1': $!\n";
 open BOOK, ">>$obsbok"
-    or unlink $tmpname1, die "cannot append to $obsbok: $!\n";
+    or die "cannot append to $obsbok: $!\n";
 
 while(<TMP1>) {
     if(/^(\s*[a-zåäö ]+?)\s*:(.*?):\s*(\d*)\s*:(.*)/i) {

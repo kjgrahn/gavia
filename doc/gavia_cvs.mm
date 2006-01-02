@@ -1,15 +1,15 @@
-.\" $Id: gavia_cvs.mm,v 1.9 2003-01-04 16:07:24 grahn Exp $
+.\" $Id: gavia_cvs.mm,v 1.10 2006-01-02 22:05:51 grahn Exp $
 .hy
 .nr LL 60n
 .nr PI 3n
 .
-.ND "$Date: 2003-01-04 16:07:24 $"
-.PF "\s-2$Id: gavia_cvs.mm,v 1.9 2003-01-04 16:07:24 grahn Exp $\s+2"
+.ND "$Date: 2006-01-02 22:05:51 $"
+.PF "\s-2$Id: gavia_cvs.mm,v 1.10 2006-01-02 22:05:51 grahn Exp $\s+2"
 .
 .TL
 Using Gavia in combination with CVS
 .AU
-J\(:orgen Grahn <jgrahn@algonet.se>
+J\(:orgen Grahn <grahn+src@snipabacken.dyndns.org>
 .AB
 Gavia is a set of tools to maintain an electronic bird notebook.
 The present document gives a short introduction to

@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_sort.cc,v 1.12 2005-10-30 07:22:39 grahn Exp $
+ * $Id: gavia_sort.cc,v 1.13 2006-01-02 22:12:06 grahn Exp $
  *
  * gavia_sort.cc
  *
@@ -36,7 +36,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gavia_sort.cc,v 1.12 2005-10-30 07:22:39 grahn Exp $";
+"$Id: gavia_sort.cc,v 1.13 2006-01-02 22:12:06 grahn Exp $";
 }
 
 #include <iostream>
@@ -99,8 +99,8 @@ int main(int argc, char ** argv)
 	case '?':
 	    fprintf(stderr,
 		    "gavia_sort, part of %s\n"
-		    "Copyright (c) 2000-2005 Jörgen Grahn "
-		    "<jgrahn@algonet.se>\n",
+		    "Copyright (c) 2000-2006 Jörgen Grahn "
+		    "<grahn+src@snipabacken.dyndns.org>\n",
 		    version.name());
 	    return 0;
 	    break;

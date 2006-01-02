@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: gavia_stellata.pl,v 1.16 2006-01-02 22:02:05 grahn Exp $
+# $Id: gavia_stellata.pl,v 1.17 2006-01-02 23:35:26 grahn Exp $
 # $Name:  $
 #
 # gavia_stellata.pl - interactively adding
@@ -28,6 +28,7 @@ use vars qw($opt_f);
 use Getopt::Std;
 
 sub syntaxcheck;
+sub pad;
 sub mtime;
 
 
@@ -124,7 +125,8 @@ if(system("$editor $tmpname1")) {
 
 my ($smax, $nmax) = syntaxcheck($tmpname1);
 # avoid too much jaggedness
-$smax = 17 if $smax<17;
+$smax++;
+$smax = 16 if $smax<16;
 
 open TMP1, "<$tmpname1"
     or die "cannot open `$tmpname1': $!\n";
@@ -134,7 +136,7 @@ open BOOK, ">>$obsbok"
 while(<TMP1>) {
     if(/^(\s*[a-zедц ]+?)\s*:(.*?):\s*(\d*)\s*:(.*)/i) {
 
-	printf BOOK "%-${smax}s :%s: %${nmax}s:%s\n", $1, $2, $3, $4;
+	printf BOOK "%s:%s: %${nmax}s:%s\n", pad($1, $smax), $2, $3, $4;
 	next;
     }
 
@@ -199,6 +201,14 @@ sub syntaxcheck {
     return ($smax, $nmax);
 }
 
+# pad a string with whitespace to the right, until
+# it's of a certain lenght.
+#
+sub pad {
+    my $s = shift;
+    my $len = shift;
+    return sprintf "%-${len}s", $s;
+}
 
 sub mtime {
     my $path = shift;

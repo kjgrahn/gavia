@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: streamsink.hh,v 1.5 2001-12-29 19:14:09 grahn Exp $
+ * $Id: streamsink.hh,v 1.6 2006-01-02 22:15:25 grahn Exp $
  *
  * streamsink.hh
  *
- * Copyright (c) 1999 Jörgen Grahn <jgrahn@algonet.se>
+ * Copyright (c) 1999 Jörgen Grahn
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without

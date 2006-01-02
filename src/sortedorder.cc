@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: sortedorder.cc,v 1.8 2004-09-12 21:58:43 grahn Exp $
+ * $Id: sortedorder.cc,v 1.9 2006-01-02 22:15:25 grahn Exp $
  *
  * sortedorder.cc
  *
- * Copyright (c) 1999 Jörgen Grahn <jgrahn@algonet.se>
+ * Copyright (c) 1999 Jörgen Grahn
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: sortedorder.cc,v 1.8 2004-09-12 21:58:43 grahn Exp $";
+"$Id: sortedorder.cc,v 1.9 2006-01-02 22:15:25 grahn Exp $";
 }
 
 #include "species.hh"

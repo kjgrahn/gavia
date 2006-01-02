@@ -1,11 +1,11 @@
 %{
 /*----------------------------------------------------------------------------
  *
- * $Id: gablexer.l,v 1.16 2004-09-12 21:58:43 grahn Exp $
+ * $Id: gablexer.l,v 1.17 2006-01-02 22:15:25 grahn Exp $
  *
  * gablexer.l
  *
- * Copyright (c) 1999--2004 Jörgen Grahn <jgrahn@algonet.se>
+ * Copyright (c) 1999--2004 Jörgen Grahn
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -35,7 +35,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gablexer.l,v 1.16 2004-09-12 21:58:43 grahn Exp $";
+"$Id: gablexer.l,v 1.17 2006-01-02 22:15:25 grahn Exp $";
 }
 
 #include <cctype>

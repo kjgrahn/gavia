@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: taxonomicorder.cc,v 1.18 2004-08-04 11:50:50 grahn Exp $
+ * $Id: taxonomicorder.cc,v 1.19 2006-01-02 22:15:25 grahn Exp $
  *
  * taxonomicorder.cc
  *
- * Copyright (c) 1999--2002 Jörgen Grahn <jgrahn@algonet.se>
+ * Copyright (c) 1999--2002 Jörgen Grahn
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: taxonomicorder.cc,v 1.18 2004-08-04 11:50:50 grahn Exp $";
+"$Id: taxonomicorder.cc,v 1.19 2006-01-02 22:15:25 grahn Exp $";
 }
 
 #include <cassert>

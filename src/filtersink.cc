@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: filtersink.cc,v 1.1 2002-09-29 19:47:56 grahn Exp $
+ * $Id: filtersink.cc,v 1.2 2006-01-02 22:15:25 grahn Exp $
  *
  * filtersink.cc
  *
- * Copyright (c) 2002 Jörgen Grahn <jgrahn@algonet.se>
+ * Copyright (c) 2002 Jörgen Grahn
  * All rights reserved.
  *
  *----------------------------------------------------------------------------
@@ -13,7 +13,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: filtersink.cc,v 1.1 2002-09-29 19:47:56 grahn Exp $";
+"$Id: filtersink.cc,v 1.2 2006-01-02 22:15:25 grahn Exp $";
 }
 
 #include <cassert>

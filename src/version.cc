@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: version.cc,v 1.4 2002-09-29 09:17:12 grahn Exp $
+ * $Id: version.cc,v 1.5 2006-01-02 22:15:25 grahn Exp $
  *
  * version.cc
  *
- * Copyright (C) 2000--2002 Jörgen Grahn <jgrahn@algonet.se>
+ * Copyright (C) 2000--2002 Jörgen Grahn
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: version.cc,v 1.4 2002-09-29 09:17:12 grahn Exp $";
+"$Id: version.cc,v 1.5 2006-01-02 22:15:25 grahn Exp $";
 }
 
 #include <cstring>

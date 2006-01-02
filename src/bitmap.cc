@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: bitmap.cc,v 1.1 2004-01-07 22:23:00 grahn Exp $
+ * $Id: bitmap.cc,v 1.2 2006-01-02 22:15:25 grahn Exp $
  *
  * bitmap.cc
  *
- * Copyright (c) 1998--2004 Jörgen Grahn <jgrahn@algonet.se>
+ * Copyright (c) 1998--2004 Jörgen Grahn
  * All rights reserved.
  *----------------------------------------------------------------------------
  *
@@ -15,7 +15,7 @@
  */
 
 static const char* rcsid(void) { rcsid(); return
-"$Id: bitmap.cc,v 1.1 2004-01-07 22:23:00 grahn Exp $";
+"$Id: bitmap.cc,v 1.2 2006-01-02 22:15:25 grahn Exp $";
 }
 
 #include "bitmap.h"

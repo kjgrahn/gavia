@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: motorola.h,v 1.4 2001-01-18 23:25:20 grahn Exp $
+ * $Id: motorola.h,v 1.5 2006-01-02 22:15:25 grahn Exp $
  *
  * motorola.h
  *
- * Copyright (c) 1999 Jörgen Grahn <jgrahn@algonet.se>
+ * Copyright (c) 1999 Jörgen Grahn
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without

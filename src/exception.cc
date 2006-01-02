@@ -1,14 +1,14 @@
-/* $Id: exception.cc,v 1.1 2004-01-04 14:10:41 grahn Exp $
+/* $Id: exception.cc,v 1.2 2006-01-02 22:15:25 grahn Exp $
  *
  * exception.cc
  *
- * Copyright (c) 2004 Jörgen Grahn <jgrahn@algonet.se>
+ * Copyright (c) 2004 Jörgen Grahn
  * All rights reserved.
  *
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: exception.cc,v 1.1 2004-01-04 14:10:41 grahn Exp $";
+"$Id: exception.cc,v 1.2 2006-01-02 22:15:25 grahn Exp $";
 }
 
 #include <cstdio>

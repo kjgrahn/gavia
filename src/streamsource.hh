@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: streamsource.hh,v 1.6 2004-08-04 11:50:50 grahn Exp $
+ * $Id: streamsource.hh,v 1.7 2006-01-02 22:15:25 grahn Exp $
  *
  * streamsource.hh
  *
- * Copyright (c) 1999 Jörgen Grahn <jgrahn@algonet.se>
+ * Copyright (c) 1999 Jörgen Grahn
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without

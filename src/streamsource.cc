@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: streamsource.cc,v 1.7 2004-01-07 22:23:00 grahn Exp $
+ * $Id: streamsource.cc,v 1.8 2006-01-02 22:15:25 grahn Exp $
  *
  * streamsource.cc
  *
- * Copyright (c) 1999 Jörgen Grahn <jgrahn@algonet.se>
+ * Copyright (c) 1999 Jörgen Grahn
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: streamsource.cc,v 1.7 2004-01-07 22:23:00 grahn Exp $";
+"$Id: streamsource.cc,v 1.8 2006-01-02 22:15:25 grahn Exp $";
 }
 
 #include <cstdio>

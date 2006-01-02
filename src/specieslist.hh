@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: specieslist.hh,v 1.2 2003-03-16 20:05:54 grahn Exp $
+ * $Id: specieslist.hh,v 1.3 2006-01-02 22:15:25 grahn Exp $
  *
  * SpeciesList.hh
  *
- * Copyright (c) 2002 Jörgen Grahn <jgrahn@algonet.se>
+ * Copyright (c) 2002 Jörgen Grahn
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without

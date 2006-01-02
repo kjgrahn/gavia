@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_sort.cc,v 1.13 2006-01-02 22:12:06 grahn Exp $
+ * $Id: gavia_sort.cc,v 1.14 2006-01-02 22:15:25 grahn Exp $
  *
  * gavia_sort.cc
  *
- * Copyright (c) 1999--2001 Jörgen Grahn <jgrahn@algonet.se>
+ * Copyright (c) 1999--2001 Jörgen Grahn
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -36,7 +36,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gavia_sort.cc,v 1.13 2006-01-02 22:12:06 grahn Exp $";
+"$Id: gavia_sort.cc,v 1.14 2006-01-02 22:15:25 grahn Exp $";
 }
 
 #include <iostream>

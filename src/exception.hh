@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: exception.hh,v 1.2 2004-01-04 14:10:41 grahn Exp $
+ * $Id: exception.hh,v 1.3 2006-01-02 22:15:25 grahn Exp $
  *
  * exception.hh
  *
- * Copyright (c) 2001 Jörgen Grahn <jgrahn@algonet.se>
+ * Copyright (c) 2001 Jörgen Grahn
  * All rights reserved.
  * 
  *----------------------------------------------------------------------------

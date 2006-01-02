@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: mboxsink.cc,v 1.3 2005-01-02 11:14:58 grahn Exp $
+ * $Id: mboxsink.cc,v 1.4 2006-01-02 22:15:25 grahn Exp $
  *
  * mboxsink.cc
  *
- * Copyright (c) 2001 Jörgen Grahn <jgrahn@algonet.se>
+ * Copyright (c) 2001 Jörgen Grahn
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -34,7 +34,7 @@
  */
 
 static const char rcsid[] =
-"$Id: mboxsink.cc,v 1.3 2005-01-02 11:14:58 grahn Exp $";
+"$Id: mboxsink.cc,v 1.4 2006-01-02 22:15:25 grahn Exp $";
 
 #include <cassert>
 #include <cstdio>

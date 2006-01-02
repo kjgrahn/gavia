@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: specieslist.cc,v 1.5 2004-09-12 21:58:43 grahn Exp $
+ * $Id: specieslist.cc,v 1.6 2006-01-02 22:15:25 grahn Exp $
  *
  * specieslist.cc
  *
- * Copyright (c) 2002 Jörgen Grahn <jgrahn@algonet.se>
+ * Copyright (c) 2002 Jörgen Grahn
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: specieslist.cc,v 1.5 2004-09-12 21:58:43 grahn Exp $";
+"$Id: specieslist.cc,v 1.6 2006-01-02 22:15:25 grahn Exp $";
 }
 
 #include <cassert>

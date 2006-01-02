@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gabsink.cc,v 1.5 2001-12-29 19:14:09 grahn Exp $
+ * $Id: gabsink.cc,v 1.6 2006-01-02 22:15:25 grahn Exp $
  *
  * gabsink.cc
  *
- * Copyright (c) 1999, 2001 Jörgen Grahn <jgrahn@algonet.se>
+ * Copyright (c) 1999, 2001 Jörgen Grahn
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -34,7 +34,7 @@
  */
 
 static const char rcsid[] =
-"$Id: gabsink.cc,v 1.5 2001-12-29 19:14:09 grahn Exp $";
+"$Id: gabsink.cc,v 1.6 2006-01-02 22:15:25 grahn Exp $";
 
 #include <assert.h>
 #include <stdio.h>

@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: canonorder.cc,v 1.16 2004-08-04 11:50:50 grahn Exp $
+ * $Id: canonorder.cc,v 1.17 2006-01-02 22:15:25 grahn Exp $
  *
  * canonorder.cc
  *
- * Copyright (c) 1999--2002 Jörgen Grahn <jgrahn@algonet.se>
+ * Copyright (c) 1999--2002 Jörgen Grahn
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: canonorder.cc,v 1.16 2004-08-04 11:50:50 grahn Exp $";
+"$Id: canonorder.cc,v 1.17 2006-01-02 22:15:25 grahn Exp $";
 }
 
 #include "canonorder.hh"

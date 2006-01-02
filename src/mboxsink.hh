@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: mboxsink.hh,v 1.2 2001-12-29 19:14:09 grahn Exp $
+ * $Id: mboxsink.hh,v 1.3 2006-01-02 22:15:25 grahn Exp $
  *
  * mboxsink.hh
  *
- * Copyright (c) 2001 Jörgen Grahn <jgrahn@algonet.se>
+ * Copyright (c) 2001 Jörgen Grahn
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without

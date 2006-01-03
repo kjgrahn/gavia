@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: gavia_stellata.pl,v 1.17 2006-01-02 23:35:26 grahn Exp $
+# $Id: gavia_stellata.pl,v 1.18 2006-01-03 23:18:08 grahn Exp $
 # $Name:  $
 #
 # gavia_stellata.pl - interactively adding
@@ -202,12 +202,27 @@ sub syntaxcheck {
 }
 
 # pad a string with whitespace to the right, until
-# it's of a certain lenght.
+# it's of a certain width. Use TABs to minimize the
+# characters needed.
 #
 sub pad {
     my $s = shift;
-    my $len = shift;
-    return sprintf "%-${len}s", $s;
+    my $width = shift;
+
+    my $slen = length $s;
+    return $s if $slen >= $width;
+    # last tab stop: 0, 8, 16, ...
+    my $tabstop = $width - $width % 8;
+    my ($ntab, $nsp);
+    if($slen<$tabstop) {
+	$ntab = 1 + ($tabstop-$slen-1)/8;
+	$nsp = $width - $tabstop;
+    }
+    else {
+	$ntab = 0;
+	$nsp = $width - $slen;
+    }
+    return sprintf "%s%s%s", $s, "\t" x $ntab, " " x $nsp;
 }
 
 sub mtime {

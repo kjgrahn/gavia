@@ -2,6 +2,9 @@ Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
 
+gavia 2.38 (2006-01-04)
+        - gavia_add: fixed recent, minor -v bug.
+
 gavia 2.37 (2006-01-03)
 	- gavia_stellata: indent species listings with TAB characters
 	  and spaces, not just spaces. This can save significant
@@ -275,5 +278,5 @@ lanius, all versions:
 	Before written history.
 
 _________________________________________
-$Id: NEWS,v 1.35 2006-01-03 23:21:37 grahn Exp $
+$Id: NEWS,v 1.36 2006-01-04 21:22:48 grahn Exp $
 $Name:  $

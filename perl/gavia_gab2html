@@ -1,12 +1,12 @@
-#!/usr/bin/perl -w # -*- perl -*-
+#!/usr/bin/perl -w
 #
-# $Id: gavia_gab2html,v 1.5 2006-01-02 22:15:25 grahn Exp $
+# $Id: gavia_gab2html,v 1.6 2006-01-06 20:01:08 grahn Exp $
 # $Name:  $
 #
 # gavia_gab2html - transform gab (see gavia(5)) formatted excursions
 # to HTML.
 #
-# Copyright (c) 2002 Jörgen Grahn
+# Copyright (c) 2002, 2006 Jörgen Grahn
 # All rights reserved.
 #
 
@@ -20,6 +20,15 @@ print <<EOF;
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=$charset">
+<style type="text/css">
+TABLE    { border-collapse: collapse;
+           border: 1px solid lightgray }
+THEAD TH { border: none }
+THEAD TD { border: none }
+TH,TD    { border: 1px solid lightgray;
+           vertical-align: top;
+           text-align: left }
+</style>
 <title>Gavia contents</title>
 </head>
 <body>
@@ -45,44 +54,42 @@ while(<>) {
 	    # special treatment fr the date field
 	    my $head = $1;
 	    my ($date, $wday) = mkdate($2);
-	    printf("<dt>%s <dd>%s (%s)\n", $head, quote($date), $wday);
+	    printf("<tr><th>%s<td colspan=\"2\">%s (%s)\n",
+		   $head, quote($date), $wday);
 	    last SWITCH;
 	};
 
 	/^($hdrs)\s*:\s*(.+)/i && do {
 
-	    printf("<dt>%s <dd>%s\n", $1, quote($2));
+	    printf("<tr><th>%s<td colspan=\"2\">%s\n", $1, quote($2));
 	    last SWITCH;
 	};
 
 	/^{/ && do {
-
-	    print "\n<hr><p><dl>\n";
+	    print "\n<p><table><thead>\n";
 	    last SWITCH;
 	};
 
 	/^}{/ && do {
-
-	    # BUG if there are no species -- <dl></dl> is forbidden
-	    print "</dl><p><dl>\n";
+	    print "<tbody>\n";
 	    last SWITCH;
 	};
 
 	/^}/ && do {
 
-	    print "</dl><p>\n";
+	    print "</table>\n";
 	    last SWITCH;
 	};
 
 	/^(.+?)\s*:.*?:\s*(\d+)\s*:\s*(.*)/ && do {
 
-	    printf("<dt><em>%s</em>\n<dd>(%s) %s\n", $1, $2, quote($3));
+	    printf("<tr><th>%s\n<td>%s<td>%s\n", $1, $2, quote($3));
 	    last SWITCH;
 	};
 
 	/^(.+?)\s*:.*?:.*?:\s*(.*)/ && do {
 
-	    printf("<dt><em>%s</em>\n<dd>%s\n", $1, quote($2));
+	    printf("<tr><th>%s\n<td><td>%s\n", $1, quote($2));
 	    last SWITCH;
 	};
 

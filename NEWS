@@ -2,6 +2,9 @@ Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
 
+	- gavia_cat: HTML output now uses tables, for more attractive
+	  (less ugly) layout.
+
 gavia 2.38 (2006-01-04)
         - gavia_add: fixed recent, minor -v bug.
 
@@ -278,5 +281,5 @@ lanius, all versions:
 	Before written history.
 
 _________________________________________
-$Id: NEWS,v 1.36 2006-01-04 21:22:48 grahn Exp $
+$Id: NEWS,v 1.37 2006-01-06 20:01:08 grahn Exp $
 $Name:  $

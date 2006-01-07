@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: gavia_gab2html,v 1.6 2006-01-06 20:01:08 grahn Exp $
+# $Id: gavia_gab2html,v 1.7 2006-01-07 17:12:13 grahn Exp $
 # $Name:  $
 #
 # gavia_gab2html - transform gab (see gavia(5)) formatted excursions
@@ -22,12 +22,18 @@ print <<EOF;
 <meta http-equiv="Content-Type" content="text/html; charset=$charset">
 <style type="text/css">
 TABLE    { border-collapse: collapse;
-           border: 1px solid lightgray }
+	   border: 1px solid lightgray;
+           /*width: 100%*/ }
+TH       { font-weight: normal }
+THEAD    { background-color: lightyellow }
 THEAD TH { border: none }
 THEAD TD { border: none }
 TH,TD    { border: 1px solid lightgray;
            vertical-align: top;
            text-align: left }
+TBODY TH+TD { text-align: right }
+COL.n     { width: 3em }
+COL.sp    { width: 0* }
 </style>
 <title>Gavia contents</title>
 </head>
@@ -54,19 +60,21 @@ while(<>) {
 	    # special treatment fr the date field
 	    my $head = $1;
 	    my ($date, $wday) = mkdate($2);
-	    printf("<tr><th>%s<td colspan=\"2\">%s (%s)\n",
+	    printf("<tr class=\"date\"><th>%s<td colspan=\"2\">%s (%s)\n",
 		   $head, quote($date), $wday);
 	    last SWITCH;
 	};
 
 	/^($hdrs)\s*:\s*(.+)/i && do {
 
-	    printf("<tr><th>%s<td colspan=\"2\">%s\n", $1, quote($2));
+	    printf("<tr class=\"%s\"><th>%s<td colspan=\"2\">%s\n", $1, $1, quote($2));
 	    last SWITCH;
 	};
 
 	/^{/ && do {
-	    print "\n<p><table><thead>\n";
+	    print "\n<p><table>\n";
+	    print "<col class=\"sp\"><col class=\"n\"><col class=\"comment\">\n";
+	    print "<thead>\n";
 	    last SWITCH;
 	};
 

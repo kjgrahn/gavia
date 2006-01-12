@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: gavia_gab2html,v 1.7 2006-01-07 17:12:13 grahn Exp $
+# $Id: gavia_gab2html,v 1.8 2006-01-12 18:56:20 grahn Exp $
 # $Name:  $
 #
 # gavia_gab2html - transform gab (see gavia(5)) formatted excursions
@@ -25,7 +25,7 @@ TABLE    { border-collapse: collapse;
 	   border: 1px solid lightgray;
            /*width: 100%*/ }
 TH       { font-weight: normal }
-THEAD    { background-color: lightyellow }
+THEAD    { background-color: \#ffffe0 }
 THEAD TH { border: none }
 THEAD TD { border: none }
 TH,TD    { border: 1px solid lightgray;

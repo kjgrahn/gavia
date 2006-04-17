@@ -1,7 +1,7 @@
-.\" $Id: gavia.5,v 1.11 2006-01-02 22:05:51 grahn Exp $
+.\" $Id: gavia.5,v 1.12 2006-04-17 20:59:00 grahn Exp $
 .\" 
 .\"
-.TH gavia 5 "JAN 2004" Gavia "User Manuals"
+.TH gavia 5 "MAR 2006" Gavia "User Manuals"
 .
 .
 .
@@ -32,40 +32,53 @@ is not significant except in species names
 (which are by convention in all lowercase)
 and user-supplied data.
 .LP
-Input is line-oriented; fields may never
-be broken into several lines.
+Input is line-oriented with
+.IR continuations .
+That is, fields may only be broken into several lines if line two, three and so on
+are indented with blankspace.
+This line break plus indentation is treated as a single space.
+Thus, these two fragments are equivalent:
+.IP
+.nf
+.ft CW
+place: M\(:ossebergsparken,
+       Djurparken,
+       \(oAngermanland
+date : 20060216
+
+place: M\(:ossebergsparken, Djurparken, \(oAngermanland
+date : 20060216
+.fi
 .LP
 The input consists of a series of excursions,
 each looking like
 .IP
+.nf
 .ft CW
 {
-.br
 excursion fields
-.br
 }{
-.br
 species fields
-.br
 }
+.fi
 .LP
 Excursion fields are
 .IP
+.nf
 .ft CW
 Place: <place description>
-.br
 Date: <yyyymmdd>
-.br
 Time: <description of time out>
-.br
 Observers: <names of any persons involved>
-.br
 Weather: <weather description>
-.br
 Comments: <anything else you want to note>
+.fi
 .LP
 All but place and date are optional and
 can be left unfilled or left out entirely.
+Except for the date, the exact rules for the fields
+(e.g. what format should the time have?)
+are up to local conventions.
 .LP
 Species fields have the format
 .IP
@@ -76,12 +89,12 @@ The species name must be exactly one of those defined by Gavia
 (i.e. the file
 .IR lib/gavia/species ).
 .LP
-A species field can be unfilled, in which case that species
+A species field can be unfilled (neither mark, number nor comment),
+in which case that species
 is not to be regarded as included in the excursion.
+The only purpose of the mark (typically a `#') is to include species
+without giving the number of individuals or a comment.
 .LP
-The number of individuals and/or comment may still be left out,
-but in that case the user must fill in the mark field
-with some non-blank characters, for example an `#'.
 An empty number-of-individuals field is equivalent with one
 set to `0'; both mean
 \(lqthe species was seen, but in unspecified numbers\(rq.
@@ -96,7 +109,7 @@ Integer values are stored in big-endian (network) byteorder.
 Strings are encoded in the
 .BR ISO_8859-1 (7)
 charset.
-They start with a 2-octet length and are not NUL-terminated.
+They start with a two-octet, MSB first length and are not NUL-terminated.
 .LP
 The book itself consists of a preamble, the string
 .IP
@@ -110,7 +123,7 @@ the string
 NIL:
 .LP
 A excursion record consists of the sequence:
-.IP \(bu
+.IP \(bu 2m
 An empty string.
 .IP \(bu
 Place (string).

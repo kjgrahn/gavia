@@ -1,0 +1,54 @@
+#!/usr/bin/perl -w
+#
+# $Id: gavia_unfold,v 1.1 2006-04-17 22:07:11 grahn Exp $
+# $Name:  $
+#
+# gavia_unfold.pl - unfold continuation lines in 'gab' files
+#                   (or any texts, really).
+#
+# Copyright (c) 2006 Jörgen Grahn.
+# All rights reserved.
+use strict;
+
+# The state machine defines these events:
+# SP  - a blankspace line
+# SPX - a non-blank line starting with whitespace
+# X - a line starting with non-whitespace
+# EOF - end of file
+
+my @acc = ();
+
+while(<>)
+{
+    if(/^\s+\S/) {
+	# SPX - accumulate
+	s/^\s+//; s/\s+$//;
+	push @acc, $_;
+	next;
+    }
+    if(/^\s+/) {
+	# SP - flush, then print this line too
+	if(@acc) {
+	    print join(' ', @acc), "\n";
+	    @acc = ();
+	}
+	print;
+	next;
+    }
+
+    # X - flush, then accumulate this line
+    if(@acc) {
+	print join(' ', @acc), "\n";
+	@acc = ();
+    }
+    s/^\s+//; s/\s+$//;
+    push @acc, $_;
+}
+
+# EOF - flush
+if(@acc) {
+    print join(' ', @acc), "\n";
+    @acc = ();
+}
+
+exit 0;

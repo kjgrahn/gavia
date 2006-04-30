@@ -1,8 +1,8 @@
-# $Id: Makefile,v 1.23 2006-01-02 22:15:25 grahn Exp $
+# $Id: Makefile,v 1.24 2006-04-30 19:25:11 grahn Exp $
 #
 # Makefile
 #
-# Copyright (c) 1999--2004 Jörgen Grahn
+# Copyright (c) 1999--2006 Jörgen Grahn
 # All rights reserved.
 # 
 # Redistribution and use in source and binary forms, with or without
@@ -48,6 +48,7 @@ OBJS = excursion.o \
        speciesredro.o \
        streamsource.o gabsource.o \
        streamsink.o gabsink.o mboxsink.o filtersink.o \
+       contstream.o \
        gablexer.o \
        motorola.o bitmap.o \
        version.o specieslist.o exception.o
@@ -120,6 +121,7 @@ love:
 motorola.o: motorola.h
 bitmap.o: bitmap.h
 canonorder.o: canonorder.hh speciesorder.hh species.hh specieslist.hh
+contstream.o: contstream.hh
 dynamicorder.o: species.hh speciesset.hh speciesorder.hh dynamicorder.hh
 exception.o: exception.hh
 excursion.o: excursion.hh species.hh speciesset.hh exception.hh

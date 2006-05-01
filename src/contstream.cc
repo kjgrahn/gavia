@@ -1,5 +1,5 @@
 /**
- * $Id: contstream.cc,v 1.2 2006-05-01 16:37:26 grahn Exp $
+ * $Id: contstream.cc,v 1.3 2006-05-01 18:36:19 grahn Exp $
  *
  * Copyright (c) 2006 Jörgen Grahn
  * All rights reserved.
@@ -28,7 +28,7 @@
  *
  */
 static const char* rcsid() { rcsid(); return
-"$Id: contstream.cc,v 1.2 2006-05-01 16:37:26 grahn Exp $";
+"$Id: contstream.cc,v 1.3 2006-05-01 18:36:19 grahn Exp $";
 }
 
 #include <iostream>
@@ -72,10 +72,14 @@ void Continuation::getline(std::string& s)
 	if(starts_blank(tmp) && !isblank(tmp)) {
 	    append(acc_, tmp);
 	}
-	else {
+	else if(has_acc_) {
 	    s = acc_;
 	    acc_ = tmp;
 	    return;
+	}
+	else {
+	    acc_ = tmp;
+	    has_acc_ = true;
 	}
     }
 

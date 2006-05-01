@@ -1,5 +1,5 @@
 /*
- * $Id: test_cont.cc,v 1.2 2006-05-01 18:36:19 grahn Exp $
+ * $Id: test_cont.cc,v 1.3 2006-05-01 19:16:35 grahn Exp $
  *
  * Copyright (C) 2006 Jörgen Grahn.
  * All rights reserved.
@@ -29,6 +29,7 @@ class Test: public CppUnit::TestFixture {
     CPPUNIT_TEST(testG);
     CPPUNIT_TEST(testH);
     CPPUNIT_TEST(testI);
+    CPPUNIT_TEST(testJ);
     CPPUNIT_TEST_SUITE_END();
 
     std::string line(Continuation& c) {
@@ -103,6 +104,15 @@ public:
 	CPPUNIT_ASSERT_EQUAL(string("foobar foobar "), line(cs));
 	CPPUNIT_ASSERT_EQUAL(string("\t\t"), line(cs));
 	CPPUNIT_ASSERT_EQUAL(string("foobar"), line(cs));
+	CPPUNIT_ASSERT(!cs);
+    }
+    void testJ() {
+	istringstream iss("foo\n"
+			  " foo\n"
+			  " foo\n"
+			  " foo\n");
+	Continuation cs(iss);
+	CPPUNIT_ASSERT_EQUAL(string("foo foo foo foo"), line(cs));
 	CPPUNIT_ASSERT(!cs);
     }
 };

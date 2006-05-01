@@ -1,5 +1,5 @@
 /**
- * $Id: contstream.cc,v 1.3 2006-05-01 18:36:19 grahn Exp $
+ * $Id: contstream.cc,v 1.4 2006-05-01 19:16:35 grahn Exp $
  *
  * Copyright (c) 2006 Jörgen Grahn
  * All rights reserved.
@@ -28,7 +28,7 @@
  *
  */
 static const char* rcsid() { rcsid(); return
-"$Id: contstream.cc,v 1.3 2006-05-01 18:36:19 grahn Exp $";
+"$Id: contstream.cc,v 1.4 2006-05-01 19:16:35 grahn Exp $";
 }
 
 #include <iostream>
@@ -58,7 +58,11 @@ namespace {
      */
     std::string& append(std::string& acc, const std::string& s)
     {
-	acc += s;
+	std::string::size_type i = acc.find_last_not_of(" \t") + 1;
+	acc.replace(i, acc.size() - i, " ");
+
+	i = s.find_first_not_of(" \t");
+	acc += s.substr(i);
 	return acc;
     }
 }

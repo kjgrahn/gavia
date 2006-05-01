@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.24 2006-04-30 19:25:11 grahn Exp $
+# $Id: Makefile,v 1.25 2006-05-01 17:12:00 grahn Exp $
 #
 # Makefile
 #
@@ -94,6 +94,15 @@ gablexer.cc: gablexer.l
 
 gablexer.o: gablexer.cc
 	$(CXX) -c -g $<
+
+# testing
+#
+.PHONY: test
+test: test/test_cont
+	./test/test_cont
+
+test/test_cont: test/test_cont.o libgavia.a
+	$(CXX) $(LDFLAGS) -o $@ $< -lgavia -lcppunit -ldl
 
 # utility targets
 #

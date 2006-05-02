@@ -36,9 +36,7 @@ Gavia is released under a BSD-style license; see the LICENSE file.
 
 2. REQUIREMENTS
 
-To compile and install gavia, you'll need a C++ compiler and also
-flex, the lex replacement. (The lex that comes with Solaris wasn't
-enough last time I checked).
+To compile and install gavia, you'll need a C++ compiler.
 
 You may also need to be on a Unix-like system. Personally, I'm on a
 Linux box and have never tried to compile for (for example) Win32.
@@ -106,7 +104,7 @@ accepted bird species are fixed, and they are identified by their name
 I'll probably never get around to it.
 
 
-Jörgen Grahn <grahn+src@snipabacen.dyndns.org>
+Jörgen Grahn <grahn+src@snipabacken.dyndns.org>
 
-$Id: README,v 1.12 2006-01-02 22:12:06 grahn Exp $
+$Id: README,v 1.13 2006-05-02 21:52:55 grahn Exp $
 $Name:  $

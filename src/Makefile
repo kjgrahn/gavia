@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.25 2006-05-01 17:12:00 grahn Exp $
+# $Id: Makefile,v 1.26 2006-05-02 21:53:58 grahn Exp $
 #
 # Makefile
 #
@@ -141,11 +141,11 @@ gablexer.o: speciesredro.hh speciesorder.hh
 gabsink.o: dynamicorder.hh speciesorder.hh species.hh speciesset.hh
 gabsink.o: exception.hh gabsink.hh booksink.hh excursion.hh
 gabsource.o: speciesorder.hh species.hh canonorder.hh speciesredro.hh
-gabsource.o: exception.hh gabsource.hh booksource.hh excursion.hh
-gabsource.o: speciesset.hh
+gabsource.o: exception.hh regex.hh gabsource.hh booksource.hh excursion.hh
+gabsource.o: speciesset.hh contstream.hh
 gavia_add.o: version.hh streamsource.hh booksource.hh excursion.hh species.hh
-gavia_add.o: speciesset.hh gabsource.hh streamsink.hh booksink.hh
-gavia_add.o: canonorder.hh speciesorder.hh exception.hh
+gavia_add.o: speciesset.hh gabsource.hh contstream.hh streamsink.hh
+gavia_add.o: booksink.hh canonorder.hh speciesorder.hh exception.hh
 gavia_cat.o: version.hh booksink.hh excursion.hh species.hh speciesset.hh
 gavia_cat.o: gabsink.hh filtersink.hh streamsink.hh mboxsink.hh
 gavia_cat.o: speciesorder.hh canonorder.hh sortedorder.hh taxonomicorder.hh

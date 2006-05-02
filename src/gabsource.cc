@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gabsource.cc,v 1.9 2006-01-02 22:15:25 grahn Exp $
+ * $Id: gabsource.cc,v 1.10 2006-05-02 21:53:58 grahn Exp $
  *
  * gabsource.cc
  *
@@ -32,177 +32,194 @@
  *
  *----------------------------------------------------------------------------
  */
-
 static const char* rcsid() { rcsid(); return
-"$Id: gabsource.cc,v 1.9 2006-01-02 22:15:25 grahn Exp $";
+"$Id: gabsource.cc,v 1.10 2006-05-02 21:53:58 grahn Exp $";
 }
 
 #include <cstdio>
 #include <cstdlib>
 #include <cassert>
-#include <errno.h>
 
 #include <string>
+#include <sstream>
 
 #include "speciesorder.hh"
 #include "canonorder.hh"
 #include "speciesredro.hh"
 #include "exception.hh"
+#include "regex.hh"
 
 #include "gabsource.hh"
 
-
-static int eatexcursion(Excursion&, int *, SpeciesRedro *);
-
-
-extern FILE * yyin;
-extern int yylex(Excursion *, int *, const SpeciesRedro *);
+using std::string;
 
 
-/*----------------------------------------------------------------------------
- *
- * constructor
- *
- * Takes a file (given as a path string) and uses it for a source.
- * As a special case, the string "-" denotes stdin.
- *
- * ### Should empty files flag an error or act as an empty source?
- *----------------------------------------------------------------------------
- */
-GabSource::GabSource(const char* path)
+struct Parsing {
+    Parsing()
+	: blankline("^[ \t]*$"),
+	  comment("^[ \t]*#"),
+	  headstart("^{[ \t]*$"),
+	  bodystart("^}{[ \t]*$"),
+	  bodyend("^}[ \t]*$"),
+	  header("^[^: \t]+[ \t]*:"),
+	  //     "xxxx xxxx    : ### :    NNNN : ..."
+	  spline("^[^: \t][^:]*:[^:]*:[0-9 \t]*:")
+    {}
+
+    bool isblank(const string& s) const { return blankline.matches(s); }
+    bool iscomment(const string& s) const  { return comment.matches(s); }
+    bool isheadstart(const string& s) const { return headstart.matches(s); }
+    bool isbodystart(const string& s) const { return bodystart.matches(s); }
+    bool isbodyend(const string& s) const { return bodyend.matches(s); }
+    bool splitheader(const string& s, string * name, string * value) const;
+    bool splitsp(const string& s, string * name,
+		 string * mark, string * no, string * comment) const;
+
+    const Regex blankline;
+    const Regex comment;
+    const Regex headstart;
+    const Regex bodystart;
+    const Regex bodyend;
+    const Regex header;
+    const Regex spline;
+};
+
+
+GabSource::GabSource(std::istream& is)
+    : cs_(is),
+      line_(1),
+      state_(SPACE),
+      parsing_(new Parsing)
 {
     CanonOrder order;
-
-    redro = new SpeciesRedro(&order);
-
-    line = 1;
-
-    if(::strcmp(path, "-")==0)
-    {
-	mfp = stdin;
-    }
-    else
-    {
-	mfp = fopen(path, "r");
-    }
-
-    if(!mfp)
-    {
-	throw GaviaException(errno);
-    }
-
-    yyin = mfp;
-
-    mstate = ::eatexcursion(mexcursion, &line, redro);
+    redro_ = new SpeciesRedro(&order);
+    eatexcursion();
 }
 
 
-/*----------------------------------------------------------------------------
- *
- * constructor
- *
- * Takes an ANSI C stream pointer and uses it for a source.
- *----------------------------------------------------------------------------
- */
-GabSource::GabSource(FILE * fp)
-{
-    assert(fp);
-
-    CanonOrder order;
-
-    redro = new SpeciesRedro(&order);
-
-    line = 1;
-
-    mfp = fp;
-
-    yyin = mfp;
-
-    mstate = ::eatexcursion(mexcursion, &line, redro);
-}
-
-
-/*----------------------------------------------------------------------------
- *
- * destructor
- *
- *
- *----------------------------------------------------------------------------
- */
 GabSource::~GabSource()
 {
-    if(mfp && (mfp!=stdin))
-    {
-	fclose(mfp);		// should check for error here (and do _what_?)
-    }
-
-    delete redro;
+    delete redro_;
+    delete parsing_;
 }
 
 
-/*----------------------------------------------------------------------------
- *
- * excursion()
- *
- *
- *----------------------------------------------------------------------------
+/**
+ * Return the current Excursion. Undefined if eof().
  */
 Excursion GabSource::excursion()
 {
     assert(!eof());
 
-    return mexcursion;
+    return excursion_;
 }
 
 
-/*----------------------------------------------------------------------------
- *
- * next()
- *
- *
- *----------------------------------------------------------------------------
+/**
+ * Advance to the next Excursion. Undefined if eof().
  */
 void GabSource::next()
 {
     assert(!eof());
 
-    mstate = ::eatexcursion(mexcursion, &line, redro);
+    eatexcursion();
 }
 
 
-/*----------------------------------------------------------------------------
- *
- * eof()
- *
- *
- *----------------------------------------------------------------------------
+/**
+ * True iff we're at EOF and the current Excursion is invalid.
+ * Typically used as 'while(!s.eof()) { ... }'.
  */
 bool GabSource::eof() const
 {
-    return mstate==0;
+    return state_==END;
 }
 
 
-/*----------------------------------------------------------------------------
+/**
+ * Try to pull another Excursion from input, and set state.
  *
- * ::eatexcursion()
- *
- *
- * Pulls an Excursion from 'yyin' (set in constructor).  Returns 0 for
- * EOF condition *without* trailing garbage, and >0 for success.  'ex'
- * has an undefined value if not success.
- *----------------------------------------------------------------------------
+ * May also throw GaviaException.
  */
-static int eatexcursion(Excursion& ex, int * line, SpeciesRedro * redro)
+void GabSource::eatexcursion()
 {
-    ex = Excursion();			// hack needed to clear ex
-
-    try {
-	return yylex(&ex, line, redro);
+    const Parsing& pa = *parsing_;
+    string s;
+    if(state_==SPACE) while(cs_) {
+	getline(cs_, s);
+	if(pa.isblank(s) || pa.iscomment(s)) continue;
+	if(pa.isheadstart(s)) break;
+	throw GaviaException("parse error", cs_.line());
     }
-    catch(const GaviaException& ge)
-    {
-	/* re-throw with line info */
-	throw GaviaException(ge.msg, *line);
+    while(cs_) {
+	state_ = HEAD;
+	getline(cs_, s);
+	if(pa.isblank(s) || pa.iscomment(s)) continue;
+	string name;
+	string value;
+	if(pa.splitheader(s, &name, &value)) {
+	    if(name=="place") {
+		if(value=="") {
+		    throw GaviaException("place name required", cs_.line());
+		}
+		excursion_.setplace(value);
+	    }
+	    else if(name=="date") {
+		char * end;
+		unsigned long n = strtoul(value.c_str(), &end, 10);
+		string::size_type size = value.size();
+		if(!(size==6 || size==8) || *end) {
+		    throw GaviaException("bad or absent date", cs_.line());
+		}
+		if(n<780101)
+		{
+		    /* y2k */
+		    n+=1000000;
+		}
+		n += 19000000;
+		excursion_.setdate(n);
+	    }
+	    else if(name=="time") {
+		excursion_.settime(value);
+	    }
+	    else if(name=="observers") {
+		excursion_.setobservers(value);
+	    }
+	    else if(name=="weather") {
+		excursion_.setweather(value);
+	    }
+	    else if(name=="comments") {
+		excursion_.setcomments(value);
+	    }
+	    else {
+		throw GaviaException("unknown field", cs_.line());
+	    }
+	}
+	if(pa.isbodystart(s)) break;
+	throw GaviaException("parse error", cs_.line());
+    }
+    while(cs_) {
+	state_ = BODY;
+	getline(cs_, s);
+	if(pa.isblank(s) || pa.iscomment(s)) continue;
+	string name;
+	string mark;
+	string no;
+	string comment;
+	if(pa.splitsp(s, &name, &mark, &no, &comment)) {
+	    const Species species(name);
+	    if(!redro_->ismember(s)) {
+		std::ostringstream os;
+		os << "invalid species '" << s << "'";
+		throw GaviaException(os.str(), cs_.line());
+	    }
+	    if(excursion_.has(s)) {
+		throw GaviaException("duplicate species", cs_.line());
+	    }
+	    if(mark=="" && no=="" && comment=="") continue;
+	    excursion_.insert(species, atol(no.c_str()), comment);
+	}
+	if(pa.isbodyend(s)) break;
+	throw GaviaException("parse error", cs_.line());
     }
 }

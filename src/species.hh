@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: species.hh,v 1.6 2006-01-02 22:15:25 grahn Exp $
+ * $Id: species.hh,v 1.7 2006-05-02 21:53:58 grahn Exp $
  *
  * Species.hh
  *
@@ -44,6 +44,7 @@
  */
 class Species {
 public:
+    Species(const std::string& name) : s(name) {}
     Species(const char * name) : s(name) {}
     Species(const char * a, const char * b) : s(a,b) {}
 

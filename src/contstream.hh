@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: contstream.hh,v 1.2 2006-05-01 18:36:19 grahn Exp $
+ * $Id: contstream.hh,v 1.3 2006-05-02 21:53:58 grahn Exp $
  *
  * contstream.hh
  *
@@ -66,6 +66,7 @@ public:
     {}
 
     void getline(std::string& s);
+    int line() const;
     operator void*() const;
 
 private:

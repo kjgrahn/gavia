@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_add.cc,v 1.16 2006-01-04 21:22:48 grahn Exp $
+ * $Id: gavia_add.cc,v 1.17 2006-05-02 21:53:58 grahn Exp $
  *
  * gavia_add.cc
  *
@@ -36,7 +36,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gavia_add.cc,v 1.16 2006-01-04 21:22:48 grahn Exp $";
+"$Id: gavia_add.cc,v 1.17 2006-05-02 21:53:58 grahn Exp $";
 }
 
 #include <iostream>
@@ -57,8 +57,6 @@ static const char* rcsid() { rcsid(); return
 #include "streamsink.hh"
 #include "canonorder.hh"
 #include "exception.hh"
-
-using std::vector;
 
 
 /*----------------------------------------------------------------------------
@@ -96,7 +94,7 @@ int main(int argc, char ** argv)
 	return 1;
     }
 
-    vector<Excursion> exlist;
+    std::vector<Excursion> exlist;
 
     try
     {
@@ -117,7 +115,7 @@ int main(int argc, char ** argv)
 	// Read the textual excursions,
 	// add to the original
 	{
-	    GabSource src(stdin);
+	    GabSource src(std::cin);
 
 	    while(!src.eof())
 	    {
@@ -141,7 +139,7 @@ int main(int argc, char ** argv)
     }
     catch(const GaviaException& ge)
     {
-	std::cerr << "gavia_add: error: " << ge.msg << std::endl;
+	std::cerr << "gavia_add: error: " << ge.msg << '\n';
 	return 1;
     }
 

@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gabsource.hh,v 1.7 2006-01-02 22:15:25 grahn Exp $
+ * $Id: gabsource.hh,v 1.8 2006-05-02 21:53:58 grahn Exp $
  *
  * gabsource.hh
  *
@@ -67,31 +67,40 @@
 #define GABSOURCE_HH
 
 #include "booksource.hh"
-#include <cstdio>
+#include "contstream.hh"
+#include <iosfwd>
 
 
 class SpeciesRedro;
+struct Parsing;
 
 
 class GabSource: public BookSource
 {
 public:
-    GabSource(const char *);	// constructor
-    GabSource(FILE *);		// constructor
-
-    virtual ~GabSource();	// destructor
+    explicit GabSource(std::istream& is);
+    virtual ~GabSource();
 
     virtual Excursion excursion();
     virtual void next();
     virtual bool eof() const;
 
-protected:
 private:
-    Excursion mexcursion;
-    int mstate;
-    FILE * mfp;
-    SpeciesRedro * redro;
-    int line;
+    GabSource();
+    GabSource(const GabSource&);
+    GabSource& operator= (const GabSource&);
+
+    void eatexcursion();
+
+    Excursion excursion_;
+    Continuation cs_;
+    SpeciesRedro * redro_;
+    int line_;
+    enum {SPACE,
+	  HEAD,
+	  BODY,
+	  END} state_;
+    Parsing * const parsing_;
 };
 
 #endif

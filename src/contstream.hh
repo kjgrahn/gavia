@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: contstream.hh,v 1.3 2006-05-02 21:53:58 grahn Exp $
+ * $Id: contstream.hh,v 1.4 2006-05-03 21:54:34 grahn Exp $
  *
  * contstream.hh
  *
@@ -62,7 +62,8 @@ class Continuation {
 public:
     explicit Continuation(std::istream& is)
 	: is_(is),
-	  has_acc_(false)
+	  has_acc_(false),
+	  n_(0)
     {}
 
     void getline(std::string& s);
@@ -76,6 +77,7 @@ private:
 
     std::istream& is_;
     bool has_acc_;
+    int n_;
     std::string acc_;
 };
 

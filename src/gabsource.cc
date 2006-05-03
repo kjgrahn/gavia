@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gabsource.cc,v 1.10 2006-05-02 21:53:58 grahn Exp $
+ * $Id: gabsource.cc,v 1.11 2006-05-03 21:54:34 grahn Exp $
  *
  * gabsource.cc
  *
@@ -33,7 +33,7 @@
  *----------------------------------------------------------------------------
  */
 static const char* rcsid() { rcsid(); return
-"$Id: gabsource.cc,v 1.10 2006-05-02 21:53:58 grahn Exp $";
+"$Id: gabsource.cc,v 1.11 2006-05-03 21:54:34 grahn Exp $";
 }
 
 #include <cstdio>
@@ -54,6 +54,9 @@ static const char* rcsid() { rcsid(); return
 using std::string;
 
 
+/**
+ * Parsing bits, gathered here for clarity.
+ */
 struct Parsing {
     Parsing()
 	: blankline("^[ \t]*$"),
@@ -83,6 +86,30 @@ struct Parsing {
     const Regex header;
     const Regex spline;
 };
+
+
+bool Parsing::splitheader(const string& s, string * name, string * value) const
+{
+    if(!header.matches(s)) {
+	return false;
+    }
+
+    const char * const begin = s.c_str();
+    const char * p = begin;
+    while(*p!=':') p++;
+    const char * const colon = p;
+    if(name) {
+	while(isspace(*p)) p--;
+	*name = string(begin, p+1);
+    }
+    if(value) {
+	p = colon+1;
+	while(*p) p++;
+	*value = string(colon+1, p);
+    }
+    return true;
+}
+
 
 
 GabSource::GabSource(std::istream& is)

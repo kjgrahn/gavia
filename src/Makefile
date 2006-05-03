@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.26 2006-05-02 21:53:58 grahn Exp $
+# $Id: Makefile,v 1.27 2006-05-03 21:54:34 grahn Exp $
 #
 # Makefile
 #
@@ -117,10 +117,11 @@ tags:
 	etags *.c *.h *.cc *.hh
 
 depend:
-	makedepend -- $(CFLAGS) -- -Y -I. *.c *.cc
+	makedepend -- $(CFLAGS) -- -Y -I. *.c *.cc test/*.cc
 
 clean:
-	rm -f $(OUTS) *.o *.a gablexer.cc Makefile.bak core TAGS
+	$(RM) $(OUTS) *.o *.a gablexer.cc Makefile.bak core TAGS
+	$(RM) test/test_cont.o
 
 love:
 	@echo "not war?"
@@ -168,3 +169,4 @@ streamsource.o: exception.hh streamsource.hh booksource.hh excursion.hh
 streamsource.o: speciesset.hh
 taxonomicorder.o: taxonomicorder.hh speciesorder.hh species.hh specieslist.hh
 version.o: version.hh
+test/test_cont.o: contstream.hh

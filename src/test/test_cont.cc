@@ -1,5 +1,5 @@
 /*
- * $Id: test_cont.cc,v 1.3 2006-05-01 19:16:35 grahn Exp $
+ * $Id: test_cont.cc,v 1.4 2006-05-03 21:54:34 grahn Exp $
  *
  * Copyright (C) 2006 Jörgen Grahn.
  * All rights reserved.
@@ -44,30 +44,35 @@ public:
 	istringstream iss("");
 	Continuation cs(iss);
 	CPPUNIT_ASSERT_EQUAL(string(""), line(cs));
+	CPPUNIT_ASSERT_EQUAL(1, cs.line());
 	CPPUNIT_ASSERT(!cs);
     }
     void testB() {
 	istringstream iss("\n");
 	Continuation cs(iss);
 	CPPUNIT_ASSERT_EQUAL(string(""), line(cs));
+	CPPUNIT_ASSERT_EQUAL(1, cs.line());
 	CPPUNIT_ASSERT(!cs);
     }
     void testC() {
 	istringstream iss("foo");
 	Continuation cs(iss);
 	CPPUNIT_ASSERT_EQUAL(string("foo"), line(cs));
+	CPPUNIT_ASSERT_EQUAL(1, cs.line());
 	CPPUNIT_ASSERT(!cs);
     }
     void testD() {
 	istringstream iss("foo\n");
 	Continuation cs(iss);
 	CPPUNIT_ASSERT_EQUAL(string("foo"), line(cs));
+	CPPUNIT_ASSERT_EQUAL(1, cs.line());
 	CPPUNIT_ASSERT(!cs);
     }
     void testE() {
 	istringstream iss("foo ");
 	Continuation cs(iss);
 	CPPUNIT_ASSERT_EQUAL(string("foo "), line(cs));
+	CPPUNIT_ASSERT_EQUAL(1, cs.line());
 	CPPUNIT_ASSERT(!cs);
     }
     void testF() {
@@ -75,7 +80,9 @@ public:
 			  "bar\n");
 	Continuation cs(iss);
 	CPPUNIT_ASSERT_EQUAL(string("foo"), line(cs));
+	CPPUNIT_ASSERT_EQUAL(1, cs.line());
 	CPPUNIT_ASSERT_EQUAL(string("bar"), line(cs));
+	CPPUNIT_ASSERT_EQUAL(2, cs.line());
 	CPPUNIT_ASSERT(!cs);
     }
     void testG() {
@@ -83,6 +90,7 @@ public:
 			  "  foo bar\n");
 	Continuation cs(iss);
 	CPPUNIT_ASSERT_EQUAL(string("foo bar foo bar"), line(cs));
+	CPPUNIT_ASSERT_EQUAL(2, cs.line());
 	CPPUNIT_ASSERT(!cs);
     }
     void testH() {
@@ -92,7 +100,9 @@ public:
 			  "foobar\n");
 	Continuation cs(iss);
 	CPPUNIT_ASSERT_EQUAL(string("foobar foobar foobar "), line(cs));
+	CPPUNIT_ASSERT_EQUAL(3, cs.line());
 	CPPUNIT_ASSERT_EQUAL(string("foobar"), line(cs));
+	CPPUNIT_ASSERT_EQUAL(4, cs.line());
 	CPPUNIT_ASSERT(!cs);
     }
     void testI() {
@@ -102,8 +112,11 @@ public:
 			  "foobar\n");
 	Continuation cs(iss);
 	CPPUNIT_ASSERT_EQUAL(string("foobar foobar "), line(cs));
+	CPPUNIT_ASSERT_EQUAL(2, cs.line());
 	CPPUNIT_ASSERT_EQUAL(string("\t\t"), line(cs));
+	CPPUNIT_ASSERT_EQUAL(3, cs.line());
 	CPPUNIT_ASSERT_EQUAL(string("foobar"), line(cs));
+	CPPUNIT_ASSERT_EQUAL(4, cs.line());
 	CPPUNIT_ASSERT(!cs);
     }
     void testJ() {
@@ -113,6 +126,7 @@ public:
 			  " foo\n");
 	Continuation cs(iss);
 	CPPUNIT_ASSERT_EQUAL(string("foo foo foo foo"), line(cs));
+	CPPUNIT_ASSERT_EQUAL(4, cs.line());
 	CPPUNIT_ASSERT(!cs);
     }
 };

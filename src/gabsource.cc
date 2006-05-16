@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gabsource.cc,v 1.12 2006-05-16 20:50:42 grahn Exp $
+ * $Id: gabsource.cc,v 1.13 2006-05-16 21:05:28 grahn Exp $
  *
  * gabsource.cc
  *
@@ -33,7 +33,7 @@
  *----------------------------------------------------------------------------
  */
 static const char* rcsid() { rcsid(); return
-"$Id: gabsource.cc,v 1.12 2006-05-16 20:50:42 grahn Exp $";
+"$Id: gabsource.cc,v 1.13 2006-05-16 21:05:28 grahn Exp $";
 }
 
 #include <cstdio>
@@ -59,14 +59,14 @@ using std::string;
  */
 struct Parsing {
     Parsing()
-	: blankline("^[ \\t]*$"),
-	  comment("^[ \\t]*#"),
-	  headstart("^{[ \\t]*$"),
-	  bodystart("^}{[ \\t]*$"),
-	  bodyend("^}[ \\t]*$"),
-	  header("^[^: \\t]+[ \\t]*:"),
+	: blankline("^[ \t]*$"),
+	  comment("^[ \t]*#"),
+	  headstart("^\\{[ \t]*$"),
+	  bodystart("^\\}\\{[ \t]*$"),
+	  bodyend("^\\}[ \t]*$"),
+	  header("^[^: \t]+[ \t]*:"),
 	  //     "xxxx xxxx    : ### :    NNNN : ..."
-	  spline("^[^: \\t][^:]*:[^:]*:[0-9 \\t]*:")
+	  spline("^[^: \t][^:]*:[^:]*:[0-9 \t]*:")
     {}
 
     bool isblank(const string& s) const { return blankline.matches(s); }

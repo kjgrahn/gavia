@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gabsource.cc,v 1.11 2006-05-03 21:54:34 grahn Exp $
+ * $Id: gabsource.cc,v 1.12 2006-05-16 20:50:42 grahn Exp $
  *
  * gabsource.cc
  *
@@ -33,7 +33,7 @@
  *----------------------------------------------------------------------------
  */
 static const char* rcsid() { rcsid(); return
-"$Id: gabsource.cc,v 1.11 2006-05-03 21:54:34 grahn Exp $";
+"$Id: gabsource.cc,v 1.12 2006-05-16 20:50:42 grahn Exp $";
 }
 
 #include <cstdio>
@@ -59,14 +59,14 @@ using std::string;
  */
 struct Parsing {
     Parsing()
-	: blankline("^[ \t]*$"),
-	  comment("^[ \t]*#"),
-	  headstart("^{[ \t]*$"),
-	  bodystart("^}{[ \t]*$"),
-	  bodyend("^}[ \t]*$"),
-	  header("^[^: \t]+[ \t]*:"),
+	: blankline("^[ \\t]*$"),
+	  comment("^[ \\t]*#"),
+	  headstart("^{[ \\t]*$"),
+	  bodystart("^}{[ \\t]*$"),
+	  bodyend("^}[ \\t]*$"),
+	  header("^[^: \\t]+[ \\t]*:"),
 	  //     "xxxx xxxx    : ### :    NNNN : ..."
-	  spline("^[^: \t][^:]*:[^:]*:[0-9 \t]*:")
+	  spline("^[^: \\t][^:]*:[^:]*:[0-9 \\t]*:")
     {}
 
     bool isblank(const string& s) const { return blankline.matches(s); }
@@ -75,8 +75,11 @@ struct Parsing {
     bool isbodystart(const string& s) const { return bodystart.matches(s); }
     bool isbodyend(const string& s) const { return bodyend.matches(s); }
     bool splitheader(const string& s, string * name, string * value) const;
-    bool splitsp(const string& s, string * name,
-		 string * mark, string * no, string * comment) const;
+    bool splitsp(const string& s,
+		 string * name,
+		 string * mark,
+		 string * no,
+		 string * comment) const;
 
     const Regex blankline;
     const Regex comment;
@@ -86,6 +89,21 @@ struct Parsing {
     const Regex header;
     const Regex spline;
 };
+
+namespace {
+    /**
+     * If 's' is non-null, replace its content with the stuff
+     * in [begin, end), with leading and trailing whitespace trimmed.
+     */
+    void stripped(string * s, const char * begin, const char * end)
+    {
+	if(!s) return;
+
+	while(begin!=end && std::isspace(*begin)) begin++;
+	while(begin!=end && std::isspace(*(end-1))) end--;
+	*s = string(begin, end);
+    }
+}
 
 
 bool Parsing::splitheader(const string& s, string * name, string * value) const
@@ -98,19 +116,44 @@ bool Parsing::splitheader(const string& s, string * name, string * value) const
     const char * p = begin;
     while(*p!=':') p++;
     const char * const colon = p;
-    if(name) {
-	while(isspace(*p)) p--;
-	*name = string(begin, p+1);
-    }
-    if(value) {
-	p = colon+1;
-	while(*p) p++;
-	*value = string(colon+1, p);
-    }
+    stripped(name, begin, colon);
+    stripped(value, colon+1, begin + s.size());
     return true;
 }
 
 
+/**
+ * Try to treat 's' as a species line, and pull at its parts.
+ * Returns true iff it was a species line:
+ * name : mark : no : comment
+ */
+bool Parsing::splitsp(const string& s,
+		      string * name,
+		      string * mark,
+		      string * no,
+		      string * comment) const
+{
+    if(!spline.matches(s)) {
+	return false;
+    }
+
+    const char * const begin = s.c_str();
+    const char * p = begin;
+    while(*p!=':') p++;
+    const char * const colon1 = p;
+    stripped(name, begin, colon1);
+    p++;
+    while(*p!=':') p++;
+    const char * const colon2 = p;
+    stripped(mark, colon1+1, colon2);
+    p++;
+    while(*p!=':') p++;
+    const char * const colon3 = p;
+    stripped(no, colon2+1, colon3);
+    stripped(comment, colon3+1, begin + s.size());
+
+    return true;
+}
 
 GabSource::GabSource(std::istream& is)
     : cs_(is),

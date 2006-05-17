@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: excursion.hh,v 1.10 2006-01-02 22:15:25 grahn Exp $
+ * $Id: excursion.hh,v 1.11 2006-05-17 20:51:31 grahn Exp $
  *
  * excursion.hh
  *
@@ -105,7 +105,7 @@ public:
 
     const SpeciesData& speciesdata(const Species&) const;
 
-    void insert(const Species&, int=0, const std::string& = "");
+    void insert(const Species&, int, const std::string& = "");
     void remove(const Species&);
 
 protected:

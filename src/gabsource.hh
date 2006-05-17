@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gabsource.hh,v 1.8 2006-05-02 21:53:58 grahn Exp $
+ * $Id: gabsource.hh,v 1.9 2006-05-17 20:53:39 grahn Exp $
  *
  * gabsource.hh
  *
@@ -96,10 +96,7 @@ private:
     Continuation cs_;
     SpeciesRedro * redro_;
     int line_;
-    enum {SPACE,
-	  HEAD,
-	  BODY,
-	  END} state_;
+    bool eof_;
     Parsing * const parsing_;
 };
 

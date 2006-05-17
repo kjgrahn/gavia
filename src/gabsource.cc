@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gabsource.cc,v 1.13 2006-05-16 21:05:28 grahn Exp $
+ * $Id: gabsource.cc,v 1.14 2006-05-17 20:53:39 grahn Exp $
  *
  * gabsource.cc
  *
@@ -33,7 +33,7 @@
  *----------------------------------------------------------------------------
  */
 static const char* rcsid() { rcsid(); return
-"$Id: gabsource.cc,v 1.13 2006-05-16 21:05:28 grahn Exp $";
+"$Id: gabsource.cc,v 1.14 2006-05-17 20:53:39 grahn Exp $";
 }
 
 #include <cstdio>
@@ -158,7 +158,7 @@ bool Parsing::splitsp(const string& s,
 GabSource::GabSource(std::istream& is)
     : cs_(is),
       line_(1),
-      state_(SPACE),
+      eof_(false),
       parsing_(new Parsing)
 {
     CanonOrder order;
@@ -202,7 +202,7 @@ void GabSource::next()
  */
 bool GabSource::eof() const
 {
-    return state_==END;
+    return eof_;
 }
 
 
@@ -213,16 +213,20 @@ bool GabSource::eof() const
  */
 void GabSource::eatexcursion()
 {
+    if(eof_) return;
+
+    excursion_ = Excursion();
+
     const Parsing& pa = *parsing_;
     string s;
-    if(state_==SPACE) while(cs_) {
+    while(cs_) {
 	getline(cs_, s);
 	if(pa.isblank(s) || pa.iscomment(s)) continue;
 	if(pa.isheadstart(s)) break;
 	throw GaviaException("parse error", cs_.line());
     }
+    // head
     while(cs_) {
-	state_ = HEAD;
 	getline(cs_, s);
 	if(pa.isblank(s) || pa.iscomment(s)) continue;
 	string name;
@@ -241,8 +245,7 @@ void GabSource::eatexcursion()
 		if(!(size==6 || size==8) || *end) {
 		    throw GaviaException("bad or absent date", cs_.line());
 		}
-		if(n<780101)
-		{
+		if(n<780101) {
 		    /* y2k */
 		    n+=1000000;
 		}
@@ -264,12 +267,13 @@ void GabSource::eatexcursion()
 	    else {
 		throw GaviaException("unknown field", cs_.line());
 	    }
+	    continue;
 	}
 	if(pa.isbodystart(s)) break;
 	throw GaviaException("parse error", cs_.line());
     }
+    // body
     while(cs_) {
-	state_ = BODY;
 	getline(cs_, s);
 	if(pa.isblank(s) || pa.iscomment(s)) continue;
 	string name;
@@ -278,18 +282,23 @@ void GabSource::eatexcursion()
 	string comment;
 	if(pa.splitsp(s, &name, &mark, &no, &comment)) {
 	    const Species species(name);
-	    if(!redro_->ismember(s)) {
+	    if(!redro_->ismember(species)) {
 		std::ostringstream os;
-		os << "invalid species '" << s << "'";
+		os << "invalid species '" << species << "'";
 		throw GaviaException(os.str(), cs_.line());
 	    }
-	    if(excursion_.has(s)) {
-		throw GaviaException("duplicate species", cs_.line());
+	    if(excursion_.has(species)) {
+		std::ostringstream os;
+		os << "duplicate species '" << species << "'";
+		throw GaviaException(os.str(), cs_.line());
 	    }
 	    if(mark=="" && no=="" && comment=="") continue;
 	    excursion_.insert(species, atol(no.c_str()), comment);
+	    continue;
 	}
 	if(pa.isbodyend(s)) break;
 	throw GaviaException("parse error", cs_.line());
     }
+
+    eof_ = !cs_;
 }

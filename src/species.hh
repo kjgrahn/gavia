@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: species.hh,v 1.7 2006-05-02 21:53:58 grahn Exp $
+ * $Id: species.hh,v 1.8 2006-05-17 20:51:16 grahn Exp $
  *
  * Species.hh
  *
@@ -44,13 +44,15 @@
  */
 class Species {
 public:
-    Species(const std::string& name) : s(name) {}
-    Species(const char * name) : s(name) {}
-    Species(const char * a, const char * b) : s(a,b) {}
+    explicit Species(const std::string& name) : s(name) {}
+    explicit Species(const char * name) : s(name) {}
+    Species(const char * a, const char * b) : s(a, b) {}
 
     int operator< (const Species& other) const { return s < other.s; }
     const char * c_str() const { return s.c_str(); }
     size_t size() const { return s.size(); }
+
+    std::ostream& put(std::ostream& os) const { return os << s; }
 private:
     Species();
     std::string s;
@@ -58,7 +60,7 @@ private:
 
 inline std::ostream& operator<< (std::ostream& os, const Species& s)
 {
-    return os << s.c_str();
+    return s.put(os);
 }
 
 #endif

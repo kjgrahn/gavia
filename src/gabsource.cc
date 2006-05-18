@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gabsource.cc,v 1.14 2006-05-17 20:53:39 grahn Exp $
+ * $Id: gabsource.cc,v 1.15 2006-05-18 21:01:13 grahn Exp $
  *
  * gabsource.cc
  *
@@ -33,7 +33,7 @@
  *----------------------------------------------------------------------------
  */
 static const char* rcsid() { rcsid(); return
-"$Id: gabsource.cc,v 1.14 2006-05-17 20:53:39 grahn Exp $";
+"$Id: gabsource.cc,v 1.15 2006-05-18 21:01:13 grahn Exp $";
 }
 
 #include <cstdio>
@@ -245,11 +245,13 @@ void GabSource::eatexcursion()
 		if(!(size==6 || size==8) || *end) {
 		    throw GaviaException("bad or absent date", cs_.line());
 		}
-		if(n<780101) {
-		    /* y2k */
-		    n+=1000000;
+		if(size==6) {
+		    if(n<780101) {
+			/* y2k */
+			n+=1000000;
+		    }
+		    n += 19000000;
 		}
-		n += 19000000;
 		excursion_.setdate(n);
 	    }
 	    else if(name=="time") {

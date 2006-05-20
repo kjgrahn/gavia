@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gabsource.cc,v 1.15 2006-05-18 21:01:13 grahn Exp $
+ * $Id: gabsource.cc,v 1.16 2006-05-20 08:32:33 grahn Exp $
  *
  * gabsource.cc
  *
@@ -33,7 +33,7 @@
  *----------------------------------------------------------------------------
  */
 static const char* rcsid() { rcsid(); return
-"$Id: gabsource.cc,v 1.15 2006-05-18 21:01:13 grahn Exp $";
+"$Id: gabsource.cc,v 1.16 2006-05-20 08:32:33 grahn Exp $";
 }
 
 #include <cstdio>
@@ -91,16 +91,27 @@ struct Parsing {
 };
 
 namespace {
+
+    enum strip_t {
+	STRIP_BOTH,
+	STRIP_LEFT
+    };
+
     /**
-     * If 's' is non-null, replace its content with the stuff
-     * in [begin, end), with leading and trailing whitespace trimmed.
+     * If 's' is non-null, replace its content with the stuff in
+     * [begin, end), with leading and (by default) trailing whitespace
+     * stripped.
      */
-    void stripped(string * s, const char * begin, const char * end)
+    void stripped(string * s,
+		  const char * begin, const char * end,
+		  strip_t kind = STRIP_BOTH)
     {
 	if(!s) return;
 
 	while(begin!=end && std::isspace(*begin)) begin++;
-	while(begin!=end && std::isspace(*(end-1))) end--;
+	if(kind==STRIP_BOTH) {
+	    while(begin!=end && std::isspace(*(end-1))) end--;
+	}
 	*s = string(begin, end);
     }
 }
@@ -117,7 +128,8 @@ bool Parsing::splitheader(const string& s, string * name, string * value) const
     while(*p!=':') p++;
     const char * const colon = p;
     stripped(name, begin, colon);
-    stripped(value, colon+1, begin + s.size());
+    stripped(value, colon+1, begin + s.size(),
+	     STRIP_LEFT);
     return true;
 }
 
@@ -150,7 +162,8 @@ bool Parsing::splitsp(const string& s,
     while(*p!=':') p++;
     const char * const colon3 = p;
     stripped(no, colon2+1, colon3);
-    stripped(comment, colon3+1, begin + s.size());
+    stripped(comment, colon3+1, begin + s.size(),
+	     STRIP_LEFT);
 
     return true;
 }

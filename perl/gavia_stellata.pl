@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: gavia_stellata.pl,v 1.19 2006-05-20 09:29:29 grahn Exp $
+# $Id: gavia_stellata.pl,v 1.20 2006-05-20 09:34:37 grahn Exp $
 # $Name:  $
 #
 # gavia_stellata.pl - interactively adding
@@ -190,8 +190,8 @@ sub syntaxcheck {
 	}
 	if(/([a-zедц ]+?)\s*:.*?:\s*(\d*)\s*:/i) {
 	    print STDERR "warning: species '$2' is unknown/misspelled\n"
-		unless defined($species{$2});
-	    my ($s, $n) = (length $1, length $3);
+		unless defined($species{$1});
+	    my ($s, $n) = (length $1, length $2);
 	    $smax = ($s > $smax)? $s: $smax;
 	    $nmax = ($n > $nmax)? $n: $nmax;
 	    next;

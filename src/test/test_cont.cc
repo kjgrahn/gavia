@@ -1,5 +1,5 @@
 /*
- * $Id: test_cont.cc,v 1.4 2006-05-03 21:54:34 grahn Exp $
+ * $Id: test_cont.cc,v 1.5 2006-05-20 08:07:44 grahn Exp $
  *
  * Copyright (C) 2006 Jörgen Grahn.
  * All rights reserved.
@@ -44,7 +44,6 @@ public:
 	istringstream iss("");
 	Continuation cs(iss);
 	CPPUNIT_ASSERT_EQUAL(string(""), line(cs));
-	CPPUNIT_ASSERT_EQUAL(1, cs.line());
 	CPPUNIT_ASSERT(!cs);
     }
     void testB() {

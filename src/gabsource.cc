@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gabsource.cc,v 1.16 2006-05-20 08:32:33 grahn Exp $
+ * $Id: gabsource.cc,v 1.17 2006-05-20 08:35:46 grahn Exp $
  *
  * gabsource.cc
  *
- * Copyright (c) 1999 Jörgen Grahn
+ * Copyright (c) 1999, 2000, 2001, 2002, 2004, 2006 Jörgen Grahn
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -33,7 +33,7 @@
  *----------------------------------------------------------------------------
  */
 static const char* rcsid() { rcsid(); return
-"$Id: gabsource.cc,v 1.16 2006-05-20 08:32:33 grahn Exp $";
+"$Id: gabsource.cc,v 1.17 2006-05-20 08:35:46 grahn Exp $";
 }
 
 #include <cstdio>

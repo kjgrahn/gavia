@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: gavia_stellata.pl,v 1.18 2006-01-03 23:18:08 grahn Exp $
+# $Id: gavia_stellata.pl,v 1.19 2006-05-20 09:29:29 grahn Exp $
 # $Name:  $
 #
 # gavia_stellata.pl - interactively adding
@@ -104,9 +104,9 @@ open TMP1, ">$tmpname1"
     or die "cannot open `$tmpname1': $!\n";
 
 while(<TMP0>) {
-    # trim away species and comments, add line spacing
-    next if /^[a-zедц \t]+:\s*:\s*:\s*$/;
-    next if /^\s*\#/;
+    # trim away unused species and comments, add line spacing
+    next if /^[a-zедц][a-zедц \t]+:\s*:\s*:\s*$/;
+    next if /^\#/;
     next if /^\s*$/;
 
     print TMP1;
@@ -134,7 +134,7 @@ open BOOK, ">>$obsbok"
     or die "cannot append to $obsbok: $!\n";
 
 while(<TMP1>) {
-    if(/^(\s*[a-zедц ]+?)\s*:(.*?):\s*(\d*)\s*:(.*)/i) {
+    if(/^([a-zедц][a-zедц ]+?)\s*:(.*?):\s*(\d*)\s*:(.*)/i) {
 
 	printf BOOK "%s:%s: %${nmax}s:%s\n", pad($1, $smax), $2, $3, $4;
 	next;
@@ -176,18 +176,19 @@ sub syntaxcheck {
     while(<FILE>) {
 	chomp;
 
-	next if /^\s*(time|observers|weather|comments)\s*:/i;
-	next if /^\s*$/;
-	next if /^\s*\#/;
-	next if /^\s*[{}]\s*$/;
-	next if /^\s*\}\s*\{\s*$/;
-	if(/^\s*(place|date)\s*:\s*(.*)/i) {
+	next if /^\s/;
+	next if /^(time|observers|weather|comments)\s*:/i;
+	next if /^$/;
+	next if /^\#/;
+	next if /^[{}]\s*$/;
+	next if /^\}\s*\{\s*$/;
+	if(/^(place|date)\s*:\s*(.*)/i) {
 	    if($2 eq "") {
 		print STDERR "warning: field '$1' is empty\n";
 	    }
 	    next;
 	}
-	if(/(\s*([a-zедц ]+?))\s*:.*?:\s*(\d*)\s*:/i) {
+	if(/([a-zедц ]+?)\s*:.*?:\s*(\d*)\s*:/i) {
 	    print STDERR "warning: species '$2' is unknown/misspelled\n"
 		unless defined($species{$2});
 	    my ($s, $n) = (length $1, length $3);

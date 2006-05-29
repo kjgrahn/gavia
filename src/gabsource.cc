@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gabsource.cc,v 1.17 2006-05-20 08:35:46 grahn Exp $
+ * $Id: gabsource.cc,v 1.18 2006-05-29 20:47:24 grahn Exp $
  *
  * gabsource.cc
  *
@@ -33,12 +33,13 @@
  *----------------------------------------------------------------------------
  */
 static const char* rcsid() { rcsid(); return
-"$Id: gabsource.cc,v 1.17 2006-05-20 08:35:46 grahn Exp $";
+"$Id: gabsource.cc,v 1.18 2006-05-29 20:47:24 grahn Exp $";
 }
 
 #include <cstdio>
 #include <cstdlib>
 #include <cassert>
+#include <cctype>
 
 #include <string>
 #include <sstream>
@@ -106,11 +107,13 @@ namespace {
 		  const char * begin, const char * end,
 		  strip_t kind = STRIP_BOTH)
     {
+	using std::isspace;
+
 	if(!s) return;
 
-	while(begin!=end && std::isspace(*begin)) begin++;
+	while(begin!=end && isspace(*begin)) begin++;
 	if(kind==STRIP_BOTH) {
-	    while(begin!=end && std::isspace(*(end-1))) end--;
+	    while(begin!=end && isspace(*(end-1))) end--;
 	}
 	*s = string(begin, end);
     }

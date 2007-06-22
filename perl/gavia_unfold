@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: gavia_unfold,v 1.1 2006-04-17 22:07:11 grahn Exp $
+# $Id: gavia_unfold,v 1.2 2007-06-22 20:35:18 grahn Exp $
 # $Name:  $
 #
 # gavia_unfold.pl - unfold continuation lines in 'gab' files
@@ -14,41 +14,48 @@ use strict;
 # SP  - a blankspace line
 # SPX - a non-blank line starting with whitespace
 # X - a line starting with non-whitespace
-# EOF - end of file
+# combined with
+# EOF - end of file after this
 
 my @acc = ();
 
 while(<>)
 {
-    if(/^\s+\S/) {
-	# SPX - accumulate
+    my @a = ();
+    my $b = '';
+
+    if(/^\s+\S/) { # SPX
 	s/^\s+//; s/\s+$//;
 	push @acc, $_;
-	next;
+	next unless eof();
+	@a = @acc; @acc = ();
     }
-    if(/^\s+/) {
-	# SP - flush, then print this line too
-	if(@acc) {
-	    print join(' ', @acc), "\n";
-	    @acc = ();
+    elsif(/^\s+/) { # SP
+	@a = @acc; @acc = ();
+	$b = $_;
+    }
+    else { # X
+	@a = @acc;
+	if(eof()) {
+	    $b = $_;
 	}
+	else {
+	    s/\s+$//;
+	    @acc = ($_);
+	}
+    }
+
+    my @llines = ();
+    push @llines, join(' ', @a) . "\n" if @a;
+    push @llines, $b if $b;
+
+    # Finally, what takes place in this loop is similar to what would
+    # have taken place in the while(<>) ... loop, if the unfolding had
+    # already taken place in the program's input. Except here folding
+    # happens across the file boundaries, but I can live with that.
+    foreach (@llines) {
 	print;
-	next;
     }
-
-    # X - flush, then accumulate this line
-    if(@acc) {
-	print join(' ', @acc), "\n";
-	@acc = ();
-    }
-    s/^\s+//; s/\s+$//;
-    push @acc, $_;
-}
-
-# EOF - flush
-if(@acc) {
-    print join(' ', @acc), "\n";
-    @acc = ();
 }
 
 exit 0;

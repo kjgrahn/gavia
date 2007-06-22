@@ -1,12 +1,12 @@
 #!/usr/bin/perl -w
 #
-# $Id: gavia_unfold,v 1.2 2007-06-22 20:35:18 grahn Exp $
+# $Id: gavia_unfold,v 1.3 2007-06-22 20:39:07 grahn Exp $
 # $Name:  $
 #
 # gavia_unfold.pl - unfold continuation lines in 'gab' files
 #                   (or any texts, really).
 #
-# Copyright (c) 2006 Jörgen Grahn.
+# Copyright (c) 2006, 2007 Jörgen Grahn.
 # All rights reserved.
 use strict;
 
@@ -21,23 +21,23 @@ my @acc = ();
 
 while(<>)
 {
-    my @a = ();
-    my $b = '';
+    my @aline = ();
+    my $bline = '';
 
     if(/^\s+\S/) { # SPX
 	s/^\s+//; s/\s+$//;
 	push @acc, $_;
 	next unless eof();
-	@a = @acc; @acc = ();
+	@aline = @acc; @acc = ();
     }
     elsif(/^\s+/) { # SP
-	@a = @acc; @acc = ();
-	$b = $_;
+	@aline = @acc; @acc = ();
+	$bline = $_;
     }
     else { # X
-	@a = @acc;
+	@aline = @acc;
 	if(eof()) {
-	    $b = $_;
+	    $bline = $_;
 	}
 	else {
 	    s/\s+$//;
@@ -46,8 +46,8 @@ while(<>)
     }
 
     my @llines = ();
-    push @llines, join(' ', @a) . "\n" if @a;
-    push @llines, $b if $b;
+    push @llines, join(' ', @aline) . "\n" if @aline;
+    push @llines, $bline if $bline;
 
     # Finally, what takes place in this loop is similar to what would
     # have taken place in the while(<>) ... loop, if the unfolding had

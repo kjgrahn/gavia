@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: gavia_unfold,v 1.3 2007-06-22 20:39:07 grahn Exp $
+# $Id: gavia_unfold,v 1.4 2007-06-22 20:49:30 grahn Exp $
 # $Name:  $
 #
 # gavia_unfold.pl - unfold continuation lines in 'gab' files
@@ -25,7 +25,6 @@ while(<>)
     my $bline = '';
 
     if(/^\s+\S/) { # SPX
-	s/^\s+//; s/\s+$//;
 	push @acc, $_;
 	next unless eof();
 	@aline = @acc; @acc = ();
@@ -40,13 +39,16 @@ while(<>)
 	    $bline = $_;
 	}
 	else {
-	    s/\s+$//;
 	    @acc = ($_);
 	}
     }
 
     my @llines = ();
-    push @llines, join(' ', @aline) . "\n" if @aline;
+    if(@aline) {
+	my $aline = join('', @aline);
+	$aline =~ s/\s*?\n\s+/ /g;
+	push @llines, $aline;
+    }
     push @llines, $bline if $bline;
 
     # Finally, what takes place in this loop is similar to what would

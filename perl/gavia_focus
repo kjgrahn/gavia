@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w # -*- perl -*-
 #
-# $Id: gavia_focus,v 1.6 2007-06-24 18:24:30 grahn Exp $
+# $Id: gavia_focus,v 1.7 2007-06-24 21:20:34 grahn Exp $
 # $Name:  $
 #
 # gavia_focus - filter out certain species
@@ -33,7 +33,7 @@ my $invert = defined($opt_v);
 
 if(defined($opt_f)) {
     open BLACKLIST, $opt_f
-	or die "cannot open `$opt_f' for reading\n";
+	or die "cannot open `$opt_f' for reading: $!\n";
 }
 else {
     open BLACKLIST, glob("~/.gavia_focus")

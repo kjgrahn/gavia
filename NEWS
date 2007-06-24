@@ -2,6 +2,19 @@ Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
 
+* gavia_add: accept GAB continuations
+  gavia_focus: accept and preserve
+  gavia_cat: in -g and -m mode, format nicely
+  gavia_gab2html: accept
+  gavia_gab2roff: accept
+  gavia_gab2text: accept and preserve?
+  gavia_score: accept
+* gavia_stat: accept
+* gavia_stellata: accept and preserve
+
+  gavia_cat: use MIME in -m mode
+
+
 gavia 2.39 (2006-02-14)
 	- gavia_cat: HTML output now uses tables, for more attractive
 	  (less ugly) layout.
@@ -282,5 +295,5 @@ lanius, all versions:
 	Before written history.
 
 _________________________________________
-$Id: NEWS,v 1.38 2006-02-14 21:46:18 grahn Exp $
+$Id: NEWS,v 1.39 2007-06-24 20:26:37 grahn Exp $
 $Name:  $

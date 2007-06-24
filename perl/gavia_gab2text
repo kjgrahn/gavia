@@ -1,12 +1,12 @@
 #!/usr/bin/perl -w # -*- perl -*-
 #
-# $Id: gavia_gab2text,v 1.5 2007-06-24 23:24:53 grahn Exp $
+# $Id: gavia_gab2text,v 1.6 2007-06-24 23:45:12 grahn Exp $
 # $Name:  $
 #
 # gavia_gab2text - transform gab (see gavia(5)) formatted excursions
 # to plain text
 #
-# Copyright (c) 2002 Jörgen Grahn
+# Copyright (c) 2002, 2007 Jörgen Grahn
 # All rights reserved.
 #
 

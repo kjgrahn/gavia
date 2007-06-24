@@ -1,12 +1,12 @@
 #!/usr/bin/perl -w
 #
-# $Id: gavia_stellata.pl,v 1.20 2006-05-20 09:34:37 grahn Exp $
+# $Id: gavia_stellata.pl,v 1.21 2007-06-24 19:42:45 grahn Exp $
 # $Name:  $
 #
 # gavia_stellata.pl - interactively adding
 # excursions to the default .gab file
 #
-# Copyright (c) 1999--2006 Jörgen Grahn
+# Copyright (c) 1999--2007 Jörgen Grahn
 # All rights reserved.
 # 
 # Redistribution and use in source and binary forms, with or without
@@ -27,9 +27,10 @@ use strict;
 use vars qw($opt_f);
 use Getopt::Std;
 
-sub syntaxcheck;
-sub pad;
-sub mtime;
+sub syntaxcheck ($);
+sub pad ($$);
+sub reindent ($$);
+sub mtime ($);
 
 
 getopts('f:') and
@@ -133,12 +134,24 @@ open TMP1, "<$tmpname1"
 open BOOK, ">>$obsbok"
     or die "cannot append to $obsbok: $!\n";
 
+my $indent = 0;
 while(<TMP1>) {
-    if(/^([a-zåäö][a-zåäö ]+?)\s*:(.*?):\s*(\d*)\s*:(.*)/i) {
-
-	printf BOOK "%s:%s: %${nmax}s:%s\n", pad($1, $smax), $2, $3, $4;
+    #     species                :  #  :    nnn    :   comment
+    if(/^([a-zåäö][a-zåäö ]+?)\s*:(.*?):\s*(\d*)\s*:\s*(.*)/i) {
+    
+	my $first_part = sprintf "%s:%s: %${nmax}s: ", pad($1, $smax), $2, $3;
+        my $comment = $4;
+	$indent = $smax + 1 + length($2) + 2 + $nmax + 2;
+	printf BOOK "%s%s\n", $first_part, $comment;
 	next;
     }
+
+    if(/^\s/) {
+	print BOOK reindent($_, $indent);
+	next;
+    }
+
+    $indent = length $1 if /^(.+?:\s*)/;
 
     print BOOK;
 }
@@ -158,7 +171,7 @@ exit 0;
 # Also, return max widths for the species and number columns,
 # to make it possible to align them later for readability.
 #
-sub syntaxcheck {
+sub syntaxcheck ($) {
     my $file = shift;
     my %species;
     my ($smax, $nmax) = (0,0);
@@ -206,7 +219,7 @@ sub syntaxcheck {
 # it's of a certain width. Use TABs to minimize the
 # characters needed.
 #
-sub pad {
+sub pad ($$) {
     my $s = shift;
     my $width = shift;
 
@@ -226,7 +239,21 @@ sub pad {
     return sprintf "%s%s%s", $s, "\t" x $ntab, " " x $nsp;
 }
 
-sub mtime {
+# reindent(s, width)
+# If 's' is indented, reindent it to 'width' using
+# TABs and spaces, otherwise do nothing. Returns
+# the resulting string.
+#
+sub reindent ($$) {
+    my ($s, $indent) = @_;
+
+    $s =~ s/^([ \t]*)//;
+    return $s if $1 eq '';
+
+    return sprintf '%s%s', ' ' x $indent, $s;
+}
+
+sub mtime ($) {
     my $path = shift;
     my @stats = stat($path);
     return $stats[9];

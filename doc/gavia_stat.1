@@ -1,4 +1,4 @@
-.\" $Id: gavia_stat.1,v 1.7 2006-01-02 22:05:51 grahn Exp $
+.\" $Id: gavia_stat.1,v 1.8 2007-06-24 20:25:20 grahn Exp $
 .\" 
 .\"
 .TH gavia_stat 1 "DECEMBER 2000" Gavia "User Manuals"
@@ -48,7 +48,7 @@ sorted by name. (This won't work if there is a colon ':' in the
 excursion name.)
 .IP
 .ft CW
-gavia_stat obsbok | egrep ^enkelbeckasin | wc -l
+gavia_stat obsbok | egrep -c ^enkelbeckasin
 .PP
 Count the number of observations (
 .I not

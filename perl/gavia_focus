@@ -1,9 +1,9 @@
 #!/usr/bin/perl -w # -*- perl -*-
 #
-# $Id: gavia_focus,v 1.5 2006-01-02 22:15:25 grahn Exp $
+# $Id: gavia_focus,v 1.6 2007-06-24 18:24:30 grahn Exp $
 # $Name:  $
 #
-# gaviafocus - filter out certain species
+# gavia_focus - filter out certain species
 # from a 'gab' file
 #
 # Copyright (c) 2001, 2002 Jörgen Grahn
@@ -69,8 +69,6 @@ my $date;
 
 while(<>)
 {
-    my ($start, $end);
-
     if(/^date\s*:\s*(\d+)/i) {
 	$date = $1 % 10000;
     }
@@ -87,7 +85,7 @@ while(<>)
     }
 
     # print it anyways, iff out of blacklist range
-    ($start, $end) = $blacklist{$name} =~ /(\d+)\-(\d+)/;
+    my ($start, $end) = $blacklist{$name} =~ /(\d+)\-(\d+)/;
 
     if($start < $end) {
 	print if $date<$start || $date>$end xor $invert;

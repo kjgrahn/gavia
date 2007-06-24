@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w # -*- perl -*-
 #
-# $Id: gavia_gab2roff,v 1.5 2006-01-02 22:15:25 grahn Exp $
+# $Id: gavia_gab2roff,v 1.6 2007-06-24 23:24:53 grahn Exp $
 # $Name:  $
 #
 # gavia_gab2text - transform gab (see gavia(5)) formatted excursions
@@ -44,7 +44,7 @@ while(<>) {
 	    # fallthrough
 	};
 
-	/^($hdrs)\s*:\s*(.+)/i && do {
+	/^($hdrs)\s*:\s*(.*)/i && do {
 
 	    printf("%s\tT{\n%s\nT}\n", $1, quote($2));
 	    last SWITCH;
@@ -114,6 +114,7 @@ sub quote {
     return $s if $have_latin1;
 
     $s =~ s|é|\\('e|g;
+    # '
     $s =~ s|ä|\\(:a|g;
     $s =~ s|Ä|\\(:A|g;
     $s =~ s|ö|\\(:o|g;

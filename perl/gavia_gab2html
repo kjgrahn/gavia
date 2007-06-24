@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: gavia_gab2html,v 1.8 2006-01-12 18:56:20 grahn Exp $
+# $Id: gavia_gab2html,v 1.9 2007-06-24 23:24:53 grahn Exp $
 # $Name:  $
 #
 # gavia_gab2html - transform gab (see gavia(5)) formatted excursions
@@ -65,7 +65,7 @@ while(<>) {
 	    last SWITCH;
 	};
 
-	/^($hdrs)\s*:\s*(.+)/i && do {
+	/^($hdrs)\s*:\s*(.*)/i && do {
 
 	    printf("<tr class=\"%s\"><th>%s<td colspan=\"2\">%s\n", $1, $1, quote($2));
 	    last SWITCH;

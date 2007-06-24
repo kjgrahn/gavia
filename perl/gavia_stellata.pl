@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: gavia_stellata.pl,v 1.21 2007-06-24 19:42:45 grahn Exp $
+# $Id: gavia_stellata.pl,v 1.22 2007-06-24 19:50:32 grahn Exp $
 # $Name:  $
 #
 # gavia_stellata.pl - interactively adding
@@ -250,7 +250,9 @@ sub reindent ($$) {
     $s =~ s/^([ \t]*)//;
     return $s if $1 eq '';
 
-    return sprintf '%s%s', ' ' x $indent, $s;
+    my ($nsp, $ntab) = ($indent % 8, $indent / 8);
+
+    return sprintf '%s%s%s', "\t" x $ntab, " " x $nsp, $s;
 }
 
 sub mtime ($) {

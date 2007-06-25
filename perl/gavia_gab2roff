@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w # -*- perl -*-
 #
-# $Id: gavia_gab2roff,v 1.9 2007-06-25 08:01:32 grahn Exp $
+# $Id: gavia_gab2roff,v 1.10 2007-06-25 08:29:09 grahn Exp $
 # $Name:  $
 #
 # gavia_gab2text - transform gab (see gavia(5)) formatted excursions
@@ -23,57 +23,90 @@ print <<EOF;
 .\"
 EOF
 
+my @acc = ();
+
 while(<>) {
 
-    chomp;
-    s/^\s+//;
+    my @aline = ();
+    my $bline = '';
 
-    next if /^$/;
-    next if /^\#/;
-
-    if(/^(date)\s*:\s*(.*)/i) {
-	# special treatment for the date field
-	my $head = $1;
-	my ($date, $wday) = mkdate($2);
-	$_ = "$head: $date ($wday)";
-	# fallthrough
+    if(/^\s+\S/) { # SPX
+	push @acc, $_;
+	next unless eof();
+	@aline = @acc; @acc = ();
     }
-
-    if(/^($hdrs)\s*:\s*(.*)/io) {
-	printf("%s\tT{\n%s\nT}\n", $1, quote($2));
-	next;
+    elsif(/^\s+/) { # SP
+	@aline = @acc; @acc = ();
+	$bline = $_;
     }
-
-    if(/^{/) {
-	print ".TS\n";
-	print "| ri s | lw$commentw |.\n";
-	print "_\n";
-	next;
+    else { # X
+	@aline = @acc;
+	if(eof()) {
+	    $bline = $_;
+	}
+	else {
+	    @acc = ($_);
+	}
     }
-
-    if(/^}{/) {
-	print "_\n";
-	print ".T&\n";
-	print "| ri | r | l |.\n";
-	next;
+    my @llines = ();
+    if(@aline) {
+	my $aline = join('', @aline);
+	$aline =~ s/\s*?\n\s+/ /g;
+	push @llines, $aline;
     }
+    push @llines, $bline if $bline;
 
-    if(/^}/) {
-	print "_\n";
-	print ".TE\n";
-	print ".sp\n";
-	next;
+    foreach (@llines) {
+
+	s/^\s+//;
+
+	next if /^$/;
+	next if /^\#/;
+
+	if(/^(date)\s*:\s*(.*)/i) {
+	    # special treatment for the date field
+	    my $head = $1;
+	    my ($date, $wday) = mkdate($2);
+	    $_ = "$head: $date ($wday)";
+	    # fallthrough
+	}
+
+	if(/^($hdrs)\s*:\s*(.*)/io) {
+	    printf("%s\tT{\n%s\nT}\n", $1, quote($2));
+	    next;
+	}
+
+	if(/^{/) {
+	    print ".TS\n";
+	    print "| ri s | lw$commentw |.\n";
+	    print "_\n";
+	    next;
+	}
+
+	if(/^}{/) {
+	    print "_\n";
+	    print ".T&\n";
+	    print "| ri | r | l |.\n";
+	    next;
+	}
+
+	if(/^}/) {
+	    print "_\n";
+	    print ".TE\n";
+	    print ".sp\n";
+	    next;
+	}
+
+	if(/^(.+?)\s*:.*?:\s*(\d*)\s*:\s*(.*)/) {
+	    printf("%s\t%s\tT{\n%s\nT}\n",
+		   quote($1),
+		   $2,
+		   quote($3));
+	    next;
+	}
+
+	print STDERR "gavia_gab2roff: funny stuff on line $.: $_\n";
     }
-
-    if(/^(.+?)\s*:.*?:\s*(\d*)\s*:\s*(.*)/) {
-	printf("%s\t%s\tT{\n%s\nT}\n",
-	       quote($1),
-	       $2,
-	       quote($3));
-	next;
-    }
-
-    print STDERR "gavia_gab2roff: funny stuff on line $.: $_\n";
 }
 
 exit 0;

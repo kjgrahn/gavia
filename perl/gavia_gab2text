@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w # -*- perl -*-
 #
-# $Id: gavia_gab2text,v 1.7 2007-06-25 08:00:47 grahn Exp $
+# $Id: gavia_gab2text,v 1.8 2007-06-25 08:22:49 grahn Exp $
 # $Name:  $
 #
 # gavia_gab2text - transform gab (see gavia(5)) formatted excursions
@@ -15,44 +15,77 @@ use POSIX;
 
 my $hdrs = "place|date|time|observers|weather|comments";
 
+my @acc = ();
+
 while(<>) {
 
-    chomp;
-    s/^\s+//;
+    my @aline = ();
+    my $bline = '';
 
-    next if /^$/;
-    next if /^\s*\#/;
-    next if /^}\s*$/;
-
-    if(/^(date)\s*:\s*(.+)/i) {
-	# special treatment fr the date field
-	my $head = $1;
-	my ($date, $wday) = mkdate($2);
-	bprint(sprintf("%-9s: %s (%s)\n", $head, $date, $wday));
-	next;
+    if(/^\s+\S/) { # SPX
+	push @acc, $_;
+	next unless eof();
+	@aline = @acc; @acc = ();
     }
-
-    if(/^($hdrs)\s*:\s*(.*)/io) {
-	bprint(sprintf("%-9s: %s\n", $1, $2));
-	next;
+    elsif(/^\s+/) { # SP
+	@aline = @acc; @acc = ();
+	$bline = $_;
     }
-
-    if(/^({|}{)/) {
-	print "------------------------------\n";
-	next;
+    else { # X
+	@aline = @acc;
+	if(eof()) {
+	    $bline = $_;
+	}
+	else {
+	    @acc = ($_);
+	}
     }
-
-    if(/^(.+?)\s*:.*?:\s*(\d+)\s*:\s*(.*)/) {
-	bprint(sprintf("%s (%d) %s\n", $1, $2, $3));
-	next;
+    my @llines = ();
+    if(@aline) {
+	my $aline = join('', @aline);
+	$aline =~ s/\s*?\n\s+/ /g;
+	push @llines, $aline;
     }
+    push @llines, $bline if $bline;
 
-    if(/^(.+?)\s*:.*?:.*?:\s*(.*)/) {
-	bprint(sprintf("%s %s\n", $1, $2));
-	next;
+    foreach (@llines) {
+
+        s/^\s+//;
+
+        next if /^$/;
+        next if /^\s*\#/;
+        next if /^}\s*$/;
+
+        if(/^(date)\s*:\s*(.+)/i) {
+    	# special treatment fr the date field
+    	my $head = $1;
+    	my ($date, $wday) = mkdate($2);
+    	bprint(sprintf("%-9s: %s (%s)\n", $head, $date, $wday));
+    	next;
+        }
+
+        if(/^($hdrs)\s*:\s*(.*)/io) {
+    	bprint(sprintf("%-9s: %s\n", $1, $2));
+    	next;
+        }
+
+        if(/^({|}{)/) {
+    	print "------------------------------\n";
+    	next;
+        }
+
+        if(/^(.+?)\s*:.*?:\s*(\d+)\s*:\s*(.*)/) {
+    	bprint(sprintf("%s (%d) %s\n", $1, $2, $3));
+    	next;
+        }
+
+        if(/^(.+?)\s*:.*?:.*?:\s*(.*)/) {
+    	bprint(sprintf("%s %s\n", $1, $2));
+    	next;
+        }
+
+        print STDERR "gavia_gab2text: funny stuff on line $.: $_\n";
     }
-
-    print STDERR "gavia_gab2text: funny stuff on line $.: $_\n";
 }
 
 exit 0;

@@ -1,4 +1,4 @@
-# $Id: default,v 1.18 2004-08-05 09:07:44 grahn Exp $
+# $Id: default,v 1.19 2007-06-25 09:24:52 grahn Exp $
 # $Name:  $
 #
 # Example template file for gavia_stellata(1), with species
@@ -452,6 +452,7 @@ lunnefågel		: : :
 tofslunnefågel		: : : 
 stäpphöna		: : : 
 svartbukig flyghöna	: : : 
+vitbukig flyghöna	: : : 
 turturduva		: : : 
 större turturduva	: : : 
 palmduva		: : : 

@@ -1,4 +1,4 @@
-# $Id: species,v 1.15 2004-08-05 09:07:45 grahn Exp $
+# $Id: species,v 1.16 2007-06-25 09:24:52 grahn Exp $
 # $Name:  $
 #
 # The canonical list of species accepted by Gavia.
@@ -15,7 +15,7 @@
 #
 # The species should appear in taxonomic order.
 #
-# Number of species: 537 ([0..536])
+# Number of species: 538 ([0..537])
 # <species perl -ne 'print if /^\d{3}/' | wc -l
 #
 
@@ -321,6 +321,7 @@
 
 382 stäpphöna
 504 svartbukig flyghöna
+537 vitbukig flyghöna
 
 158 tamduva
 159 skogsduva

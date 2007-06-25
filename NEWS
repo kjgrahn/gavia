@@ -2,6 +2,10 @@ Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
 
+gavia 3.1 (2007-06-25)
+        - one species added; new grand total 538 species.
+	  vitbukig flyghöna
+
 gavia 3.0 (2007-06-25)
 	- The text file format now supports splitting things across
 	  several lines (aka continuation lines) for readability. For
@@ -299,5 +303,5 @@ lanius, all versions:
 	Before written history.
 
 _________________________________________
-$Id: NEWS,v 1.43 2007-06-25 09:11:13 grahn Exp $
+$Id: NEWS,v 1.44 2007-06-25 09:24:52 grahn Exp $
 $Name:  $

@@ -2,18 +2,22 @@ Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
 
-* gavia_add: accept GAB continuations
-* gavia_focus: accept and preserve
-  gavia_cat: in -g and -m mode, format nicely
-* gavia_gab2html: accept
-* gavia_gab2roff: accept
-* gavia_gab2text: accept and preserve?
-- gavia_score: accept
-* gavia_stat: accept
-* gavia_stellata: accept and preserve
+gavia 3.0 (2007-06-25)
+	- The text file format now supports splitting things across
+	  several lines (aka continuation lines) for readability. For
+	  example,
 
-  gavia_cat: use MIME in -m mode
+          place  : Falköpings tätort (Fredriksberg, Ranten),
+		   Mösseberg (Bredablick--Klevautsikten, Hörnemosseutsikten)
 
+	  trana  :#:  9: 2+3 gick S om Näset;
+			 2 sjön--Uggleskogen;
+			 1 vassudden;
+			 1 N om sjön
+
+          All utilities can provided with Gavia can handle this. Some
+	  preserve the lines, others (e.g. gavia_stat) have to merge
+	  them into one long line.
 
 gavia 2.39 (2006-02-14)
 	- gavia_cat: HTML output now uses tables, for more attractive
@@ -295,5 +299,5 @@ lanius, all versions:
 	Before written history.
 
 _________________________________________
-$Id: NEWS,v 1.42 2007-06-25 08:34:30 grahn Exp $
+$Id: NEWS,v 1.43 2007-06-25 09:11:13 grahn Exp $
 $Name:  $

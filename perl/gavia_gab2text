@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w # -*- perl -*-
 #
-# $Id: gavia_gab2text,v 1.8 2007-06-25 08:22:49 grahn Exp $
+# $Id: gavia_gab2text,v 1.9 2007-06-25 08:26:58 grahn Exp $
 # $Name:  $
 #
 # gavia_gab2text - transform gab (see gavia(5)) formatted excursions
@@ -57,31 +57,31 @@ while(<>) {
         next if /^}\s*$/;
 
         if(/^(date)\s*:\s*(.+)/i) {
-    	# special treatment fr the date field
-    	my $head = $1;
-    	my ($date, $wday) = mkdate($2);
-    	bprint(sprintf("%-9s: %s (%s)\n", $head, $date, $wday));
-    	next;
+	    # special treatment fr the date field
+	    my $head = $1;
+	    my ($date, $wday) = mkdate($2);
+	    bprint(sprintf("%-9s: %s (%s)\n", $head, $date, $wday));
+	    next;
         }
 
         if(/^($hdrs)\s*:\s*(.*)/io) {
-    	bprint(sprintf("%-9s: %s\n", $1, $2));
-    	next;
+	    bprint(sprintf("%-9s: %s\n", $1, $2));
+	    next;
         }
 
         if(/^({|}{)/) {
-    	print "------------------------------\n";
-    	next;
+	    print "------------------------------\n";
+	    next;
         }
 
         if(/^(.+?)\s*:.*?:\s*(\d+)\s*:\s*(.*)/) {
-    	bprint(sprintf("%s (%d) %s\n", $1, $2, $3));
-    	next;
+	    bprint(sprintf("%s (%d) %s\n", $1, $2, $3));
+	    next;
         }
 
         if(/^(.+?)\s*:.*?:.*?:\s*(.*)/) {
-    	bprint(sprintf("%s %s\n", $1, $2));
-    	next;
+	    bprint(sprintf("%s %s\n", $1, $2));
+	    next;
         }
 
         print STDERR "gavia_gab2text: funny stuff on line $.: $_\n";

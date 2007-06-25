@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: gavia_gab2html,v 1.12 2007-06-25 08:01:32 grahn Exp $
+# $Id: gavia_gab2html,v 1.13 2007-06-25 08:34:30 grahn Exp $
 # $Name:  $
 #
 # gavia_gab2html - transform gab (see gavia(5)) formatted excursions
@@ -42,59 +42,90 @@ EOF
 
 my $hdrs = "place|date|time|observers|weather|comments";
 
+my @acc = ();
+
 while(<>) {
 
-    chomp;
-    s/^\s+//;
+    my @aline = ();
+    my $bline = '';
 
-    next if /^$/;
-    next if /^\s*\#/;
-
-    if(/^(date)\s*:\s*(.*)/i) {
-	# special treatment fr the date field
-	my $head = $1;
-	my ($date, $wday) = mkdate($2);
-	printf("<tr class=\"date\"><th>%s<td colspan=\"2\">%s (%s)\n",
-	       $head,
-	       quote($date),
-	       $wday);
-	next;
+    if(/^\s+\S/) { # SPX
+	push @acc, $_;
+	next unless eof();
+	@aline = @acc; @acc = ();
     }
-
-    if(/^($hdrs)\s*:\s*(.*)/io) {
-	printf("<tr class=\"%s\"><th>%s<td colspan=\"2\">%s\n",
-	       $1,
-	       $1,
-	       quote($2));
-	next;
+    elsif(/^\s+/) { # SP
+	@aline = @acc; @acc = ();
+	$bline = $_;
     }
-
-    if(/^{/) {
-	print "\n<p><table>\n";
-	print "<col class=\"sp\"><col class=\"n\"><col class=\"comment\">\n";
-	print "<thead>\n";
-	next;
+    else { # X
+	@aline = @acc;
+	if(eof()) {
+	    $bline = $_;
+	}
+	else {
+	    @acc = ($_);
+	}
     }
-
-    if(/^}{/) {
-	print "<tbody>\n";
-	next;
+    my @llines = ();
+    if(@aline) {
+	my $aline = join('', @aline);
+	$aline =~ s/\s*?\n\s+/ /g;
+	push @llines, $aline;
     }
+    push @llines, $bline if $bline;
 
-    if(/^}/) {
-	print "</table>\n";
-	next;
+    foreach (@llines) {
+
+	next if /^\s*$/;
+	next if /^\s*\#/;
+
+	if(/^(date)\s*:\s*(.*)/i) {
+	    # special treatment fr the date field
+	    my $head = $1;
+	    my ($date, $wday) = mkdate($2);
+	    printf("<tr class=\"date\"><th>%s<td colspan=\"2\">%s (%s)\n",
+		   $head,
+		   quote($date),
+		   $wday);
+	    next;
+	}
+
+	if(/^($hdrs)\s*:\s*(.*)/io) {
+	    printf("<tr class=\"%s\"><th>%s<td colspan=\"2\">%s\n",
+		   $1,
+		   $1,
+		   quote($2));
+	    next;
+	}
+
+	if(/^{/) {
+	    print "\n<p><table>\n";
+	    print "<col class=\"sp\"><col class=\"n\"><col class=\"comment\">\n";
+	    print "<thead>\n";
+	    next;
+	}
+
+	if(/^}{/) {
+	    print "<tbody>\n";
+	    next;
+	}
+
+	if(/^}/) {
+	    print "</table>\n";
+	    next;
+	}
+
+	if(/^(.+?)\s*:.*?:\s*(\d*)\s*:\s*(.*)/) {
+	    printf("<tr><th>%s\n<td>%s<td>%s\n",
+		   $1,
+		   $2,
+		   quote($3));
+	    next;
+	}
+
+	print STDERR "gavia_gab2html: funny stuff on line $.: $_\n";
     }
-
-    if(/^(.+?)\s*:.*?:\s*(\d*)\s*:\s*(.*)/) {
-	printf("<tr><th>%s\n<td>%s<td>%s\n",
-	       $1,
-	       $2,
-	       quote($3));
-	next;
-    }
-
-    print STDERR "gavia_gab2html: funny stuff on line $.: $_\n";
 }
 
 print <<EOF;

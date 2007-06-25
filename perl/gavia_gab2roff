@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w # -*- perl -*-
 #
-# $Id: gavia_gab2roff,v 1.8 2007-06-24 23:49:24 grahn Exp $
+# $Id: gavia_gab2roff,v 1.9 2007-06-25 08:01:32 grahn Exp $
 # $Name:  $
 #
 # gavia_gab2text - transform gab (see gavia(5)) formatted excursions
@@ -39,7 +39,7 @@ while(<>) {
 	# fallthrough
     }
 
-    if(/^($hdrs)\s*:\s*(.*)/i) {
+    if(/^($hdrs)\s*:\s*(.*)/io) {
 	printf("%s\tT{\n%s\nT}\n", $1, quote($2));
 	next;
     }

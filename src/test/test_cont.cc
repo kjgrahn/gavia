@@ -1,97 +1,81 @@
 /*
- * $Id: test_cont.cc,v 1.6 2006-05-20 08:10:22 grahn Exp $
+ * $Id: test_cont.cc,v 1.7 2007-07-02 11:21:29 grahn Exp $
  *
- * Copyright (C) 2006 Jörgen Grahn.
+ * Copyright (C) 2006, 2007 Jörgen Grahn.
  * All rights reserved.
  */
-#include <cppunit/TestFixture.h>
-#include <cppunit/extensions/HelperMacros.h>
-#include <cppunit/ui/text/TestRunner.h>
-
 #include <iostream>
 #include <sstream>
+
+#include <testicle.h>
 
 #include "../contstream.hh"
 
 using std::istringstream;
 using std::string;
 
-
-class Test: public CppUnit::TestFixture {
-
-    CPPUNIT_TEST_SUITE(Test);
-    CPPUNIT_TEST(testA);
-    CPPUNIT_TEST(testB);
-    CPPUNIT_TEST(testC);
-    CPPUNIT_TEST(testD);
-    CPPUNIT_TEST(testE);
-    CPPUNIT_TEST(testF);
-    CPPUNIT_TEST(testG);
-    CPPUNIT_TEST(testH);
-    CPPUNIT_TEST(testI);
-    CPPUNIT_TEST(testJ);
-    CPPUNIT_TEST(testK);
-    CPPUNIT_TEST_SUITE_END();
-
+namespace {
     std::string line(Continuation& c) {
-	CPPUNIT_ASSERT(c);
+	testicle::assert_(c);
 	string s("deadbeef");
 	getline(c, s);
 	return s;
     }
+}
 
-public:
+namespace cont {
+
     void testA() {
 	istringstream iss("");
 	Continuation cs(iss);
-	CPPUNIT_ASSERT_EQUAL(string(""), line(cs));
-	CPPUNIT_ASSERT(!cs);
+	testicle::assert_eq("", line(cs));
+	testicle::assert_(!cs);
     }
     void testB() {
 	istringstream iss("\n");
 	Continuation cs(iss);
-	CPPUNIT_ASSERT_EQUAL(string(""), line(cs));
-	CPPUNIT_ASSERT_EQUAL(1, cs.line());
-	CPPUNIT_ASSERT(!cs);
+	testicle::assert_eq("", line(cs));
+	testicle::assert_eq(1, cs.line());
+	testicle::assert_(!cs);
     }
     void testC() {
 	istringstream iss("foo");
 	Continuation cs(iss);
-	CPPUNIT_ASSERT_EQUAL(string("foo"), line(cs));
-	CPPUNIT_ASSERT_EQUAL(1, cs.line());
-	CPPUNIT_ASSERT(!cs);
+	testicle::assert_eq("foo", line(cs));
+	testicle::assert_eq(1, cs.line());
+	testicle::assert_(!cs);
     }
     void testD() {
 	istringstream iss("foo\n");
 	Continuation cs(iss);
-	CPPUNIT_ASSERT_EQUAL(string("foo"), line(cs));
-	CPPUNIT_ASSERT_EQUAL(1, cs.line());
-	CPPUNIT_ASSERT(!cs);
+	testicle::assert_eq("foo", line(cs));
+	testicle::assert_eq(1, cs.line());
+	testicle::assert_(!cs);
     }
     void testE() {
 	istringstream iss("foo ");
 	Continuation cs(iss);
-	CPPUNIT_ASSERT_EQUAL(string("foo "), line(cs));
-	CPPUNIT_ASSERT_EQUAL(1, cs.line());
-	CPPUNIT_ASSERT(!cs);
+	testicle::assert_eq("foo ", line(cs));
+	testicle::assert_eq(1, cs.line());
+	testicle::assert_(!cs);
     }
     void testF() {
 	istringstream iss("foo\n"
 			  "bar\n");
 	Continuation cs(iss);
-	CPPUNIT_ASSERT_EQUAL(string("foo"), line(cs));
-	CPPUNIT_ASSERT_EQUAL(1, cs.line());
-	CPPUNIT_ASSERT_EQUAL(string("bar"), line(cs));
-	CPPUNIT_ASSERT_EQUAL(2, cs.line());
-	CPPUNIT_ASSERT(!cs);
+	testicle::assert_eq("foo", line(cs));
+	testicle::assert_eq(1, cs.line());
+	testicle::assert_eq("bar", line(cs));
+	testicle::assert_eq(2, cs.line());
+	testicle::assert_(!cs);
     }
     void testG() {
 	istringstream iss("foo bar\t\n"
 			  "  foo bar\n");
 	Continuation cs(iss);
-	CPPUNIT_ASSERT_EQUAL(string("foo bar foo bar"), line(cs));
-	CPPUNIT_ASSERT_EQUAL(2, cs.line());
-	CPPUNIT_ASSERT(!cs);
+	testicle::assert_eq("foo bar foo bar", line(cs));
+	testicle::assert_eq(2, cs.line());
+	testicle::assert_(!cs);
     }
     void testH() {
 	istringstream iss("foobar\t\n"
@@ -99,11 +83,11 @@ public:
 			  "  foobar \n"
 			  "foobar\n");
 	Continuation cs(iss);
-	CPPUNIT_ASSERT_EQUAL(string("foobar foobar foobar "), line(cs));
-	CPPUNIT_ASSERT_EQUAL(3, cs.line());
-	CPPUNIT_ASSERT_EQUAL(string("foobar"), line(cs));
-	CPPUNIT_ASSERT_EQUAL(4, cs.line());
-	CPPUNIT_ASSERT(!cs);
+	testicle::assert_eq("foobar foobar foobar ", line(cs));
+	testicle::assert_eq(3, cs.line());
+	testicle::assert_eq("foobar", line(cs));
+	testicle::assert_eq(4, cs.line());
+	testicle::assert_(!cs);
     }
     void testI() {
 	istringstream iss("foobar\t\n"
@@ -111,13 +95,13 @@ public:
 			  "\t\t\n"
 			  "foobar\n");
 	Continuation cs(iss);
-	CPPUNIT_ASSERT_EQUAL(string("foobar foobar "), line(cs));
-	CPPUNIT_ASSERT_EQUAL(2, cs.line());
-	CPPUNIT_ASSERT_EQUAL(string("\t\t"), line(cs));
-	CPPUNIT_ASSERT_EQUAL(3, cs.line());
-	CPPUNIT_ASSERT_EQUAL(string("foobar"), line(cs));
-	CPPUNIT_ASSERT_EQUAL(4, cs.line());
-	CPPUNIT_ASSERT(!cs);
+	testicle::assert_eq("foobar foobar ", line(cs));
+	testicle::assert_eq(2, cs.line());
+	testicle::assert_eq("\t\t", line(cs));
+	testicle::assert_eq(3, cs.line());
+	testicle::assert_eq("foobar", line(cs));
+	testicle::assert_eq(4, cs.line());
+	testicle::assert_(!cs);
     }
     void testJ() {
 	istringstream iss("foo\n"
@@ -125,26 +109,18 @@ public:
 			  " foo\n"
 			  " foo\n");
 	Continuation cs(iss);
-	CPPUNIT_ASSERT_EQUAL(string("foo foo foo foo"), line(cs));
-	CPPUNIT_ASSERT_EQUAL(4, cs.line());
-	CPPUNIT_ASSERT(!cs);
+	testicle::assert_eq("foo foo foo foo", line(cs));
+	testicle::assert_eq(4, cs.line());
+	testicle::assert_(!cs);
     }
     void testK() {
 	istringstream iss("foo     \n"
 			  "bar\n");
 	Continuation cs(iss);
-	CPPUNIT_ASSERT_EQUAL(string("foo     "), line(cs));
-	CPPUNIT_ASSERT_EQUAL(1, cs.line());
-	CPPUNIT_ASSERT_EQUAL(string("bar"), line(cs));
-	CPPUNIT_ASSERT_EQUAL(2, cs.line());
-	CPPUNIT_ASSERT(!cs);
+	testicle::assert_eq("foo     ", line(cs));
+	testicle::assert_eq(1, cs.line());
+	testicle::assert_eq("bar", line(cs));
+	testicle::assert_eq(2, cs.line());
+	testicle::assert_(!cs);
     }
-};
-
-
-int main()
-{
-    CppUnit::TextUi::TestRunner runner;
-    runner.addTest(Test::suite());
-    return runner.run()? 0: 1;
 }

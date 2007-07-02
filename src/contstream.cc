@@ -1,5 +1,5 @@
 /**
- * $Id: contstream.cc,v 1.5 2006-05-03 21:54:34 grahn Exp $
+ * $Id: contstream.cc,v 1.6 2007-07-02 11:21:29 grahn Exp $
  *
  * Copyright (c) 2006 Jörgen Grahn
  * All rights reserved.
@@ -28,7 +28,7 @@
  *
  */
 static const char* rcsid() { rcsid(); return
-"$Id: contstream.cc,v 1.5 2006-05-03 21:54:34 grahn Exp $";
+"$Id: contstream.cc,v 1.6 2007-07-02 11:21:29 grahn Exp $";
 }
 
 #include <iostream>
@@ -91,12 +91,10 @@ void Continuation::getline(std::string& s)
     s = acc_;
 }
 
-
 int Continuation::line() const
 {
     return has_acc_? n_-1: n_;
 }
-
 
 Continuation::operator void*() const
 {

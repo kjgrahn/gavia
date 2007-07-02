@@ -2,6 +2,9 @@ Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
 
+	- internal: recursive Makefiles replaced with a single one,
+	  and CPPUNIT-based tests replaced with testicle-based ones.
+
 gavia 3.1 (2007-06-25)
         - one species added; new grand total 538 species.
 	  vitbukig flyghöna
@@ -303,5 +306,5 @@ lanius, all versions:
 	Before written history.
 
 _________________________________________
-$Id: NEWS,v 1.44 2007-06-25 09:24:52 grahn Exp $
+$Id: NEWS,v 1.45 2007-07-02 11:21:29 grahn Exp $
 $Name:  $

@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_grep.cc,v 1.17 2007-06-25 10:07:28 grahn Exp $
+ * $Id: gavia_grep.cc,v 1.18 2007-07-03 14:33:26 grahn Exp $
  *
  * gavia_grep.cc
  *
@@ -37,7 +37,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gavia_grep.cc,v 1.17 2007-06-25 10:07:28 grahn Exp $";
+"$Id: gavia_grep.cc,v 1.18 2007-07-03 14:33:26 grahn Exp $";
 }
 
 #include <cstdio>
@@ -129,23 +129,27 @@ int main(int argc, char ** argv)
     i++;			// [i..argc[ are now the input files
 
     StreamSink sink(stdout);
-    char * stargv[] = {"-", 0};
+
+    char dash[] = "-";
+    char * dashp = dash;
     char **p;
+    char **end;
 
     if(i==argc)
     {
 	// no file arguments, use stdin
-	p = stargv;
+	p = &dashp;
+	end = p+1;
     }
     else
     {
 	p = &argv[i];
+	end = &argv[argc];
     }
 
     try
     {
-	while(*p)
-	{
+	while(p!=end) {
 	    StreamSource src(*p);
 
 	    while(!src.eof())

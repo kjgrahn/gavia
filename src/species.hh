@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: species.hh,v 1.8 2006-05-17 20:51:16 grahn Exp $
+ * $Id: species.hh,v 1.9 2007-07-03 14:33:27 grahn Exp $
  *
  * Species.hh
  *
@@ -37,7 +37,7 @@
 #define SPECIES_HH
 
 #include <string>
-#include <iosfwd>
+#include <iostream>
 
 /**
  * A species, which really just is a species name, as a string ...

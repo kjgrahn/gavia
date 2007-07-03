@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_sort.cc,v 1.15 2007-06-25 10:07:28 grahn Exp $
+ * $Id: gavia_sort.cc,v 1.16 2007-07-03 14:33:27 grahn Exp $
  *
  * gavia_sort.cc
  *
@@ -36,7 +36,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gavia_sort.cc,v 1.15 2007-06-25 10:07:28 grahn Exp $";
+"$Id: gavia_sort.cc,v 1.16 2007-07-03 14:33:27 grahn Exp $";
 }
 
 #include <iostream>
@@ -111,17 +111,21 @@ int main(int argc, char ** argv)
 
     int i = optind;		// [i..argc[ are now the input files
 
-    char * stargv[] = {"-", 0};
+    char dash[] = "-";
+    char * dashp = dash;
     char **p;
+    char **end;
 
     if(i==argc)
     {
 	// no file arguments, use stdin
-	p = stargv;
+	p = &dashp;
+	end = p+1;
     }
     else
     {
 	p = &argv[i];
+	end = &argv[argc];
     }
 
     vector<Excursion> exlist;
@@ -130,8 +134,7 @@ int main(int argc, char ** argv)
     // and push them onto exlist
     try
     {
-	while(*p)
-	{
+	while(p!=end) {
 	    StreamSource src(*p);
 
 	    while(!src.eof())

@@ -1,6 +1,6 @@
 ;;; gavia-mode-el -- Major mode for editing Gavia "GAB" files
 
-;; Copyright (C) 2005 Jörgen Grahn
+;; Copyright (C) 2005, 2007 Jörgen Grahn
 ;; All right reserved.
 
 ;; Based on Scott Andrew Borton's tutorial at
@@ -17,6 +17,7 @@
     ("^observers *:" . font-lock-constant-face)
     ("^weather *:" . font-lock-constant-face)
     ("^comments *:" . font-lock-constant-face)
+    ("^coordinate *:" . font-lock-constant-face)
     ("^.+?:.:" . font-lock-variable-name-face)
     ("XXX" . font-lock-warning-face))
   "Syntax highlighting for Gavia mode.")

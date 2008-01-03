@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.5 2007-07-02 11:21:29 grahn Exp $
+# $Id: Makefile,v 1.6 2008-01-03 07:24:43 grahn Exp $
 #
 # Makefile
 #
@@ -83,8 +83,8 @@ perl/_gavia_focus: perl/gavia_focus
 # misc
 
 .PHONY: test
-test: test/test
-	./test/test
+test: src/test/test
+	./src/test/test
 
 src/test/test: src/test/test.o src/test/test_cont.o src/libgavia.a
 	$(CXX) $(LDFLAGS) -o $@ src/test/test.o src/test/test_cont.o -lgavia
@@ -101,9 +101,11 @@ depend:
 	makedepend -- $(CFLAGS) -- -Y -I. src/*.{c,cc} src/test/*.cc
 
 clean:
+	$(RM) src/test/test
+	$(RM) src/test/test.cc
 	$(RM) $(OUTS) src/libgavia.a
 	$(RM) src/*.o
-	$(RM) src/test/test_cont.o
+	$(RM) src/test/*.o
 	$(RM) Makefile.bak core TAGS
 	$(RM) perl/_gavia_focus
 	$(RM) perl/_gavia_stellata

@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: contstream.hh,v 1.4 2006-05-03 21:54:34 grahn Exp $
+ * $Id: contstream.hh,v 1.5 2008-01-03 12:26:57 grahn Exp $
  *
  * contstream.hh
  *
- * Copyright (c) 2006 Jörgen Grahn
+ * Copyright (c) 2006, 2008 Jörgen Grahn
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -63,7 +63,9 @@ public:
     explicit Continuation(std::istream& is)
 	: is_(is),
 	  has_acc_(false),
-	  n_(0)
+	  end_(false),
+	  n_(0),
+	  retn_(0)
     {}
 
     void getline(std::string& s);
@@ -77,7 +79,9 @@ private:
 
     std::istream& is_;
     bool has_acc_;
+    bool end_;
     int n_;
+    int retn_;
     std::string acc_;
 };
 

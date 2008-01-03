@@ -1,5 +1,5 @@
 /**
- * $Id: contstream.cc,v 1.6 2007-07-02 11:21:29 grahn Exp $
+ * $Id: contstream.cc,v 1.7 2008-01-03 12:27:08 grahn Exp $
  *
  * Copyright (c) 2006 Jörgen Grahn
  * All rights reserved.
@@ -28,11 +28,10 @@
  *
  */
 static const char* rcsid() { rcsid(); return
-"$Id: contstream.cc,v 1.6 2007-07-02 11:21:29 grahn Exp $";
+"$Id: contstream.cc,v 1.7 2008-01-03 12:27:08 grahn Exp $";
 }
 
 #include <iostream>
-#include <cctype>
 #include "contstream.hh"
 
 namespace {
@@ -49,7 +48,7 @@ namespace {
      */
     bool starts_blank(const std::string& s)
     {
-	return s.size() && (s[0]==' ' || s[0]=='\t');
+	return !s.empty() && (s[0]==' ' || s[0]=='\t');
     }
 
     /**

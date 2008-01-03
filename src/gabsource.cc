@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gabsource.cc,v 1.20 2008-01-03 12:51:39 grahn Exp $
+ * $Id: gabsource.cc,v 1.21 2008-01-03 12:58:07 grahn Exp $
  *
  * gabsource.cc
  *
@@ -33,7 +33,7 @@
  *----------------------------------------------------------------------------
  */
 static const char* rcsid() { rcsid(); return
-"$Id: gabsource.cc,v 1.20 2008-01-03 12:51:39 grahn Exp $";
+"$Id: gabsource.cc,v 1.21 2008-01-03 12:58:07 grahn Exp $";
 }
 
 #include <cstdio>
@@ -271,12 +271,16 @@ void GabSource::eatexcursion()
     if(eof_) return;
 
     excursion_ = Excursion();
+    bool has_something = false;
 
     const Parsing& pa = *parsing_;
     string s;
     while(getline(cs_, s)) {
 	if(pa.isblank(s) || pa.iscomment(s)) continue;
-	if(pa.isheadstart(s)) break;
+	if(pa.isheadstart(s)) {
+	    has_something = true;
+	    break;
+	}
 	throw GaviaException("parse error", cs_.line());
     }
     // head
@@ -341,9 +345,12 @@ void GabSource::eatexcursion()
 	    excursion_.insert(species, atol(no.c_str()), comment);
 	    continue;
 	}
-	if(pa.isbodyend(s)) break;
+	if(pa.isbodyend(s)) return;
 	throw GaviaException("parse error", cs_.line());
     }
 
-    eof_ = !cs_;
+    eof_ = true;
+    if(has_something) {
+	throw GaviaException("unexpected end-of-file in excursion", cs_.line());
+    }
 }

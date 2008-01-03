@@ -1,12 +1,12 @@
 #!/usr/bin/perl -w # -*- perl -*-
 #
-# $Id: gavia_gab2roff,v 1.10 2007-06-25 08:29:09 grahn Exp $
+# $Id: gavia_gab2roff,v 1.11 2008-01-03 09:38:19 grahn Exp $
 # $Name:  $
 #
 # gavia_gab2text - transform gab (see gavia(5)) formatted excursions
 # to roff (groff, nroff, troff) source
 #
-# Copyright (c) 2002, 2007 Jörgen Grahn
+# Copyright (c) 2002, 2007, 2008 Jörgen Grahn
 # All rights reserved.
 #
 
@@ -143,7 +143,7 @@ sub quote {
 sub mkdate {
     my $date = shift;
 
-    $date =~ s/(\d{4})(\d{2})(\d{2})/$1-$2-$3/
+    $date =~ s/(\d{4})-?(\d{2})-?(\d{2})/$1-$2-$3/
 	or
 	    die "gavia_gab2roff: broken date at line $.: $2\n";
 

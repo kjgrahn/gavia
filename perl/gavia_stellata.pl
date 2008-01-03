@@ -1,12 +1,12 @@
 #!/usr/bin/perl -w
 #
-# $Id: gavia_stellata.pl,v 1.22 2007-06-24 19:50:32 grahn Exp $
+# $Id: gavia_stellata.pl,v 1.23 2008-01-03 09:38:19 grahn Exp $
 # $Name:  $
 #
 # gavia_stellata.pl - interactively adding
 # excursions to the default .gab file
 #
-# Copyright (c) 1999--2007 Jörgen Grahn
+# Copyright (c) 1999--2008 Jörgen Grahn
 # All rights reserved.
 # 
 # Redistribution and use in source and binary forms, with or without
@@ -63,7 +63,7 @@ elsif(defined $ENV{"EDITOR"}) {
     or die "`$obsbok' is not a writeable file.\n";
 
 my ($d0, $d1, $d2, $mday, $mon, $year, $d3, $d4, $d5) = localtime(time);
-my $datestr = sprintf "%04d%02d%02d", 1900+$year, 1+$mon, $mday;
+my $datestr = sprintf "%04d-%02d-%02d", 1900+$year, 1+$mon, $mday;
 
 open TMPL, "<$template"
     or die "cannot open `$template' for reading: $!\n";

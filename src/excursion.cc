@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: excursion.cc,v 1.11 2006-01-02 22:15:25 grahn Exp $
+ * $Id: excursion.cc,v 1.12 2008-01-03 09:38:19 grahn Exp $
  *
  * excursion.cc
  *
- * Copyright (c) 1999 Jörgen Grahn
+ * Copyright (c) 1999, 2008 Jörgen Grahn
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: excursion.cc,v 1.11 2006-01-02 22:15:25 grahn Exp $";
+"$Id: excursion.cc,v 1.12 2008-01-03 09:38:19 grahn Exp $";
 }
 
 #include <cassert>
@@ -159,6 +159,18 @@ void Excursion::setdate(long dat)
     }
 
     date = dat;
+}
+
+
+std::string Excursion::isodate() const
+{
+    char buf[20];
+    const unsigned long d = static_cast<unsigned long>(date);
+    std::sprintf(buf, "%04lu-%02lu-%02lu",
+		 d / 10000,
+		 (d % 10000) / 100,
+		 d % 100);
+    return buf;
 }
 
 

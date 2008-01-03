@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: gavia_stat.pl,v 1.5 2007-06-24 20:26:37 grahn Exp $
+# $Id: gavia_stat.pl,v 1.6 2008-01-03 09:38:19 grahn Exp $
 # $Name:  $
 #
 # gavia_stat.pl - take a book in 'gab' format and output its content
@@ -8,7 +8,7 @@
 # 
 # Useful for generating reports based on species rather than excursion.
 #
-# Copyright (c) 2000, 2007 Jörgen Grahn
+# Copyright (c) 2000, 2007, 2008 Jörgen Grahn
 # All rights reserved.
 
 use strict;
@@ -58,7 +58,7 @@ while(<>)
 	    $date = "";
 	    $observers = "";
 	}
-	elsif(/^date\s*:\s*(\d+)/i) {
+	elsif(/^date\s*:\s*(\S+)/i) {
 
 	    $date = $1;
 	}

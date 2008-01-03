@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gavia_grep.cc,v 1.18 2007-07-03 14:33:26 grahn Exp $
+ * $Id: gavia_grep.cc,v 1.19 2008-01-03 09:38:19 grahn Exp $
  *
  * gavia_grep.cc
  *
@@ -37,7 +37,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: gavia_grep.cc,v 1.18 2007-07-03 14:33:26 grahn Exp $";
+"$Id: gavia_grep.cc,v 1.19 2008-01-03 09:38:19 grahn Exp $";
 }
 
 #include <cstdio>
@@ -94,8 +94,8 @@ int main(int argc, char ** argv)
 	case '?':
 	    fprintf(stderr,
 		    "gavia_grep, part of %s\n"
-		    "Copyright (c) 2000-2007 Jörgen Grahn "
-		    "<grahn+src@snipabacken.dyndns.org>\n",
+		    "Copyright (c) 2000-2008 Jörgen Grahn "
+		    "<grahn+src@snipabacken.se>\n",
 		    version.name());
 	    return 0;
 	    break;
@@ -186,6 +186,7 @@ int main(int argc, char ** argv)
  * following strings:
  * - place
  * - date, formatted as yyyymmdd
+ * - date, formatted as yyyy-mm-dd
  * - time
  * - observers
  * - weather
@@ -209,6 +210,11 @@ static bool internalmatchex(const Excursion& ex, regex_t * preg)
     char tmp2[9];
     sprintf(tmp2, "%8ld", ex.getdate());
     if(regexec(preg, tmp2, 0, 0, 0)==0)
+    {
+	return true;
+    }
+    if(regexec(preg, ex.isodate().c_str(),
+	       0, 0, 0) ==0)
     {
 	return true;
     }

@@ -2,6 +2,9 @@ Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
 
+	- Allow dates on the form 2008-01-03, not just the less
+          readable 20080103 and 080103.
+
 	- internal: recursive Makefiles replaced with a single one,
 	  and CPPUNIT-based tests replaced with testicle-based ones.
 
@@ -306,5 +309,5 @@ lanius, all versions:
 	Before written history.
 
 _________________________________________
-$Id: NEWS,v 1.45 2007-07-02 11:21:29 grahn Exp $
+$Id: NEWS,v 1.46 2008-01-03 09:38:19 grahn Exp $
 $Name:  $

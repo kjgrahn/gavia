@@ -1,7 +1,7 @@
-.\" $Id: gavia.5,v 1.12 2006-04-17 20:59:00 grahn Exp $
+.\" $Id: gavia.5,v 1.13 2008-01-03 09:38:19 grahn Exp $
 .\" 
 .\"
-.TH gavia 5 "MAR 2006" Gavia "User Manuals"
+.TH gavia 5 "JAN 2008" Gavia "User Manuals"
 .
 .
 .
@@ -44,10 +44,10 @@ Thus, these two fragments are equivalent:
 place: M\(:ossebergsparken,
        Djurparken,
        \(oAngermanland
-date : 20060216
+date : 2006-02-16
 
 place: M\(:ossebergsparken, Djurparken, \(oAngermanland
-date : 20060216
+date : 2006-02-16
 .fi
 .LP
 The input consists of a series of excursions,
@@ -67,7 +67,7 @@ Excursion fields are
 .nf
 .ft CW
 Place: <place description>
-Date: <yyyymmdd>
+Date: <yyyy-mm-dd>
 Time: <description of time out>
 Observers: <names of any persons involved>
 Weather: <weather description>
@@ -76,7 +76,14 @@ Comments: <anything else you want to note>
 .LP
 All but place and date are optional and
 can be left unfilled or left out entirely.
-Except for the date, the exact rules for the fields
+.LP
+Dates may be given in six-digit form
+.RI ( yymmdd ),
+eight-digit form
+.RI ( yyyymmdd ),
+or preferably as
+.IR yyyy-mm-dd .
+Otherwise, the exact rules for the fields
 (e.g. what format should the time have?)
 are up to local conventions.
 .LP
@@ -164,7 +171,7 @@ string.
 .
 .
 .SH "AUTHOR"
-J\(:orgen Grahn \fI<grahn+src@snipabacken.dyndns.org>
+J\(:orgen Grahn \fI<grahn+src@snipabacken.se>
 .
 .
 .SH "SEE ALSO"

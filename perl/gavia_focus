@@ -1,12 +1,12 @@
 #!/usr/bin/perl -w # -*- perl -*-
 #
-# $Id: gavia_focus,v 1.8 2007-06-24 22:50:35 grahn Exp $
+# $Id: gavia_focus,v 1.9 2008-01-03 09:38:19 grahn Exp $
 # $Name:  $
 #
 # gavia_focus - filter out certain species
 # from a 'gab' file
 #
-# Copyright (c) 2001, 2002, 2007 Jörgen Grahn
+# Copyright (c) 2001, 2002, 2007, 2008 Jörgen Grahn
 # All rights reserved.
 # 
 # Redistribution and use in source and binary forms, with or without
@@ -73,7 +73,10 @@ while(<>)
     $print = 1 unless /^\s/;
     next unless $print;
 
-    if(/^date\s*:\s*(\d+)/i) {
+    if(/^date\s*:\s*(\d+)-(\d+)-(\d+)/i) {
+	$date = $2 * 100 + $3;
+    }
+    elsif(/^date\s*:\s*(\d+)/i) {
 	$date = $1 % 10000;
     }
     elsif(/^[a-zåäö \t]+:.+?:[0-9 \t]+?:/i) {

@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: excursion.hh,v 1.11 2006-05-17 20:51:31 grahn Exp $
+ * $Id: excursion.hh,v 1.12 2008-01-03 09:38:19 grahn Exp $
  *
  * excursion.hh
  *
- * Copyright (c) 1999, 2000 Jörgen Grahn
+ * Copyright (c) 1999, 2000, 2008 Jörgen Grahn
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -80,6 +80,7 @@ public:
 
     // 'get' methods
     long getdate() const;
+    std::string isodate() const;
     const std::string& getplace() const;
     const std::string& gettime() const;
     const std::string& getobservers() const;

@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gabsink.cc,v 1.6 2006-01-02 22:15:25 grahn Exp $
+ * $Id: gabsink.cc,v 1.7 2008-01-03 09:38:19 grahn Exp $
  *
  * gabsink.cc
  *
@@ -34,7 +34,7 @@
  */
 
 static const char rcsid[] =
-"$Id: gabsink.cc,v 1.6 2006-01-02 22:15:25 grahn Exp $";
+"$Id: gabsink.cc,v 1.7 2008-01-03 09:38:19 grahn Exp $";
 
 #include <assert.h>
 #include <stdio.h>
@@ -125,7 +125,7 @@ void GabSink::put(const Excursion& ex)
     fprintf(mfp, "%s\n", "{");
 
     fprintf(mfp, "place        : %s\n", ex.getplace().c_str());
-    fprintf(mfp, "date         : %08ld\n", ex.getdate());
+    fprintf(mfp, "date         : %s\n", ex.isodate().c_str());
     fprintf(mfp, "time         : %s\n", ex.gettime().c_str());
     fprintf(mfp, "observers    : %s\n", ex.getobservers().c_str());
     fprintf(mfp, "weather      : %s\n", ex.getweather().c_str());

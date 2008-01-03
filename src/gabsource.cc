@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gabsource.cc,v 1.18 2006-05-29 20:47:24 grahn Exp $
+ * $Id: gabsource.cc,v 1.19 2008-01-03 09:38:19 grahn Exp $
  *
  * gabsource.cc
  *
- * Copyright (c) 1999, 2000, 2001, 2002, 2004, 2006 Jörgen Grahn
+ * Copyright (c) 1999, 2000, 2001, 2002, 2004, 2006, 2008 Jörgen Grahn
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -33,7 +33,7 @@
  *----------------------------------------------------------------------------
  */
 static const char* rcsid() { rcsid(); return
-"$Id: gabsource.cc,v 1.18 2006-05-29 20:47:24 grahn Exp $";
+"$Id: gabsource.cc,v 1.19 2008-01-03 09:38:19 grahn Exp $";
 }
 
 #include <cstdio>
@@ -67,7 +67,9 @@ struct Parsing {
 	  bodyend("^\\}[ \t]*$"),
 	  header("^[^: \t]+[ \t]*:"),
 	  //     "xxxx xxxx    : ### :    NNNN : ..."
-	  spline("^[^: \t][^:]*:[^:]*:[0-9 \t]*:")
+	  spline("^[^: \t][^:]*:[^:]*:[0-9 \t]*:"),
+	  //        yyyy-mm-dd
+	  isodate("^[0-9]{4}-[01][0-9]-[0-3][0-9]$")
     {}
 
     bool isblank(const string& s) const { return blankline.matches(s); }
@@ -81,6 +83,7 @@ struct Parsing {
 		 string * mark,
 		 string * no,
 		 string * comment) const;
+    unsigned long date(const string& s) const;
 
     const Regex blankline;
     const Regex comment;
@@ -89,6 +92,7 @@ struct Parsing {
     const Regex bodyend;
     const Regex header;
     const Regex spline;
+    const Regex isodate;
 };
 
 namespace {
@@ -170,6 +174,41 @@ bool Parsing::splitsp(const string& s,
 
     return true;
 }
+
+
+unsigned long Parsing::date(const string& s) const
+{
+    const string::size_type size = s.size();
+    const char * const ss = s.c_str();
+    char * end;
+    unsigned long n = strtoul(ss, &end, 10);
+    if(*end) {
+	if(isodate.matches(s)) {
+	    n *= 10000;
+	    n += strtoul(ss+5, 0, 10) * 100;
+	    n += strtoul(ss+8, 0, 10);
+	    return n;
+	}
+	else {
+	    return 0;
+	}
+    }
+    else if(size==6) {
+	if(n<780101) {
+	    /* y2k */
+	    n+=1000000;
+	}
+	n += 19000000;
+	return n;
+    }
+    else if(size==8) {
+	return n;
+    }
+    else {
+	return 0;
+    }
+}
+
 
 GabSource::GabSource(std::istream& is)
     : cs_(is),
@@ -255,18 +294,9 @@ void GabSource::eatexcursion()
 		excursion_.setplace(value);
 	    }
 	    else if(name=="date") {
-		char * end;
-		unsigned long n = strtoul(value.c_str(), &end, 10);
-		string::size_type size = value.size();
-		if(!(size==6 || size==8) || *end) {
+		unsigned long n = pa.date(value);
+		if(n==0) {
 		    throw GaviaException("bad or absent date", cs_.line());
-		}
-		if(size==6) {
-		    if(n<780101) {
-			/* y2k */
-			n+=1000000;
-		    }
-		    n += 19000000;
 		}
 		excursion_.setdate(n);
 	    }

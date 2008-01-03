@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: gabsource.cc,v 1.19 2008-01-03 09:38:19 grahn Exp $
+ * $Id: gabsource.cc,v 1.20 2008-01-03 12:51:39 grahn Exp $
  *
  * gabsource.cc
  *
@@ -33,7 +33,7 @@
  *----------------------------------------------------------------------------
  */
 static const char* rcsid() { rcsid(); return
-"$Id: gabsource.cc,v 1.19 2008-01-03 09:38:19 grahn Exp $";
+"$Id: gabsource.cc,v 1.20 2008-01-03 12:51:39 grahn Exp $";
 }
 
 #include <cstdio>
@@ -274,15 +274,13 @@ void GabSource::eatexcursion()
 
     const Parsing& pa = *parsing_;
     string s;
-    while(cs_) {
-	getline(cs_, s);
+    while(getline(cs_, s)) {
 	if(pa.isblank(s) || pa.iscomment(s)) continue;
 	if(pa.isheadstart(s)) break;
 	throw GaviaException("parse error", cs_.line());
     }
     // head
-    while(cs_) {
-	getline(cs_, s);
+    while(getline(cs_, s)) {
 	if(pa.isblank(s) || pa.iscomment(s)) continue;
 	string name;
 	string value;
@@ -321,8 +319,7 @@ void GabSource::eatexcursion()
 	throw GaviaException("parse error", cs_.line());
     }
     // body
-    while(cs_) {
-	getline(cs_, s);
+    while(getline(cs_, s)) {
 	if(pa.isblank(s) || pa.iscomment(s)) continue;
 	string name;
 	string mark;

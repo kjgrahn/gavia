@@ -2,6 +2,11 @@ Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
 
+gavia 3.3 (2008-01-03)
+
+        - Bug fix: gavia_add ignored the last excursion in its input,
+	  unless it was followed by at least one blank line.
+
 gavia 3.2 (2008-01-03)
 
 	- Allow dates on the form 2008-01-03, not just the less
@@ -311,5 +316,5 @@ lanius, all versions:
 	Before written history.
 
 _________________________________________
-$Id: NEWS,v 1.47 2008-01-03 09:39:06 grahn Exp $
+$Id: NEWS,v 1.48 2008-01-03 12:51:38 grahn Exp $
 $Name:  $

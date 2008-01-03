@@ -1,7 +1,7 @@
 /**
- * $Id: contstream.cc,v 1.7 2008-01-03 12:27:08 grahn Exp $
+ * $Id: contstream.cc,v 1.8 2008-01-03 12:51:38 grahn Exp $
  *
- * Copyright (c) 2006 Jörgen Grahn
+ * Copyright (c) 2006, 2008 Jörgen Grahn
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -28,7 +28,7 @@
  *
  */
 static const char* rcsid() { rcsid(); return
-"$Id: contstream.cc,v 1.7 2008-01-03 12:27:08 grahn Exp $";
+"$Id: contstream.cc,v 1.8 2008-01-03 12:51:38 grahn Exp $";
 }
 
 #include <iostream>
@@ -68,6 +68,44 @@ namespace {
 
 void Continuation::getline(std::string& s)
 {
+    std::string tmp;
+    while(std::getline(is_, tmp)) {
+	++n_;
+
+	if(has_acc_) {
+	    if(isblank(tmp) || !starts_blank(tmp)) {
+		std::swap(acc_, s);
+		std::swap(acc_, tmp);
+		retn_ = n_-1;
+		return;
+	    }
+	    else {
+		append(acc_, tmp);
+	    }
+	}
+	else {
+	    if(!isblank(tmp)) {
+		std::swap(acc_, tmp);
+		has_acc_ = true;
+	    }
+	    else {
+		std::swap(tmp, s);
+		retn_ = n_;
+		return;
+	    }
+	}
+    }
+
+    if(has_acc_) {
+	std::swap(acc_, s);
+	retn_ = n_;
+	has_acc_ = false;
+    }
+    else {
+	end_ = true;
+    }
+
+#if 0
     while(is_) {
 	std::string tmp;
 	std::getline(is_, tmp);
@@ -88,14 +126,24 @@ void Continuation::getline(std::string& s)
     }
 
     s = acc_;
+#endif
 }
 
+/**
+ * The number of the most recently read physical line
+ * (the first line being line 1).
+ */
 int Continuation::line() const
 {
-    return has_acc_? n_-1: n_;
+    return retn_;
 }
+
 
 Continuation::operator void*() const
 {
-    return is_.fail() ? 0 : const_cast<Continuation *>(this);
+    if(end_) {
+	return 0;
+    }
+
+    return const_cast<Continuation *>(this);
 }

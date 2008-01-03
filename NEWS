@@ -2,6 +2,8 @@ Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
 
+gavia 3.2 (2008-01-03)
+
 	- Allow dates on the form 2008-01-03, not just the less
           readable 20080103 and 080103.
 
@@ -309,5 +311,5 @@ lanius, all versions:
 	Before written history.
 
 _________________________________________
-$Id: NEWS,v 1.46 2008-01-03 09:38:19 grahn Exp $
+$Id: NEWS,v 1.47 2008-01-03 09:39:06 grahn Exp $
 $Name:  $

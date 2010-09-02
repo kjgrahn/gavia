@@ -2,6 +2,10 @@ Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
 
+	- Emacs gavia-mode: color header lines called 'status:' too.
+	  These are being used in groblad(5), which leeches onto this
+	  mode.
+
 gavia 3.3 (2008-01-03)
 
         - Bug fix: gavia_add ignored the last excursion in its input,
@@ -316,5 +320,5 @@ lanius, all versions:
 	Before written history.
 
 _________________________________________
-$Id: NEWS,v 1.48 2008-01-03 12:51:38 grahn Exp $
+$Id: NEWS,v 1.49 2010-09-02 20:30:49 grahn Exp $
 $Name:  $

@@ -1,10 +1,10 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: excursion.cc,v 1.13 2011-01-08 23:22:30 grahn Exp $
+ * $Id: excursion.cc,v 1.14 2011-01-08 23:26:32 grahn Exp $
  *
  * excursion.cc
  *
- * Copyright (c) 1999, 2008 Jörgen Grahn
+ * Copyright (c) 1999, 2008, 2011 Jörgen Grahn
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -34,7 +34,7 @@
  */
 
 static const char* rcsid() { rcsid(); return
-"$Id: excursion.cc,v 1.13 2011-01-08 23:22:30 grahn Exp $";
+"$Id: excursion.cc,v 1.14 2011-01-08 23:26:32 grahn Exp $";
 }
 
 #include <cassert>

@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.6 2008-01-03 07:24:43 grahn Exp $
+# $Id: Makefile,v 1.7 2011-06-08 21:27:25 grahn Exp $
 #
 # Makefile
 #
@@ -45,7 +45,7 @@ src/gavia_cat: src/gavia_cat.o src/libgavia.a
 	$(CXX) $(LDFLAGS) -o $@ $< -lgavia
 
 src/gavia_add: src/gavia_add.o src/libgavia.a
-	$(CXX) $(LDFLAGS) -o $@ $< -lgavia -lfl
+	$(CXX) $(LDFLAGS) -o $@ $< -lgavia
 
 src/gavia_grep: src/gavia_grep.o src/libgavia.a
 	$(CXX) $(LDFLAGS) -o $@ $< -lgavia

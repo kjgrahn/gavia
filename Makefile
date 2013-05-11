@@ -2,7 +2,7 @@
 #
 # Makefile
 #
-# Copyright (c) 2000-2007 Jörgen Grahn
+# Copyright (c) 2000-2007, 2013 Jörgen Grahn
 # All rights reserved.
 # 
 # Redistribution and use in source and binary forms, with or without
@@ -27,12 +27,11 @@
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
 # THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-SHELL = /bin/sh
+SHELL=/bin/bash
 
 INSTALLBASE = /usr/local
 ELISPDIR=$(INSTALLBASE)/share/emacs/site-lisp
 
-CPPFLAGS = -DUSE_GETOPT_H
 CFLAGS = -W -Wall -pedantic -ansi -g -O2
 CXXFLAGS = -W -Wall -pedantic -std=c++98 -g -O2
 LDFLAGS = -Lsrc

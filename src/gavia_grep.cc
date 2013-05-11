@@ -4,7 +4,7 @@
  *
  * gavia_grep.cc
  *
- * Copyright (c) 1999--2001 Jörgen Grahn
+ * Copyright (c) 1999--2001, 2013 Jörgen Grahn
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -35,20 +35,12 @@
  * the pattern given on the command line.
  *----------------------------------------------------------------------------
  */
-
-static const char* rcsid() { rcsid(); return
-"$Id: gavia_grep.cc,v 1.19 2008-01-03 09:38:19 grahn Exp $";
-}
-
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
 #include <cassert>
 #include <iostream>
-
-#ifdef USE_GETOPT_H
-#include <getopt.h>
-#endif
+#include <unistd.h>
 
 #include <regex.h>
 

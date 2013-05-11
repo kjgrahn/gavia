@@ -4,7 +4,7 @@
  *
  * gavia_cat.cc
  *
- * Copyright (c) 1999--2001 Jörgen Grahn
+ * Copyright (c) 1999--2001, 2013 Jörgen Grahn
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -35,19 +35,11 @@
  * (plain text, HTML, troff, etc).
  *----------------------------------------------------------------------------
  */
-
-static const char* rcsid() { rcsid(); return
-"$Id: gavia_cat.cc,v 1.21 2008-01-03 09:38:19 grahn Exp $";
-}
-
 #include <iostream>
 #include <cstdlib>
 #include <cstring>
 #include <cassert>
-
-#ifdef USE_GETOPT_H
-#include <getopt.h>
-#endif
+#include <unistd.h>
 
 #include "version.hh"
 

@@ -4,7 +4,7 @@
  *
  * gavia_sort.cc
  *
- * Copyright (c) 1999--2001 Jörgen Grahn
+ * Copyright (c) 1999--2001, 2013 Jörgen Grahn
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -34,11 +34,6 @@
  * sorted by (place,date) or (date,place).
  *----------------------------------------------------------------------------
  */
-
-static const char* rcsid() { rcsid(); return
-"$Id: gavia_sort.cc,v 1.17 2008-01-03 09:38:19 grahn Exp $";
-}
-
 #include <iostream>
 #include <cstdio>
 #include <cstdlib>
@@ -46,10 +41,7 @@ static const char* rcsid() { rcsid(); return
 #include <cassert>
 #include <vector>
 #include <algorithm>
-
-#ifdef USE_GETOPT_H
-#include <getopt.h>
-#endif
+#include <unistd.h>
 
 #include "version.hh"
 

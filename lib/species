@@ -1,23 +1,17 @@
-# $Id: species,v 1.16 2007-06-25 09:24:52 grahn Exp $
-# $Name:  $
+# The canonical list of species or taxa accepted by Gavia.
 #
-# The canonical list of species accepted by Gavia.
+# The format is:
+# - empty lines are disregarded
+# - '#' comment lines are disregarded
+# - all other lines are on the forms
+#   	name
+#   	name  (scientific name)
+#   	= name
+#   where the latter is an alias for the preceding name.
 #
-# Empty lines and '#' comment lines are
-# disregarded, everything else is a canonical species number followed by a species name.
-#
-# The list must NOT contain any holes, i.e. if the list contains
-# N species, they MUST be numbered 0 to N-1.
-#
-# Please note that if you want to change this file, it must be
-# done very carefully, since it directly affects the gavia file
-# formats -- see gavia(5).
-#
-# The species should appear in taxonomic order.
-#
-# Number of species: 538 ([0..537])
-# <species perl -ne 'print if /^\d{3}/' | wc -l
-#
+# The species should appear in taxonomic order, and there should be no
+# duplicates.  Apart from that, no grouping is implied (although you could
+# infer that Gavia stellata and G. immer are related).
 
 000 smålom
 001 storlom

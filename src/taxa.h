@@ -1,10 +1,6 @@
-/*----------------------------------------------------------------------------
+/* -*- c++ -*-
  *
- * $Id: species.hh,v 1.9 2007-07-03 14:33:27 grahn Exp $
- *
- * Species.hh
- *
- * Copyright (c) 1999 Jörgen Grahn
+ * Copyright (c) 2013 Jörgen Grahn
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -28,39 +24,41 @@
  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *----------------------------------------------------------------------------
- *
- *----------------------------------------------------------------------------
  */
+#ifndef GAVIA_TAXA_H
+#define GAVIA_TAXA_H
 
-#ifndef SPECIES_HH
-#define SPECIES_HH
+#include "taxon.h"
 
-#include <string>
-#include <iostream>
+#include <vector>
+#include <tr1/unordered_map>
+#include <iosfwd>
+
 
 /**
- * A species, which really just is a species name, as a string ...
+ * A "species list": a list of taxa in roughly taxonomical order with
+ * - a swedish name (in lowercase)
+ * - a scientific name (optional)
+ * - a number of synonyms (optional)
+ * - an implicit order within the list
+ * - an implicit numerical ID
+ *
+ * Such a list is typically initialized from a text file, but there
+ * are provisions for adding to it.
  */
-class Species {
+class Taxa {
 public:
-    explicit Species(const std::string& name) : s(name) {}
-    explicit Species(const char * name) : s(name) {}
-    Species(const char * a, const char * b) : s(a, b) {}
+    Taxa(std::istream& is, std::ostream& err);
 
-    int operator< (const Species& other) const { return s < other.s; }
-    const char * c_str() const { return s.c_str(); }
-    size_t size() const { return s.size(); }
+    TaxonId insert(const std::string& name);
 
-    std::ostream& put(std::ostream& os) const { return os << s; }
+    TaxonId find(const std::string& name) const;
+    const Taxon& operator[] (TaxonId id) const;
+
 private:
-    Species();
-    std::string s;
+    std::vector<Taxon> v;
+    typedef std::tr1::unordered_map<std::string, TaxonId> Map;
+    Map m;
 };
-
-inline std::ostream& operator<< (std::ostream& os, const Species& s)
-{
-    return s.put(os);
-}
 
 #endif

@@ -14,6 +14,12 @@ species one has seen in a year or in a lifetime (as some of the most
 decadent twitchers do) but to keep the raw data on more common species
 as well. 
 
+I do not believe in Artportalen, the Swedish web portal/database for
+sightings of among other things birds, as a replacement for the
+personal diary.  Its user interface and social aspects distort and
+distract; it will not prove as useful for future scientists as
+popularly believed.
+
 
 1. GAVIA
 
@@ -36,16 +42,18 @@ Gavia is released under a BSD-style license; see the LICENSE file.
 
 2. REQUIREMENTS
 
-To compile and install gavia, you'll need a C++ compiler.
+To compile and install gavia, you'll need a C++ compiler, Perl and
+Python.
 
 You may also need to be on a Unix-like system. Personally, I'm on a
 Linux box and have never tried to compile for (for example) Win32.
 There may be a few GNUisms in the C++ code, and I know there are
 several in the Makefile.
 
-For my daily use of gavia, I rely on perl, RCS or CVS, and GNU
-Emacs. You can avoid some of these depending on how you use gavia and
-how much you're willing to customize the (admittedly trivial) scripts.
+For my daily use of gavia, I rely on Perl, a revision control system
+(CVS or Git these days), and GNU Emacs. You can avoid some of these
+depending on how you use gavia and how much you're willing to
+customize the (admittedly trivial) scripts.
 
 
 3. INSTALLATION
@@ -53,7 +61,7 @@ how much you're willing to customize the (admittedly trivial) scripts.
 % make && make install
 
 should be enough to compile and install gavia into /usr/local.
-To install it elsewhere, you have to edit all or most of the Makefiles.
+To install it elsewhere, you have to edit the Makefile.
 
 This creates files in bin/, man/ and lib/gavia/.
 
@@ -62,7 +70,8 @@ for various gavia commands.  You are encouraged to create custom
 versions in your home directory -- see the man pages for details.
 
 There is at least one non-manpage piece of documentation -- "Using
-Gavia in combination with CVS". It is not installed by default.
+Gavia in combination with CVS". It is not installed by default, and
+it's not vital.
 
 
 4. EDITING SUPPORT
@@ -87,10 +96,10 @@ Files with the filename suffix ".gavia", or containing the
 
     -*- gavia -*-
 
-tag on the first line will then be opened in gavia-mode.
+tag on the first line will then be opened using gavia-mode.
 
 It should be fairly easy to implement similar things for other quality
-text editors.
+text editors.  Emacs happens to be the one I use.
 
 
 5. DISCLAIMER
@@ -105,6 +114,3 @@ I'll probably never get around to it.
 
 
 Jörgen Grahn <grahn+src@snipabacken.se>
-
-$Id: README,v 1.14 2008-01-03 09:38:19 grahn Exp $
-$Name:  $

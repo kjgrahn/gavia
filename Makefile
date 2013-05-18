@@ -53,6 +53,7 @@ src/gavia_sort: src/gavia_sort.o src/libgavia.a
 	$(CXX) $(LDFLAGS) -o $@ $< -lgavia
 
 src/libgavia.a: src/contstream.o
+src/libgavia.a: src/files...o
 src/libgavia.a: src/motorola.o src/bitmap.o
 src/libgavia.a: src/version.o
 src/libgavia.a: src/exception.o
@@ -83,7 +84,10 @@ checkv: src/test/test
 
 src/test/libtest.a: src/test/test_cont.o
 src/test/libtest.a: src/test/test_taxon.o
+src/test/libtest.a: src/test/test_files.o
 	$(AR) -r $@ $^
+
+src/test/test_%.o: CPPFLAGS+=-Isrc
 
 src/test/test: src/test/test.o src/test/libtest.a src/libgavia.a
 	$(CXX) $(LDFLAGS) -o $@ src/test/test.o -Lsrc/test/ -ltest -lgavia
@@ -167,6 +171,7 @@ src/contstream.o: src/contstream.hh
 src/dynamicorder.o: src/speciesset.hh src/speciesorder.hh src/dynamicorder.hh
 src/exception.o: src/exception.hh
 src/excursion.o: src/excursion.hh src/speciesset.hh src/exception.hh
+src/files...o: src/files...h
 src/filtersink.o: src/speciesorder.hh src/exception.hh src/gabsink.hh
 src/filtersink.o: src/booksink.hh src/excursion.hh src/speciesset.hh
 src/filtersink.o: src/filtersink.hh
@@ -212,4 +217,5 @@ src/taxonomicorder.o: src/taxonomicorder.hh src/speciesorder.hh
 src/taxonomicorder.o: src/specieslist.hh
 src/version.o: src/version.hh
 src/test/test_cont.o: src/contstream.hh
+src/test/test_files.o: src/files...h
 src/test/test_taxon.o: src/taxa.h src/taxon.h

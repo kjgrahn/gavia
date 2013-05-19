@@ -1,10 +1,4 @@
-/*----------------------------------------------------------------------------
- *
- * $Id: excursion.cc,v 1.14 2011-01-08 23:26:32 grahn Exp $
- *
- * excursion.cc
- *
- * Copyright (c) 1999, 2008, 2011 Jörgen Grahn
+/* Copyright (c) 1999, 2008, 2011, 2013 Jörgen Grahn
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -28,293 +22,163 @@
  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *----------------------------------------------------------------------------
- *
- *----------------------------------------------------------------------------
  */
-
-static const char* rcsid() { rcsid(); return
-"$Id: excursion.cc,v 1.14 2011-01-08 23:26:32 grahn Exp $";
-}
-
-#include <cassert>
-#include <sstream>
-#include <cstdio>
-
 #include "excursion.hh"
 #include "exception.hh"
 
-using std::string;
-#ifndef USE_HASHMAP
-using std::map;
-#endif
+#include "lineparse.h"
+#include "files...h"
 
-/*----------------------------------------------------------------------------
- *
- * constructor
- *
- *
- *----------------------------------------------------------------------------
- */
-Excursion::Excursion()
-{
-    ;
+#include <algorithm>
+
+namespace {
+
+    struct Errlog {
+	Errlog(std::ostream& errstream,
+	       const Files& files)
+	    : errstream(errstream),
+	      files(files)
+	{}
+
+	void general(const std::string& s);
+	void header(const std::string& s);
+	void sighting(const std::string& s);
+	void trailer();
+
+	void warn_header(const char* s, size_t len);
+	void warn_sighting(const char* s, size_t len);
+
+	std::ostream& errstream;
+	const Files& files;
+    };
 }
 
 
-/*----------------------------------------------------------------------------
- *
- * copy constructor
- *
- *
- *----------------------------------------------------------------------------
+/**
+ * Read one excursion from 'is', using and possibly augmenting 'spp'
+ * meanwhile.  Logs errors (warnings, really) to 'err'.
+ * Returns false at eof with no complete excursion read.
  */
-Excursion::Excursion(const Excursion& obj)
+bool get(Files& is, std::ostream& errstream,
+	 Taxa& spp, Excursion& ex)
 {
-    date = obj.date;
-    place = obj.place;
-    time = obj.time;
-    observers = obj.observers;
-    weather = obj.weather;
-    comments = obj.comments;
-    sset = obj.sset;
-    smap = obj.smap;
+    using Parse::ws;
+    using Parse::trimr;
 
-}
+    Errlog err(errstream, is);
 
+    enum State { BETWEEN, HEADERS, SIGHTINGS };
+    State state = BETWEEN;
+    std::string s;
 
-/*----------------------------------------------------------------------------
- *
- * destructor
- *
- *
- *----------------------------------------------------------------------------
- */
-Excursion::~Excursion()
-{
-    ;
-}
+    while(is.getline(s)) {
 
+	const char* a = s.c_str();
+	const char* const b = trimr(a, a + s.size());
 
-/*----------------------------------------------------------------------------
- *
- * operator=()
- *
- *
- *----------------------------------------------------------------------------
- */
-const Excursion& Excursion::operator=(const Excursion& obj)
-{
-    date = obj.date;
-    place = obj.place;
-    time = obj.time;
-    observers = obj.observers;
-    weather = obj.weather;
-    comments = obj.comments;
-    sset = obj.sset;
-    smap = obj.smap;
+	const char* c = ws(a, b);
+	if(c==b || *c=='#') continue;
 
-    return *this;
-}
+	if(state==BETWEEN) {
 
+	    if(*a=='{' && a+1==b) {
+		state = HEADERS;
+	    }
+	    else {
+		err.general(s);
+		continue;
+	    }
+	}
+	else if(state==HEADERS && c==a) {
 
-void Excursion::setdate(long dat)
-{
-    /* Dates are normalized to yyyymmdd before they arrive here.
-     * Do a sanity check first.
-     */
-    const int month = (dat/100) % 100;
-    const int mday = dat % 100;
+	    if(a+2==b && a[0]=='}' && a[1]=='{') {
+		state = SIGHTINGS;
+		continue;
+	    }
 
-    bool bad = false;
+	    c = std::find(a, b, ':');
+	    if(c==b) {
+		err.header(s);
+		continue;
+	    }
 
-    switch(month) {
-    case 11:
-    case 4:
-    case 6:
-    case 9:
-	bad = mday<1 || mday>30;
-	break;
-    case 2:
-	bad = mday<1 || mday>29;
-	break;
-    case 1:
-    case 3:
-    case 5:
-    case 7:
-    case 8:
-    case 10:
-    case 12:
-	bad = mday<1 || mday>31;
-	break;
-    default:
-	bad = true;
-	break;
+	    const char* d = trimr(a, c);
+	    c = ws(c+1, b);
+
+	    /* [a, d) : [c, b) */
+	    if(!ex.add_header(a, d-a, c, b-c)) {
+		err.warn_header(a, d-a);
+	    }
+	}
+	else if(state==HEADERS) {
+
+	    /* continuation ___ [c, b) */
+	    if(!ex.add_header_cont(c, b-c)) {
+		err.header(s);
+	    }
+	}
+	else if(state==SIGHTINGS && c==a) {
+
+	    if(a+1==b && *a=='}') {
+		return true;
+	    }
+
+	    /* species : marker : n : comment
+	     * a       c        d   e        b
+	     */
+	    c = std::find(a, b, ':');
+	    if(c==b) {
+		err.sighting(s);
+		continue;
+	    }
+	    const char* d = std::find(c+1, b, ':');
+	    if(d==b) {
+		err.sighting(s);
+		continue;
+	    }
+	    const char* e = std::find(d+1, b, ':');
+	    if(e==b) {
+		err.sighting(s);
+		continue;
+	    }
+
+	    /* species : marker : n : comment
+	     * a      .  c     .  d.  e      b
+	     */
+	    const char* ae = trimr(a, c);
+	    c = ws(c+1, b);
+	    const char* ce = trimr(c, d);
+	    d = ws(d+1, b);
+	    const char* de = trimr(d, e);
+	    e = ws(e+1, b);
+	    if(a==ae) {
+		err.sighting(s);
+		continue;
+	    }
+	    if(c==ce && d==de && e==b) {
+		/* unfilled */
+		continue;
+	    }
+
+	    /* [a, ae) : marker : [d, de) : [e, b) */
+	    if(!ex.add_sighting(spp,
+				a, ae-a,
+				d, de-d,
+				e, b-e)) {
+		err.warn_sighting(a, ae-a);
+	    }
+	}
+	else if(state==SIGHTINGS) {
+
+	    /* continuation ___ [c, b) */
+	    if(!ex.add_sighting_cont(c, b-c)) {
+		err.sighting(s);
+	    }
+	}
     }
 
-    if(bad) {
-	std::ostringstream os;
-	os << "malformed date '" << dat << "'";
-	
-	throw GaviaException(os.str());
+    if(state!=BETWEEN) {
+	err.trailer();
     }
-
-    date = dat;
-}
-
-
-std::string Excursion::isodate() const
-{
-    char buf[20];
-    const unsigned long d = static_cast<unsigned long>(date);
-    std::sprintf(buf, "%04lu-%02lu-%02lu",
-		 d / 10000,
-		 (d % 10000) / 100,
-		 d % 100);
-    return buf;
-}
-
-
-/*----------------------------------------------------------------------------
- *
- * has()
- *
- *
- *----------------------------------------------------------------------------
- */
-bool Excursion::has(const Species& species) const
-{
-    return sset.count(species)>0;
-}
-
-
-/*----------------------------------------------------------------------------
- *
- * speciesset()
- *
- *
- *----------------------------------------------------------------------------
- */
-const SpeciesSet& Excursion::speciesset() const
-{
-    return sset;
-}
-
-
-/*----------------------------------------------------------------------------
- *
- * nofspecies()
- *
- *
- *----------------------------------------------------------------------------
- */
-int Excursion::nofspecies() const
-{
-    return sset.size();
-}
-
-
-/*----------------------------------------------------------------------------
- *
- * species()
- *
- *
- *----------------------------------------------------------------------------
- */
-bool Excursion::species(const Species& species) const
-{
-    return sset.count(species)>0;
-}
-
-
-/*----------------------------------------------------------------------------
- *
- * speciesnumber()
- *
- *
- *----------------------------------------------------------------------------
- */
-int Excursion::speciescount(const Species& species) const
-{
-    assert(smap.count(species)>0);
-
-    return smap.find(species)->second.count;
-}
-
-
-/*----------------------------------------------------------------------------
- *
- * speciescomment()
- *
- *
- *----------------------------------------------------------------------------
- */
-string Excursion::speciescomment(const Species& species) const
-{
-    assert(smap.count(species)>0);
-
-    return smap.find(species)->second.comment;
-}
-
-
-/*----------------------------------------------------------------------------
- *
- * speciescomment()
- *
- *
- *----------------------------------------------------------------------------
- */
-void Excursion::speciescomment(const Species& species, const string& comment)
-{
-    assert(smap.count(species)>0);
-
-    smap[species].comment = comment;
-}
-
-
-/*----------------------------------------------------------------------------
- *
- * speciesdata()
- *
- *
- *----------------------------------------------------------------------------
- */
-const Excursion::SpeciesData& Excursion::speciesdata(const Species& species) const
-{
-    assert(smap.count(species)>0);
-
-    return smap.find(species)->second;
-}
-
-
-/*----------------------------------------------------------------------------
- *
- * insert()
- *
- *
- *----------------------------------------------------------------------------
- */
-void Excursion::insert(const Species& species, int count, const string& comment)
-{
-    SpeciesData sd;
-
-    sd.count = count;
-    sd.comment = comment;
-    smap[species] = sd;
-
-    sset.insert(species);
-}
-
-
-/*----------------------------------------------------------------------------
- *
- * delete()
- *
- *
- *----------------------------------------------------------------------------
- */
-void Excursion::remove(const Species& species)
-{
-    sset.erase(species);
-    smap.erase(species);
+    return false;
 }

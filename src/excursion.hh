@@ -1,10 +1,6 @@
 /*----------------------------------------------------------------------------
  *
- * $Id: excursion.hh,v 1.12 2008-01-03 09:38:19 grahn Exp $
- *
- * excursion.hh
- *
- * Copyright (c) 1999, 2000, 2008 Jörgen Grahn
+ * Copyright (c) 1999, 2000, 2008, 2013 Jörgen Grahn
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -28,127 +24,71 @@
  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *----------------------------------------------------------------------------
- *
- * A couple of general comment fields
- * (place, date, time, weather, observers, comments)
- * and a set of Species, each with a number/count and a comment.
- *----------------------------------------------------------------------------
  */
-
 #ifndef EXCURSION_HH
 #define EXCURSION_HH
 
-#include "species.hh"
-#include "speciesset.hh"
+#include "taxon.h"
 
 #include <string>
 
-#ifdef USE_HASHMAP
-#include <hash_map>
 
-class SpeciesHash
-{
-    hash<const char *> cstrh;
-public:
-    size_t operator() (const Species & s) const {return cstrh(s.c_str());}
-};
+class Taxa;
+class Files;
 
-#else
-#include <map>
-#endif
-
-
-
+/**
+ * An excursion, as it appears in a gavia(5) file but as an internal
+ * representation.  Still, does not destroy information found in
+ * a well-formed excursion, e.g. the ordering of species and unknown
+ * header fields.
+ *
+ * Does not destroy /much/ anyway. What's not preserved is:
+ * - unseen (unmarked and no numbers or comment given) species
+ * - the marker used for the seen ones
+ * - spacing and alignment (but line breaks/continuations are preserved)
+ * - # comments
+ */
 class Excursion
 {
 public:
-    Excursion();			// constructor
-    Excursion(const Excursion&);		// copy constructor
-
-    virtual ~Excursion();		// destructor
-
-    const Excursion& operator=(const Excursion&);
-
-    // 'set' methods
-    void setdate(long);
-    void setplace(const std::string&);
-    void settime(const std::string&);
-    void setobservers(const std::string&);
-    void setweather(const std::string&);
-    void setcomments(const std::string&);
-
-    // 'get' methods
-    long getdate() const;
-    std::string isodate() const;
-    const std::string& getplace() const;
-    const std::string& gettime() const;
-    const std::string& getobservers() const;
-    const std::string& getweather() const;
-    const std::string& getcomments() const;
-
-    bool has(const Species&) const;
-
-    const SpeciesSet& speciesset() const;
-
-    typedef struct
-    {
-	int count;
+    struct Header {
+	Header(const std::string& name, const std::string& value)
+	    : name(name), value(value) {}
+	std::string name;
+	std::string value;
+    };
+    struct Sighting {
+	Sighting(Taxa& spp,
+		 const std::string& name,
+		 const std::string& number,
+		 const std::string& comment);
+	TaxonId sp;
+	std::string name;
+	std::string number;
 	std::string comment;
-    } SpeciesData;
+    };
 
-    int nofspecies() const;
-    bool species(const Species&) const;
-    int speciescount(const Species&) const;
-    std::string speciescomment(const Species&) const;
+    void swap(Excursion& other);
 
-    void speciescomment(const Species&, const std::string&);
+    bool add_header(const char* a, size_t alen,
+		    const char* b, size_t blen);
+    bool add_header_cont(const char* a, size_t alen);
 
-    const SpeciesData& speciesdata(const Species&) const;
+    bool add_sighting(Taxa& spp,
+		      const char* a, size_t alen,
+		      const char* b, size_t blen,
+		      const char* c, size_t clen);
+    bool add_sighting_cont(const char* a, size_t alen);
 
-    void insert(const Species&, int, const std::string& = "");
-    void remove(const Species&);
-
-protected:
 private:
-    long date;
-    std::string place;
-    std::string time;
-    std::string observers;
-    std::string weather;
-    std::string comments;
-
-    SpeciesSet sset;
-#ifdef USE_HASHMAP
-    hash_map<Species, SpeciesData, SpeciesHash> smap;
-#else
-    std::map<Species, SpeciesData> smap;
-#endif
+    typedef std::vector<Header> Headers;
+    typedef std::vector<Sighting> Sightings;
+    Headers headers;
+    Sightings sightings;
 };
 
 
-inline
-void Excursion::setplace(const std::string& plac) { place = plac;}
-inline
-void Excursion::settime(const std::string& tim) { time = tim;}
-inline
-void Excursion::setobservers(const std::string& observer) { observers = observer;}
-inline
-void Excursion::setweather(const std::string& weathe) { weather = weathe;}
-inline
-void Excursion::setcomments(const std::string& comment) { comments = comment;}
-
-inline
-long Excursion::getdate() const { return date;}
-inline
-const std::string& Excursion::getplace() const { return place;}
-inline
-const std::string& Excursion::gettime() const { return time;}
-inline
-const std::string& Excursion::getobservers() const { return observers;}
-inline
-const std::string& Excursion::getweather() const { return weather;}
-inline
-const std::string& Excursion::getcomments() const { return comments;}
+bool get(Files& is, std::ostream& errstream,
+	 Taxa& spp, Excursion& ex);
 
 #endif

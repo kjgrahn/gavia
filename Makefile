@@ -59,6 +59,7 @@ src/libgavia.a: src/version.o
 src/libgavia.a: src/exception.o
 src/libgavia.a: src/taxon.o
 src/libgavia.a: src/taxa.o
+src/libgavia.a: src/excursion.o
 	$(AR) -r $@ $^
 
 # targets that need special help
@@ -80,7 +81,7 @@ perl/_gavia_focus: perl/gavia_focus
 check: src/test/test
 	./src/test/test
 checkv: src/test/test
-	valgrind -q ./src/test/test
+	valgrind -q ./src/test/test -v
 
 src/test/libtest.a: src/test/test_cont.o
 src/test/libtest.a: src/test/test_taxon.o
@@ -170,48 +171,50 @@ src/canonorder.o: src/canonorder.hh src/speciesorder.hh src/specieslist.hh
 src/contstream.o: src/contstream.hh
 src/dynamicorder.o: src/speciesset.hh src/speciesorder.hh src/dynamicorder.hh
 src/exception.o: src/exception.hh
-src/excursion.o: src/excursion.hh src/speciesset.hh src/exception.hh
+src/excursion.o: src/excursion.hh src/taxon.h src/exception.hh
+src/excursion.o: src/lineparse.h src/files...h
 src/files...o: src/files...h
 src/filtersink.o: src/speciesorder.hh src/exception.hh src/gabsink.hh
-src/filtersink.o: src/booksink.hh src/excursion.hh src/speciesset.hh
+src/filtersink.o: src/booksink.hh src/excursion.hh src/taxon.h
 src/filtersink.o: src/filtersink.hh
 src/gabsink.o: src/dynamicorder.hh src/speciesorder.hh src/speciesset.hh
 src/gabsink.o: src/exception.hh src/gabsink.hh src/booksink.hh
-src/gabsink.o: src/excursion.hh
+src/gabsink.o: src/excursion.hh src/taxon.h
 src/gabsource.o: src/speciesorder.hh src/canonorder.hh src/speciesredro.hh
 src/gabsource.o: src/exception.hh src/regex.hh src/gabsource.hh
-src/gabsource.o: src/booksource.hh src/excursion.hh src/speciesset.hh
+src/gabsource.o: src/booksource.hh src/excursion.hh src/taxon.h
 src/gabsource.o: src/contstream.hh
 src/gavia_add.o: src/version.hh src/streamsource.hh src/booksource.hh
-src/gavia_add.o: src/excursion.hh src/speciesset.hh src/gabsource.hh
+src/gavia_add.o: src/excursion.hh src/taxon.h src/gabsource.hh
 src/gavia_add.o: src/contstream.hh src/streamsink.hh src/booksink.hh
 src/gavia_add.o: src/canonorder.hh src/speciesorder.hh src/exception.hh
-src/gavia_cat.o: src/version.hh src/booksink.hh src/excursion.hh
-src/gavia_cat.o: src/speciesset.hh src/gabsink.hh src/filtersink.hh
-src/gavia_cat.o: src/streamsink.hh src/mboxsink.hh src/speciesorder.hh
-src/gavia_cat.o: src/canonorder.hh src/sortedorder.hh src/taxonomicorder.hh
-src/gavia_cat.o: src/streamsource.hh src/booksource.hh src/exception.hh
+src/gavia_cat.o: src/version.hh src/booksink.hh src/excursion.hh src/taxon.h
+src/gavia_cat.o: src/gabsink.hh src/filtersink.hh src/streamsink.hh
+src/gavia_cat.o: src/mboxsink.hh src/speciesorder.hh src/canonorder.hh
+src/gavia_cat.o: src/sortedorder.hh src/taxonomicorder.hh src/streamsource.hh
+src/gavia_cat.o: src/booksource.hh src/exception.hh
 src/gavia_grep.o: src/version.hh src/streamsource.hh src/booksource.hh
-src/gavia_grep.o: src/excursion.hh src/speciesset.hh src/streamsink.hh
+src/gavia_grep.o: src/excursion.hh src/taxon.h src/streamsink.hh
 src/gavia_grep.o: src/booksink.hh src/exception.hh src/canonorder.hh
-src/gavia_grep.o: src/speciesorder.hh src/dynamicorder.hh
-src/gavia_sort.o: src/version.hh src/excursion.hh src/speciesset.hh
+src/gavia_grep.o: src/speciesorder.hh src/dynamicorder.hh src/speciesset.hh
+src/gavia_sort.o: src/version.hh src/excursion.hh src/taxon.h
 src/gavia_sort.o: src/streamsource.hh src/booksource.hh src/streamsink.hh
 src/gavia_sort.o: src/booksink.hh src/exception.hh src/canonorder.hh
 src/gavia_sort.o: src/speciesorder.hh
 src/mboxsink.o: src/dynamicorder.hh src/speciesorder.hh src/speciesset.hh
 src/mboxsink.o: src/exception.hh src/mboxsink.hh src/booksink.hh
-src/mboxsink.o: src/excursion.hh
+src/mboxsink.o: src/excursion.hh src/taxon.h
 src/sortedorder.o: src/speciesorder.hh src/sortedorder.hh
 src/specieslist.o: src/specieslist.hh src/exception.hh
 src/speciesredro.o: src/speciesredro.hh src/speciesorder.hh
 src/streamsink.o: src/streamsink.hh src/booksink.hh src/excursion.hh
-src/streamsink.o: src/speciesset.hh src/canonorder.hh src/speciesorder.hh
-src/streamsink.o: src/exception.hh src/bitmap.h src/motorola.h
+src/streamsink.o: src/taxon.h src/canonorder.hh src/speciesorder.hh
+src/streamsink.o: src/speciesset.hh src/exception.hh src/bitmap.h
+src/streamsink.o: src/motorola.h
 src/streamsource.o: src/motorola.h src/bitmap.h src/speciesorder.hh
 src/streamsource.o: src/canonorder.hh src/exception.hh src/streamsource.hh
-src/streamsource.o: src/booksource.hh src/excursion.hh src/speciesset.hh
-src/taxa.o: src/taxa.h src/taxon.h
+src/streamsource.o: src/booksource.hh src/excursion.hh src/taxon.h
+src/taxa.o: src/taxa.h src/taxon.h src/lineparse.h
 src/taxon.o: src/taxon.h
 src/taxonomicorder.o: src/taxonomicorder.hh src/speciesorder.hh
 src/taxonomicorder.o: src/specieslist.hh

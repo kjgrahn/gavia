@@ -1,9 +1,4 @@
-/*----------------------------------------------------------------------------
- *
- * $Id: gavia_cat.cc,v 1.21 2008-01-03 09:38:19 grahn Exp $
- *
- * gavia_cat.cc
- *
+/*
  * Copyright (c) 1999--2001, 2013 Jörgen Grahn
  * All rights reserved.
  * 
@@ -28,175 +23,79 @@
  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *----------------------------------------------------------------------------
- *
- * Concatenate one or more Gavia books and dump them to
- * stdout as a Gavia book or some other specified format
- * (plain text, HTML, troff, etc).
- *----------------------------------------------------------------------------
  */
+#include <string>
 #include <iostream>
-#include <cstdlib>
-#include <cstring>
-#include <cassert>
-#include <unistd.h>
+#include <getopt.h>
 
-#include "version.hh"
-
-#include "booksink.hh"
-#include "gabsink.hh"
-#include "filtersink.hh"
-#include "streamsink.hh"
-#include "mboxsink.hh"
-
-#include "speciesorder.hh"
-#include "canonorder.hh"
-#include "sortedorder.hh"
-#include "taxonomicorder.hh"
-
-#include "streamsource.hh"
+#include "files...h"
+#include "taxa.h"
 #include "excursion.hh"
-#include "exception.hh"
 
 
-/*----------------------------------------------------------------------------
- *
- * main()
- *
- *
- *----------------------------------------------------------------------------
- */
 int main(int argc, char ** argv)
 {
-    const char optstring[] = "+bgthmrcxsv";
-    int ch = EOF;
-    int fmtch = 'b';
-    int ordch = 'c';
+    using std::string;
 
-    Version version("$Name:  $");
+    const string prog = argv[0];
+    const string usage = string("usage: ")
+	+ prog + " [-gthmr] [-cx] file ...\n"
+	"       "
+	+ prog + " --check file ...\n"
+	"       "
+	+ prog + " --version";
+    const char optstring[] = "+gthmrcx";
+    struct option long_options[] = {
+	{"check", 0, 0, 'C'},
+	{"version", 0, 0, 'V'},
+	{"help", 0, 0, 'H'},
+	{0, 0, 0, 0}
+    };
 
+    std::cin.sync_with_stdio(false);
+    std::cout.sync_with_stdio(false);
 
-    while((ch = getopt(argc, argv, optstring))!=EOF)
-    {
-	switch(ch)
-	{
-	case 'b':		// Lanius book
-	case 'g':		// 'Gab'-formatted text
-	case 't':		// plain text
-	case 'h':		// HTML
-	case 'm':		// mbox
-	case 'r':		// {,t,n,g}roff
-	    fmtch = ch;
+    int ch;
+    while((ch = getopt_long(argc, argv,
+			    optstring,
+			    &long_options[0], 0)) != -1) {
+	switch(ch) {
+	case 'g':
+	case 't':
+	case 'h':
+	case 'm':
+	case 'r':
+	case 'c':
+	case 'x':
 	    break;
-	case 'c':		// 'canonical' order
-	case 'x':		// taxonomical order
-	case 's':		// sorted by name
-	    ordch = ch;
+	case 'C':
 	    break;
-	case 'v':
-	case '?':
-	    std::cerr << 
-		"gavia_cat, part of " << version.name() << std::endl <<
-		"Copyright (c) 1999-2008 Jörgen Grahn "
-		"<grahn+src@snipabacken.se>" << std::endl;
+	case 'V':
+	    std::string version();
+	    std::cout << prog << ", part of geese " << "version()" << "\n"
+		      << "Copyright (c) 2004 - 2013 Jörgen Grahn\n";
 	    return 0;
 	    break;
-	default:
+	case 'H':
+	    std::cout << usage << '\n';
+	    return 0;
 	    break;
-	}
-    }
-
-    CanonOrder canon;
-    SpeciesOrder * order = 0;
-    BookSink * sink = 0;
-
-    switch(fmtch)
-    {
-    case 'b':
-	sink = new StreamSink(stdout);
-	break;
-    case 'g':
-    case 't':
-    case 'h':
-    case 'm':
-    case 'r':
-	switch(ordch)
-	{
-	case 'c':
-	    order = new CanonOrder();
-	    break;
-	case 'x':
-	    order = new TaxonomicOrder();
-	    break;
-	case 's':
-	    order = new SortedOrder(&canon);
+	case ':':
+	case '?':
+	    std::cerr << usage << '\n';
+	    return 1;
 	    break;
 	default:
-	    assert(!"impossible");
 	    break;
 	}
-	switch(fmtch)
-	{
-	case 'g':
-	    sink = new GabSink(order, stdout);
-	    break;
-	case 't':
-	    sink = new FilterSink(order, "gavia_gab2text");
-	    break;
-	case 'h':
-	    sink = new FilterSink(order, "gavia_gab2html");
-	    break;
-	case 'm':
-	    sink = new MboxSink(order, stdout);
-	    break;
-	case 'r':
-	    sink = new FilterSink(order, "gavia_gab2roff");
-	    break;
-	default:
-	    assert(!"extremely impossible");
-	    break;
-	}
-	break;
-    default:
-	assert(!"impossible");
-	break;
     }
 
-    try
-    {
-	for(int i=optind; i<argc; i++)
-	{
-	    StreamSource src(argv[i]);
+    Files files(argv+optind, argv+argc);
+    std::ifstream species("lib/species");
+    Taxa taxa(species, std::cerr);
 
-	    while(!src.eof())
-	    {
-		sink->put(src.excursion());
-		src.next();
-	    }
-	}
+    Excursion ex;
+    while(get(files, std::cerr, taxa, ex)) {}
 
-	if(optind==argc)
-	{
-	    // no filenames given ->
-	    // the previous for loop wasn't executed ->
-	    // read from stdin instead
-
-	    StreamSource src(stdin);
-
-	    while(!src.eof())
-	    {
-		sink->put(src.excursion());
-		src.next();
-	    }
-	}
-    }
-    catch(const GaviaException& exception)
-    {
-	std::cerr << "gavia_cat: " << exception.msg << std::endl;
-	return 1;
-    }
-
-    delete order;
-    delete sink;
     return 0;
 }

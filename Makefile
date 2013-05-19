@@ -171,8 +171,8 @@ src/canonorder.o: src/canonorder.hh src/speciesorder.hh src/specieslist.hh
 src/contstream.o: src/contstream.hh
 src/dynamicorder.o: src/speciesset.hh src/speciesorder.hh src/dynamicorder.hh
 src/exception.o: src/exception.hh
-src/excursion.o: src/excursion.hh src/taxon.h src/exception.hh
-src/excursion.o: src/lineparse.h src/files...h
+src/excursion.o: src/excursion.hh src/taxon.h src/taxa.h src/lineparse.h
+src/excursion.o: src/files...h
 src/files...o: src/files...h
 src/filtersink.o: src/speciesorder.hh src/exception.hh src/gabsink.hh
 src/filtersink.o: src/booksink.hh src/excursion.hh src/taxon.h
@@ -188,11 +188,7 @@ src/gavia_add.o: src/version.hh src/streamsource.hh src/booksource.hh
 src/gavia_add.o: src/excursion.hh src/taxon.h src/gabsource.hh
 src/gavia_add.o: src/contstream.hh src/streamsink.hh src/booksink.hh
 src/gavia_add.o: src/canonorder.hh src/speciesorder.hh src/exception.hh
-src/gavia_cat.o: src/version.hh src/booksink.hh src/excursion.hh src/taxon.h
-src/gavia_cat.o: src/gabsink.hh src/filtersink.hh src/streamsink.hh
-src/gavia_cat.o: src/mboxsink.hh src/speciesorder.hh src/canonorder.hh
-src/gavia_cat.o: src/sortedorder.hh src/taxonomicorder.hh src/streamsource.hh
-src/gavia_cat.o: src/booksource.hh src/exception.hh
+src/gavia_cat.o: src/files...h src/taxa.h src/taxon.h src/excursion.hh
 src/gavia_grep.o: src/version.hh src/streamsource.hh src/booksource.hh
 src/gavia_grep.o: src/excursion.hh src/taxon.h src/streamsink.hh
 src/gavia_grep.o: src/booksink.hh src/exception.hh src/canonorder.hh

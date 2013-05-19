@@ -1,16 +1,19 @@
-.\" $Id: gavia_cat.1,v 1.17 2008-01-03 09:38:19 grahn Exp $
-.\" 
-.\"
-.TH gavia_cat 1 "AUG 2002" Gavia "User Manuals"
+.TH gavia_cat 1 "MAY 2013" Gavia "User Manuals"
 .SH "NAME"
-gavia_cat \- concatenate and translate Gavia books
+gavia_cat \- concatenate and translate Gavia files
 .SH "SYNOPSIS"
-.B gavia_cat [\-bgthlmrv] [\-cxs]
-.I bookfile
+.B gavia_cat [\-gthmr] [\-cx]
+.I file
 .B ...
+.br
+.B gavia_cat --check
+.I file
+.B ...
+.br
+.B gavia_cat --version
 .SH "DESCRIPTION"
 .B gavia_cat
-concatenates one or more Gavia book files
+concatenates one or more Gavia (''Gab'') files
 given on the command line.
 A dash '\-' denotes standard input.
 Standard input is also used if no
@@ -24,12 +27,10 @@ as HTML,
 troff source code,
 or a Unix mailbox file.
 .SH "OPTIONS"
-.IP \-b
-(default) Output as a Gavia Book.
 .IP \-g
-Output as ''gab'' text, which gavia_add(1) can read.
+(default) Output as ''gab'' text, which gavia_add(1) can read.
 .IP \-t
-Output as plain text.
+Output as pretty-printed plain text.
 .IP \-h
 Output as HTML,
 with each excursion as a HTML table.
@@ -50,26 +51,20 @@ want to create a PostScript version using
 .br
 .ft CW
 groff -mm -t -Tps file > file.ps
+.
+.IP --check
+Don't output anything; just check the input for errors.
 .IP \-c
-(default) Output the species according
-to the "canonical" order.
-To be honest, this ordering is fairly meaningless
-and just an artifact of how Gavia works internally.
-This option\(emand the ones below\(emis not meaningful
-if the \-b option is active.
+(default) Output the species in the order they appear in the input.
 .IP \-x
-Output the species according to
-a generally accepted taxonomic ordering.
-.IP \-s
-Output the species sorted by name.
-.IP \-v
+Output the species according to the taxonomic ordering specified by
+.IR lib/gavia/species .
+.IP --version
 Print version information and exit.
 .SH "FILES"
 .TP
 .I lib/gavia/species
 The list of supported species and their taxonomic ordering.
-.SH "ENVIRONMENT"
-The current locale settings might influence certain aspects.
 .SH "BUGS"
 Error handling and error reporting is rudimentary, at the most.
 Bad file contents give unrecoverable errors.
@@ -79,8 +74,10 @@ Mbox output isn't MIME-encoded; some mail user agents
 may be confused when encountering 8-bit characters in
 mail headers and bodies.
 .SH "AUTHOR"
-J\(:orgen Grahn <grahn+src@snipabacken.se>
+J\(:orgen Grahn
+.IR \[fo]grahn+src@snipabacken.se\[fc] .
 .SH "SEE ALSO"
+.BR gavia (5),
 .BR gavia_add (1),
 .BR gavia_grep (1),
 .BR gavia_sort (1),

@@ -35,6 +35,7 @@ namespace Parse {
     /**
      * Trim whitespace to the left in [a, b).
      */
+    inline
     const char* ws(const char* a, const char* b)
     {
 	while(a!=b && std::isspace(*a)) a++;
@@ -44,6 +45,7 @@ namespace Parse {
     /**
      * Trim non-whitespace to the left in [a, b).
      */
+    inline
     const char* non_ws(const char* a, const char* b)
     {
 	while(a!=b && !std::isspace(*a)) a++;
@@ -54,6 +56,7 @@ namespace Parse {
      * Trim whitespace to the right in [a, b), so that
      * it's either empty or ends with non-whitespace.
      */
+    inline
     const char* trimr(const char* a, const char* b)
     {
 	while(a!=b && std::isspace(*(b-1))) b--;
@@ -66,6 +69,7 @@ namespace Parse {
      * earlier left-right bracket pairs.  I.e. the one after "baz" is
      * found in "foo (bar) baz) bat)".
      */
+    inline
     const char* find(const char* a, const char* const b,
 		     const char left, const char right)
     {

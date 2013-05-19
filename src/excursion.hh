@@ -45,7 +45,8 @@ class Files;
  * Does not destroy /much/ anyway. What's not preserved is:
  * - unseen (unmarked and no numbers or comment given) species
  * - the marker used for the seen ones
- * - spacing and alignment (but line breaks/continuations are preserved)
+ * - spacing and alignment (but line breaks/continuations are preserved,
+ *   as just an '\n')
  * - # comments
  */
 class Excursion
@@ -58,10 +59,15 @@ public:
 	std::string value;
     };
     struct Sighting {
-	Sighting(Taxa& spp,
+	Sighting(TaxonId sp,
 		 const std::string& name,
 		 const std::string& number,
-		 const std::string& comment);
+		 const std::string& comment)
+	    : sp(sp),
+	      name(name),
+	      number(number),
+	      comment(comment)
+	{}
 	TaxonId sp;
 	std::string name;
 	std::string number;

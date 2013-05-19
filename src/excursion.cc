@@ -24,12 +24,100 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 #include "excursion.hh"
-#include "exception.hh"
+#include "taxa.h"
 
 #include "lineparse.h"
 #include "files...h"
 
 #include <algorithm>
+#include <tr1/unordered_set>
+
+
+namespace {
+
+    bool known_header(const std::string& name)
+    {
+	const std::string known[] = {
+	    "place",
+	    "date",
+	    "time",
+	    "observers",
+	    "weather",
+	    "comments",
+	};
+	const std::string* const end = known + sizeof known/sizeof known[0];
+	return std::find(known, end, name) != end;
+    }
+}
+
+
+void Excursion::swap(Excursion& other)
+{
+    headers.swap(other.headers);
+    sightings.swap(other.sightings);
+}
+
+
+/**
+ * Add a header. Returns false if the header name isn't familiar
+ * (but adds it anyway).
+ */
+bool Excursion::add_header(const char* a, size_t alen,
+			   const char* b, size_t blen)
+{
+    const Header h(std::string(a, alen),
+		   std::string(b, blen));
+    headers.push_back(h);
+    return known_header(h.name);
+}
+
+
+/**
+ * Add a line text to the last header value. Returns false and does
+ * nothing if there is no such header.
+ */
+bool Excursion::add_header_cont(const char* a, size_t alen)
+{
+    if(headers.empty()) return false;
+    Header& h = headers.back();
+    h.value.append("\n");
+    h.value.append(a, alen);
+    return true;
+}
+
+
+/**
+ * Add a sighting. Returns false if the taxon isn't familiar
+ * (but adds it anyway, and invents a taxon on the fly).
+ */
+bool Excursion::add_sighting(Taxa& spp,
+			     const char* a, size_t alen,
+			     const char* b, size_t blen,
+			     const char* c, size_t clen)
+{
+    const std::string name(a, alen);
+    TaxonId id = spp.find(name);
+    const bool familiar = id;
+    if(!familiar) {
+	id = spp.insert(name);
+    }
+
+    sightings.push_back(Sighting(id, name,
+				 std::string(b, blen),
+				 std::string(c, clen)));
+    return familiar;
+}
+
+
+bool Excursion::add_sighting_cont(const char* a, size_t alen)
+{
+    if(sightings.empty()) return false;
+    Sighting& s = sightings.back();
+    s.comment.append("\n");
+    s.comment.append(a, alen);
+    return true;
+}
+
 
 namespace {
 
@@ -41,8 +129,8 @@ namespace {
 	{}
 
 	void general(const std::string& s);
-	void header(const std::string& s);
-	void sighting(const std::string& s);
+	void header(const std::string& s) { general(s); }
+	void sighting(const std::string& s) { general(s); }
 	void trailer();
 
 	void warn_header(const char* s, size_t len);
@@ -51,6 +139,28 @@ namespace {
 	std::ostream& errstream;
 	const Files& files;
     };
+
+    void Errlog::general(const std::string& s)
+    {
+	errstream << files.position() << ": parse error: " << s << '\n';
+    }
+
+    void Errlog::trailer()
+    {
+	errstream << files.position() << ": trailing partial excursion ignored\n";
+    }
+
+    void Errlog::warn_header(const char* s, size_t len)
+    {
+	errstream << files.position() << ": unfamiliar header field \"";
+	errstream.write(s, len) << "\"\n";
+    }
+
+    void Errlog::warn_sighting(const char* s, size_t len)
+    {
+	errstream << files.position() << ": unfamiliar taxon \"";
+	errstream.write(s, len) << "\"\n";
+    }
 }
 
 

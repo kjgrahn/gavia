@@ -4,55 +4,16 @@
  *
  */
 #include "taxa.h"
+#include "lineparse.h"
 
 #include <iostream>
 #include <algorithm>
 #include <cassert>
 
 
-namespace {
-
-    const char* ws(const char* a, const char* b)
-    {
-	while(a!=b && std::isspace(*a)) a++;
-	return a;
-    }
-
-    const char* non_ws(const char* a, const char* b)
-    {
-	while(a!=b && !std::isspace(*a)) a++;
-	return a;
-    }
-
-    /**
-     * Trim whitespace to the right in [a, b), so that
-     * it's either empty or ends with non-whitespace.
-     */
-    const char* trimr(const char* a, const char* b)
-    {
-	while(a!=b && std::isspace(*(b-1))) b--;
-	return b;
-    }
-
-
-    /**
-     * Like std::find(), but finds right brackets, while ignoring
-     * earlier left-right bracket pairs.  I.e. the one after "baz" is
-     * found in "foo (bar) baz) bat)".
-     */
-    const char* find(const char* a, const char* const b,
-		     const char left, const char right)
-    {
-	int level = 1;
-	while(a!=b) {
-	    if(*a==left) level++;
-	    else if(*a==right) level--;
-	    if(!level) break;
-	    a++;
-	}
-	return a;
-    }
-}
+using Parse::ws;
+using Parse::trimr;
+using Parse::find;
 
 
 Taxa::Taxa(std::istream& is, std::ostream&)

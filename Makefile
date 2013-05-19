@@ -59,6 +59,7 @@ src/libgavia.a: src/version.o
 src/libgavia.a: src/exception.o
 src/libgavia.a: src/taxon.o
 src/libgavia.a: src/taxa.o
+src/libgavia.a: src/date.o
 src/libgavia.a: src/excursion.o
 	$(AR) -r $@ $^
 
@@ -86,6 +87,7 @@ checkv: src/test/test
 src/test/libtest.a: src/test/test_cont.o
 src/test/libtest.a: src/test/test_taxon.o
 src/test/libtest.a: src/test/test_files.o
+src/test/libtest.a: src/test/test_date.o
 	$(AR) -r $@ $^
 
 src/test/test_%.o: CPPFLAGS+=-Isrc
@@ -169,6 +171,7 @@ src/motorola.o: src/motorola.h
 src/bitmap.o: src/bitmap.h
 src/canonorder.o: src/canonorder.hh src/speciesorder.hh src/specieslist.hh
 src/contstream.o: src/contstream.hh
+src/date.o: src/date.h
 src/dynamicorder.o: src/speciesset.hh src/speciesorder.hh src/dynamicorder.hh
 src/exception.o: src/exception.hh
 src/excursion.o: src/excursion.hh src/taxon.h src/taxa.h src/lineparse.h
@@ -216,5 +219,6 @@ src/taxonomicorder.o: src/taxonomicorder.hh src/speciesorder.hh
 src/taxonomicorder.o: src/specieslist.hh
 src/version.o: src/version.hh
 src/test/test_cont.o: src/contstream.hh
+src/test/test_date.o: src/date.h
 src/test/test_files.o: src/files...h
 src/test/test_taxon.o: src/taxa.h src/taxon.h

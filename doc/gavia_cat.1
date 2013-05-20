@@ -1,3 +1,7 @@
+.ss 12 0
+.de BP
+.IP \\fB\\$*
+..
 .TH gavia_cat 1 "MAY 2013" Gavia "User Manuals"
 .SH "NAME"
 gavia_cat \- concatenate and translate Gavia files
@@ -27,19 +31,19 @@ as HTML,
 troff source code,
 or a Unix mailbox file.
 .SH "OPTIONS"
-.IP \-g
+.BP \-g
 (default) Output as ''gab'' text, which gavia_add(1) can read.
-.IP \-t
+.BP \-t
 Output as pretty-printed plain text.
-.IP \-h
+.BP \-h
 Output as HTML,
 with each excursion as a HTML table.
-.IP \-m
+.BP \-m
 Output as a mbox file, readable by mail user agents such as
 .BR mail (1)
 or
 .BR mutt (1).
-.IP \-r
+.BP \-r
 Output as
 .BR troff (1)
 +
@@ -52,19 +56,21 @@ want to create a PostScript version using
 .ft CW
 groff -mm -t -Tps file > file.ps
 .
-.IP --check
+.BP --check
 Don't output anything; just check the input for errors.
-.IP \-c
+.BP \-c
 (default) Output the species in the order they appear in the input.
-.IP \-x
+.BP \-x
 Output the species according to the taxonomic ordering specified by
 .IR lib/gavia/species .
-.IP --version
+.BP --version
 Print version information and exit.
+.BP --help
+Print a brief help text and exit.
 .SH "FILES"
 .TP
 .I lib/gavia/species
-The list of supported species and their taxonomic ordering.
+The list of supported taxa and their taxonomic ordering.
 .SH "BUGS"
 Error handling and error reporting is rudimentary, at the most.
 Bad file contents give unrecoverable errors.

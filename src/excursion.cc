@@ -55,6 +55,7 @@ void Excursion::swap(Excursion& other)
 {
     headers.swap(other.headers);
     sightings.swap(other.sightings);
+    std::swap(date, other.date);
 }
 
 
@@ -119,6 +120,45 @@ bool Excursion::add_sighting_cont(const char* a, size_t alen)
 }
 
 
+/**
+ * Perform last fixups, after the last add_sighting() etc.
+ * Does things like parse the date: header for faster later use.
+ */
+bool Excursion::finalize()
+{
+    const std::string& s = find_header("date");
+    const char* a = s.c_str();
+    date = Date(a, a+s.size());
+    return true;
+}
+
+
+namespace {
+
+    template<class T>
+    struct IsNamed {
+	explicit IsNamed(const char* name) : name(name) {}
+	const char* const name;
+	bool operator() (const T& t) { return t.name==name; }
+    };
+}
+
+
+/**
+ * Find the first header named 'name' and return its value, or "".
+ * Returns by reference, so you'd better not modify the headers afterwards.
+ */
+const std::string& Excursion::find_header(const char* name) const
+{
+    static const std::string NIL;
+    Headers::const_iterator i = std::find_if(headers.begin(),
+					     headers.end(),
+					     IsNamed<Header>(name));
+    if(i==headers.end()) return NIL;
+    return i->value;
+}
+
+
 namespace {
 
     struct Errlog {
@@ -170,7 +210,7 @@ namespace {
  * Returns false at eof with no complete excursion read.
  */
 bool get(Files& is, std::ostream& errstream,
-	 Taxa& spp, Excursion& ex)
+	 Taxa& spp, Excursion& excursion)
 {
     using Parse::ws;
     using Parse::trimr;
@@ -179,6 +219,7 @@ bool get(Files& is, std::ostream& errstream,
 
     enum State { BETWEEN, HEADERS, SIGHTINGS };
     State state = BETWEEN;
+    Excursion ex;
     std::string s;
 
     while(is.getline(s)) {
@@ -230,6 +271,8 @@ bool get(Files& is, std::ostream& errstream,
 	else if(state==SIGHTINGS && c==a) {
 
 	    if(a+1==b && *a=='}') {
+		ex.finalize();
+		ex.swap(excursion);
 		return true;
 	    }
 

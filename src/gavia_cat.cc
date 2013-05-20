@@ -55,6 +55,9 @@ int main(int argc, char ** argv)
     std::cin.sync_with_stdio(false);
     std::cout.sync_with_stdio(false);
 
+    bool sort_spp = false;
+    char outfmt = 'g';
+
     int ch;
     while((ch = getopt_long(argc, argv,
 			    optstring,
@@ -65,10 +68,16 @@ int main(int argc, char ** argv)
 	case 'h':
 	case 'm':
 	case 'r':
+	    outfmt = ch;
+	    break;
 	case 'c':
+	    sort_spp = false;
+	    break;
 	case 'x':
+	    sort_spp = true;
 	    break;
 	case 'C':
+	    outfmt = '-';
 	    break;
 	case 'V':
 	    std::string version();
@@ -95,7 +104,11 @@ int main(int argc, char ** argv)
     Taxa taxa(species, std::cerr);
 
     Excursion ex;
-    while(get(files, std::cerr, taxa, ex)) {}
+    unsigned n = 0;
+    while(get(files, std::cerr, taxa, ex)) {
+	if(n++) std::cout << '\n';
+	ex.put(std::cout, sort_spp);
+    }
 
     return 0;
 }

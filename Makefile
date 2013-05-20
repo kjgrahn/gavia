@@ -32,9 +32,9 @@ SHELL=/bin/bash
 INSTALLBASE = /usr/local
 ELISPDIR=$(INSTALLBASE)/share/emacs/site-lisp
 
-CFLAGS = -W -Wall -pedantic -ansi -g -O2
-CXXFLAGS = -W -Wall -pedantic -std=c++98 -g -O2
-LDFLAGS = -Lsrc
+CFLAGS=-W -Wall -pedantic -ansi -g -O2
+CXXFLAGS=-W -Wall -pedantic -std=c++98 -g -Os
+LDFLAGS=-Lsrc
 
 OUTS=src/gavia_add src/gavia_cat src/gavia_grep src/gavia_sort
 
@@ -61,6 +61,7 @@ src/libgavia.a: src/taxon.o
 src/libgavia.a: src/taxa.o
 src/libgavia.a: src/date.o
 src/libgavia.a: src/excursion.o
+src/libgavia.a: src/excursion_put.o
 	$(AR) -r $@ $^
 
 # targets that need special help
@@ -174,45 +175,45 @@ src/contstream.o: src/contstream.hh
 src/date.o: src/date.h
 src/dynamicorder.o: src/speciesset.hh src/speciesorder.hh src/dynamicorder.hh
 src/exception.o: src/exception.hh
-src/excursion.o: src/excursion.hh src/taxon.h src/taxa.h src/lineparse.h
-src/excursion.o: src/files...h
+src/excursion.o: src/excursion.hh src/taxon.h src/date.h src/taxa.h
+src/excursion.o: src/lineparse.h src/files...h
+src/excursion_put.o: src/excursion.hh src/taxon.h src/date.h
 src/files...o: src/files...h
-src/filtersink.o: src/speciesorder.hh src/exception.hh src/gabsink.hh
-src/filtersink.o: src/booksink.hh src/excursion.hh src/taxon.h
-src/filtersink.o: src/filtersink.hh
+src/filtersink.o: src/speciesorder.hh src/exception.hh src/filtersink.hh
+src/filtersink.o: src/booksink.hh src/excursion.hh src/taxon.h src/date.h
 src/gabsink.o: src/dynamicorder.hh src/speciesorder.hh src/speciesset.hh
-src/gabsink.o: src/exception.hh src/gabsink.hh src/booksink.hh
-src/gabsink.o: src/excursion.hh src/taxon.h
+src/gabsink.o: src/exception.hh
 src/gabsource.o: src/speciesorder.hh src/canonorder.hh src/speciesredro.hh
 src/gabsource.o: src/exception.hh src/regex.hh src/gabsource.hh
-src/gabsource.o: src/booksource.hh src/excursion.hh src/taxon.h
+src/gabsource.o: src/booksource.hh src/excursion.hh src/taxon.h src/date.h
 src/gabsource.o: src/contstream.hh
 src/gavia_add.o: src/version.hh src/streamsource.hh src/booksource.hh
-src/gavia_add.o: src/excursion.hh src/taxon.h src/gabsource.hh
+src/gavia_add.o: src/excursion.hh src/taxon.h src/date.h src/gabsource.hh
 src/gavia_add.o: src/contstream.hh src/streamsink.hh src/booksink.hh
 src/gavia_add.o: src/canonorder.hh src/speciesorder.hh src/exception.hh
 src/gavia_cat.o: src/files...h src/taxa.h src/taxon.h src/excursion.hh
+src/gavia_cat.o: src/date.h
 src/gavia_grep.o: src/version.hh src/streamsource.hh src/booksource.hh
-src/gavia_grep.o: src/excursion.hh src/taxon.h src/streamsink.hh
+src/gavia_grep.o: src/excursion.hh src/taxon.h src/date.h src/streamsink.hh
 src/gavia_grep.o: src/booksink.hh src/exception.hh src/canonorder.hh
 src/gavia_grep.o: src/speciesorder.hh src/dynamicorder.hh src/speciesset.hh
-src/gavia_sort.o: src/version.hh src/excursion.hh src/taxon.h
+src/gavia_sort.o: src/version.hh src/excursion.hh src/taxon.h src/date.h
 src/gavia_sort.o: src/streamsource.hh src/booksource.hh src/streamsink.hh
 src/gavia_sort.o: src/booksink.hh src/exception.hh src/canonorder.hh
 src/gavia_sort.o: src/speciesorder.hh
 src/mboxsink.o: src/dynamicorder.hh src/speciesorder.hh src/speciesset.hh
 src/mboxsink.o: src/exception.hh src/mboxsink.hh src/booksink.hh
-src/mboxsink.o: src/excursion.hh src/taxon.h
+src/mboxsink.o: src/excursion.hh src/taxon.h src/date.h
 src/sortedorder.o: src/speciesorder.hh src/sortedorder.hh
 src/specieslist.o: src/specieslist.hh src/exception.hh
 src/speciesredro.o: src/speciesredro.hh src/speciesorder.hh
 src/streamsink.o: src/streamsink.hh src/booksink.hh src/excursion.hh
-src/streamsink.o: src/taxon.h src/canonorder.hh src/speciesorder.hh
-src/streamsink.o: src/speciesset.hh src/exception.hh src/bitmap.h
-src/streamsink.o: src/motorola.h
+src/streamsink.o: src/taxon.h src/date.h src/canonorder.hh
+src/streamsink.o: src/speciesorder.hh src/speciesset.hh src/exception.hh
+src/streamsink.o: src/bitmap.h src/motorola.h
 src/streamsource.o: src/motorola.h src/bitmap.h src/speciesorder.hh
 src/streamsource.o: src/canonorder.hh src/exception.hh src/streamsource.hh
-src/streamsource.o: src/booksource.hh src/excursion.hh src/taxon.h
+src/streamsource.o: src/booksource.hh src/excursion.hh src/taxon.h src/date.h
 src/taxa.o: src/taxa.h src/taxon.h src/lineparse.h
 src/taxon.o: src/taxon.h
 src/taxonomicorder.o: src/taxonomicorder.hh src/speciesorder.hh

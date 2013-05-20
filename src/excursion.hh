@@ -29,8 +29,10 @@
 #define EXCURSION_HH
 
 #include "taxon.h"
+#include "date.h"
 
 #include <string>
+#include <iosfwd>
 
 
 class Taxa;
@@ -72,6 +74,9 @@ public:
 	std::string name;
 	std::string number;
 	std::string comment;
+	bool operator< (const Sighting& other) const {
+	    return sp < other.sp;
+	}
     };
 
     void swap(Excursion& other);
@@ -85,16 +90,22 @@ public:
 		      const char* b, size_t blen,
 		      const char* c, size_t clen);
     bool add_sighting_cont(const char* a, size_t alen);
+    bool finalize();
+
+    std::ostream& put(std::ostream& os, bool sort = false) const;
 
 private:
     typedef std::vector<Header> Headers;
     typedef std::vector<Sighting> Sightings;
     Headers headers;
     Sightings sightings;
+    Date date;
+
+    const std::string& find_header(const char* name) const;
 };
 
 
 bool get(Files& is, std::ostream& errstream,
-	 Taxa& spp, Excursion& ex);
+	 Taxa& spp, Excursion& excursion);
 
 #endif

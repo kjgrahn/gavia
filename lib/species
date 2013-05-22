@@ -208,6 +208,7 @@ skedstork
 koreaskedstork
 afrikansk skedstork
 rosenskedstork
+
 karibisk flamingo
 större flamingo
 chileflamingo
@@ -218,6 +219,7 @@ svart svan
 mindre sångsvan
 sångsvan
 trumpetarsvan
+
 svangås
 sädgås
 spetsbergsgås
@@ -337,6 +339,7 @@ grågam
 ormörn
 gycklarörn
 orienthjälmörn
+
 grodhök
 brun kärrhök
 brokig kärrhök
@@ -392,6 +395,7 @@ prakthökörn
 fiskgjuse
 nordlig tofskarakara
 guadalupecaracara
+
 skrattfalk
 halsbandsskogsfalk
 rödfalk
@@ -556,6 +560,7 @@ japansk trana
 trumpetartrana
 snötrana
 jungfrutrana
+
 småtrapp
 denhamtrapp
 nubisk trapp
@@ -618,6 +623,7 @@ rödflikvipa
 stäppvipa
 sumpvipa
 tofsvipa
+
 bränningsnäppa
 kolymasnäppa
 kustsnäppa
@@ -691,12 +697,14 @@ svart roskarl
 wilsonsimsnäppa
 smalnäbbad simsnäppa
 brednäbbad simsnäppa
+
 bredstjärtad labb
 kustlabb
 fjällabb
 storlabb
 antarktisk labb
 sydpolslabb
+
 dvärgmås
 tärnmås
 mingmås
@@ -738,6 +746,7 @@ tretåig mås
 beringmås
 svalstjärtad mås
 ismås
+
 brun noddy
 svart noddy
 mindre noddy
@@ -771,6 +780,7 @@ mingtärna
 amerikansk saxnäbb
 afrikansk saxnäbb
 indisk saxnäbb
+
 sillgrissla
 spetsbergsgrissla
 tordmule
@@ -795,6 +805,7 @@ hornalka
 lunnefågel
 hornlunne
 tofslunne
+
 strimmig flyghöna
 kronflyghöna
 ökenflyghöna
@@ -803,6 +814,7 @@ svartbukig flyghöna
 vitbukig flyghöna
 stäppflyghöna
 tibetflyghöna
+
 klippduva
 östlig klippduva
 snöduva
@@ -852,6 +864,7 @@ gulbukig grönduva
 kilstjärtad grönduva
 vitbukig grönduva
 formosagrönduva
+
 karolinaparakit
 rödhuvad dvärgpapegoja
 alexanderparakit
@@ -877,6 +890,7 @@ rödkronad amazonpapegoja
 violettkronad amazon
 gulkindad amazon
 gulhuvad amazonpapegoja
+
 jakobinskatgök
 rödvingad skatgök
 skatgök
@@ -904,6 +918,7 @@ större tuppgök
 mindre tuppgök
 senegalsporrgök
 vitbrynad sporrgök
+
 tornuggla
 gräsuggla
 bergdvärguv
@@ -956,6 +971,7 @@ jorduggla
 kapuggla
 pärluggla
 rostpärluggla
+
 nordlig tandnattskärra
 sahelnattskärra
 bergnattskärra
@@ -977,6 +993,7 @@ mexikansk nattskärra
 större falknattskärra
 mindre falknattskärra
 karibisk falknattskärra
+
 ljuspannad seglare
 svart seglare
 himalayasalangan
@@ -999,6 +1016,7 @@ vitnackad seglare
 karibisk dvärgseglare
 större svalstjärtseglare
 afrikansk palmseglare
+
 grön öronkolibri
 grönbröstad mango
 långstjärtad smaragd
@@ -1035,6 +1053,7 @@ bergstrogon
 kopparstjärtstrogon
 örontrogon
 wards trogon
+
 rostkungsfiskare
 smyrnakungsfiskare
 svarthuvad kungsfiskare
@@ -1066,6 +1085,7 @@ grå hornskata
 större barbett
 himalayahonungsgök
 smaragdtukanett
+
 göktyta
 fläckdvärgspett
 guldspett
@@ -1129,6 +1149,7 @@ gråhuvad trädklättrare
 vitnäbbad trädklättrare
 vitstrimmig trädklättrare
 fläckkronad trädklättrare
+
 masktityra
 gråhalsad bekard
 rödstrupig bekard
@@ -1185,6 +1206,7 @@ vittofsad elenia
 grönaktig elenia
 nordlig dvärgtyrann
 kinesisk pitta
+
 sångbusklärka
 kordofanlärka
 brunhuvad finklärka
@@ -1215,6 +1237,7 @@ sånglärka
 razolärka
 berglärka
 ökenberglärka
+
 brunstrupig backsvala
 backsvala
 blek backsvala
@@ -1243,6 +1266,7 @@ stensvala
 himalayahussvala
 orienthussvala
 hussvala
+
 större piplärka
 orientpiplärka
 mongolpiplärka
@@ -1260,6 +1284,7 @@ skärpiplärka
 vattenpiplärka
 hedpiplärka
 präriepiplärka
+
 trädärla
 gulärla
 citronärla
@@ -1267,6 +1292,7 @@ forsärla
 sädesärla
 japansk ärla
 brokärla
+
 svartvingad nålfågel
 långstjärtad minivett
 gråstrupig minivett
@@ -1298,6 +1324,7 @@ hypokolius
 strömstare
 brun strömstare
 grå strömstare
+
 klippgärdsmyg
 kanjongärdsmyg
 socorrogärdsmyg
@@ -1320,6 +1347,7 @@ västmexikansk gärdsmyg
 sinaloagärdsmyg
 bandgärdsmyg
 gråbröstad skogsgärdsmyg
+
 nordlig härmtrast
 socorrohärmtrast
 bahamahärmtrast
@@ -1335,6 +1363,7 @@ kalifornisk härmtrast
 blå härmtrast
 buskhärmtrast
 grå kattfågel
+
 vitögd järnsparv
 japansk järnsparv
 järnsparv
@@ -1348,6 +1377,7 @@ mongoljärnsparv
 rödbröstad järnsparv
 altaijärnsparv
 alpjärnsparv
+
 trädnäktergal
 svart trädnäktergal
 pärlkortvinge
@@ -1393,6 +1423,7 @@ purpurcochoa
 bergsialia
 västsialia
 östsialia
+
 svartstjärt
 sindbuskskvätta
 buskskvätta
@@ -1421,6 +1452,7 @@ munkstenskvätta
 svartvit stenskvätta
 vitkronad stenskvätta
 svart stenskvätta
+
 indisk näktergal
 skatnäktergal
 dvärgstentrast
@@ -1480,6 +1512,7 @@ mexikansk trast
 vandringstrast
 rödfotad trast
 aztektrast
+
 mindre klyvstjärt
 vitkronad klyvstjärt
 fläckig klyvstjärt
@@ -1562,6 +1595,7 @@ höksångare
 törnsångare
 trädgårdssångare
 svarthätta
+
 grönkronad bambusångare
 gråkronad bambusångare
 alströms bambusångare v
@@ -1614,11 +1648,13 @@ iberisk gransångare
 kashmirgransångare
 berggransångare
 lövsångare
+
 rödkronad kungsfågel
 kungsfågel
 brandkronad kungsfågel
 madeirakungsfågel
 guldkronad kungsfågel
+
 violsångare
 tofsviolsångare
 svartstjärtad myggsnappare
@@ -1680,6 +1716,7 @@ vattrad smygtimalia
 rödhättad mestimalia
 roststjärtad mopinia
 messmyg
+
 skäggmes
 större papegojnäbb
 tretåig papegojnäbb
@@ -1694,6 +1731,7 @@ gulbrun papegojnäbb
 svartstrupig papegojnäbb
 guldpapegojnäbb
 vasspapegojnäbb
+
 irakskriktrast
 orientskriktrast
 arabskriktrast
@@ -1749,6 +1787,7 @@ gulnackad yuhina
 skäggyuhina
 vitnackad yuhina
 rostnackad yuhina
+
 buskmes
 sotstjärtmes
 svartbrynad stjärtmes
@@ -1791,6 +1830,7 @@ kanadames
 rostmes
 bergtita
 amerikansk talltita
+
 yunnannötväcka
 kinesisk nötväcka
 krüpers nötväcka
@@ -1808,6 +1848,7 @@ nötväcka
 naganötväcka
 östlig klippnötväcka
 klippnötväcka
+
 murkrypare
 brunstrupig trädkrypare
 sichuanträdkrypare
@@ -1816,6 +1857,7 @@ nepalträdkrypare
 trädkrypare
 amerikansk trädkrypare
 trädgårdsträdkrypare
+
 brandkronad mes
 verdinmes
 pungmes
@@ -1838,6 +1880,7 @@ boninhonungsätare
 svartnackad gylling
 smalnäbbad gylling
 sommargylling
+
 svartkronad tchagra
 rosentörnskata
 tigertörnskata
@@ -1855,6 +1898,7 @@ kinesisk varfågel
 amerikansk törnskata
 rödhuvad törnskata
 masktörnskata
+
 svart drongo
 grå drongo
 lyrdrongo
@@ -1909,6 +1953,7 @@ svartvit kråka
 korp
 chihuahuakorp
 kortstjärtad korp
+
 sinaiglansstare
 stare
 svartstare
@@ -1927,6 +1972,7 @@ burmastare
 större tofsmajna
 ametiststare
 beostare
+
 saxaulsparv
 gråsparv
 italiensk sparv
@@ -1943,6 +1989,7 @@ blek stensparv
 gulstrupig stensparv
 buskstensparv
 stensparv
+
 afghansnöfink
 blek snöfink
 rödhalsad snöfink
@@ -2061,6 +2108,7 @@ himalayarosenfink
 större rosenfink
 långnäbbad rosenfink
 roborovskijs rosenfink
+
 tallbit
 himalayatallbit
 boninstenknäck
@@ -2083,6 +2131,7 @@ större maskstenknäck
 svarthuvad stenknäck
 stenknäck
 aftonstenknäck
+
 svartvit skogssångare
 bachmanskogssångare
 guldvingad skogssångare
@@ -2146,6 +2195,7 @@ guldbrynad skogssångare
 rostkronad skogssångare
 trastskogssångare
 ockrahuvad skogssångare
+
 lappsparv
 praktlappsparv
 tundralappsparv
@@ -2281,6 +2331,7 @@ lazulifink
 brokfink
 påvefink
 bobolink
+
 bronskostare
 brunhuvad kostare
 prärietrupial

@@ -81,8 +81,8 @@ int main(int argc, char ** argv)
 	    break;
 	case 'V':
 	    std::string version();
-	    std::cout << prog << ", part of geese " << "version()" << "\n"
-		      << "Copyright (c) 2004 - 2013 Jörgen Grahn\n";
+	    std::cout << prog << ", part of gavia " << "version()" << "\n"
+		      << "Copyright (c) 1999 - 2013 Jörgen Grahn\n";
 	    return 0;
 	    break;
 	case 'H':
@@ -106,6 +106,8 @@ int main(int argc, char ** argv)
     Excursion ex;
     unsigned n = 0;
     while(get(files, std::cerr, taxa, ex)) {
+	if(outfmt != 'g') continue;
+
 	if(n++) std::cout << '\n';
 	ex.put(std::cout, sort_spp);
     }

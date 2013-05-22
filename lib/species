@@ -181,6 +181,7 @@ silkeshäger
 mellanhäger
 ägretthäger
 gråhäger
+= häger
 amerikansk gråhäger
 svarthuvad häger
 purpurhäger
@@ -222,8 +223,10 @@ trumpetarsvan
 
 svangås
 sädgås
+tundrasädgås
 spetsbergsgås
 bläsgås
+grönländsk bläsgås
 fjällgås
 grågås
 stripgås
@@ -231,6 +234,8 @@ snögås
 dvärgsnögås
 kejsargås
 prutgås
+ljusbukig prutgås
+svartbukig prutgås
 vitkindad gås
 dvärgkanadagås
 kanadagås
@@ -260,7 +265,6 @@ svartand
 östlig fläcknäbband
 filippinand
 stjärtand
-
 bahamaand
 rödnäbbad and
 årta
@@ -269,6 +273,7 @@ kanelårta
 kapskedand
 skedand
 marmorand
+
 rödhuvad dykand
 sydlig brunand
 svartnäbbad brunand
@@ -303,6 +308,7 @@ storskrake
 vitvingad kopparand
 amerikansk kopparand
 kopparand
+= europeisk kopparand
 
 kalkongam
 korpgam
@@ -318,7 +324,9 @@ svalglada
 mississippiglada
 snäckglada
 brun glada
+= brunglada
 röd glada
+= glada
 braminglada
 skrikhavsörn
 bandhavsörn
@@ -591,6 +599,7 @@ strandtjockfot
 krokodilväktare
 ökenlöpare
 rödvingad vadarsvala
+= vadarsvala
 orientvadarsvala
 svartvingad vadarsvala
 mindre vadarsvala
@@ -700,6 +709,7 @@ brednäbbad simsnäppa
 
 bredstjärtad labb
 kustlabb
+= labb
 fjällabb
 storlabb
 antarktisk labb
@@ -728,6 +738,8 @@ ringnäbbad mås
 fiskmås
 silltrut
 gråtrut
+östersjötrut
+sibirisk trut
 kaspisk trut
 medelhavstrut
 armenisk trut
@@ -805,6 +817,7 @@ hornalka
 lunnefågel
 hornlunne
 tofslunne
+= tofslunnefågel
 
 strimmig flyghöna
 kronflyghöna
@@ -813,8 +826,10 @@ brunbukig flyghöna
 svartbukig flyghöna
 vitbukig flyghöna
 stäppflyghöna
+= stäpphöna
 tibetflyghöna
 
+tamduva
 klippduva
 östlig klippduva
 snöduva
@@ -1287,9 +1302,11 @@ präriepiplärka
 
 trädärla
 gulärla
+svarthuvad gulärla
 citronärla
 forsärla
 sädesärla
+engelsk sädesärla
 japansk ärla
 brokärla
 
@@ -1398,6 +1415,7 @@ glödhake
 himalayanäktergal
 blånäktergal
 taigablåstjärt
+= blåstjärt
 himalayablåstjärt
 guldnäktergal
 vitbrynad näktergal
@@ -1430,6 +1448,7 @@ buskskvätta
 kanariebuskskvätta
 svarthakad buskskvätta
 vitgumpad buskskvätta
+= östlig svarthakad buskskvätta
 afrikansk buskskvätta
 mongolbuskskvätta
 svart buskskvätta
@@ -1499,6 +1518,7 @@ gråhalsad trast
 rödtrast
 bruntrast
 rödhalsad trast
+= taigatrast
 svarthalsad trast
 björktrast
 kinesisk trast
@@ -1566,6 +1586,7 @@ kinesisk trastsångare
 basrasångare
 tjocknäbbad sångare
 stäppsångare
+= gråsångare
 saxaulsångare
 macchiasångare
 eksångare
@@ -1643,6 +1664,7 @@ balkansångare
 grönsångare
 dvärgsångare
 gransångare
+sibirisk gransångare
 kanariegransångare
 iberisk gransångare
 kashmirgransångare
@@ -1796,6 +1818,7 @@ vitkindad stjärtmes
 rödhättad stjärtmes
 stjärtmes
 blåmes
+nordafrikansk blåmes
 koboltmes
 azurmes
 grönmes
@@ -1892,8 +1915,11 @@ indisk törnskata
 rostgumpad törnskata
 himalayatörnskata
 svartpannad törnskata
+stäppvarfågel        (Lanius meridionalis pallidirostris)
+medelhavsvarfågel    # samma som ökenvarfågel?
 varfågel
 ökenvarfågel
+= sydlig varfågel
 kinesisk varfågel
 amerikansk törnskata
 rödhuvad törnskata
@@ -1946,6 +1972,7 @@ sinaloakråka
 fiskkråka
 alaskakråka
 kråka
+svartkråka
 djungelkråka
 halsbandskråka
 svartvit kråka
@@ -2071,6 +2098,7 @@ hämpling
 jemenhämpling
 vinterhämpling
 gråsiska
+brunsiska
 snösiska
 bändelkorsnäbb
 mindre korsnäbb
@@ -2326,6 +2354,7 @@ fläckvingad tangara
 rödhuvad tangara
 koboltfink
 indigofink
+= indigosparv
 blåtjocknäbb
 lazulifink
 brokfink

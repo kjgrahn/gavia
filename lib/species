@@ -12,597 +12,2289 @@
 # The species should appear in taxonomic order, and there should be no
 # duplicates.  Apart from that, no grouping is implied (although you could
 # infer that Gavia stellata and G. immer are related).
+#
+# The actual list below is based on:
+#   Erling Jirle (2013).
+#   Holarktis fåglar, version 4.
+#   http://www.sofnet.org/tk/holarktis-faglar/
 
-smålom
-storlom
-svartnäbbad islom
-vitnäbbad islom
-
-svarthakedopping
-svarthalsad dopping
-smådopping
-skäggdopping
-gråhakedopping
-
-svartbrynad albatross
-stormfågel
-gulnäbbad lira
-större lira
-grålira
-mindre lira
-medelhavslira
-balearisk lira
-stormsvala
-klykstjärtad stormsvala
-
-havssula
-storskarv
-toppskarv
-dvärgskarv
-
-rördrom
-dvärgrördrom
-natthäger
-kohäger
-rallhäger
-silkeshäger
-ägretthäger
-häger
-purpurhäger
-vit stork
-svart stork
-bronsibis
-eremitibis
-skedstork
-
-större flamingo
-
-svart svan
+struts
+snårtinamou
+brun visseland
+orientvisseland
+vithuvad visseland
+karibvisseland
+svartbukig visseland
 knölsvan
+svart svan
 mindre sångsvan
 sångsvan
-
-bläsgås
-grönländsk bläsgås
-fjällgås
+trumpetarsvan
+svangås
 sädgås
-tundrasädgås
 spetsbergsgås
+bläsgås
+fjällgås
 grågås
-kanadagås
-dvärgkanadagås
-vitkindad gås
-prutgås
-ljusbukig prutgås
-svartbukig prutgås
-rödhalsad gås
+stripgås
 snögås
 dvärgsnögås
-svangås
-gravand
-rostand
+kejsargås
+prutgås
+vitkindad gås
+dvärgkanadagås
+kanadagås
+rödhalsad gås
 nilgås
-stripgås
-
-mandarinand
+rostand
+tofsgravand
+gravand
+sporrgås
+knöland
+myskand
+bomullsdvärgand
 brudand
-gräsand
-snatterand
-stjärtand
-svartand
-skedand
+mandarinand
 bläsand
 amerikansk bläsand
-marmorand
+praktand
+snatterand
+gulkindad kricka
 kricka
 amerikansk kricka
+kapand
+gräsand
+fläckand
+svartand
+östlig fläcknäbband
+filippinand
+stjärtand
+bahamaand
+rödnäbbad and
 årta
 blåvingad årta
-gulkindad kricka
-
+kanelårta
+kapskedand
+skedand
+marmorand
 rödhuvad dykand
+sydlig brunand
+svartnäbbad brunand
 brunand
+amerikansk brunand
 ringand
+amurdykand
 vitögd dykand
 vigg
-mindre bergand
 bergand
+mindre bergand
 ejder
 praktejder
+glasögonejder
 alförrädare
+labradorand
 strömand
 alfågel
 sjöorre
 amerikansk sjöorre
 vitnackad svärta
 svärta
-knipa
+knölsvärta
 buffelhuvud
-
+islandsknipa
+knipa
 kamskrake
 salskrake
 småskrake
+amurskrake
 storskrake
+vitvingad kopparand
 amerikansk kopparand
-europeisk kopparand
-
-gåsgam
-smutsgam
-havsörn
-fiskgjuse
-kungsörn
-kejsarörn
-mindre skrikörn
-större skrikörn
-stäppörn
-ormörn
-dvärgörn
-hökörn
-
-glada
-brunglada
-brun kärrhök
-svartvingad glada
-blå kärrhök
-ängshök
-stäpphök
-fjällvråk
-örnvråk
-ormvråk
-bivråk
-sparvhök
-duvhök
-
-tornfalk
-rödfalk
-aftonfalk
-lärkfalk
-eleonorafalk
-pilgrimsfalk
-berberfalk
-stenfalk
-jaktfalk
-tatarfalk
-slagfalk
-
+kopparand
+nordlig chachalaca
+rostbukad chachalaca
+västmexikansk chachalaca
+tofsguan
+amurjärpe
+granjärpe
+gråjärpe
+sotjärpe
+järpe
+kinesisk järpe
+kragjärpe
 dalripa
 fjällripa
-tjäder
+vitstjärtad ripa
 orre
-järpe
+kaukasisk orre
+svartnäbbad tjäder
+tjäder
+större präriehöna
+mindre präriehöna
+spetsstjärtad präriehöna
+strålstjärtshöna
+gunnisonhöna
+rostbröstad skogshöna
+långstjärtad skogshöna
+bergtofsvaktel
+fjällig tofsvaktel
+kalifornisk tofsvaktel
+ökentofsvaktel
+prakttofsvaktel
+bandvaktel
+vitstrupig vaktel
+sångvaktel
+montezumavaktel
+sherpahöna
+brunstrupig kungshöna
+gulstrupig kungshöna
+kaukasisk snöhöna
+kaspisk snöhöna
+himalayasnöhöna
+tibetansk snöhöna
+altaisnöhöna
+berghöna
+lössberghöna
+stenhöna
 rödhöna
 klipphöna
-berghöna
+svartstrupig berghöna
+arabisk rödhöna
+visselhöna
+ökenhöna
+svart frankolin
+grå frankolin
+marockansk frankolin
+erckels frankolin
 rapphöna
+stäpprapphöna
+tibetansk rapphöna
 vaktel
+japansk vaktel
+harlekinvaktel
+brunkronad sånghöna
+roststrupig sånghöna
+sikkimsånghöna
+sichuansånghöna
+vitbrynad bambuhöna
+kinesisk bambuhöna
+blodfasan
+västlig tragopan
+satyrtragopan
+gråbukig tragopan
+temmincks tragopan
+koklassfasan
+himalayamonal
+vitstjärtad monal
+kinesisk monal
+röd djungelhöna
+kalijfasan
+vit öronfasan
+tibetansk öronfasan
+brun öronfasan
+blå öronfasan
+klippfasan
+kopparfasan
+kungsfasan
 fasan
-
+guldfasan
+diamantfasan
+hjälmpärlhöna
+kalkon
+smålom
+storlom
+stillahavslom
+svartnäbbad islom
+vitnäbbad islom
+tjocknäbbad dopping
+smådopping
+dvärgdopping
+skäggdopping
+gråhakedopping
+svarthakedopping
+svarthalsad dopping
+mörk svandopping
+ljus svandopping
+svartbrynad albatross
+mindre albatross
+gråkindad albatross
+svartfotad albatross
+laysanalbatross
+gulnackad albatross
+vandringsalbatross
+ljusryggad sotalbatross
+stormfågel
+brokpetrell
+långvingad petrell
+trindadepetrell
+kermadecpetrell
+murphys petrell
+atlantpetrell
+madeirapetrell
+sammetspetrell
+gråbukig petrell
+solanders petrell
+vitbukig petrell
+karibpetrell
+bermudapetrell
+chilepetrell
+boninpetrell
+kragpetrell
+cookpetrell
+hawaiipetrell
+vithalspetrell
+stejnegers petrell
+spetsstjärtad petrell
+arabpetrell
+vithakad petrell
+mindre sotpetrell
+gulnäbbad lira
+kapverdelira
+vithuvad lira
+ljusfotad lira
+rosanäbbad lira
+större lira
+kilstjärtslira
+gråryggad lira
+grålira
+kortstjärtad lira
+brunlira
+mindre lira
+medelhavslira
+balearisk lira
+californialira
+townsendlira
+makaronesisk lira
+audubonlira
+tropiklira
+arablira
+havslöpare
+fregattstormsvala
+vitmagad stormsvala
+svartmagad stormsvala
+stormsvala
+dvärgstormsvala
+grå stormsvala
+klykstjärtad stormsvala
+swinhoes stormsvala
+kalifornisk stormsvala
+oceanlöpare
+vitgumpad stormsvala
+svart stormsvala
+matsudairastormsvala
+guadalupestormsvala
+tristramstormsvala
+halsbandsstormsvala
+rödnäbbad tropikfågel
+rödstjärtad tropikfågel
+vitstjärtad tropikfågel
+rödfotad sula
+nazcasula
+masksula
+blåfotad sula
+brun sula
+havssula
+storskarv
+japansk skarv
+pallas skarv
+pelagskarv
+beringskarv
+blåstrupig skarv
+öronskarv
+amazonskarv
+toppskarv
+sokotraskarv
+dvärgskarv
+småskarv
+indisk skarv
+långstjärtad skarv
+amerikansk ormhalsfågel
+afrikansk ormhalsfågel
+hornpelikan
+vit pelikan
+fläcknäbbad pelikan
+krushuvad pelikan
+rosaryggad pelikan
+brun pelikan
+ascensionfregattfågel
+större fregattfågel
+praktfregattfågel
+mindre fregattfågel
+rördrom
+amerikansk rördrom
+amerikansk dvärgrördrom
+dvärgrördrom
+kinesisk dvärgrördrom
+schrencks dvärgrördrom
+kanelrördrom
+pygmérördrom
+svart rördrom
+malajnatthäger
+japansk natthäger
+mexikansk tigerhäger
+natthäger
+gulkronad natthäger
+mangrovehäger
+grönryggad häger
+kohäger
+rallhäger
+rishäger
+bacchushäger
+blåhäger
+trefärgad häger
+rosthäger
+svarthäger
+snöhäger
+sidenhäger
+korallhäger
+revhäger
+silkeshäger
+mellanhäger
+ägretthäger
+gråhäger
+amerikansk gråhäger
+svarthuvad häger
+purpurhäger
+goliathäger
+skuggstork
+amerikansk ibisstork
+indisk ibisstork
+afrikansk ibisstork
+svart stork
+abdimstork
+ullhalsstork
+vit stork
+amurstork
+jabirustork
+maraboustork
+bronsibis
+maskibis
+vit ibis
+röd ibis
+eremitibis
+tofsibis
+helig ibis
+orientibis
+skedstork
+koreaskedstork
+afrikansk skedstork
+rosenskedstork
+karibisk flamingo
+större flamingo
+chileflamingo
+mindre flamingo
+kalkongam
+korpgam
+kungsgam
+kalifornisk kondor
+kroknäbbsglada
+bivråk
+tofsbivråk
+svalstjärtsglada
+vitstjärtad glada
+svartvingad glada
+svalglada
+mississippiglada
+snäckglada
+brun glada
+röd glada
+braminglada
+skrikhavsörn
+bandhavsörn
+havsörn
+vithövdad havsörn
+jättehavsörn
+lammgam
+smutsgam
+kappgam
+bengalgam
+indisk gam
+gåsgam
+snögam
+rüppellgam
+rödhuvad gam
+örongam
+grågam
+ormörn
+gycklarörn
+orienthjälmörn
+grodhök
+brun kärrhök
+brokig kärrhök
+blå kärrhök
+stäpphök
+ängshök
+svartvit kärrhök
+mörk sånghök
+gabarhök
+duvhök
+besra
+taigahök
+sparvhök
+amerikansk sparvhök
+kinesisk sparvhök
+shikra
+balkanhök
+coopers hök
+vitögd hökvråk
+kinesisk hökvråk
+mindre svartvråk
+större svartvråk
+svarthalsad vråk
+svart eremitörn
+kaktusvråk
+gråvråk
+vägvråk
+bredvingad vråk
+bandvingad vråk
+prärievråk
+kortstjärtad vråk
+vitstjärtad vråk
+bandstjärtad vråk
+rödstjärtad vråk
+ormvråk
+örnvråk
+mongolvråk
+fjällvråk
+kungsvråk
+svartörn
+större skrikörn
+mindre skrikörn
+dvärgörn
+kungsörn
+klippörn
+hökörn
+stäppörn
+savannörn
+kejsarörn
+spansk kejsarörn
+berghökörn
+prakthökörn
+fiskgjuse
+nordlig tofskarakara
+guadalupecaracara
+skrattfalk
+halsbandsskogsfalk
+rödfalk
+tornfalk
+sparvfalk
+rödhuvad falk
+aftonfalk
+amurfalk
+stenfalk
+lärkfalk
+eleonorafalk
+sotfalk
+fladdermusfalk
+aplomadofalk
+slagfalk
+juggerfalk
+tatarfalk
+jaktfalk
+präriefalk
+pilgrimsfalk
+berberfalk
+springhöna
+gulfotad springhöna
+bandad springhöna
+rödhalsad skogsrall
+gråfotad bandrall
+fläckrall
+okinawarall
+kustrall
+kungsrall
+brunkronad rall
+virginiarall
 vattenrall
+rödsminkad sumphöna
 småfläckig sumphöna
 karolinasumphöna
 mindre sumphöna
 dvärgsumphöna
+vitbrynad sumphöna
+rödbrun sumphöna
+amursumphöna
+svartstjärtad sumphöna
+rostgumpad sumphöna
+asiatisk gulrall
+amerikansk gulrall
+svart dvärgrall
 kornknarr
+afrikansk kornknarr
+brun sumphöna
+vattenhöna
+korprall
 rörhöna
-sothöna
+mindre rörhöna
+mindre sultanhöna
+amerikansk sultanhöna
 purpurhöna
+tupprall
+sothöna
+amerikansk sothöna
+karibsothöna
+kamsothöna
+amerikansk simrall
+ralltrana
 trana
+svarthalsad trana
+munktrana
+prärietrana
+glasögontrana
+japansk trana
+trumpetartrana
+snötrana
 jungfrutrana
-
 småtrapp
+denhamtrapp
+nubisk trapp
+ökentrapp
 kragtrapp
+arabtrapp
 stortrapp
-
+fasanjacana
+bronsjacana
+centralamerikansk jacana
+rallbeckasin
 strandskata
+amerikansk strandskata
+klippstrandskata
+kanariestrandskata
+ibisnäbb
 styltlöpare
+amerikansk styltlöpare
 skärfläcka
+amerikansk skärfläcka
+hägerpipare
 tjockfot
+senegaltjockfot
+fläcktjockfot
+amerikansk tjockfot
+strandtjockfot
+krokodilväktare
 ökenlöpare
-vadarsvala
-svartvingad vadarsvala
+rödvingad vadarsvala
 orientvadarsvala
+svartvingad vadarsvala
+mindre vadarsvala
 mindre strandpipare
 större strandpipare
+flikstrandpipare
+flodstrandpipare
+wilsonstrandpipare
+skrikstrandpipare
+flöjtstrandpipare
+kittlitzstrandpipare
+trebandad pipare
 svartbent strandpipare
+snöstrandpipare
+svartkronad strandpipare
 mongolpipare
 ökenpipare
+kaspisk pipare
+orientpipare
+bergpipare
 fjällpipare
 amerikansk tundrapipare
 sibirisk tundrapipare
 ljungpipare
 kustpipare
+sporrvipa
+svarthuvad vipa
+gråhuvad vipa
+rödflikvipa
 stäppvipa
 sumpvipa
 tofsvipa
-
+bränningsnäppa
+kolymasnäppa
 kustsnäppa
 sandlöpare
+sandsnäppa
 tundrasnäppa
 rödhalsad snäppa
-sandsnäppa
 småsnäppa
 mosnäppa
 långtåsnäppa
+dvärgsnäppa
 vitgumpsnäppa
 gulbröstad snäppa
 tuvsnäppa
 spetsstjärtad snäppa
 spovsnäppa
 skärsnäppa
+klippsnäppa
 kärrsnäppa
-myrsnäppa
 styltsnäppa
+skedsnäppa
+myrsnäppa
 prärielöpare
 brushane
 dvärgbeckasin
 enkelbeckasin
+wilsonbeckasin
 dubbelbeckasin
+sibirisk beckasin
+taigabeckasin
+japansk beckasin
+bergbeckasin
+skogsbeckasin
+mindre beckasinsnäppa
 större beckasinsnäppa
+asiatisk beckasinsnäppa
 morkulla
+amamimorkulla
+amerikansk morkulla
 rödspov
+hudsonspov
 myrspov
+präriespov
+dvärgspov
+eskimåspov
 småspov
+alaskaspov
+smalnäbbad spov
 storspov
-svartsnäppa
-rödbena
-dammsnäppa
-gluttsnäppa
-större gulbena
-mindre gulbena
-amerikansk skogssnäppa
-skogssnäppa
-grönbena
+långnäbbad spov
+orientspov
+piparsnäppa
 tereksnäppa
 drillsnäppa
 fläckdrillsnäppa
+skogssnäppa
+amerikansk skogssnäppa
+sibirisk gråsnäppa
+amerikansk gråsnäppa
+svartsnäppa
+större gulbena
+fläckgluttsnäppa
+gluttsnäppa
+willet
+mindre gulbena
+dammsnäppa
+grönbena
+rödbena
 roskarl
+svart roskarl
 wilsonsimsnäppa
 smalnäbbad simsnäppa
 brednäbbad simsnäppa
-
 bredstjärtad labb
-labb
+kustlabb
 fjällabb
 storlabb
-
+antarktisk labb
+sydpolslabb
+dvärgmås
+tärnmås
+mingmås
+trädmås
+skrattmås
+brunhuvad mås
+gråhuvad mås
+långnäbbad mås
+sotmås
+vitögd mås
+perutrut
 svarthuvad trut
+reliktmås
 svarthuvad mås
 sotvingad mås
 präriemås
-dvärgmås
-tärnmås
-trädmås
-skrattmås
-långnäbbad mås
+vithuvad mås
+svartstjärtad mås
 rödnäbbad trut
 ringnäbbad mås
 fiskmås
 silltrut
 gråtrut
-östersjötrut
-sibirisk trut
 kaspisk trut
 medelhavstrut
+armenisk trut
+kanadatrut
+prärietrut
+västtrut
+mexikotrut
+dominikanertrut
+skiffertrut
+gråvingad trut
 vitvingad trut
 vittrut
 havstrut
-tretåig mås
 rosenmås
+tretåig mås
+beringmås
+svalstjärtad mås
 ismås
-
+brun noddy
+svart noddy
+mindre noddy
+grå noddy
+fetärna
+beringtärna
+söderhavstärna
+sottärna
+tygeltärna
+småtärna
+amerikansk småtärna
 sandtärna
 skräntärna
-kentsk tärna
-rosentärna
-fisktärna
-silvertärna
-kärrtärna
-tygeltärna
-sottärna
-småtärna
 svarttärna
 vitvingad tärna
 skäggtärna
-
+sydamerikansk flodtärna
+rosentärna
+svartnackad tärna
+silvertärna
+fisktärna
+kärrtärna
+vitkindad tärna
+kungstärna
+tofstärna
+kentsk tärna
+cabots tärna
+aztektärna
+iltärna
+mingtärna
+amerikansk saxnäbb
+afrikansk saxnäbb
+indisk saxnäbb
 sillgrissla
 spetsbergsgrissla
 tordmule
+garfågel
 tobisgrissla
+beringtejst
+glasögontejst
+marmoralka
+långnäbbad marmoralka
+brunalka
+vitvingad californiaalka
+sotvingad californiaalka
+kragalka
+japansk alka
 alkekung
+sotalka
+tofsalka
+plymalka
+dvärgalka
 papegojalka
+hornalka
 lunnefågel
-tofslunnefågel
-
-stäpphöna
+hornlunne
+tofslunne
+strimmig flyghöna
+kronflyghöna
+ökenflyghöna
+brunbukig flyghöna
 svartbukig flyghöna
 vitbukig flyghöna
-
-tamduva
+stäppflyghöna
+tibetflyghöna
+klippduva
+östlig klippduva
+snöduva
 skogsduva
+turkestanduva
 ringduva
+madeiraduva
+kanarieduva
+lagerduva
+gulfotad duva
+bergsskogduva
+sjalduva
+svartduva
+boninduva
+ryukyuduva
+vitkronad duva
+rödnackad duva
+bandstjärtsduva
+rödnäbbad duva
 turkduva
+skrattduva
+sorgduva
+rödögd duva
+röd turkduva
 turturduva
+mörk turturduva
 större turturduva
 palmduva
-
+pärlhalsduva
+långstjärtsduva
+smaragdduva
+vandringsduva
+spetsstjärtad duva
+socorroduva
+zenaidaduva
+vitvingad duva
+inkaduva
+nordlig markduva
+rostmarkduva
+purpurbröstad markduva
+vitpannad duva
+gråhuvad duva
+vitkindad vaktelduva
+karibvaktelduva
+röd vaktelduva
+gulbukig grönduva
+kilstjärtad grönduva
+vitbukig grönduva
+formosagrönduva
+karolinaparakit
+rödhuvad dvärgpapegoja
+alexanderparakit
+halsbandsparakit
+kinesisk parakit
+himalayaparakit
+gråhuvad parakit
+mustaschparakit
+undulat
+soldatara
+grön parakit
+olivbröstad parakit
+elfenbensparakit
+nandayparakit
+tjocknäbbad parakit
+karmosinpannad parakit
+munkparakit
+mexikansk sparvpapegoja
+gulvingad parakit
+vitkronad papegoja
+vitpannad amazon
+rödkronad amazonpapegoja
+violettkronad amazon
+gulkindad amazon
+gulhuvad amazonpapegoja
+jakobinskatgök
+rödvingad skatgök
 skatgök
+hodgsons hökgök
+nordlig hökgök
+mindre hökgök
+större hökgök
+klaasgök
+didrikgök
+indisk gök
 gök
-
+himalayagök
+taigagök
+smågök
+drongogök
+koelgök
+svartnäbbad regngök
+gulnäbbad regngök
+mangroveregngök
+slätnäbbad ani
+ekorrgök
+strimnäbbad ani
+mindre markgök
+större tuppgök
+mindre tuppgök
+senegalsporrgök
+vitbrynad sporrgök
 tornuggla
+gräsuggla
+bergdvärguv
+indisk kragdvärguv
+kinesisk kragdvärguv
+blek dvärguv
 dvärguv
+afrikansk dvärguv
+orientdvärguv
+ryukyudvärguv
+brunögd dvärguv
+östlig skrikdvärguv
+västlig skrikdvärguv
+balsasskrikdvärguv
+mustaschdvärguv
+guatemaladvärguv
+virginiauv
 berguv
+ökenuv
+fläckuv
 fjälluggla
+blakistons fiskuv
+brun fiskuv
 hökuggla
 sparvuggla
+nordamerikansk sparvuggla
+rostsparvuggla
+kragsparvuggla
+colimasparvuggla
+tamaulipassparvuggla
+centralamerikansk sparvuggla
+göksparvuggla
+kaktusuggla
+brun spökuggla
+nordlig spökuggla
 minervauggla
+braminuggla
+prärieuggla
+brunstrimmig uggla
+vitbrynad uggla
 kattuggla
+klippuggla
+kråsuggla
+fläckuggla
 slaguggla
 lappuggla
 hornuggla
+mörk hornuggla
 jorduggla
+kapuggla
 pärluggla
-
+rostpärluggla
+nordlig tandnattskärra
+sahelnattskärra
+bergnattskärra
+nubisk nattskärra
+tarimnattskärra
+sindnattskärra
+indisk nattskärra
+orientnattskärra
 nattskärra
+rödhalsad nattskärra
 ökennattskärra
+karolinanattskärra
+skriknattskärra
+halsbandsnattskärra
+gråbrun nattskärra
+dvalnattskärra
+azteknattskärra
+mexikansk nattskärra
+större falknattskärra
+mindre falknattskärra
+karibisk falknattskärra
+ljuspannad seglare
+svart seglare
+himalayasalangan
+skorstensseglare
+columbiaseglare
 taggstjärtseglare
+kapverdeseglare
+enfärgad seglare
 tornseglare
 blek tornseglare
+somaliaseglare
+orientseglare
 alpseglare
+kafferseglare
 stubbstjärtseglare
-
+brokseglare
+kastanjeseglare
+halsbandsseglare
+vitnackad seglare
+karibisk dvärgseglare
+större svalstjärtseglare
+afrikansk palmseglare
+grön öronkolibri
+grönbröstad mango
+långstjärtad smaragd
+svalstjärtad smaragd
+kubansk smaragdkolibri
+dunkelkolibri
+brednäbbad kolibri
+xantuskolibri
+vitörad kolibri
+vitbröstad smaragd
+azurkronad smaragd
+beryllkolibri
+kanelkolibri
+beigebukig kolibri
+vitbröstad kolibri
+blåstrupig kolibri
+ametiststrupig bergsjuvel
+rivolikolibri
+brunhättad stjärnkolibri
+bahamakolibri
+glitterstjärtkolibri
+luciferkolibri
+rubinkolibri
+svarthakad kolibri
+costas kolibri
+annas kolibri
+kalliopekolibri
+humlekolibri
+bredstjärtad kolibri
+rostkolibri
+allens kolibri
+citrontrogon
+bergstrogon
+kopparstjärtstrogon
+örontrogon
+wards trogon
+rostkungsfiskare
+smyrnakungsfiskare
+svarthuvad kungsfiskare
+gråhuvad kungsfiskare
+mangrovekungsfiskare
+mikronesisk kungsfiskare
 kungsfiskare
+malakitkungsfiskare
+grön kungsfiskare
+amazonkungsfiskare
+gråfiskare
+bälteskungsfiskare
+ringkungsfiskare
+större gråfiskare
+rostkronad motmot
+blåkronad motmot
+vitstrupig biätare
+grön dvärgbiätare
 grön biätare
+regnbågsbiätare
 biätare
 blåkråka
+savannblåkråka
+indisk blåkråka
+gulnäbbad blåkråka
+rödnäbbad blåkråka
 härfågel
-
-spillkråka
-gröngöling
+grå hornskata
+större barbett
+himalayahonungsgök
+smaragdtukanett
+göktyta
+fläckdvärgspett
+guldspett
+olivgul spett
+gråkronad spett
 gråspett
+gröngöling
 atlasgröngöling
+japansk grönspett
+fjällig grönspett
+okinawaspett
+neotropisk spillkråka
+amerikansk spillkråka
+spillkråka
+vitbukig spillkråka
+kråkspett
+rödhuvad hackspett
+samlarspett
+gulkindad spett
+gråbröstad spett
+kaktusspett
+gulpannad hackspett
+karolinaspett
+gulbröstad savspett
+rödnackad savspett
+rödhuvad savspett
+svartryggig savspett
 större hackspett
+vitvingad hackspett
+balkanspett
+sindspett
+himalayaspett
+darjeelingspett
+rödbröstad hackspett
 mellanspett
 vitryggig hackspett
-tretåig hackspett
+rostbukig spett
+brunpannad hackspett
 mindre hackspett
-göktyta
-
-sånglärka
+gråkronad hackspett
+kizukispett
+arabspett
+bandryggig hackspett
+chaparralspett
+dunspett
+tallspett
+sonoraspett
+hårspett
+vithuvad hackspett
+svartryggig hackspett
+tretåig hackspett
+rökbrun spett
+umbraspett
+centralamerikansk jättespett
+kejsarspett
+elfenbensnäbb
+bandad myrtörnskata
+fjällig myrpitta
+rosthalsad lövkastare
+gråhuvad trädklättrare
+vitnäbbad trädklättrare
+vitstrimmig trädklättrare
+fläckkronad trädklättrare
+masktityra
+gråhalsad bekard
+rödstrupig bekard
+grå fibi
+svart fibi
+rödbrun fibi
+broktyrann
+svartkronad tyrann
+pirattyrann
+båtnäbbstyrann
+flocktyrann
+rubintyrann
+gulbukig empid
+akadempid
+dvärgempid
+hammondempid
+bergempid
+gråempid
+västempid
+ponderosaempid
+pilempid
+alempid
+tallempid
+vitstrupig empid
+beigebröstad empid
+större pivi
+västlig pivi
+östlig pivi
+nordlig pivi
+karibisk pivi
+tofstyrann
+långtofsad tyrann
+mörkhättad topptyrann
+gråstrupig topptyrann
+brunhättad topptyrann
+nuttings topptyrann
+kubansk topptyrann
+större topptyrann
+gulgumpad attila
+rödflammig tyrann
+gulbukig tyrann
+större kiskadi
+cassins kungstyrann
+västlig kungstyrann
+tropisk kungstyrann
+tjocknäbbad kungstyrann
+mayakungstyrann
+grå kungstyrann
+karibisk kungstyrann
+östlig kungstyrann
+gaffelstjärtstyrann
+saxstjärtstyrann
+vittofsad elenia
+grönaktig elenia
+nordlig dvärgtyrann
+kinesisk pitta
+sångbusklärka
+kordofanlärka
+brunhuvad finklärka
+svartkronad finklärka
+streckad ökenlärka
+sandökenlärka
+rödstjärtad ökenlärka
+stenökenlärka
+härfågellärka
+dupontlärka
+tjocknäbbad lärka
+kalanderlärka
+asiatisk kalanderlärka
+tibetlärka
+mongollärka
+vitvingad lärka
+svartlärka
+rödkronad lärka
+korttålärka
+höglandslärka
+dvärglärka
+sandlärka
 tofslärka
 lagerlärka
 trädlärka
-korttålärka
-dvärglärka
-stenökenlärka
-sandökenlärka
-kalanderlärka
-asiatisk kalanderlärka
-svartlärka
+mindre sånglärka
+sånglärka
+razolärka
 berglärka
 ökenberglärka
-
+brunstrupig backsvala
 backsvala
-klippsvala
+blek backsvala
+större backsvala
+nordlig kamvingesvala
+trädsvala
+mangrovesvala
+violettgrön svala
+bahamasvala
+brunbröstad storsvala
+blå storsvala
+sinaloastorsvala
+kubansk storsvala
+gråbröstad storsvala
+sydlig storsvala
 afrikansk klippsvala
+klippsvala
 ladusvala
+kustsvala
+etiopisk svala
+trådstjärtsvala
 rostgumpsvala
+indisk svala
+grottsvala
+stensvala
+himalayahussvala
+orienthussvala
 hussvala
-
 större piplärka
+orientpiplärka
 mongolpiplärka
 fältpiplärka
+kanariepiplärka
+långnäbbad piplärka
+strimmig piplärka
 sibirisk piplärka
 trädpiplärka
 tundrapiplärka
 ängspiplärka
 rödstrupig piplärka
+rosenpiplärka
 skärpiplärka
 vattenpiplärka
 hedpiplärka
-
+präriepiplärka
+trädärla
 gulärla
-svarthuvad gulärla
 citronärla
 forsärla
 sädesärla
-engelsk sädesärla
-
-gärdsmyg
-strömstare
-sidensvans
+japansk ärla
+brokärla
+svartvingad nålfågel
+långstjärtad minivett
+gråstrupig minivett
+mindre minivett
+brungumpad minivett
+grå minivett
+ryukyuminivett
+kortnäbbad minivett
+tofsfinkbulbyl
+kragfinkbulbyl
+kinesisk bulbyl
+rödörad bulbyl
+himalayabulbyl
+vitkindad bulbyl
+rödgumpad bulbyl
+levantbulbyl
 trädgårdsbulbyl
-
+japansk bulbyl
+svart bulbyl
+nordlig solitärtrast
+brunryggad solitärtrast
+skiffersolitär
+grå silkesflugsnappare
+svart silkesflugsnappare
+indiansidensvans
+amursidensvans
+sidensvans
+hypokolius
+strömstare
+brun strömstare
+grå strömstare
+klippgärdsmyg
+kanjongärdsmyg
+socorrogärdsmyg
+clariongärdsmyg
+husgärdsmyg
+gärdsmyg
+stillahavsgärdsmyg
+vintergärdsmyg
+starrgärdsmyg
+kärrgärdsmyg
+karolinagärdsmyg
+snårgärdsmyg
+boucards gärdsmyg
+fläckgärdsmyg
+kaktusgärdsmyg
+rostnackad gärdsmyg
+gråbandad gärdsmyg
+fläckbröstad gärdsmyg
+västmexikansk gärdsmyg
+sinaloagärdsmyg
+bandgärdsmyg
+gråbröstad skogsgärdsmyg
+nordlig härmtrast
+socorrohärmtrast
+bahamahärmtrast
+rödbrun härmtrast
+långnäbbad härmtrast
+grå härmtrast
+bendires härmtrast
+fläckig härmtrast
+bågnäbbad härmtrast
+mojavehärmtrast
+crissalhärmtrast
+kalifornisk härmtrast
+blå härmtrast
+buskhärmtrast
+grå kattfågel
+vitögd järnsparv
+japansk järnsparv
 järnsparv
+rostbrynad järnsparv
 sibirisk järnsparv
+brun järnsparv
+svartkronad järnsparv
+yemenjärnsparv
 svartstrupig järnsparv
+mongoljärnsparv
+rödbröstad järnsparv
+altaijärnsparv
 alpjärnsparv
-
+trädnäktergal
+svart trädnäktergal
+pärlkortvinge
+rostbukig kortvinge
+blå kortvinge
 rödhake
-sydnäktergal
+japansk rödhake
+ryukyurödhake
+drillnäktergal
 näktergal
+sydnäktergal
+rubinnäktergal
 blåhake
-blåstjärt
+svartbröstad rubinnäktergal
+rosthättad näktergal
+svartstrupig näktergal
+glödhake
+himalayanäktergal
+blånäktergal
+taigablåstjärt
+himalayablåstjärt
+guldnäktergal
+vitbrynad näktergal
+rhododendronnäktergal
 vitstrupig näktergal
-rödstjärt
+altairödstjärt
+alashanrödstjärt
+blåhätta
 svart rödstjärt
+rödstjärt
+hodgsons rödstjärt
+blåstrupig rödstjärt
+vitstrupig rödstjärt
+svartryggad rödstjärt
 diademrödstjärt
-
-stenskvätta
+bergrödstjärt
+forsskvätta
+forsrödstjärt
+vitbukig rödstjärt
+vitstjärtad bambunäktergal
+grandala
+purpurcochoa
+bergsialia
+västsialia
+östsialia
+svartstjärt
+sindbuskskvätta
+buskskvätta
+kanariebuskskvätta
+svarthakad buskskvätta
+vitgumpad buskskvätta
+afrikansk buskskvätta
+mongolbuskskvätta
+svart buskskvätta
+grå buskskvätta
+nordlig termitskvätta
 isabellastenskvätta
-ökenstenskvätta
-medelhavsstenskvätta
+svartpannad stenskvätta
+stenskvätta
 nunnestenskvätta
+cypernstenskvätta
+medelhavsstenskvätta
+ökenstenskvätta
+finschstenskvätta
+berberstenskvätta
+kurdstenskvätta
+persisk stenskvätta
+orientstenskvätta
+sorgstenskvätta
+munkstenskvätta
+svartvit stenskvätta
 vitkronad stenskvätta
 svart stenskvätta
-berberstenskvätta
-buskskvätta
-svarthakad buskskvätta
-östlig svarthakad buskskvätta
-
-blåtrast
+indisk näktergal
+skatnäktergal
+dvärgstentrast
 stentrast
+blåstrupig stentrast
+vitstrupig stentrast
+rostbukig stentrast
+blåtrast
+blå visseltrast
+bergtrast
+långstjärtad trast
+guldtrast
+amamitrast
+långnäbbad trast
+bonintrast
+broktrast
+sibirisk trast
+sitkatrast
+fläckskogstrast
+orangenäbbad skogstrast
+mexikansk skogstrast
+rosthättad skogstrast
+svarthuvad skogstrast
+eremitskogstrast
+gråkindad skogstrast
+bicknellskogstrast
+beigekindad skogstrast
+rostskogstrast
+jementrast
+gråtrast
+svartvit trast
+halsbandstrast
+ringtrast
+gråvingad trast
+koltrast
+kastanjetrast
+kesslertrast
+brunhuvad trast
+izutrast
+mingtrast
+gråryggad trast
+amurtrast
+gråhalsad trast
+rödtrast
+bruntrast
+rödhalsad trast
+svarthalsad trast
+björktrast
+kinesisk trast
 taltrast
 rödvingetrast
 dubbeltrast
-björktrast
-koltrast
-ringtrast
-beigekindad skogstrast
-eremitskogstrast
-rostskogstrast
-guldtrast
-sibirisk trast
+svarttrast
+lerfärgad trast
+sepiatrast
+mexikansk trast
 vandringstrast
-taigatrast
-gråhalsad trast
-bruntrast
-
+rödfotad trast
+aztektrast
+mindre klyvstjärt
+vitkronad klyvstjärt
+fläckig klyvstjärt
+gulstrupig tesia
+manchurisk stubbstjärt
+japansk cettia
+brunsidig cettia
+rostkronad cettia
+buskcettia
+drillcettia
+gråsidig cettia
 cettisångare
+fläckig smygsångare
+manchurisk smygsångare
+långnäbbad smygsångare
+kinesisk smygsångare
+brun smygsångare
+grässångare
+streckad prinia
+orientprinia
+strimmig prinia
+svartstrupig prinia
+sahelsångare
+snårsångare
+kinesisk snårsångare
+starrsångare
+ochotsksångare
 träsksångare
 gräshoppsångare
 flodsångare
 vassångare
+större flodsångare
+kilstjärtsångare
+kaveldunsångare
 vattensångare
 sävsångare
+streckad rörsångare
+svartbrynad rörsångare
+kortvingad rörsångare
 fältsångare
+amursångare
 busksångare
+långnäbbad sångare
+kapverdesångare
 kärrsångare
+afrikansk rörsångare
 rörsångare
+papyrussångare
 trastsångare
-starrsångare
-grässångare
-
+kinesisk trastsångare
+basrasångare
+tjocknäbbad sångare
+stäppsångare
+saxaulsångare
+macchiasångare
 eksångare
-gråsångare
+orientsångare
+olivsångare
 härmsångare
 polyglottsångare
+jemensångare
+sardinsk sångare
+balearisk sångare
 provencesångare
+atlassångare
+glasögonsångare
 rödstrupig sångare
+moltonisångare
+östlig sammetshätta
 sammetshätta
+cypernsångare
+svarthakad sångare
 ökensångare
+saharasångare
+arabisk sångare
+herdesångare
+mästersångare
 höksångare
 ärtsångare
 törnsångare
 trädgårdssångare
 svarthätta
-glasögonsångare
-
+grönkronad bambusångare
+gråkronad bambusångare
+alströms bambusångare v
+whistlers bambusångare v
+emeibambusångare
+biankis bambusångare v
+gråhuvad bambusångare
+gråkindad bambusångare
+rödkronad bambusångare
+svartkindad bambusångare
+grönvingad sångare
+vitstjärtad kronsångare
+mindre kronsångare
+emeikronsångare
+östlig kronsångare
+västlig kronsångare
+drillsångare
+sachalinsångare
+izusångare
+kashmirsångare
 lundsångare
+kaukasisk lundsångare
+grovnäbbad sångare
 nordsångare
+rhododendronsångare
+gråbröstad sångare
 kungsfågelsångare
+sydlig kungsfågelsångare
+sichuansångare
+gansusångare
+kinesisk sångare
+afghansångare
 taigasångare
 bergstaigasångare
 videsångare
+gulstreckad sångare
 brunsångare
+sotbrunsångare
+stensångare
+alpin sångare
+kokonorsångare
+subalpin sångare
 bergsångare
+balkansångare
 grönsångare
+dvärgsångare
 gransångare
-sibirisk gransångare
+kanariegransångare
+iberisk gransångare
+kashmirgransångare
+berggransångare
 lövsångare
-
+rödkronad kungsfågel
 kungsfågel
 brandkronad kungsfågel
-
+madeirakungsfågel
+guldkronad kungsfågel
+violsångare
+tofsviolsångare
+svartstjärtad myggsnappare
+kalifornisk myggsnappare
+svarthuvad myggsnappare
+blågrå myggsnappare
+vittyglad myggsnappare
+större niltava
+praktniltava
+koboltniltava
+kinesisk niltava
+blåstrupig blåflugsnappare
+orientalisk blåflugsnappare
+dvärgflugsnappare
+blåvit flugsnappare
+turkosflugsnappare
+rostflugsnappare
+sibirisk flugsnappare
+streckad flugsnappare
+rödstjärtad flugsnappare
 glasögonflugsnappare
 grå flugsnappare
+akaciaflugsnappare
+safirflugsnappare
+blågrå flugsnappare
+ultramarinflugsnappare
+nunneflugsnappare
+skifferryggad flugsnappare
+vitbrynad flugsnappare
+vitstrupig flugsnappare
+orangestjärnig flugsnappare
 mindre flugsnappare
+taigaflugsnappare
+kashmirflugsnappare
+mugimakiflugsnappare
+vitbrynad narcissflugsnappare
+gulbrynad narcissflugsnappare
+kinesisk narcissflugsnappare
+balkanflugsnappare
 halsbandsflugsnappare
 svartvit flugsnappare
-
+atlasflugsnappare
+gråhuvad solflugsnappare
+gul solfjäderstjärt
+vitstrupig solfjäderstjärt
+afrikansk paradisflugsnappare
+asiatisk paradisflugsnappare
+japansk paradisflugsnappare
+rostkindad sabeltimalia
+fläckig sabeltimalia
+rostnackad sabeltimalia
+korallnäbbad sabeltimalia
+bågnäbbad sabeltimalia
+fjällig smygtimalia
+nepalesisk smygtimalia
+mindre smygtimalia
+rödstrupig smygtimalia
+vattrad smygtimalia
+rödhättad mestimalia
+roststjärtad mopinia
+messmyg
 skäggmes
-
+större papegojnäbb
+tretåig papegojnäbb
+brun papegojnäbb
+fläckbröstad papegojnäbb
+glasögonpapegojnäbb
+rosenpapegojnäbb
+brunvingad papegojnäbb
+tofspapegojnäbb
+roststrupig papegojnäbb
+gulbrun papegojnäbb
+svartstrupig papegojnäbb
+guldpapegojnäbb
+vasspapegojnäbb
+irakskriktrast
+orientskriktrast
+arabskriktrast
+saharaskriktrast
+kinesisk babax
+större babax
+koslows babax
+maskfnittertrast
+vitstrupig fnittertrast
+vitstreckad fnittertrast
+gråvingad fnittertrast
+nordlig fnittertrast
+sukatsjovs fnittertrast
+mustaschfnittertrast
+rödstrupig fnittertrast
+bandad fnittertrast
+biets fnittertrast
+större fnittertrast
+pärlfnittertrast
+sångfnittertrast
+västlig fnittertrast
+blåvingad fnittertrast
+fjällig fnittertrast
+gulvingad fnittertrast
+sikangfnittertrast
+svartkindad fnittertrast
+rostkronad fnittertrast
+rödvingad fnittertrast
+emeishanmesia
+rödnäbbad mesia
+eldstjärt
+svarthuvad broktimalia
+gulvingad broktimalia
+grön broktimalia
+rödpannad bandvinge
+himalayabandvinge
+waldens bandvinge
+streckad bandvinge
+blåstjärtad minla
+brunstjärtad minla
+rödstjärtad minla
+guldfulvetta
+rostvingad fulvetta
+mörkkindad fulvetta
+streckbröstad fulvetta
+glasögonfulvetta
+gråhuvad fulvetta
+ludlows fulvetta
+svarthuvad sibia
+svartörad sibia
+blågrå sibia
+gulnackad yuhina
+skäggyuhina
+vitnackad yuhina
+rostnackad yuhina
+buskmes
+sotstjärtmes
+svartbrynad stjärtmes
+vitstrupig stjärtmes
+vitkindad stjärtmes
+rödhättad stjärtmes
 stjärtmes
-entita
-talltita
-lappmes
-tofsmes
-svartmes
 blåmes
-nordafrikansk blåmes
+koboltmes
 azurmes
+grönmes
+markhackare
+västlig gyllenmes
+östlig gyllenmes
+orienttalgoxe
+turkestanmes
 talgoxe
-
+östlig gråmes
+svarttofsad gråmes
+ekmes
+blek gråmes
+sonoratofsmes
+grå tofsmes
+tofsmes
+simlames
+sherpames
+himalayasvartmes
+svartmes
+mandarinmes
+vitbrynad mes
+samurajmes
+balkanmes
+sichuanmes
+talltita
+entita
+mexikansk tita
+karolinatita
+lappmes
+kanadames
+rostmes
+bergtita
+amerikansk talltita
+yunnannötväcka
+kinesisk nötväcka
+krüpers nötväcka
+korsikansk nötväcka
+kabylnötväcka
+rödbröstad nötväcka
+dvärgnötväcka
+brunhuvad nötväcka
+vitkindad nötväcka
+vitbröstad nötväcka
+vitstjärtad nötväcka
+kashmirnötväcka
+kastanjenötväcka
 nötväcka
-
+naganötväcka
+östlig klippnötväcka
+klippnötväcka
+murkrypare
+brunstrupig trädkrypare
+sichuanträdkrypare
+himalayaträdkrypare
+nepalträdkrypare
 trädkrypare
+amerikansk trädkrypare
 trädgårdsträdkrypare
-
+brandkronad mes
+verdinmes
 pungmes
+dvärgsolfågel
+nilsolfågel
+purpursolfågel
+abessinsk solfågel
+palestinasolfågel
+goulds solfågel
+himalayasolfågel
+rödstjärtad solfågel
+tjocknäbbad blomsterpickare
+gulbukig blomsterpickare
+orientblomsterpickare
+indisk glasögonfågel
+brunsidig glasögonfågel
+japansk glasögonfågel
+abessinsk glasögonfågel
+boninhonungsätare
+svartnackad gylling
+smalnäbbad gylling
 sommargylling
-
+svartkronad tchagra
+rosentörnskata
+tigertörnskata
+rosthuvad törnskata
+brun törnskata
 isabellatörnskata
 törnskata
+indisk törnskata
+rostgumpad törnskata
+himalayatörnskata
 svartpannad törnskata
-stäppvarfågel
-medelhavsvarfågel
 varfågel
+ökenvarfågel
+kinesisk varfågel
+amerikansk törnskata
 rödhuvad törnskata
 masktörnskata
-
+svart drongo
+grå drongo
+lyrdrongo
+dvärgskrika
+purpurryggad skrika
+borstskrika
+grönskrika
+brunskrika
+svartstrupig skatskrika
+vitstrupig skatskrika
+stellerskrika
+blåskrika
+kanjonskrika
+västlig snårskrika
+santacruzskrika
+floridasnårskrika
+indigoskrika
+tallskrika
+nötskrika
+svarthuvad nötskrika
+amamiskrika
+grå lavskrika
+lavskrika
+sotlavskrika
+gulnäbbad blåskata
+rödnäbbad blåskata
 blåskata
 skata
-nötskrika
-lavskrika
+gulnäbbad skata
+hendersons ökenskrika
+biddulphs ökenskrika
+panders ökenskrika
+pleskes ökenskrika
+grå nötkråka
 nötkråka
+alpkaja
+alpkråka
 kaja
 klippkaja
-alpkråka
-alpkaja
+huskråka
 råka
+amerikansk kråka
+tamaulipaskråka
+sinaloakråka
+fiskkråka
+alaskakråka
 kråka
-svartkråka
+djungelkråka
+halsbandskråka
+svartvit kråka
+ökenkorp
 korp
-
+chihuahuakorp
+kortstjärtad korp
+sinaiglansstare
 stare
-rosenstare
 svartstare
-
+flikstare
+rosenstare
+amurstare
+rödkindad stare
+mandarinstare
+pagodstare
+sidenstare
+gråstare
+svartvit stare
+brun majna
+brinkmajna
+burmastare
+större tofsmajna
+ametiststare
+beostare
+saxaulsparv
 gråsparv
-pilfink
+italiensk sparv
 spansk sparv
-
+sindsparv
+kanelsparv
+tamarisksparv
+kapverdesparv
+ökensparv
+pilfink
+sudanguldsparv
+arabguldsparv
+blek stensparv
+gulstrupig stensparv
+buskstensparv
+stensparv
+afghansnöfink
+blek snöfink
+rödhalsad snöfink
+mongolsnöfink
+vitgumpad snöfink
+tibetansk snöfink
+snöfink
+rödahavsvävare
+byvävare
+svarthuvad vävare
+gulryggad vävare
+streckad vävare
+madagaskarvävare
+gulkronad biskop
+svartpannad eldvävare
+rödnäbbad amarant
+helenaastrild
+jemenastrild
+röd tigerfink
+guldbröstad astrild
+indisk silvernäbb
+afrikansk silvernäbb
+vitgumpmunia
+fjällig munia
+kastanjemunia
+risfågel
+rostbrynad vireo
+brunsidig törnskatsvireo
+skiffervireo
+svarthuvad vireo
+vitögd vireo
+dvärgvireo
+tjocknäbbad vireo
+grå vireo
+sumpvireo
+dvärgvireo
+guldvireo
+blygrå vireo
+cassins vireo v
+glasögonvireo
+gulstrupig vireo
+huttons vireo
+kanadavireo
+gulgrön vireo
+rödögd vireo
+yucatanvireo
+mustaschvireo
+sångvireo
 bofink
+blåfink
 bergfink
+buskeufonia
+gulpannad eufonia
+prakteufonia
+rödpannad gulhämpling
 gulhämpling
+levantsiska
+kanariefågel
+citronsiska
+korsikansk siska
+arabsiska
+jemensiska
+guldvingad fink
+rhododendronfink
 grönfink
+orientgrönfink
+svarthuvad grönfink
+himalayagrönfink
 steglits
 grönsiska
+himalayasiska
+tallsiska
+svartkronad siska
+svarthuvad siska
+guldsiska
+småsiska
+kaliforniensiska
 hämpling
+jemenhämpling
 vinterhämpling
 gråsiska
-brunsiska
 snösiska
 bändelkorsnäbb
 mindre korsnäbb
+skotsk korsnäbb
 större korsnäbb
-ökentrumpetare
+brun alpfink
+grå alpfink
+sillems alpfink
+asiatisk alpfink
+grånackad alpfink
+svart alpfink
+brunkronad alpfink
 bergsökenfink
+ökenfink
+mongolfink
+ökentrumpetare
+karmosinrosenfink
+mörk rosenfink
 rosenfink
+purpurrosenfink
+cassins rosenfink
+husrosenfink
+praktrosenfink
+stresemanns rosenfink
+rödbrynad rosenfink
+vinröd rosenfink
+brun rosenfink
+sinairosenfink
+sibirisk rosenfink
+vitbukig rosenfink
+fläckvingad rosenfink
+vitbrynad rosenfink
+blek rosenfink
+himalayarosenfink
+större rosenfink
+långnäbbad rosenfink
+roborovskijs rosenfink
 tallbit
+himalayatallbit
+boninstenknäck
+scharlakansfink
+epålettfink
 långstjärtad rosenfink
+rödstjärtad rosenfink
+brun domherre
+orange domherre
+rödhuvad domherre
+gråhuvad domherre
+azorisk domherre
 domherre
+svartgul stenknäck
+halsbandsstenknäck
+bändelstenknäck
+tujastenknäck
+mindre maskstenknäck
+större maskstenknäck
+svarthuvad stenknäck
 stenknäck
-
-vitstrupig sparv
+aftonstenknäck
+svartvit skogssångare
+bachmanskogssångare
+guldvingad skogssångare
+blåvingad skogssångare
+tennesseeskogssångare
+orangekronad skogssångare
+nashvilleskogssångare
+virginias skogssångare
+colimaskogssångare
+rostgumpad skogssångare
+hakbandsskogssångare
+tropisk messångare
+messångare
+gul skogssångare
+brunsidig skogssångare
+blåvit skogssångare
+blåryggad skogssångare
+tallskogssångare
+gråkindad skogssångare
+gulstrupig skogssångare
+kirtlandskogssångare
+svartstrimmig skogssångare
+eremitskogssångare
+townsends skogssångare
+grönryggad skogssångare
+gulkindad skogssångare
+orangestrupig skogssångare
+prärieskogssångare
+brunkindad skogssångare
+magnoliaskogssångare
+gulgumpad skogssångare
+brunhättad skogssångare
+vitkindad skogssångare
+brunbröstad skogssångare
+rödstjärtsskogssångare
+rödkronad piplärksångare
+nordlig piplärksångare
+sydlig piplärksångare
+swainsons skogssångare
+beigebrynad skogssångare
+gyllenskogssångare
+gulhake
+beldings gulhake
+lermagulhake
+nelsons gulhake
+gråkronad gulhake
+kentuckyskogssångare
+connecticutskogssångare
+sorgskogssångare
+gråhuvad skogssångare
+kapuschongskogssångare
+svartkronad skogssångare
+kanadaskogssångare
+rödbröstad skogssångare
+röd skogssångare
+vitvingad skogssångare
+skifferskogssångare
+bredstjärtad skogssångare
+guldkronad skogssångare
+guldbrynad skogssångare
+rostkronad skogssångare
+trastskogssångare
+ockrahuvad skogssångare
 lappsparv
+praktlappsparv
+tundralappsparv
+prärielappsparv
 snösparv
+beringsnösparv
+banansmyg
+rosentangara
+svarthuvad saltator
+grå saltator
+tegelröd tangara
+sommartangara
+västlig tangara
+scharlakanstangara
+strimhuvad tangara
+blågrå tangara
+gulvingad tangara
+turkoshonungssugare
+brunbukad blompickare
+jakarinifink
+större kubafink
+västindisk frösparv
+skifferfink
+gyllenfink
+vithalsad frösparv
+brunryggad buskfink
+grönstreckad buskfink
+olivsparv
+rostryggad buskfink
+halsbandsbusksparv
+grönstjärtad busksparv
+brunsidig busksparv
+fläckig busksparv
+kanjonbusksparv
+kalifornisk busksparv
+arizonabusksparv
+rostryggad sparv
+rostnackad marksparv
+strimhuvudsparv
+svartbröstad sparv
+tygelsparv
+azteksparv
+svartstrupig sparv
+malörtsparv
+fembandad sparv
+botterisparv
+cassinsparv
+bachmansparv
+rostvingad sparv
+rostkronad sparv
+tundrasparv
+tjippsparv
+lerfärgad sparv
+brewersparv
+åkersparv
+ensparv
+chaparralsparv
+lärksparv
+aftonsparv
+gulbrynad grässparv
+präriesparv
+gräshoppsparv
+le contes sparv
+nelsonsparv
+spetsstjärtad sparv
+kustsparv
+henslowsparv
+sierra madresparv
+rävsparv
+sångsparv
+lincolnsparv
+träsksparv
+kanadasparv
+vitkronad sparv
+vitstrupig sparv
+gulkronad sparv
+mörkögd junco
+gulögd junco
+busktangara
+svartsparv
+blågrå sparv
+gråhuvad sparv
+svavelsparv
+koslovsparv
 tallsparv
 gulsparv
+häcksparv
+svarthakad sparv
+klippsparv
+mongolsparv
+ängssparv
+jankowskisparv
+bergsparv
+hussparv
+afrikansk klippsparv
+gulgrå sparv
 ortolansparv
+bergortolan
 rostsparv
+rödkindad sparv
+praktsparv
+skiffersparv
+gulbrynad sparv
+tristramsparv
 videsparv
 dvärgsparv
+rödbrun sparv
 gyllensparv
 sävsparv
-svarthuvad sparv
-kornsparv
-klippsparv
-hussparv
-brokig kardinal
+dvärgsävsparv
+amursävsparv
 stäppsparv
-stensparv
-häcksparv
-
-indigosparv
-halsbandsparakit
-munkparakit
+svarthuvad sparv
+tofssparv
+kornsparv
+dickcissel
+orangeblåfink
+blå fröfink
+vitstrupig rödskvätta
+gul kardinal
+svarthuvad kardinal
+brokig kardinal
+röd kardinal
+ökenkardinal
+rödbukad stenknäck
+rödstrupig myrtangara
+fläckvingad tangara
+rödhuvad tangara
+koboltfink
+indigofink
+blåtjocknäbb
+lazulifink
+brokfink
+påvefink
+bobolink
+bronskostare
+brunhuvad kostare
+prärietrupial
+myrtrupial
+smalnäbbad båtstjärt
+mexikobåtstjärt
+större båtstjärt
+mindre båtstjärt
+brunskuldrad trupial
+västlig ängstrupial
+östlig ängstrupial
+sångtrupial
+kalifornisk trupial
+rödvingetrupial
+gulhuvad trupial
+glanskostare
+scotts trupial
+audubontrupial
+palmtrupial
+trädgårdstrupial
+svartgumpad trupial
+baltimoretrupial
+svartryggad trupial
+bullocktrupial
+streckryggad trupial
+altamiratrupial
+fläckbröstad trupial
+gulvingad kasik
+montezumaoropendola

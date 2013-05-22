@@ -18,2375 +18,2375 @@
 #   Holarktis fåglar, version 4.
 #   http://www.sofnet.org/tk/holarktis-faglar/
 
-struts
-snårtinamou
-brun visseland
-orientvisseland
-vithuvad visseland
-karibvisseland
-svartbukig visseland
+struts				(Struthio camelus)
+snårtinamou			(Crypturellus cinnamomeus)
+brun visseland			(Dendrocygna bicolor)
+orientvisseland			(Dendrocygna javanica)
+vithuvad visseland		(Dendrocygna viduata)
+karibvisseland			(Dendrocygna arborea)
+svartbukig visseland		(Dendrocygna autumnalis)
 
-smålom
-storlom
-stillahavslom
-svartnäbbad islom
-vitnäbbad islom
+smålom				(Gavia stellata)
+storlom				(Gavia arctica)
+stillahavslom			(Gavia pacifica)
+svartnäbbad islom		(Gavia immer)
+vitnäbbad islom			(Gavia adamsii)
 
-tjocknäbbad dopping
-smådopping
-dvärgdopping
-skäggdopping
-gråhakedopping
-svarthakedopping
-svarthalsad dopping
-mörk svandopping
-ljus svandopping
+tjocknäbbad dopping		(Podilymbus podiceps)
+smådopping			(Tachybaptus ruficollis)
+dvärgdopping			(Tachybaptus dominicus)
+skäggdopping			(Podiceps cristatus)
+gråhakedopping			(Podiceps grisegena)
+svarthakedopping		(Podiceps auritus)
+svarthalsad dopping		(Podiceps nigricollis)
+mörk svandopping		(Aechmophorus occidentalis)
+ljus svandopping		(Aechmophorus clarkii)
 
-svartbrynad albatross
-mindre albatross
-gråkindad albatross
-svartfotad albatross
-laysanalbatross
-gulnackad albatross
-vandringsalbatross
-ljusryggad sotalbatross
-stormfågel
-brokpetrell
-långvingad petrell
-trindadepetrell
-kermadecpetrell
-Murphys petrell
-atlantpetrell
-madeirapetrell
-sammetspetrell
-gråbukig petrell
-Solanders petrell
-vitbukig petrell
-karibpetrell
-bermudapetrell
-chilepetrell
-boninpetrell
-kragpetrell
-cookpetrell
-hawaiipetrell
-vithalspetrell
-Stejnegers petrell
-spetsstjärtad petrell
-arabpetrell
-vithakad petrell
-mindre sotpetrell
-gulnäbbad lira
-kapverdelira
-vithuvad lira
-ljusfotad lira
-rosanäbbad lira
-större lira
-kilstjärtslira
-gråryggad lira
-grålira
-kortstjärtad lira
-brunlira
-mindre lira
-medelhavslira
-balearisk lira
-californialira
-townsendlira
-makaronesisk lira
-audubonlira
-tropiklira
-arablira
-havslöpare
-fregattstormsvala
-vitmagad stormsvala
-svartmagad stormsvala
-stormsvala
-dvärgstormsvala
-grå stormsvala
-klykstjärtad stormsvala
-Swinhoes stormsvala
-kalifornisk stormsvala
-oceanlöpare
-vitgumpad stormsvala
-svart stormsvala
-matsudairastormsvala
-guadalupestormsvala
-tristramstormsvala
-halsbandsstormsvala
-rödnäbbad tropikfågel
-rödstjärtad tropikfågel
-vitstjärtad tropikfågel
+svartbrynad albatross		(Thalassarche melanophris)
+mindre albatross		(Thalassarche chlororhynchos)
+gråkindad albatross		(Thalassarche cauta)
+svartfotad albatross		(Diomedea nigripes)
+laysanalbatross			(Diomedea immutabilis)
+gulnackad albatross		(Diomedea albatrus)
+vandringsalbatross		(Diomedea exulans)
+ljusryggad sotalbatross		(Phoebetria palpebrata)
+stormfågel			(Fulmarus glacialis)
+brokpetrell			(Daption capense)
+långvingad petrell		(Pterodroma macroptera)
+trindadepetrell			(Pterodroma arminjoniana)
+kermadecpetrell			(Pterodroma neglecta)
+Murphys petrell			(Pterodroma ultima)
+atlantpetrell			(Pterodroma feae)
+madeirapetrell			(Pterodroma madeira)
+sammetspetrell			(Pterodroma mollis)
+gråbukig petrell		(Pterodroma inexpectata)
+Solanders petrell		(Pterodroma solandri)
+vitbukig petrell		(Pterodroma incerta)
+karibpetrell			(Pterodroma hasitata)
+bermudapetrell			(Pterodroma cahow)
+chilepetrell			(Pterodroma externa)
+boninpetrell			(Pterodroma hypoleuca)
+kragpetrell			(Pterodroma nigripennis)
+cookpetrell			(Pterodroma cookii)
+hawaiipetrell			(Pterodroma phaeopygia)
+vithalspetrell			(Pterodroma cervicalis)
+Stejnegers petrell		(Pterodroma longirostris)
+spetsstjärtad petrell		(Bulweria bulwerii)
+arabpetrell			(Bulweria fallax)
+vithakad petrell		(Procellaria aequinoctialis)
+mindre sotpetrell		(Procellaria parkinsoni)
+gulnäbbad lira			(Calonectris diomedea)
+kapverdelira			(Calonectris edwardsii)
+vithuvad lira			(Calonectris leucomelas)
+ljusfotad lira			(Puffinus carneipes)
+rosanäbbad lira			(Puffinus creatopus)
+större lira			(Puffinus gravis)
+kilstjärtslira			(Puffinus pacificus)
+gråryggad lira			(Puffinus bulleri)
+grålira				(Puffinus griseus)
+kortstjärtad lira		(Puffinus tenuirostris)
+brunlira			(Puffinus nativitatis)
+mindre lira			(Puffinus puffinus)
+medelhavslira			(Puffinus yelkouan)
+balearisk lira			(Puffinus mauretanicus)
+californialira			(Puffinus opisthomelas)
+townsendlira			(Puffinus auricularis)
+makaronesisk lira		(Puffinus baroli)
+audubonlira			(Puffinus lherminieri)
+tropiklira			(Puffinus bailloni)
+arablira			(Puffinus persicus)
+havslöpare			(Oceanites oceanicus)
+fregattstormsvala		(Pelagodroma marina)
+vitmagad stormsvala		(Fregetta grallaria)
+svartmagad stormsvala		(Fregetta tropica)
+stormsvala			(Hydrobates pelagicus)
+dvärgstormsvala			(Oceanodroma microsoma)
+grå stormsvala			(Oceanodroma furcata)
+klykstjärtad stormsvala		(Oceanodroma leucorhoa)
+Swinhoes stormsvala		(Oceanodroma monorhis)
+kalifornisk stormsvala		(Oceanodroma homochroa)
+oceanlöpare			(Oceanodroma castro)
+vitgumpad stormsvala		(Oceanodroma tethys)
+svart stormsvala		(Oceanodroma melania)
+matsudairastormsvala		(Oceanodroma matsudairae)
+guadalupestormsvala		(Oceanodroma macrodactyla)
+tristramstormsvala		(Oceanodroma tristrami)
+halsbandsstormsvala		(Oceanodroma hornbyi)
+rödnäbbad tropikfågel		(Phaethon aethereus)
+rödstjärtad tropikfågel		(Phaethon rubricauda)
+vitstjärtad tropikfågel		(Phaethon lepturus)
 
-rödfotad sula
-nazcasula
-masksula
-blåfotad sula
-brun sula
-havssula
-storskarv
-japansk skarv
-Pallas skarv
-pelagskarv
-beringskarv
-blåstrupig skarv
-öronskarv
-amazonskarv
-toppskarv
-sokotraskarv
-dvärgskarv
-småskarv
-indisk skarv
-långstjärtad skarv
-amerikansk ormhalsfågel
-afrikansk ormhalsfågel
+rödfotad sula			(Sula sula)
+nazcasula			(Sula granti)
+masksula			(Sula dactylatra)
+blåfotad sula			(Sula nebouxii)
+brun sula			(Sula leucogaster)
+havssula			(Morus bassanus)
+storskarv			(Phalacrocorax carbo)
+japansk skarv			(Phalacrocorax capillatus)
+Pallas skarv			(Phalacrocorax perspicillatus)
+pelagskarv			(Phalacrocorax pelagicus)
+beringskarv			(Phalacrocorax urile)
+blåstrupig skarv		(Phalacrocorax penicillatus)
+öronskarv			(Phalacrocorax auritus)
+amazonskarv			(Phalacrocorax brasilianus)
+toppskarv			(Phalacrocorax aristotelis)
+sokotraskarv			(Phalacrocorax nigrogularis)
+dvärgskarv			(Phalacrocorax pygmeus)
+småskarv			(Phalacrocorax niger)
+indisk skarv			(Phalacrocorax fuscicollis)
+långstjärtad skarv		(Phalacrocorax africanus)
+amerikansk ormhalsfågel		(Anhinga anhinga)
+afrikansk ormhalsfågel		(Anhinga rufa)
 
-hornpelikan
-vit pelikan
-fläcknäbbad pelikan
-krushuvad pelikan
-rosaryggad pelikan
-brun pelikan
-ascensionfregattfågel
-större fregattfågel
-praktfregattfågel
-mindre fregattfågel
-rördrom
-amerikansk rördrom
-amerikansk dvärgrördrom
-dvärgrördrom
-kinesisk dvärgrördrom
-Schrencks dvärgrördrom
-kanelrördrom
-pygmérördrom
-svart rördrom
-malajnatthäger
-japansk natthäger
-mexikansk tigerhäger
-natthäger
-gulkronad natthäger
-mangrovehäger
-grönryggad häger
-kohäger
-rallhäger
-rishäger
-bacchushäger
-blåhäger
-trefärgad häger
-rosthäger
-svarthäger
-snöhäger
-sidenhäger
-korallhäger
-revhäger
-silkeshäger
-mellanhäger
-ägretthäger
-gråhäger
+hornpelikan			(Pelecanus erythrorhynchos)
+vit pelikan			(Pelecanus onocrotalus)
+fläcknäbbad pelikan		(Pelecanus philippensis)
+krushuvad pelikan		(Pelecanus crispus)
+rosaryggad pelikan		(Pelecanus rufescens)
+brun pelikan			(Pelecanus occidentalis)
+ascensionfregattfågel		(Fregata aquila)
+större fregattfågel		(Fregata minor)
+praktfregattfågel		(Fregata magnificens)
+mindre fregattfågel		(Fregata ariel)
+rördrom				(Botaurus stellaris)
+amerikansk rördrom		(Botaurus lentiginosus)
+amerikansk dvärgrördrom		(Ixobrychus exilis)
+dvärgrördrom			(Ixobrychus minutus)
+kinesisk dvärgrördrom		(Ixobrychus sinensis)
+Schrencks dvärgrördrom		(Ixobrychus eurhythmus)
+kanelrördrom			(Ixobrychus cinnamomeus)
+pygmérördrom			(Ixobrychus sturmii)
+svart rördrom			(Dupetor flavicollis)
+malajnatthäger			(Gorsachius melanolophus)
+japansk natthäger		(Gorsachius goisagi)
+mexikansk tigerhäger		(Tigrisoma mexicanum)
+natthäger			(Nycticorax nycticorax)
+gulkronad natthäger		(Nycticorax violaceus)
+mangrovehäger			(Butorides striata)
+grönryggad häger		(Butorides virescens)
+kohäger				(Bubulcus ibis)
+rallhäger			(Ardeola ralloides)
+rishäger			(Ardeola grayii)
+bacchushäger			(Ardeola bacchus)
+blåhäger			(Egretta caerulea)
+trefärgad häger			(Egretta tricolor)
+rosthäger			(Egretta rufescens)
+svarthäger			(Egretta ardesiaca)
+snöhäger			(Egretta thula)
+sidenhäger			(Egretta eulophotes)
+korallhäger			(Egretta sacra)
+revhäger			(Egretta gularis)
+silkeshäger			(Egretta garzetta)
+mellanhäger			(Ardea intermedia)
+ägretthäger			(Ardea alba)
+gråhäger			(Ardea cinerea)
 = häger
-amerikansk gråhäger
-svarthuvad häger
-purpurhäger
-goliathäger
-skuggstork
-amerikansk ibisstork
-indisk ibisstork
-afrikansk ibisstork
-svart stork
-abdimstork
-ullhalsstork
-vit stork
-amurstork
-jabirustork
-maraboustork
-bronsibis
-maskibis
-vit ibis
-röd ibis
-eremitibis
-tofsibis
-helig ibis
-orientibis
-skedstork
-koreaskedstork
-afrikansk skedstork
-rosenskedstork
+amerikansk gråhäger		(Ardea herodias)
+svarthuvad häger		(Ardea melanocephala)
+purpurhäger			(Ardea purpurea)
+goliathäger			(Ardea goliath)
+skuggstork			(Scopus umbretta)
+amerikansk ibisstork		(Mycteria americana)
+indisk ibisstork		(Mycteria leucocephala)
+afrikansk ibisstork		(Mycteria ibis)
+svart stork			(Ciconia nigra)
+abdimstork			(Ciconia abdimii)
+ullhalsstork			(Ciconia episcopus)
+vit stork			(Ciconia ciconia)
+amurstork			(Ciconia boyciana)
+jabirustork			(Jabiru mycteria)
+maraboustork			(Leptoptilos crumenifer)
+bronsibis			(Plegadis falcinellus)
+maskibis			(Plegadis chihi)
+vit ibis			(Eudocimus albus)
+röd ibis			(Eudocimus ruber)
+eremitibis			(Geronticus eremita)
+tofsibis			(Nipponia nippon)
+helig ibis			(Threskiornis aethiopicus)
+orientibis			(Threskiornis melanocephalus)
+skedstork			(Platalea leucorodia)
+koreaskedstork			(Platalea minor)
+afrikansk skedstork		(Platalea alba)
+rosenskedstork			(Platalea ajaja)
 
-karibisk flamingo
-större flamingo
-chileflamingo
-mindre flamingo
+karibisk flamingo		(Phoenicopterus ruber)
+större flamingo			(Phoenicopterus roseus)
+chileflamingo			(Phoenicopterus chilensis)
+mindre flamingo			(Phoenicopterus minor)
 
-knölsvan
-svart svan
-mindre sångsvan
-sångsvan
-trumpetarsvan
+knölsvan			(Cygnus olor)
+svart svan			(Cygnus atratus)
+mindre sångsvan			(Cygnus columbianus)
+sångsvan			(Cygnus cygnus)
+trumpetarsvan			(Cygnus buccinator)
 
-svangås
-sädgås
+svangås				(Anser cygnoides)
+sädgås				(Anser fabalis)
 tundrasädgås
-spetsbergsgås
-bläsgås
+spetsbergsgås			(Anser brachyrhynchus)
+bläsgås				(Anser albifrons)
 grönländsk bläsgås
-fjällgås
-grågås
-stripgås
-snögås
-dvärgsnögås
-kejsargås
-prutgås
+fjällgås			(Anser erythropus)
+grågås				(Anser anser)
+stripgås			(Anser indicus)
+snögås				(Anser caerulescens)
+dvärgsnögås			(Anser rossii)
+kejsargås			(Anser canagica)
+prutgås				(Branta bernicla)
 ljusbukig prutgås
 svartbukig prutgås
-vitkindad gås
-dvärgkanadagås
-kanadagås
-rödhalsad gås
-nilgås
+vitkindad gås			(Branta leucopsis)
+dvärgkanadagås			(Branta hutchinsii)
+kanadagås			(Branta canadensis)
+rödhalsad gås			(Branta ruficollis)
+nilgås				(Alopochen aegyptiaca)
 
-rostand
-tofsgravand
-gravand
-sporrgås
-knöland
-myskand
-bomullsdvärgand
-brudand
-mandarinand
-bläsand
-amerikansk bläsand
-praktand
-snatterand
-gulkindad kricka
-kricka
-amerikansk kricka
-kapand
-gräsand
-fläckand
-svartand
-östlig fläcknäbband
-filippinand
-stjärtand
-bahamaand
-rödnäbbad and
-årta
-blåvingad årta
-kanelårta
-kapskedand
-skedand
-marmorand
+rostand				(Tadorna ferruginea)
+tofsgravand			(Tadorna cristata)
+gravand				(Tadorna tadorna)
+sporrgås			(Plectropterus gambensis)
+knöland				(Sarkidiornis melanotos)
+myskand				(Cairina moschata)
+bomullsdvärgand			(Nettapus coromandelianus)
+brudand				(Aix sponsa)
+mandarinand			(Aix galericulata)
+bläsand				(Anas penelope)
+amerikansk bläsand		(Anas americana)
+praktand			(Anas falcata)
+snatterand			(Anas strepera)
+gulkindad kricka		(Anas formosa)
+kricka				(Anas crecca)
+amerikansk kricka		(Anas carolinensis)
+kapand				(Anas capensis)
+gräsand				(Anas platyrhynchos)
+fläckand			(Anas fulvigula)
+svartand			(Anas rubripes)
+östlig fläcknäbband		(Anas zonorhyncha)
+filippinand			(Anas luzonica)
+stjärtand			(Anas acuta)
+bahamaand			(Anas bahamensis)
+rödnäbbad and			(Anas erythrorhyncha)
+årta				(Anas querquedula)
+blåvingad årta			(Anas discors)
+kanelårta			(Anas cyanoptera)
+kapskedand			(Anas smithii)
+skedand				(Anas clypeata)
+marmorand			(Marmaronetta angustirostris)
 
-rödhuvad dykand
-sydlig brunand
-svartnäbbad brunand
-brunand
-amerikansk brunand
-ringand
-amurdykand
-vitögd dykand
-vigg
-bergand
-mindre bergand
-ejder
-praktejder
-glasögonejder
-alförrädare
-labradorand
-strömand
-alfågel
-sjöorre
-amerikansk sjöorre
-vitnackad svärta
-svärta
-knölsvärta
-buffelhuvud
-islandsknipa
-knipa
-kamskrake
-salskrake
-småskrake
-amurskrake
-storskrake
-vitvingad kopparand
-amerikansk kopparand
-kopparand
+rödhuvad dykand			(Netta rufina)
+sydlig brunand			(Netta erythrophthalma)
+svartnäbbad brunand		(Aythya valisineria)
+brunand				(Aythya ferina)
+amerikansk brunand		(Aythya americana)
+ringand				(Aythya collaris)
+amurdykand			(Aythya baeri)
+vitögd dykand			(Aythya nyroca)
+vigg				(Aythya fuligula)
+bergand				(Aythya marila)
+mindre bergand			(Aythya affinis)
+ejder				(Somateria mollissima)
+praktejder			(Somateria spectabilis)
+glasögonejder			(Somateria fischeri)
+alförrädare			(Polysticta stelleri)
+labradorand			(Camptorhynchus labradorius)
+strömand			(Histrionicus histrionicus)
+alfågel				(Clangula hyemalis)
+sjöorre				(Melanitta nigra)
+amerikansk sjöorre		(Melanitta americana)
+vitnackad svärta		(Melanitta perspicillata)
+svärta				(Melanitta fusca)
+knölsvärta			(Melanitta deglandi)
+buffelhuvud			(Bucephala albeola)
+islandsknipa			(Bucephala islandica)
+knipa				(Bucephala clangula)
+kamskrake			(Lophodytes cucullatus)
+salskrake			(Mergellus albellus)
+småskrake			(Mergus serrator)
+amurskrake			(Mergus squamatus)
+storskrake			(Mergus merganser)
+vitvingad kopparand		(Oxyura dominica)
+amerikansk kopparand		(Oxyura jamaicensis)
+kopparand			(Oxyura leucocephala)
 = europeisk kopparand
 
-kalkongam
-korpgam
-kungsgam
-kalifornisk kondor
-kroknäbbsglada
-bivråk
-tofsbivråk
-svalstjärtsglada
-vitstjärtad glada
-svartvingad glada
-svalglada
-mississippiglada
-snäckglada
-brun glada
+kalkongam			(Cathartes aura)
+korpgam				(Coragyps atratus)
+kungsgam			(Sarcoramphus papa)
+kalifornisk kondor		(Gymnogyps californianus)
+kroknäbbsglada			(Chondrohierax uncinatus)
+bivråk				(Pernis apivorus)
+tofsbivråk			(Pernis ptilorhynchus)
+svalstjärtsglada		(Elanoides forficatus)
+vitstjärtad glada		(Elanus leucurus)
+svartvingad glada		(Elanus caeruleus)
+svalglada			(Chelictinia riocourii)
+mississippiglada		(Ictinia mississippiensis)
+snäckglada			(Rostrhamus sociabilis)
+brun glada			(Milvus migrans)
 = brunglada
-röd glada
+röd glada			(Milvus milvus)
 = glada
-braminglada
-skrikhavsörn
-bandhavsörn
-havsörn
-vithövdad havsörn
-jättehavsörn
-lammgam
-smutsgam
-kappgam
-bengalgam
-indisk gam
-gåsgam
-snögam
-rüppellgam
-rödhuvad gam
-örongam
-grågam
-ormörn
-gycklarörn
-orienthjälmörn
+braminglada			(Haliastur indus)
+skrikhavsörn			(Haliaeetus vocifer)
+bandhavsörn			(Haliaeetus leucoryphus)
+havsörn				(Haliaeetus albicilla)
+vithövdad havsörn		(Haliaeetus leucocephalus)
+jättehavsörn			(Haliaeetus pelagicus)
+lammgam				(Gypaetus barbatus)
+smutsgam			(Neophron percnopterus)
+kappgam				(Necrosyrtes monachus)
+bengalgam			(Gyps bengalensis)
+indisk gam			(Gyps indicus)
+gåsgam				(Gyps fulvus)
+snögam				(Gyps himalayensis)
+rüppellgam			(Gyps rueppellii)
+rödhuvad gam			(Sarcogyps calvus)
+örongam				(Torgos tracheliotus)
+grågam				(Aegypius monachus)
+ormörn				(Circaetus gallicus)
+gycklarörn			(Terathopius ecaudatus)
+orienthjälmörn			(Spilornis cheela)
 
-grodhök
-brun kärrhök
-brokig kärrhök
-blå kärrhök
-stäpphök
-ängshök
-svartvit kärrhök
-mörk sånghök
-gabarhök
-duvhök
-besra
-taigahök
-sparvhök
-amerikansk sparvhök
-kinesisk sparvhök
-shikra
-balkanhök
-Coopers hök
-vitögd hökvråk
-kinesisk hökvråk
-mindre svartvråk
-större svartvråk
-svarthalsad vråk
-svart eremitörn
-kaktusvråk
-gråvråk
-vägvråk
-bredvingad vråk
-bandvingad vråk
-prärievråk
-kortstjärtad vråk
-vitstjärtad vråk
-bandstjärtad vråk
-rödstjärtad vråk
-ormvråk
-örnvråk
-mongolvråk
-fjällvråk
-kungsvråk
-svartörn
-större skrikörn
-mindre skrikörn
-dvärgörn
-kungsörn
-klippörn
-hökörn
-stäppörn
-savannörn
-kejsarörn
-spansk kejsarörn
-berghökörn
-prakthökörn
-fiskgjuse
-nordlig tofskarakara
-guadalupecaracara
+grodhök				(Geranospiza caerulescens)
+brun kärrhök			(Circus aeruginosus)
+brokig kärrhök			(Circus spilonotus)
+blå kärrhök			(Circus cyaneus)
+stäpphök			(Circus macrourus)
+ängshök				(Circus pygargus)
+svartvit kärrhök		(Circus melanoleucos)
+mörk sånghök			(Melierax metabates)
+gabarhök			(Micronisus gabar)
+duvhök				(Accipiter gentilis)
+besra				(Accipiter virgatus)
+taigahök			(Accipiter gularis)
+sparvhök			(Accipiter nisus)
+amerikansk sparvhök		(Accipiter striatus)
+kinesisk sparvhök		(Accipiter soloensis)
+shikra				(Accipiter badius)
+balkanhök			(Accipiter brevipes)
+Coopers hök			(Accipiter cooperii)
+vitögd hökvråk			(Butastur teesa)
+kinesisk hökvråk		(Butastur indicus)
+mindre svartvråk		(Buteogallus anthracinus)
+större svartvråk		(Buteogallus urubitinga)
+svarthalsad vråk		(Busarellus nigricollis)
+svart eremitörn			(Harpyhaliaetus solitarius)
+kaktusvråk			(Parabuteo unicinctus)
+gråvråk				(Buteo nitidus)
+vägvråk				(Buteo magnirostris)
+bredvingad vråk			(Buteo platypterus)
+bandvingad vråk			(Buteo lineatus)
+prärievråk			(Buteo swainsoni)
+kortstjärtad vråk		(Buteo brachyurus)
+vitstjärtad vråk		(Buteo albicaudatus)
+bandstjärtad vråk		(Buteo albonotatus)
+rödstjärtad vråk		(Buteo jamaicensis)
+ormvråk				(Buteo buteo)
+örnvråk				(Buteo rufinus)
+mongolvråk			(Buteo hemilasius)
+fjällvråk			(Buteo lagopus)
+kungsvråk			(Buteo regalis)
+svartörn			(Ictinaetus malayensis)
+större skrikörn			(Aquila clanga)
+mindre skrikörn			(Aquila pomarina)
+dvärgörn			(Aquila pennata)
+kungsörn			(Aquila chrysaetos)
+klippörn			(Aquila verreauxii)
+hökörn				(Aquila fasciata)
+stäppörn			(Aquila nipalensis)
+savannörn			(Aquila rapax)
+kejsarörn			(Aquila heliaca)
+spansk kejsarörn		(Aquila adalberti)
+berghökörn			(Spizaetus nipalensis)
+prakthökörn			(Spizaetus ornatus)
+fiskgjuse			(Pandion haliaetus)
+nordlig tofskarakara		(Caracara cheriway)
+guadalupecaracara		(Caracara lutosa)
 
-skrattfalk
-halsbandsskogsfalk
-rödfalk
-tornfalk
-sparvfalk
-rödhuvad falk
-aftonfalk
-amurfalk
-stenfalk
-lärkfalk
-eleonorafalk
-sotfalk
-fladdermusfalk
-aplomadofalk
-slagfalk
-juggerfalk
-tatarfalk
-jaktfalk
-präriefalk
-pilgrimsfalk
-berberfalk
+skrattfalk			(Herpetotheres cachinnans)
+halsbandsskogsfalk		(Micrastur semitorquatus)
+rödfalk				(Falco naumanni)
+tornfalk			(Falco tinnunculus)
+sparvfalk			(Falco sparverius)
+rödhuvad falk			(Falco chicquera)
+aftonfalk			(Falco vespertinus)
+amurfalk			(Falco amurensis)
+stenfalk			(Falco columbarius)
+lärkfalk			(Falco subbuteo)
+eleonorafalk			(Falco eleonorae)
+sotfalk				(Falco concolor)
+fladdermusfalk			(Falco rufigularis)
+aplomadofalk			(Falco femoralis)
+slagfalk			(Falco biarmicus)
+juggerfalk			(Falco jugger)
+tatarfalk			(Falco cherrug)
+jaktfalk			(Falco rusticolus)
+präriefalk			(Falco mexicanus)
+pilgrimsfalk			(Falco peregrinus)
+berberfalk			(Falco pelegrinoides)
 
-nordlig chachalaca
-rostbukad chachalaca
-västmexikansk chachalaca
-tofsguan
-amurjärpe
-granjärpe
-gråjärpe
-sotjärpe
-järpe
-kinesisk järpe
-kragjärpe
-dalripa
-fjällripa
-vitstjärtad ripa
-orre
-kaukasisk orre
-svartnäbbad tjäder
-tjäder
-större präriehöna
-mindre präriehöna
-spetsstjärtad präriehöna
-strålstjärtshöna
-gunnisonhöna
-rostbröstad skogshöna
-långstjärtad skogshöna
-bergtofsvaktel
-fjällig tofsvaktel
-kalifornisk tofsvaktel
-ökentofsvaktel
-prakttofsvaktel
-bandvaktel
-vitstrupig vaktel
-sångvaktel
-montezumavaktel
-sherpahöna
-brunstrupig kungshöna
-gulstrupig kungshöna
-kaukasisk snöhöna
-kaspisk snöhöna
-himalayasnöhöna
-tibetansk snöhöna
-altaisnöhöna
-berghöna
-lössberghöna
-stenhöna
-rödhöna
-klipphöna
-svartstrupig berghöna
-arabisk rödhöna
-visselhöna
-ökenhöna
-svart frankolin
-grå frankolin
-marockansk frankolin
-Erckels frankolin
-rapphöna
-stäpprapphöna
-tibetansk rapphöna
-vaktel
-japansk vaktel
-harlekinvaktel
-brunkronad sånghöna
-roststrupig sånghöna
-sikkimsånghöna
-sichuansånghöna
-vitbrynad bambuhöna
-kinesisk bambuhöna
-blodfasan
-västlig tragopan
-satyrtragopan
-gråbukig tragopan
-temmincks tragopan
-koklassfasan
-himalayamonal
-vitstjärtad monal
-kinesisk monal
-röd djungelhöna
-kalijfasan
-vit öronfasan
-tibetansk öronfasan
-brun öronfasan
-blå öronfasan
-klippfasan
-kopparfasan
-kungsfasan
-fasan
-guldfasan
-diamantfasan
-hjälmpärlhöna
-kalkon
+nordlig chachalaca		(Ortalis vetula)
+rostbukad chachalaca		(Ortalis wagleri)
+västmexikansk chachalaca	(Ortalis poliocephala)
+tofsguan			(Penelope purpurascens)
+amurjärpe			(Dendragapus falcipennis)
+granjärpe			(Dendragapus canadensis)
+gråjärpe			(Dendragapus obscurus)
+sotjärpe			(Dendragapus fuliginosus)
+järpe				(Tetrastes bonasia)
+kinesisk järpe			(Tetrastes sewerzowi)
+kragjärpe			(Bonasa umbellus)
+dalripa				(Lagopus lagopus)
+fjällripa			(Lagopus muta)
+vitstjärtad ripa		(Lagopus leucura)
+orre				(Lyrurus tetrix)
+kaukasisk orre			(Lyrurus mlokosiewiczi)
+svartnäbbad tjäder		(Tetrao parvirostris)
+tjäder				(Tetrao urogallus)
+större präriehöna		(Tympanuchus cupido)
+mindre präriehöna		(Tympanuchus pallidicinctus)
+spetsstjärtad präriehöna	(Tympanuchus phasianellus)
+strålstjärtshöna		(Centrocercus urophasianus)
+gunnisonhöna			(Centrocercus minimus)
+rostbröstad skogshöna		(Dendrortyx barbatus)
+långstjärtad skogshöna		(Dendrortyx macroura)
+bergtofsvaktel			(Oreortyx pictus)
+fjällig tofsvaktel		(Callipepla squamata)
+kalifornisk tofsvaktel		(Callipepla californica)
+ökentofsvaktel			(Callipepla gambelii)
+prakttofsvaktel			(Callipepla douglasii)
+bandvaktel			(Philortyx fasciatus)
+vitstrupig vaktel		(Colinus virginianus)
+sångvaktel			(Dactylortyx thoracicus)
+montezumavaktel			(Cyrtonyx montezumae)
+sherpahöna			(Lerwa lerwa)
+brunstrupig kungshöna		(Tetraophasis obscurus)
+gulstrupig kungshöna		(Tetraophasis szechenyii)
+kaukasisk snöhöna		(Tetraogallus caucasicus)
+kaspisk snöhöna			(Tetraogallus caspius)
+himalayasnöhöna			(Tetraogallus himalayensis)
+tibetansk snöhöna		(Tetraogallus tibetanus)
+altaisnöhöna			(Tetraogallus altaicus)
+berghöna			(Alectoris chukar)
+lössberghöna			(Alectoris magna)
+stenhöna			(Alectoris graeca)
+rödhöna				(Alectoris rufa)
+klipphöna			(Alectoris barbara)
+svartstrupig berghöna		(Alectoris philbyi)
+arabisk rödhöna			(Alectoris melanocephala)
+visselhöna			(Ammoperdix griseogularis)
+ökenhöna			(Ammoperdix heyi)
+svart frankolin			(Francolinus francolinus)
+grå frankolin			(Francolinus pondicerianus)
+marockansk frankolin		(Francolinus bicalcaratus)
+Erckels frankolin		(Francolinus erckelii)
+rapphöna			(Perdix perdix)
+stäpprapphöna			(Perdix dauurica)
+tibetansk rapphöna		(Perdix hodgsoniae)
+vaktel				(Coturnix coturnix)
+japansk vaktel			(Coturnix japonica)
+harlekinvaktel			(Coturnix delegorguei)
+brunkronad sånghöna		(Arborophila torqueola)
+roststrupig sånghöna		(Arborophila rufogularis)
+sikkimsånghöna			(Arborophila mandellii)
+sichuansånghöna			(Arborophila rufipectus)
+vitbrynad bambuhöna		(Bambusicola fytchii)
+kinesisk bambuhöna		(Bambusicola thoracica)
+blodfasan			(Ithaginis cruentus)
+västlig tragopan		(Tragopan melanocephalus)
+satyrtragopan			(Tragopan satyra)
+gråbukig tragopan		(Tragopan blythii)
+temmincks tragopan		(Tragopan temminckii)
+koklassfasan			(Pucrasia macrolopha)
+himalayamonal			(Lophophorus impejanus)
+vitstjärtad monal		(Lophophorus sclateri)
+kinesisk monal			(Lophophorus lhuysii)
+röd djungelhöna			(Gallus gallus)
+kalijfasan			(Lophura leucomelanos)
+vit öronfasan			(Crossoptilon crossoptilon)
+tibetansk öronfasan		(Crossoptilon harmani)
+brun öronfasan			(Crossoptilon mantchuricum)
+blå öronfasan			(Crossoptilon auritum)
+klippfasan			(Catreus wallichii)
+kopparfasan			(Syrmaticus soemmerringii)
+kungsfasan			(Syrmaticus reevesii)
+fasan				(Phasianus colchicus)
+guldfasan			(Chrysolophus pictus)
+diamantfasan			(Chrysolophus amherstiae)
+hjälmpärlhöna			(Numida meleagris)
+kalkon				(Meleagris gallopavo)
 
-springhöna
-gulfotad springhöna
-bandad springhöna
-rödhalsad skogsrall
-gråfotad bandrall
-fläckrall
-okinawarall
-kustrall
-kungsrall
-brunkronad rall
-virginiarall
-vattenrall
-rödsminkad sumphöna
-småfläckig sumphöna
-karolinasumphöna
-mindre sumphöna
-dvärgsumphöna
-vitbrynad sumphöna
-rödbrun sumphöna
-amursumphöna
-svartstjärtad sumphöna
-rostgumpad sumphöna
-asiatisk gulrall
-amerikansk gulrall
-svart dvärgrall
-kornknarr
-afrikansk kornknarr
-brun sumphöna
-vattenhöna
-korprall
-rörhöna
-mindre rörhöna
-mindre sultanhöna
-amerikansk sultanhöna
-purpurhöna
-tupprall
-sothöna
-amerikansk sothöna
-karibsothöna
-kamsothöna
-amerikansk simrall
-ralltrana
-trana
-svarthalsad trana
-munktrana
-prärietrana
-glasögontrana
-japansk trana
-trumpetartrana
-snötrana
-jungfrutrana
+springhöna			(Turnix sylvaticus)
+gulfotad springhöna		(Turnix tanki)
+bandad springhöna		(Turnix suscitator)
+rödhalsad skogsrall		(Aramides axillaris)
+gråfotad bandrall		(Rallina eurizonoides)
+fläckrall			(Pardirallus maculatus)
+okinawarall			(Gallirallus okinawae)
+kustrall			(Rallus longirostris)
+kungsrall			(Rallus elegans)
+brunkronad rall			(Rallus striatus)
+virginiarall			(Rallus limicola)
+vattenrall			(Rallus aquaticus)
+rödsminkad sumphöna		(Neocrex erythrops)
+småfläckig sumphöna		(Porzana porzana)
+karolinasumphöna		(Porzana carolina)
+mindre sumphöna			(Porzana parva)
+dvärgsumphöna			(Porzana pusilla)
+vitbrynad sumphöna		(Porzana cinerea)
+rödbrun sumphöna		(Porzana fusca)
+amursumphöna			(Porzana paykullii)
+svartstjärtad sumphöna		(Porzana bicolor)
+rostgumpad sumphöna		(Porzana marginalis)
+asiatisk gulrall		(Coturnicops exquisitus)
+amerikansk gulrall		(Coturnicops noveboracensis)
+svart dvärgrall			(Laterallus jamaicensis)
+kornknarr			(Crex crex)
+afrikansk kornknarr		(Crex egregia)
+brun sumphöna			(Amaurornis akool)
+vattenhöna			(Amaurornis phoenicurus)
+korprall			(Limnocorax flavirostra)
+rörhöna				(Gallinula chloropus)
+mindre rörhöna			(Gallinula angulata)
+mindre sultanhöna		(Porphyrio alleni)
+amerikansk sultanhöna		(Porphyrio martinicus)
+purpurhöna			(Porphyrio porphyrio)
+tupprall			(Gallicrex cinerea)
+sothöna				(Fulica atra)
+amerikansk sothöna		(Fulica americana)
+karibsothöna			(Fulica caribaea)
+kamsothöna			(Fulica cristata)
+amerikansk simrall		(Heliornis fulica)
+ralltrana			(Aramus guarauna)
+trana				(Grus grus)
+svarthalsad trana		(Grus nigricollis)
+munktrana			(Grus monacha)
+prärietrana			(Grus canadensis)
+glasögontrana			(Grus vipio)
+japansk trana			(Grus japonensis)
+trumpetartrana			(Grus americana)
+snötrana			(Grus leucogeranus)
+jungfrutrana			(Grus virgo)
 
-småtrapp
-denhamtrapp
-nubisk trapp
-ökentrapp
-kragtrapp
-arabtrapp
-stortrapp
+småtrapp			(Tetrax tetrax)
+denhamtrapp			(Neotis denhami)
+nubisk trapp			(Neotis nuba)
+ökentrapp			(Chlamydotis undulata)
+kragtrapp			(Chlamydotis macqueenii)
+arabtrapp			(Ardeotis arabs)
+stortrapp			(Otis tarda)
 
-fasanjacana
-bronsjacana
-centralamerikansk jacana
-rallbeckasin
-strandskata
-amerikansk strandskata
-klippstrandskata
-kanariestrandskata
-ibisnäbb
-styltlöpare
-amerikansk styltlöpare
-skärfläcka
-amerikansk skärfläcka
-hägerpipare
-tjockfot
-senegaltjockfot
-fläcktjockfot
-amerikansk tjockfot
-strandtjockfot
-krokodilväktare
-ökenlöpare
-rödvingad vadarsvala
+fasanjacana			(Hydrophasianus chirurgus)
+bronsjacana			(Metopidius indicus)
+centralamerikansk jacana	(Jacana spinosa)
+rallbeckasin			(Rostratula benghalensis)
+strandskata			(Haematopus ostralegus)
+amerikansk strandskata		(Haematopus palliatus)
+klippstrandskata		(Haematopus bachmani)
+kanariestrandskata		(Haematopus meadewaldoi)
+ibisnäbb			(Ibidorhyncha struthersii)
+styltlöpare			(Himantopus himantopus)
+amerikansk styltlöpare		(Himantopus mexicanus)
+skärfläcka			(Recurvirostra avosetta)
+amerikansk skärfläcka		(Recurvirostra americana)
+hägerpipare			(Dromas ardeola)
+tjockfot			(Burhinus oedicnemus)
+senegaltjockfot			(Burhinus senegalensis)
+fläcktjockfot			(Burhinus capensis)
+amerikansk tjockfot		(Burhinus bistriatus)
+strandtjockfot			(Esacus recurvirostris)
+krokodilväktare			(Pluvianus aegyptius)
+ökenlöpare			(Cursorius cursor)
+rödvingad vadarsvala		(Glareola pratincola)
 = vadarsvala
-orientvadarsvala
-svartvingad vadarsvala
-mindre vadarsvala
-mindre strandpipare
-större strandpipare
-flikstrandpipare
-flodstrandpipare
-wilsonstrandpipare
-skrikstrandpipare
-flöjtstrandpipare
-kittlitzstrandpipare
-trebandad pipare
-svartbent strandpipare
-snöstrandpipare
-svartkronad strandpipare
-mongolpipare
-ökenpipare
-kaspisk pipare
-orientpipare
-bergpipare
-fjällpipare
-amerikansk tundrapipare
-sibirisk tundrapipare
-ljungpipare
-kustpipare
-sporrvipa
-svarthuvad vipa
-gråhuvad vipa
-rödflikvipa
-stäppvipa
-sumpvipa
-tofsvipa
+orientvadarsvala		(Glareola maldivarum)
+svartvingad vadarsvala		(Glareola nordmanni)
+mindre vadarsvala		(Glareola lactea)
+mindre strandpipare		(Charadrius dubius)
+större strandpipare		(Charadrius hiaticula)
+flikstrandpipare		(Charadrius semipalmatus)
+flodstrandpipare		(Charadrius placidus)
+wilsonstrandpipare		(Charadrius wilsonia)
+skrikstrandpipare		(Charadrius vociferus)
+flöjtstrandpipare		(Charadrius melodus)
+kittlitzstrandpipare		(Charadrius pecuarius)
+trebandad pipare		(Charadrius tricollaris)
+svartbent strandpipare		(Charadrius alexandrinus)
+snöstrandpipare			(Charadrius nivosus)
+svartkronad strandpipare	(Collared Plover)
+mongolpipare			(Charadrius mongolus)
+ökenpipare			(Charadrius leschenaultii)
+kaspisk pipare			(Charadrius asiaticus)
+orientpipare			(Charadrius veredus)
+bergpipare			(Charadrius montanus)
+fjällpipare			(Charadrius morinellus)
+amerikansk tundrapipare		(Pluvialis dominica)
+sibirisk tundrapipare		(Pluvialis fulva)
+ljungpipare			(Pluvialis apricaria)
+kustpipare			(Pluvialis squatarola)
+sporrvipa			(Vanellus spinosus)
+svarthuvad vipa			(Vanellus tectus)
+gråhuvad vipa			(Vanellus cinereus)
+rödflikvipa			(Vanellus indicus)
+stäppvipa			(Vanellus gregarius)
+sumpvipa			(Vanellus leucurus)
+tofsvipa			(Vanellus vanellus)
 
-bränningsnäppa
-kolymasnäppa
-kustsnäppa
-sandlöpare
-sandsnäppa
-tundrasnäppa
-rödhalsad snäppa
-småsnäppa
-mosnäppa
-långtåsnäppa
-dvärgsnäppa
-vitgumpsnäppa
-gulbröstad snäppa
-tuvsnäppa
-spetsstjärtad snäppa
-spovsnäppa
-skärsnäppa
-klippsnäppa
-kärrsnäppa
-styltsnäppa
-skedsnäppa
-myrsnäppa
-prärielöpare
-brushane
-dvärgbeckasin
-enkelbeckasin
-wilsonbeckasin
-dubbelbeckasin
-sibirisk beckasin
-taigabeckasin
-japansk beckasin
-bergbeckasin
-skogsbeckasin
-mindre beckasinsnäppa
-större beckasinsnäppa
-asiatisk beckasinsnäppa
-morkulla
-amamimorkulla
-amerikansk morkulla
-rödspov
-hudsonspov
-myrspov
-präriespov
-dvärgspov
-eskimåspov
-småspov
-alaskaspov
-smalnäbbad spov
-storspov
-långnäbbad spov
-orientspov
-piparsnäppa
-tereksnäppa
-drillsnäppa
-fläckdrillsnäppa
-skogssnäppa
-amerikansk skogssnäppa
-sibirisk gråsnäppa
-amerikansk gråsnäppa
-svartsnäppa
-större gulbena
-fläckgluttsnäppa
-gluttsnäppa
-willet
-mindre gulbena
-dammsnäppa
-grönbena
-rödbena
-roskarl
-svart roskarl
-wilsonsimsnäppa
-smalnäbbad simsnäppa
-brednäbbad simsnäppa
+bränningsnäppa			(Aphriza virgata)
+kolymasnäppa			(Calidris tenuirostris)
+kustsnäppa			(Calidris canutus)
+sandlöpare			(Calidris alba)
+sandsnäppa			(Calidris pusilla)
+tundrasnäppa			(Calidris mauri)
+rödhalsad snäppa		(Calidris ruficollis)
+småsnäppa			(Calidris minuta)
+mosnäppa			(Calidris temminckii)
+långtåsnäppa			(Calidris subminuta)
+dvärgsnäppa			(Calidris minutilla)
+vitgumpsnäppa			(Calidris fuscicollis)
+gulbröstad snäppa		(Calidris bairdii)
+tuvsnäppa			(Calidris melanotos)
+spetsstjärtad snäppa		(Calidris acuminata)
+spovsnäppa			(Calidris ferruginea)
+skärsnäppa			(Calidris maritima)
+klippsnäppa			(Calidris ptilocnemis)
+kärrsnäppa			(Calidris alpina)
+styltsnäppa			(Calidris himantopus)
+skedsnäppa			(Eurynorhynchus pygmeus)
+myrsnäppa			(Limicola falcinellus)
+prärielöpare			(Tryngites subruficollis)
+brushane			(Philomachus pugnax)
+dvärgbeckasin			(Lymnocryptes minimus)
+enkelbeckasin			(Gallinago gallinago)
+wilsonbeckasin			(Gallinago delicata)
+dubbelbeckasin			(Gallinago media)
+sibirisk beckasin		(Gallinago stenura)
+taigabeckasin			(Gallinago megala)
+japansk beckasin		(Gallinago hardwickii)
+bergbeckasin			(Gallinago solitaria)
+skogsbeckasin			(Gallinago nemoricola)
+mindre beckasinsnäppa		(Limnodromus griseus)
+större beckasinsnäppa		(Limnodromus scolopaceus)
+asiatisk beckasinsnäppa		(Limnodromus semipalmatus)
+morkulla			(Scolopax rusticola)
+amamimorkulla			(Scolopax mira)
+amerikansk morkulla		(Scolopax minor)
+rödspov				(Limosa limosa)
+hudsonspov			(Limosa haemastica)
+myrspov				(Limosa lapponica)
+präriespov			(Limosa fedoa)
+dvärgspov			(Numenius minutus)
+eskimåspov			(Numenius borealis)
+småspov				(Numenius phaeopus)
+alaskaspov			(Numenius tahitiensis)
+smalnäbbad spov			(Numenius tenuirostris)
+storspov			(Numenius arquata)
+långnäbbad spov			(Numenius americanus)
+orientspov			(Numenius madagascariensis)
+piparsnäppa			(Bartramia longicauda)
+tereksnäppa			(Xenus cinereus)
+drillsnäppa			(Actitis hypoleucos)
+fläckdrillsnäppa		(Actitis macularius)
+skogssnäppa			(Tringa ochropus)
+amerikansk skogssnäppa		(Tringa solitaria)
+sibirisk gråsnäppa		(Tringa brevipes)
+amerikansk gråsnäppa		(Tringa incana)
+svartsnäppa			(Tringa erythropus)
+större gulbena			(Tringa melanoleuca)
+fläckgluttsnäppa		(Tringa guttifer)
+gluttsnäppa			(Tringa nebularia)
+willet				(Tringa semipalmata)
+mindre gulbena			(Tringa flavipes)
+dammsnäppa			(Tringa stagnatilis)
+grönbena			(Tringa glareola)
+rödbena				(Tringa totanus)
+roskarl				(Arenaria interpres)
+svart roskarl			(Arenaria melanocephala)
+wilsonsimsnäppa			(Phalaropus tricolor)
+smalnäbbad simsnäppa		(Phalaropus lobatus)
+brednäbbad simsnäppa		(Phalaropus fulicarius)
 
-bredstjärtad labb
-kustlabb
+bredstjärtad labb		(Stercorarius pomarinus)
+kustlabb			(Stercorarius parasiticus)
 = labb
-fjällabb
-storlabb
-antarktisk labb
-sydpolslabb
+fjällabb			(Stercorarius longicaudus)
+storlabb			(Stercorarius skua)
+antarktisk labb			(Stercorarius antarcticus)
+sydpolslabb			(Stercorarius maccormicki)
 
-dvärgmås
-tärnmås
-mingmås
-trädmås
-skrattmås
-brunhuvad mås
-gråhuvad mås
-långnäbbad mås
-sotmås
-vitögd mås
-perutrut
-svarthuvad trut
-reliktmås
-svarthuvad mås
-sotvingad mås
-präriemås
-vithuvad mås
-svartstjärtad mås
-rödnäbbad trut
-ringnäbbad mås
-fiskmås
-silltrut
-gråtrut
+dvärgmås			(Hydrocoloeus minutus)
+tärnmås				(Xema sabini)
+mingmås				(Chroicocephalus saundersi)
+trädmås				(Chroicocephalus philadelphia)
+skrattmås			(Chroicocephalus ridibundus)
+brunhuvad mås			(Chroicocephalus brunnicephalus)
+gråhuvad mås			(Chroicocephalus cirrocephalus)
+långnäbbad mås			(Chroicocephalus genei)
+sotmås				(Larus hemprichii)
+vitögd mås			(Larus leucophthalmus)
+perutrut			(Larus belcheri)
+svarthuvad trut			(Larus ichthyaetus)
+reliktmås			(Larus relictus)
+svarthuvad mås			(Larus melanocephalus)
+sotvingad mås			(Larus atricilla)
+präriemås			(Larus pipixcan)
+vithuvad mås			(Larus heermanni)
+svartstjärtad mås		(Larus crassirostris)
+rödnäbbad trut			(Larus audouinii)
+ringnäbbad mås			(Larus delawarensis)
+fiskmås				(Larus canus)
+silltrut			(Larus fuscus)
+gråtrut				(Larus argentatus)
 östersjötrut
 sibirisk trut
-kaspisk trut
-medelhavstrut
-armenisk trut
-kanadatrut
-prärietrut
-västtrut
-mexikotrut
-dominikanertrut
-skiffertrut
-gråvingad trut
-vitvingad trut
-vittrut
-havstrut
-rosenmås
-tretåig mås
-beringmås
-svalstjärtad mås
-ismås
+kaspisk trut			(Larus cachinnans)
+medelhavstrut			(Larus michahellis)
+armenisk trut			(Larus armenicus)
+kanadatrut			(Larus smithsonianus)
+prärietrut			(Larus californicus)
+västtrut			(Larus occidentalis)
+mexikotrut			(Larus livens)
+dominikanertrut			(Larus dominicanus)
+skiffertrut			(Larus schistisagus)
+gråvingad trut			(Larus glaucescens)
+vitvingad trut			(Larus glaucoides)
+vittrut				(Larus hyperboreus)
+havstrut			(Larus marinus)
+rosenmås			(Rhodostethia rosea)
+tretåig mås			(Rissa tridactyla)
+beringmås			(Rissa brevirostris)
+svalstjärtad mås		(Creagrus furcatus)
+ismås				(Pagophila eburnea)
 
-brun noddy
-svart noddy
-mindre noddy
-grå noddy
-fetärna
-beringtärna
-söderhavstärna
-sottärna
-tygeltärna
-småtärna
-amerikansk småtärna
-sandtärna
-skräntärna
-svarttärna
-vitvingad tärna
-skäggtärna
-sydamerikansk flodtärna
-rosentärna
-svartnackad tärna
-silvertärna
-fisktärna
-kärrtärna
-vitkindad tärna
-kungstärna
-tofstärna
-kentsk tärna
-Cabots tärna
-aztektärna
-iltärna
-mingtärna
-amerikansk saxnäbb
-afrikansk saxnäbb
-indisk saxnäbb
+brun noddy			(Anous stolidus)
+svart noddy			(Anous minutus)
+mindre noddy			(Anous tenuirostris)
+grå noddy			(Procelsterna cerulea)
+fetärna				(Gygis alba)
+beringtärna			(Onychoprion aleuticus)
+söderhavstärna			(Onychoprion lunatus)
+sottärna			(Onychoprion fuscatus)
+tygeltärna			(Onychoprion anaethetus)
+småtärna			(Sternula albifrons)
+amerikansk småtärna		(Sternula antillarum)
+sandtärna			(Gelochelidon nilotica)
+skräntärna			(Hydroprogne caspia)
+svarttärna			(Chlidonias niger)
+vitvingad tärna			(Chlidonias leucopterus)
+skäggtärna			(Chlidonias hybrida)
+sydamerikansk flodtärna		(Phaetusa simplex)
+rosentärna			(Sterna dougallii)
+svartnackad tärna		(Sterna sumatrana)
+silvertärna			(Sterna paradisaea)
+fisktärna			(Sterna hirundo)
+kärrtärna			(Sterna forsteri)
+vitkindad tärna			(Sterna repressa)
+kungstärna			(Sterna maxima)
+tofstärna			(Sterna bergii)
+kentsk tärna			(Sterna sandvicensis)
+Cabots tärna			(Sterna acuflavida)
+aztektärna			(Sterna elegans)
+iltärna				(Sterna bengalensis)
+mingtärna			(Sterna bernsteini)
+amerikansk saxnäbb		(Rynchops niger)
+afrikansk saxnäbb		(Rynchops flavirostris)
+indisk saxnäbb			(Rynchops albicollis)
 
-sillgrissla
-spetsbergsgrissla
-tordmule
-garfågel
-tobisgrissla
-beringtejst
-glasögontejst
-marmoralka
-långnäbbad marmoralka
-brunalka
-vitvingad californiaalka
-sotvingad californiaalka
-kragalka
-japansk alka
-alkekung
-sotalka
-tofsalka
-plymalka
-dvärgalka
-papegojalka
-hornalka
-lunnefågel
-hornlunne
-tofslunne
+sillgrissla			(Uria aalge)
+spetsbergsgrissla		(Uria lomvia)
+tordmule			(Alca torda)
+garfågel			(Pinguinus impennis)
+tobisgrissla			(Cepphus grylle)
+beringtejst			(Cepphus columba)
+glasögontejst			(Cepphus carbo)
+marmoralka			(Brachyramphus marmoratus)
+långnäbbad marmoralka		(Brachyramphus perdix)
+brunalka			(Brachyramphus brevirostris)
+vitvingad californiaalka	(Synthliboramphus hypoleucus)
+sotvingad californiaalka	(Synthliboramphus craveri)
+kragalka			(Synthliboramphus antiquus)
+japansk alka			(Synthliboramphus wumizusume)
+alkekung			(Alle alle)
+sotalka				(Ptychoramphus aleuticus)
+tofsalka			(Aethia cristatella)
+plymalka			(Aethia pygmaea)
+dvärgalka			(Aethia pusilla)
+papegojalka			(Aethia psittacula)
+hornalka			(Cerorhinca monocerata)
+lunnefågel			(Fratercula arctica)
+hornlunne			(Fratercula corniculata)
+tofslunne			(Fratercula cirrhata)
 = tofslunnefågel
 
-strimmig flyghöna
-kronflyghöna
-ökenflyghöna
-brunbukig flyghöna
-svartbukig flyghöna
-vitbukig flyghöna
-stäppflyghöna
+strimmig flyghöna		(Pterocles lichtensteinii)
+kronflyghöna			(Pterocles coronatus)
+ökenflyghöna			(Pterocles senegallus)
+brunbukig flyghöna		(Pterocles exustus)
+svartbukig flyghöna		(Pterocles orientalis)
+vitbukig flyghöna		(Pterocles alchata)
+stäppflyghöna			(Syrrhaptes paradoxus)
 = stäpphöna
-tibetflyghöna
+tibetflyghöna			(Syrrhaptes tibetanus)
 
 tamduva
-klippduva
-östlig klippduva
-snöduva
-skogsduva
-turkestanduva
-ringduva
-madeiraduva
-kanarieduva
-lagerduva
-gulfotad duva
-bergsskogduva
-sjalduva
-svartduva
-boninduva
-ryukyuduva
-vitkronad duva
-rödnackad duva
-bandstjärtsduva
-rödnäbbad duva
-turkduva
-skrattduva
-sorgduva
-rödögd duva
-röd turkduva
-turturduva
-mörk turturduva
-större turturduva
-palmduva
-pärlhalsduva
-långstjärtsduva
-smaragdduva
-vandringsduva
-spetsstjärtad duva
-socorroduva
-zenaidaduva
-vitvingad duva
-inkaduva
-nordlig markduva
-rostmarkduva
-purpurbröstad markduva
-vitpannad duva
-gråhuvad duva
-vitkindad vaktelduva
-karibvaktelduva
-röd vaktelduva
-gulbukig grönduva
-kilstjärtad grönduva
-vitbukig grönduva
-formosagrönduva
+klippduva			(Columba livia)
+östlig klippduva		(Columba rupestris)
+snöduva				(Columba leuconota)
+skogsduva			(Columba oenas)
+turkestanduva			(Columba eversmanni)
+ringduva			(Columba palumbus)
+madeiraduva			(Columba trocaz)
+kanarieduva			(Columba bollii)
+lagerduva			(Columba junoniae)
+gulfotad duva			(Columba arquatrix)
+bergsskogduva			(Columba hodgsonii)
+sjalduva			(Columba pulchricollis)
+svartduva			(Columba janthina)
+boninduva			(Columba versicolor)
+ryukyuduva			(Columba jouyi)
+vitkronad duva			(Patagioenas leucocephala)
+rödnackad duva			(Patagioenas squamosa)
+bandstjärtsduva			(Patagioenas fasciata)
+rödnäbbad duva			(Patagioenas flavirostris)
+turkduva			(Streptopelia decaocto)
+skrattduva			(Streptopelia roseogrisea)
+sorgduva			(Streptopelia decipiens)
+rödögd duva			(Streptopelia semitorquata)
+röd turkduva			(Streptopelia tranquebarica)
+turturduva			(Streptopelia turtur)
+mörk turturduva			(Streptopelia lugens)
+större turturduva		(Streptopelia orientalis)
+palmduva			(Streptopelia senegalensis)
+pärlhalsduva			(Streptopelia chinensis)
+långstjärtsduva			(Oena capensis)
+smaragdduva			(Chalcophaps indica)
+vandringsduva			(Ectopistes migratorius)
+spetsstjärtad duva		(Zenaida macroura)
+socorroduva			(Zenaida graysoni)
+zenaidaduva			(Zenaida aurita)
+vitvingad duva			(Zenaida asiatica)
+inkaduva			(Columbina inca)
+nordlig markduva		(Columbina passerina)
+rostmarkduva			(Columbina talpacoti)
+purpurbröstad markduva		(Claravis mondetoura)
+vitpannad duva			(Leptotila verreauxi)
+gråhuvad duva			(Leptotila plumbeiceps)
+vitkindad vaktelduva		(Geotrygon albifacies)
+karibvaktelduva			(Geotrygon chrysia)
+röd vaktelduva			(Geotrygon montana)
+gulbukig grönduva		(Treron waalia)
+kilstjärtad grönduva		(Treron sphenura)
+vitbukig grönduva		(Treron sieboldii)
+formosagrönduva			(Treron formosae)
 
-karolinaparakit
-rödhuvad dvärgpapegoja
-alexanderparakit
-halsbandsparakit
-kinesisk parakit
-himalayaparakit
-gråhuvad parakit
-mustaschparakit
-undulat
-soldatara
-grön parakit
-olivbröstad parakit
-elfenbensparakit
-nandayparakit
-tjocknäbbad parakit
-karmosinpannad parakit
-munkparakit
-mexikansk sparvpapegoja
-gulvingad parakit
-vitkronad papegoja
-vitpannad amazon
-rödkronad amazonpapegoja
-violettkronad amazon
-gulkindad amazon
-gulhuvad amazonpapegoja
+karolinaparakit			(Conuropsis carolinensis)
+rödhuvad dvärgpapegoja		(Agapornis fischeri)
+alexanderparakit		(Psittacula eupatria)
+halsbandsparakit		(Psittacula krameri)
+kinesisk parakit		(Psittacula derbiana)
+himalayaparakit			(Psittacula himalayana)
+gråhuvad parakit		(Psittacula finschii)
+mustaschparakit			(Psittacula alexandri)
+undulat				(Melopsittacus undulatus)
+soldatara			(Ara militaris)
+grön parakit			(Aratinga holochlora)
+olivbröstad parakit		(Aratinga nana)
+elfenbensparakit		(Aratinga canicularis)
+nandayparakit			(Aratinga nenday)
+tjocknäbbad parakit		(Rhynchopsitta pachyrhyncha)
+karmosinpannad parakit		(Rhynchopsitta terrisi)
+munkparakit			(Myiopsitta monachus)
+mexikansk sparvpapegoja		(Forpus cyanopygius)
+gulvingad parakit		(Brotogeris versicolurus)
+vitkronad papegoja		(Pionus senilis)
+vitpannad amazon		(Amazona albifrons)
+rödkronad amazonpapegoja	(Amazona viridigenalis)
+violettkronad amazon		(Amazona finschi)
+gulkindad amazon		(Amazona autumnalis)
+gulhuvad amazonpapegoja		(Amazona oratrix)
 
-jakobinskatgök
-rödvingad skatgök
-skatgök
-Hodgsons hökgök
-nordlig hökgök
-mindre hökgök
-större hökgök
-klaasgök
-didrikgök
-indisk gök
-gök
-himalayagök
-taigagök
-smågök
-drongogök
-koelgök
-svartnäbbad regngök
-gulnäbbad regngök
-mangroveregngök
-slätnäbbad ani
-ekorrgök
-strimnäbbad ani
-mindre markgök
-större tuppgök
-mindre tuppgök
-senegalsporrgök
-vitbrynad sporrgök
+jakobinskatgök			(Clamator jacobinus)
+rödvingad skatgök		(Clamator coromandus)
+skatgök				(Clamator glandarius)
+Hodgsons hökgök			(Hierococcyx fugax)
+nordlig hökgök			(Hierococcyx hyperythrus)
+mindre hökgök			(Hierococcyx varius)
+större hökgök			(Hierococcyx sparverioides)
+klaasgök			(Chrysococcyx klaas)
+didrikgök			(Chrysococcyx caprius)
+indisk gök			(Cuculus micropterus)
+gök				(Cuculus canorus)
+himalayagök			(Cuculus saturatus)
+taigagök			(Cuculus optatus)
+smågök				(Cuculus poliocephalus)
+drongogök			(Surniculus lugubris)
+koelgök				(Eudynamys scolopaceus)
+svartnäbbad regngök		(Coccyzus erythropthalmus)
+gulnäbbad regngök		(Coccyzus americanus)
+mangroveregngök			(Coccyzus minor)
+slätnäbbad ani			(Crotophaga ani)
+ekorrgök			(Piaya cayana)
+strimnäbbad ani			(Crotophaga sulcirostris)
+mindre markgök			(Morococcyx erythropygus)
+större tuppgök			(Geococcyx californianus)
+mindre tuppgök			(Geococcyx velox)
+senegalsporrgök			(Centropus senegalensis)
+vitbrynad sporrgök		(Centropus superciliosus)
 
-tornuggla
-gräsuggla
-bergdvärguv
-indisk kragdvärguv
-kinesisk kragdvärguv
-blek dvärguv
-dvärguv
-afrikansk dvärguv
-orientdvärguv
-ryukyudvärguv
-brunögd dvärguv
-östlig skrikdvärguv
-västlig skrikdvärguv
-balsasskrikdvärguv
-mustaschdvärguv
-guatemaladvärguv
-virginiauv
-berguv
-ökenuv
-fläckuv
-fjälluggla
-Blakistons fiskuv
-brun fiskuv
-hökuggla
-sparvuggla
-nordamerikansk sparvuggla
-rostsparvuggla
-kragsparvuggla
-colimasparvuggla
-tamaulipassparvuggla
-centralamerikansk sparvuggla
-göksparvuggla
-kaktusuggla
-brun spökuggla
-nordlig spökuggla
-minervauggla
-braminuggla
-prärieuggla
-brunstrimmig uggla
-vitbrynad uggla
-kattuggla
-klippuggla
-kråsuggla
-fläckuggla
-slaguggla
-lappuggla
-hornuggla
-mörk hornuggla
-jorduggla
-kapuggla
-pärluggla
-rostpärluggla
+tornuggla			(Tyto alba)
+gräsuggla			(Tyto capensis)
+bergdvärguv			(Otus spilocephalus)
+indisk kragdvärguv		(Otus bakkamoena)
+kinesisk kragdvärguv		(Otus lempiji)
+blek dvärguv			(Otus brucei)
+dvärguv				(Otus scops)
+afrikansk dvärguv		(Otus senegalensis)
+orientdvärguv			(Otus sunia)
+ryukyudvärguv			(Otus elegans)
+brunögd dvärguv			(Otus flammeolus)
+östlig skrikdvärguv		(Megascops asio)
+västlig skrikdvärguv		(Megascops kennicottii)
+balsasskrikdvärguv		(Megascops seductus)
+mustaschdvärguv			(Megascops trichopsis)
+guatemaladvärguv		(Megascops guatemalae)
+virginiauv			(Bubo virginianus)
+berguv				(Bubo bubo)
+ökenuv				(Bubo ascalaphus)
+fläckuv				(Bubo africanus)
+fjälluggla			(Bubo scandiacus)
+Blakistons fiskuv		(Ketupa blakistoni)
+brun fiskuv			(Ketupa zeylonensis)
+hökuggla			(Surnia ulula)
+sparvuggla			(Glaucidium passerinum)
+nordamerikansk sparvuggla	(Glaucidium gnoma)
+rostsparvuggla			(Glaucidium brasilianum)
+kragsparvuggla			(Glaucidium brodiei)
+colimasparvuggla		(Glaucidium palmarum)
+tamaulipassparvuggla		(Glaucidium sanchezi)
+centralamerikansk sparvuggla	(Glaucidium griseiceps)
+göksparvuggla			(Glaucidium cuculoides)
+kaktusuggla			(Micrathene whitneyi)
+brun spökuggla			(Ninox scutulata)
+nordlig spökuggla		(Ninox japonica)
+minervauggla			(Athene noctua)
+braminuggla			(Athene brama)
+prärieuggla			(Athene cunicularia)
+brunstrimmig uggla		(Strix virgata)
+vitbrynad uggla			(Strix leptogrammica)
+kattuggla			(Strix aluco)
+klippuggla			(Strix butleri)
+kråsuggla			(Strix varia)
+fläckuggla			(Strix occidentalis)
+slaguggla			(Strix uralensis)
+lappuggla			(Strix nebulosa)
+hornuggla			(Asio otus)
+mörk hornuggla			(Asio stygius)
+jorduggla			(Asio flammeus)
+kapuggla			(Asio capensis)
+pärluggla			(Aegolius funereus)
+rostpärluggla			(Aegolius acadicus)
 
-nordlig tandnattskärra
-sahelnattskärra
-bergnattskärra
-nubisk nattskärra
-tarimnattskärra
-sindnattskärra
-indisk nattskärra
-orientnattskärra
-nattskärra
-rödhalsad nattskärra
-ökennattskärra
-karolinanattskärra
-skriknattskärra
-halsbandsnattskärra
-gråbrun nattskärra
-dvalnattskärra
-azteknattskärra
-mexikansk nattskärra
-större falknattskärra
-mindre falknattskärra
-karibisk falknattskärra
+nordlig tandnattskärra		(Nyctibius jamaicensis)
+sahelnattskärra			(Caprimulgus inornatus)
+bergnattskärra			(Caprimulgus poliocephalus)
+nubisk nattskärra		(Caprimulgus nubicus)
+tarimnattskärra			(Caprimulgus centralasicus)
+sindnattskärra			(Caprimulgus mahrattensis)
+indisk nattskärra		(Caprimulgus asiaticus)
+orientnattskärra		(Caprimulgus indicus)
+nattskärra			(Caprimulgus europaeus)
+rödhalsad nattskärra		(Caprimulgus ruficollis)
+ökennattskärra			(Caprimulgus aegyptius)
+karolinanattskärra		(Caprimulgus carolinensis)
+skriknattskärra			(Caprimulgus vociferus)
+halsbandsnattskärra		(Caprimulgus ridgwayi)
+gråbrun nattskärra		(Caprimulgus salvini)
+dvalnattskärra			(Phalaenoptilus nuttallii)
+azteknattskärra			(Nyctidromus albicollis)
+mexikansk nattskärra		(Nyctiphrynus mcleodii)
+större falknattskärra		(Chordeiles minor)
+mindre falknattskärra		(Chordeiles acutipennis)
+karibisk falknattskärra		(Chordeiles gundlachii)
 
-ljuspannad seglare
-svart seglare
-himalayasalangan
-skorstensseglare
-columbiaseglare
-taggstjärtseglare
-kapverdeseglare
-enfärgad seglare
-tornseglare
-blek tornseglare
-somaliaseglare
-orientseglare
-alpseglare
-kafferseglare
-stubbstjärtseglare
-brokseglare
-kastanjeseglare
-halsbandsseglare
-vitnackad seglare
-karibisk dvärgseglare
-större svalstjärtseglare
-afrikansk palmseglare
+ljuspannad seglare		(Cypseloides storeri)
+svart seglare			(Cypseloides niger)
+himalayasalangan		(Collocalia brevirostris)
+skorstensseglare		(Chaetura pelagica)
+columbiaseglare			(Chaetura vauxi)
+taggstjärtseglare		(Hirundapus caudacutus)
+kapverdeseglare			(Apus alexandri)
+enfärgad seglare		(Apus unicolor)
+tornseglare			(Apus apus)
+blek tornseglare		(Apus pallidus)
+somaliaseglare			(Apus berliozi)
+orientseglare			(Apus pacificus)
+alpseglare			(Apus melba)
+kafferseglare			(Apus caffer)
+stubbstjärtseglare		(Apus affinis)
+brokseglare			(Aeronautes saxatilis)
+kastanjeseglare			(Streptoprocne rutila)
+halsbandsseglare		(Streptoprocne zonaris)
+vitnackad seglare		(Streptoprocne semicollaris)
+karibisk dvärgseglare		(Tachornis phoenicobia)
+större svalstjärtseglare	(Panyptila sanctihieronymi)
+afrikansk palmseglare		(Cypsiurus parvus)
 
-grön öronkolibri
-grönbröstad mango
-långstjärtad smaragd
-svalstjärtad smaragd
-kubansk smaragdkolibri
-dunkelkolibri
-brednäbbad kolibri
-xantuskolibri
-vitörad kolibri
-vitbröstad smaragd
-azurkronad smaragd
-beryllkolibri
-kanelkolibri
-beigebukig kolibri
-vitbröstad kolibri
-blåstrupig kolibri
-ametiststrupig bergsjuvel
-rivolikolibri
-brunhättad stjärnkolibri
-bahamakolibri
-glitterstjärtkolibri
-luciferkolibri
-rubinkolibri
-svarthakad kolibri
-Costas kolibri
-Annas kolibri
-kalliopekolibri
-humlekolibri
-bredstjärtad kolibri
-rostkolibri
-Allens kolibri
-citrontrogon
-bergstrogon
-kopparstjärtstrogon
-örontrogon
-Wards trogon
+grön öronkolibri		(Colibri thalassinus)
+grönbröstad mango		(Anthracothorax prevostii)
+långstjärtad smaragd		(Chlorostilbon auriceps)
+svalstjärtad smaragd		(Chlorostilbon canivetii)
+kubansk smaragdkolibri		(Chlorostilbon ricordii)
+dunkelkolibri			(Cynanthus sordidus)
+brednäbbad kolibri		(Cynanthus latirostris)
+xantuskolibri			(Hylocharis xantusii)
+vitörad kolibri			(Hylocharis leucotis)
+vitbröstad smaragd		(Amazilia candida)
+azurkronad smaragd		(Amazilia cyanocephala)
+beryllkolibri			(Amazilia beryllina)
+kanelkolibri			(Amazilia rutila)
+beigebukig kolibri		(Amazilia yucatanensis)
+vitbröstad kolibri		(Amazilia violiceps)
+blåstrupig kolibri		(Lampornis clemenciae)
+ametiststrupig bergsjuvel	(Lampornis amethystinus)
+rivolikolibri			(Eugenes fulgens)
+brunhättad stjärnkolibri	(Heliomaster constantii)
+bahamakolibri			(Calliphlox evelynae)
+glitterstjärtkolibri		(Tilmatura dupontii)
+luciferkolibri			(Calothorax lucifer)
+rubinkolibri			(Archilochus colubris)
+svarthakad kolibri		(Archilochus alexandri)
+Costas kolibri			(Calypte costae)
+Annas kolibri			(Calypte anna)
+kalliopekolibri			(Stellula calliope)
+humlekolibri			(Atthis heloisa)
+bredstjärtad kolibri		(Selasphorus platycercus)
+rostkolibri			(Selasphorus rufus)
+Allens kolibri			(Selasphorus sasin)
+citrontrogon			(Trogon citreolus)
+bergstrogon			(Trogon mexicanus)
+kopparstjärtstrogon		(Trogon elegans)
+örontrogon			(Euptilotis neoxenus)
+Wards trogon			(Harpactes wardi)
 
-rostkungsfiskare
-smyrnakungsfiskare
-svarthuvad kungsfiskare
-gråhuvad kungsfiskare
-mangrovekungsfiskare
-mikronesisk kungsfiskare
-kungsfiskare
-malakitkungsfiskare
-grön kungsfiskare
-amazonkungsfiskare
-gråfiskare
-bälteskungsfiskare
-ringkungsfiskare
-större gråfiskare
-rostkronad motmot
-blåkronad motmot
-vitstrupig biätare
-grön dvärgbiätare
-grön biätare
-regnbågsbiätare
-biätare
-blåkråka
-savannblåkråka
-indisk blåkråka
-gulnäbbad blåkråka
-rödnäbbad blåkråka
-härfågel
-grå hornskata
-större barbett
-himalayahonungsgök
-smaragdtukanett
+rostkungsfiskare		(Halcyon coromanda)
+smyrnakungsfiskare		(Halcyon smyrnensis)
+svarthuvad kungsfiskare		(Halcyon pileata)
+gråhuvad kungsfiskare		(Halcyon leucocephala)
+mangrovekungsfiskare		(Halcyon chloris)
+mikronesisk kungsfiskare	(Halcyon cinnamomina)
+kungsfiskare			(Alcedo atthis)
+malakitkungsfiskare		(Alcedo cristata)
+grön kungsfiskare		(Chloroceryle americana)
+amazonkungsfiskare		(Chloroceryle amazona)
+gråfiskare			(Ceryle rudis)
+bälteskungsfiskare		(Megaceryle alcyon)
+ringkungsfiskare		(Megaceryle torquata)
+större gråfiskare		(Megaceryle lugubris)
+rostkronad motmot		(Momotus mexicanus)
+blåkronad motmot		(Momotus momotus)
+vitstrupig biätare		(Merops albicollis)
+grön dvärgbiätare		(Merops orientalis)
+grön biätare			(Merops persicus)
+regnbågsbiätare			(Merops ornatus)
+biätare				(Merops apiaster)
+blåkråka			(Coracias garrulus)
+savannblåkråka			(Coracias abyssinicus)
+indisk blåkråka			(Coracias benghalensis)
+gulnäbbad blåkråka		(Eurystomus glaucurus)
+rödnäbbad blåkråka		(Eurystomus orientalis)
+härfågel			(Upupa epops)
+grå hornskata			(Tockus nasutus)
+större barbett			(Megalaima virens)
+himalayahonungsgök		(Indicator xanthonotus)
+smaragdtukanett			(Aulacorhynchus prasinus)
 
-göktyta
-fläckdvärgspett
-guldspett
-olivgul spett
-gråkronad spett
-gråspett
-gröngöling
-atlasgröngöling
-japansk grönspett
-fjällig grönspett
-okinawaspett
-neotropisk spillkråka
-amerikansk spillkråka
-spillkråka
-vitbukig spillkråka
-kråkspett
-rödhuvad hackspett
-samlarspett
-gulkindad spett
-gråbröstad spett
-kaktusspett
-gulpannad hackspett
-karolinaspett
-gulbröstad savspett
-rödnackad savspett
-rödhuvad savspett
-svartryggig savspett
-större hackspett
-vitvingad hackspett
-balkanspett
-sindspett
-himalayaspett
-darjeelingspett
-rödbröstad hackspett
-mellanspett
-vitryggig hackspett
-rostbukig spett
-brunpannad hackspett
-mindre hackspett
-gråkronad hackspett
-kizukispett
-arabspett
-bandryggig hackspett
-chaparralspett
-dunspett
-tallspett
-sonoraspett
-hårspett
-vithuvad hackspett
-svartryggig hackspett
-tretåig hackspett
-rökbrun spett
-umbraspett
-centralamerikansk jättespett
-kejsarspett
-elfenbensnäbb
-bandad myrtörnskata
-fjällig myrpitta
-rosthalsad lövkastare
-gråhuvad trädklättrare
-vitnäbbad trädklättrare
-vitstrimmig trädklättrare
-fläckkronad trädklättrare
+göktyta				(Jynx torquilla)
+fläckdvärgspett			(Picumnus innominatus)
+guldspett			(Colaptes auratus)
+olivgul spett			(Colaptes rubiginosus)
+gråkronad spett			(Colaptes auricularis)
+gråspett			(Picus canus)
+gröngöling			(Picus viridis)
+atlasgröngöling			(Picus vaillantii)
+japansk grönspett		(Picus awokera)
+fjällig grönspett		(Picus squamatus)
+okinawaspett			(Sapheopipo noguchii)
+neotropisk spillkråka		(Dryocopus lineatus)
+amerikansk spillkråka		(Dryocopus pileatus)
+spillkråka			(Dryocopus martius)
+vitbukig spillkråka		(Dryocopus javensis)
+kråkspett			(Melanerpes lewis)
+rödhuvad hackspett		(Melanerpes erythrocephalus)
+samlarspett			(Melanerpes formicivorus)
+gulkindad spett			(Melanerpes chrysogenys)
+gråbröstad spett		(Melanerpes hypopolius)
+kaktusspett			(Melanerpes uropygialis)
+gulpannad hackspett		(Melanerpes aurifrons)
+karolinaspett			(Melanerpes carolinus)
+gulbröstad savspett		(Sphyrapicus varius)
+rödnackad savspett		(Sphyrapicus nuchalis)
+rödhuvad savspett		(Sphyrapicus ruber)
+svartryggig savspett		(Sphyrapicus thyroideus)
+större hackspett		(Dendrocopos major)
+vitvingad hackspett		(Dendrocopos leucopterus)
+balkanspett			(Dendrocopos syriacus)
+sindspett			(Dendrocopos assimilis)
+himalayaspett			(Dendrocopos himalayensis)
+darjeelingspett			(Dendrocopos darjellensis)
+rödbröstad hackspett		(Dendrocopos cathpharius)
+mellanspett			(Dendrocopos medius)
+vitryggig hackspett		(Dendrocopos leucotos)
+rostbukig spett			(Dendrocopos hyperythrus)
+brunpannad hackspett		(Dendrocopos auriceps)
+mindre hackspett		(Dendrocopos minor)
+gråkronad hackspett		(Dendrocopos canicapillus)
+kizukispett			(Dendrocopos kizuki)
+arabspett			(Dendrocopos dorae)
+bandryggig hackspett		(Picoides scalaris)
+chaparralspett			(Picoides nuttallii)
+dunspett			(Picoides pubescens)
+tallspett			(Picoides borealis)
+sonoraspett			(Picoides stricklandi)
+hårspett			(Picoides villosus)
+vithuvad hackspett		(Picoides albolarvatus)
+svartryggig hackspett		(Picoides arcticus)
+tretåig hackspett		(Picoides tridactylus)
+rökbrun spett			(Picoides fumigatus)
+umbraspett			(Blythipicus pyrrhotis)
+centralamerikansk jättespett	(Campephilus guatemalensis)
+kejsarspett			(Campephilus imperialis)
+elfenbensnäbb			(Campephilus principalis)
+bandad myrtörnskata		(Thamnophilus doliatus)
+fjällig myrpitta		(Grallaria guatimalensis)
+rosthalsad lövkastare		(Sclerurus mexicanus)
+gråhuvad trädklättrare		(Sittasomus griseicapillus)
+vitnäbbad trädklättrare		(Xiphorhynchus flavigaster)
+vitstrimmig trädklättrare	(Lepidocolaptes leucogaster)
+fläckkronad trädklättrare	(Lepidocolaptes affinis)
 
-masktityra
-gråhalsad bekard
-rödstrupig bekard
-grå fibi
-svart fibi
-rödbrun fibi
-broktyrann
-svartkronad tyrann
-pirattyrann
-båtnäbbstyrann
-flocktyrann
-rubintyrann
-gulbukig empid
-akadempid
-dvärgempid
-hammondempid
-bergempid
-gråempid
-västempid
-ponderosaempid
-pilempid
-alempid
-tallempid
-vitstrupig empid
-beigebröstad empid
-större pivi
-västlig pivi
-östlig pivi
-nordlig pivi
-karibisk pivi
-tofstyrann
-långtofsad tyrann
-mörkhättad topptyrann
-gråstrupig topptyrann
-brunhättad topptyrann
-Nuttings topptyrann
-kubansk topptyrann
-större topptyrann
-gulgumpad attila
-rödflammig tyrann
-gulbukig tyrann
-större kiskadi
-Cassins kungstyrann
-västlig kungstyrann
-tropisk kungstyrann
-tjocknäbbad kungstyrann
-mayakungstyrann
-grå kungstyrann
-karibisk kungstyrann
-östlig kungstyrann
-gaffelstjärtstyrann
-saxstjärtstyrann
-vittofsad elenia
-grönaktig elenia
-nordlig dvärgtyrann
-kinesisk pitta
+masktityra			(Tityra semifasciata)
+gråhalsad bekard		(Pachyramphus major)
+rödstrupig bekard		(Pachyramphus aglaiae)
+grå fibi			(Sayornis phoebe)
+svart fibi			(Sayornis nigricans)
+rödbrun fibi			(Sayornis saya)
+broktyrann			(Empidonomus varius)
+svartkronad tyrann		(E. aurantioatrocristatus)
+pirattyrann			(Legatus leucophaius)
+båtnäbbstyrann			(Megarynchus pitangua)
+flocktyrann			(Myiozetetes similis)
+rubintyrann			(Pyrocephalus rubinus)
+gulbukig empid			(Empidonax flaviventris)
+akadempid			(Empidonax virescens)
+dvärgempid			(Empidonax minimus)
+hammondempid			(Empidonax hammondii)
+bergempid			(Empidonax oberholseri)
+gråempid			(Empidonax wrightii)
+västempid			(Empidonax difficilis)
+ponderosaempid			(Empidonax occidentalis)
+pilempid			(Empidonax traillii)
+alempid				(Empidonax alnorum)
+tallempid			(Empidonax affinis)
+vitstrupig empid		(Empidonax albigularis)
+beigebröstad empid		(Empidonax fulvifrons)
+större pivi			(Contopus pertinax)
+västlig pivi			(Contopus sordidulus)
+östlig pivi			(Contopus virens)
+nordlig pivi			(Contopus borealis)
+karibisk pivi			(Contopus caribaeus)
+tofstyrann			(Mitrephanes phaeocercus)
+långtofsad tyrann		(Xenotriccus mexicanus)
+mörkhättad topptyrann		(Myiarchus tuberculifer)
+gråstrupig topptyrann		(Myiarchus cinerascens)
+brunhättad topptyrann		(Myiarchus tyrannulus)
+Nuttings topptyrann		(Myiarchus nuttingi)
+kubansk topptyrann		(Myiarchus sagrae)
+större topptyrann		(Myiarchus crinitus)
+gulgumpad attila		(Attila spadiceus)
+rödflammig tyrann		(Deltarhynchus flammulatus)
+gulbukig tyrann			(Myiodynastes luteiventris)
+större kiskadi			(Pitangus sulphuratus)
+Cassins kungstyrann		(Tyrannus vociferans)
+västlig kungstyrann		(Tyrannus verticalis)
+tropisk kungstyrann		(Tyrannus melancholicus)
+tjocknäbbad kungstyrann		(Tyrannus crassirostris)
+mayakungstyrann			(Tyrannus couchii)
+grå kungstyrann			(Tyrannus dominicensis)
+karibisk kungstyrann		(Tyrannus caudifasciatus)
+östlig kungstyrann		(Tyrannus tyrannus)
+gaffelstjärtstyrann		(Tyrannus savana)
+saxstjärtstyrann		(Tyrannus forficatus)
+vittofsad elenia		(Elaenia albiceps)
+grönaktig elenia		(Myiopagis viridicata)
+nordlig dvärgtyrann		(Camptostoma imberbe)
+kinesisk pitta			(Pitta nympha)
 
-sångbusklärka
-kordofanlärka
-brunhuvad finklärka
-svartkronad finklärka
-streckad ökenlärka
-sandökenlärka
-rödstjärtad ökenlärka
-stenökenlärka
-härfågellärka
-dupontlärka
-tjocknäbbad lärka
-kalanderlärka
-asiatisk kalanderlärka
-tibetlärka
-mongollärka
-vitvingad lärka
-svartlärka
-rödkronad lärka
-korttålärka
-höglandslärka
-dvärglärka
-sandlärka
-tofslärka
-lagerlärka
-trädlärka
-mindre sånglärka
-sånglärka
-razolärka
-berglärka
-ökenberglärka
+sångbusklärka			(Mirafra cantillans)
+kordofanlärka			(Mirafra cordofanica)
+brunhuvad finklärka		(Eremopterix signatus)
+svartkronad finklärka		(Eremopterix nigriceps)
+streckad ökenlärka		(Eremalauda dunni)
+sandökenlärka			(Ammomanes cinctura)
+rödstjärtad ökenlärka		(Ammomanes phoenicurus)
+stenökenlärka			(Ammomanes deserti)
+härfågellärka			(Alaemon alaudipes)
+dupontlärka			(Chersophilus duponti)
+tjocknäbbad lärka		(Ramphocoris clotbey)
+kalanderlärka			(Melanocorypha calandra)
+asiatisk kalanderlärka		(Melanocorypha bimaculata)
+tibetlärka			(Melanocorypha maxima)
+mongollärka			(Melanocorypha mongolica)
+vitvingad lärka			(Melanocorypha leucoptera)
+svartlärka			(Melanocorypha yeltoniensis)
+rödkronad lärka			(Calandrella cinerea)
+korttålärka			(Calandrella brachydactyla)
+höglandslärka			(Calandrella acutirostris)
+dvärglärka			(Calandrella rufescens)
+sandlärka			(Calandrella raytal)
+tofslärka			(Galerida cristata)
+lagerlärka			(Galerida theklae)
+trädlärka			(Lullula arborea)
+mindre sånglärka		(Alauda gulgula)
+sånglärka			(Alauda arvensis)
+razolärka			(Alauda razae)
+berglärka			(Eremophila alpestris)
+ökenberglärka			(Eremophila bilopha)
 
-brunstrupig backsvala
-backsvala
-blek backsvala
-större backsvala
-nordlig kamvingesvala
-trädsvala
-mangrovesvala
-violettgrön svala
-bahamasvala
-brunbröstad storsvala
-blå storsvala
-sinaloastorsvala
-kubansk storsvala
-gråbröstad storsvala
-sydlig storsvala
-afrikansk klippsvala
-klippsvala
-ladusvala
-kustsvala
-etiopisk svala
-trådstjärtsvala
-rostgumpsvala
-indisk svala
-grottsvala
-stensvala
-himalayahussvala
-orienthussvala
-hussvala
+brunstrupig backsvala		(Riparia paludicola)
+backsvala			(Riparia riparia)
+blek backsvala			(Riparia diluta)
+större backsvala		(Neophedina cincta)
+nordlig kamvingesvala		(Stelgidopteryx serripennis)
+trädsvala			(Tachycineta bicolor)
+mangrovesvala			(Tachycineta albilinea)
+violettgrön svala		(Tachycineta thalassina)
+bahamasvala			(Tachycineta cyaneoviridis)
+brunbröstad storsvala		(Progne tapera)
+blå storsvala			(Progne subis)
+sinaloastorsvala		(Progne sinaloae)
+kubansk storsvala		(Progne cryptoleuca)
+gråbröstad storsvala		(Progne chalybea)
+sydlig storsvala		(Progne elegans)
+afrikansk klippsvala		(Ptyonoprogne fuligula)
+klippsvala			(Ptyonoprogne rupestris)
+ladusvala			(Hirundo rustica)
+kustsvala			(Hirundo tahitica)
+etiopisk svala			(Hirundo aethiopica)
+trådstjärtsvala			(Hirundo smithii)
+rostgumpsvala			(Cecropis daurica)
+indisk svala			(Petrochelidon fluvicola)
+grottsvala			(Petrochelidon fulva)
+stensvala			(Petrochelidon pyrrhonota)
+himalayahussvala		(Delichon nipalensis)
+orienthussvala			(Delichon dasypus)
+hussvala			(Delichon urbicum)
 
-större piplärka
-orientpiplärka
-mongolpiplärka
-fältpiplärka
-kanariepiplärka
-långnäbbad piplärka
-strimmig piplärka
-sibirisk piplärka
-trädpiplärka
-tundrapiplärka
-ängspiplärka
-rödstrupig piplärka
-rosenpiplärka
-skärpiplärka
-vattenpiplärka
-hedpiplärka
-präriepiplärka
+större piplärka			(Anthus richardi)
+orientpiplärka			(Anthus rufulus)
+mongolpiplärka			(Anthus godlewskii)
+fältpiplärka			(Anthus campestris)
+kanariepiplärka			(Anthus berthelotii)
+långnäbbad piplärka		(Anthus similis)
+strimmig piplärka		(Anthus sylvanus)
+sibirisk piplärka		(Anthus hodgsoni)
+trädpiplärka			(Anthus trivialis)
+tundrapiplärka			(Anthus gustavi)
+ängspiplärka			(Anthus pratensis)
+rödstrupig piplärka		(Anthus cervinus)
+rosenpiplärka			(Anthus roseatus)
+skärpiplärka			(Anthus petrosus)
+vattenpiplärka			(Anthus spinoletta)
+hedpiplärka			(Anthus rubescens)
+präriepiplärka			(Anthus spragueii)
 
-trädärla
-gulärla
+trädärla			(Dendronanthus indicus)
+gulärla				(Motacilla flava)
 svarthuvad gulärla
-citronärla
-forsärla
-sädesärla
+citronärla			(Motacilla citreola)
+forsärla			(Motacilla cinerea)
+sädesärla			(Motacilla alba)
 engelsk sädesärla
-japansk ärla
-brokärla
+japansk ärla			(Motacilla grandis)
+brokärla			(Motacilla aguimp)
 
-svartvingad nålfågel
-långstjärtad minivett
-gråstrupig minivett
-mindre minivett
-brungumpad minivett
-grå minivett
-ryukyuminivett
-kortnäbbad minivett
-tofsfinkbulbyl
-kragfinkbulbyl
-kinesisk bulbyl
-rödörad bulbyl
-himalayabulbyl
-vitkindad bulbyl
-rödgumpad bulbyl
-levantbulbyl
-trädgårdsbulbyl
-japansk bulbyl
-svart bulbyl
-nordlig solitärtrast
-brunryggad solitärtrast
-skiffersolitär
-grå silkesflugsnappare
-svart silkesflugsnappare
-indiansidensvans
-amursidensvans
-sidensvans
-hypokolius
-strömstare
-brun strömstare
-grå strömstare
+svartvingad nålfågel		(Coracina melaschistos)
+långstjärtad minivett		(Pericrocotus ethologus)
+gråstrupig minivett		(Pericrocotus solaris)
+mindre minivett			(Pericrocotus cinnamomeus)
+brungumpad minivett		(Pericrocotus cantonensis)
+grå minivett			(Pericrocotus divaricatus)
+ryukyuminivett			(Pericrocotus tegimae)
+kortnäbbad minivett		(Pericrocotus brevirostris)
+tofsfinkbulbyl			(Spizixos canifrons)
+kragfinkbulbyl			(Spizixos semitorques)
+kinesisk bulbyl			(Pycnonotus sinensis)
+rödörad bulbyl			(Pycnonotus jocosus)
+himalayabulbyl			(Pycnonotus leucogenys)
+vitkindad bulbyl		(Pycnonotus leucotis)
+rödgumpad bulbyl		(Pycnonotus cafer)
+levantbulbyl			(Pycnonotus xanthopygos)
+trädgårdsbulbyl			(Pycnonotus barbatus)
+japansk bulbyl			(Hypsipetes amaurotis)
+svart bulbyl			(Hypsipetes leucocephalus)
+nordlig solitärtrast		(Myadestes townsendi)
+brunryggad solitärtrast		(Myadestes occidentalis)
+skiffersolitär			(Myadestes unicolor)
+grå silkesflugsnappare		(Ptilogonys cinereus)
+svart silkesflugsnappare	(Phainopepla nitens)
+indiansidensvans		(Bombycilla cedrorum)
+amursidensvans			(Bombycilla japonica)
+sidensvans			(Bombycilla garrulus)
+hypokolius			(Hypocolius ampelinus)
+strömstare			(Cinclus cinclus)
+brun strömstare			(Cinclus pallasii)
+grå strömstare			(Cinclus mexicanus)
 
-klippgärdsmyg
-kanjongärdsmyg
-socorrogärdsmyg
-clariongärdsmyg
-husgärdsmyg
-gärdsmyg
-stillahavsgärdsmyg
-vintergärdsmyg
-starrgärdsmyg
-kärrgärdsmyg
-karolinagärdsmyg
-snårgärdsmyg
-Boucards gärdsmyg
-fläckgärdsmyg
-kaktusgärdsmyg
-rostnackad gärdsmyg
-gråbandad gärdsmyg
-fläckbröstad gärdsmyg
-västmexikansk gärdsmyg
-sinaloagärdsmyg
-bandgärdsmyg
-gråbröstad skogsgärdsmyg
+klippgärdsmyg			(Salpinctes obsoletus)
+kanjongärdsmyg			(Catherpes mexicanus)
+socorrogärdsmyg			(Troglodytes sissonii)
+clariongärdsmyg			(Troglodytes tanneri)
+husgärdsmyg			(Troglodytes aedon)
+gärdsmyg			(Troglodytes troglodytes)
+stillahavsgärdsmyg		(Troglodytes pacificus)
+vintergärdsmyg			(Troglodytes hiemalis)
+starrgärdsmyg			(Cistothorus platensis)
+kärrgärdsmyg			(Cistothorus palustris)
+karolinagärdsmyg		(Thryothorus ludovicianus)
+snårgärdsmyg			(Thryomanes bewickii)
+Boucards gärdsmyg		(Campylorhynchus jocosus)
+fläckgärdsmyg			(Campylorhynchus gularis)
+kaktusgärdsmyg			(Campylorhynchus brunneicapillus)
+rostnackad gärdsmyg		(Campylorhynchus rufinucha)
+gråbandad gärdsmyg		(Campylorhynchus megalopterus)
+fläckbröstad gärdsmyg		(Pheugopedius maculipectus)
+västmexikansk gärdsmyg		(Pheugopedius felix)
+sinaloagärdsmyg			(Thryophilus sinaloa)
+bandgärdsmyg			(Thryophilus pleurostictus)
+gråbröstad skogsgärdsmyg	(Henicorhina leucophrys)
 
-nordlig härmtrast
-socorrohärmtrast
-bahamahärmtrast
-rödbrun härmtrast
-långnäbbad härmtrast
-grå härmtrast
-Bendires härmtrast
-fläckig härmtrast
-bågnäbbad härmtrast
-mojavehärmtrast
-crissalhärmtrast
-kalifornisk härmtrast
-blå härmtrast
-buskhärmtrast
-grå kattfågel
+nordlig härmtrast		(Mimus polyglottos)
+socorrohärmtrast		(Mimus graysoni)
+bahamahärmtrast			(Mimus gundlachii)
+rödbrun härmtrast		(Toxostoma rufum)
+långnäbbad härmtrast		(Toxostoma longirostre)
+grå härmtrast			(Toxostoma cinereum)
+Bendires härmtrast		(Toxostoma bendirei)
+fläckig härmtrast		(Toxostoma ocellatum)
+bågnäbbad härmtrast		(Toxostoma curvirostre)
+mojavehärmtrast			(Toxostoma lecontei)
+crissalhärmtrast		(Toxostoma crissale)
+kalifornisk härmtrast		(Toxostoma redivivum)
+blå härmtrast			(Melanotis caerulescens)
+buskhärmtrast			(Oreoscoptes montanus)
+grå kattfågel			(Dumetella carolinensis)
 
-vitögd järnsparv
-japansk järnsparv
-järnsparv
-rostbrynad järnsparv
-sibirisk järnsparv
-brun järnsparv
-svartkronad järnsparv
-yemenjärnsparv
-svartstrupig järnsparv
-mongoljärnsparv
-rödbröstad järnsparv
-altaijärnsparv
-alpjärnsparv
+vitögd järnsparv		(Prunella immaculata)
+japansk järnsparv		(Prunella rubida)
+järnsparv			(Prunella modularis)
+rostbrynad järnsparv		(Prunella strophiata)
+sibirisk järnsparv		(Prunella montanella)
+brun järnsparv			(Prunella fulvescens)
+svartkronad järnsparv		(Prunella ocularis)
+yemenjärnsparv			(Prunella fagani)
+svartstrupig järnsparv		(Prunella atrogularis)
+mongoljärnsparv			(Prunella koslowi)
+rödbröstad järnsparv		(Prunella rubeculoides)
+altaijärnsparv			(Prunella himalayana)
+alpjärnsparv			(Prunella collaris)
 
-trädnäktergal
-svart trädnäktergal
-pärlkortvinge
-rostbukig kortvinge
-blå kortvinge
-rödhake
-japansk rödhake
-ryukyurödhake
-drillnäktergal
-näktergal
-sydnäktergal
-rubinnäktergal
-blåhake
-svartbröstad rubinnäktergal
-rosthättad näktergal
-svartstrupig näktergal
-glödhake
-himalayanäktergal
-blånäktergal
-taigablåstjärt
+trädnäktergal			(Cercotrichas galactotes)
+svart trädnäktergal		(Cercotrichas podobe)
+pärlkortvinge			(Brachypteryx stellata)
+rostbukig kortvinge		(Brachypteryx hyperythra)
+blå kortvinge			(Brachypteryx montana)
+rödhake				(Erithacus rubecula)
+japansk rödhake			(Erithacus akahige)
+ryukyurödhake			(Erithacus komadori)
+drillnäktergal			(Luscinia sibilans)
+näktergal			(Luscinia luscinia)
+sydnäktergal			(Luscinia megarhynchos)
+rubinnäktergal			(Luscinia calliope)
+blåhake				(Luscinia svecica)
+svartbröstad rubinnäktergal	(Luscinia pectoralis)
+rosthättad näktergal		(Luscinia ruficeps)
+svartstrupig näktergal		(Luscinia obscura)
+glödhake			(Luscinia pectardens)
+himalayanäktergal		(Luscinia brunnea)
+blånäktergal			(Luscinia cyane)
+taigablåstjärt			(Tarsiger cyanurus)
 = blåstjärt
-himalayablåstjärt
-guldnäktergal
-vitbrynad näktergal
-rhododendronnäktergal
-vitstrupig näktergal
-altairödstjärt
-alashanrödstjärt
-blåhätta
-svart rödstjärt
-rödstjärt
-Hodgsons rödstjärt
-blåstrupig rödstjärt
-vitstrupig rödstjärt
-svartryggad rödstjärt
-diademrödstjärt
-bergrödstjärt
-forsskvätta
-forsrödstjärt
-vitbukig rödstjärt
-vitstjärtad bambunäktergal
-grandala
-purpurcochoa
-bergsialia
-västsialia
-östsialia
+himalayablåstjärt		(Tarsiger rufilatus)
+guldnäktergal			(Tarsiger chrysaeus)
+vitbrynad näktergal		(Tarsiger indicus)
+rhododendronnäktergal		(Tarsiger hyperythrus)
+vitstrupig näktergal		(Irania gutturalis)
+altairödstjärt			(Phoenicurus erythronotus)
+alashanrödstjärt		(Phoenicurus alaschanicus)
+blåhätta			(Phoenicurus caeruleocephala)
+svart rödstjärt			(Phoenicurus ochruros)
+rödstjärt			(Phoenicurus phoenicurus)
+Hodgsons rödstjärt		(Phoenicurus hodgsoni)
+blåstrupig rödstjärt		(Phoenicurus frontalis)
+vitstrupig rödstjärt		(Phoenicurus schisticeps)
+svartryggad rödstjärt		(Phoenicurus auroreus)
+diademrödstjärt			(Phoenicurus moussieri)
+bergrödstjärt			(Phoenicurus erythrogastrus)
+forsskvätta			(Chaimarrornis leucocephalus)
+forsrödstjärt			(Rhyacornis fuliginosus)
+vitbukig rödstjärt		(Hodgsonius phaenicuroides)
+vitstjärtad bambunäktergal	(Cinclidium leucurum)
+grandala			(Grandala coelicolor)
+purpurcochoa			(Cochoa purpurea)
+bergsialia			(Sialia currucoides)
+västsialia			(Sialia mexicana)
+östsialia			(Sialia sialis)
 
-svartstjärt
-sindbuskskvätta
-buskskvätta
-kanariebuskskvätta
-svarthakad buskskvätta
-vitgumpad buskskvätta
+svartstjärt			(Cercomela melanura)
+sindbuskskvätta			(Saxicola macrorhynchus)
+buskskvätta			(Saxicola rubetra)
+kanariebuskskvätta		(Saxicola dacotiae)
+svarthakad buskskvätta		(Saxicola rubicola)
+vitgumpad buskskvätta		(Saxicola maurus)
 = östlig svarthakad buskskvätta
-afrikansk buskskvätta
-mongolbuskskvätta
-svart buskskvätta
-grå buskskvätta
-nordlig termitskvätta
-isabellastenskvätta
-svartpannad stenskvätta
-stenskvätta
-nunnestenskvätta
-cypernstenskvätta
-medelhavsstenskvätta
-ökenstenskvätta
-finschstenskvätta
-berberstenskvätta
-kurdstenskvätta
-persisk stenskvätta
-orientstenskvätta
-sorgstenskvätta
-munkstenskvätta
-svartvit stenskvätta
-vitkronad stenskvätta
-svart stenskvätta
+afrikansk buskskvätta		(Saxicola torquatus)
+mongolbuskskvätta		(Saxicola insignis)
+svart buskskvätta		(Saxicola caprata)
+grå buskskvätta			(Saxicola ferreus)
+nordlig termitskvätta		(Myrmecocichla aethiops)
+isabellastenskvätta		(Oenanthe isabellina)
+svartpannad stenskvätta		(Oenanthe bottae)
+stenskvätta			(Oenanthe oenanthe)
+nunnestenskvätta		(Oenanthe pleschanka)
+cypernstenskvätta		(Oenanthe cypriaca)
+medelhavsstenskvätta		(Oenanthe hispanica)
+ökenstenskvätta			(Oenanthe deserti)
+finschstenskvätta		(Oenanthe finschii)
+berberstenskvätta		(Oenanthe moesta)
+kurdstenskvätta			(Oenanthe xanthoprymna)
+persisk stenskvätta		(Oenanthe chrysopygia)
+orientstenskvätta		(Oenanthe picata)
+sorgstenskvätta			(Oenanthe lugens)
+munkstenskvätta			(Oenanthe monacha)
+svartvit stenskvätta		(Oenanthe albonigra)
+vitkronad stenskvätta		(Oenanthe leucopyga)
+svart stenskvätta		(Oenanthe leucura)
 
-indisk näktergal
-skatnäktergal
-dvärgstentrast
-stentrast
-blåstrupig stentrast
-vitstrupig stentrast
-rostbukig stentrast
-blåtrast
-blå visseltrast
-bergtrast
-långstjärtad trast
-guldtrast
-amamitrast
-långnäbbad trast
-bonintrast
-broktrast
-sibirisk trast
-sitkatrast
-fläckskogstrast
-orangenäbbad skogstrast
-mexikansk skogstrast
-rosthättad skogstrast
-svarthuvad skogstrast
-eremitskogstrast
-gråkindad skogstrast
-bicknellskogstrast
-beigekindad skogstrast
-rostskogstrast
-jementrast
-gråtrast
-svartvit trast
-halsbandstrast
-ringtrast
-gråvingad trast
-koltrast
-kastanjetrast
-kesslertrast
-brunhuvad trast
-izutrast
-mingtrast
-gråryggad trast
-amurtrast
-gråhalsad trast
-rödtrast
-bruntrast
-rödhalsad trast
+indisk näktergal		(Saxicoloides fulicata)
+skatnäktergal			(Copsychus saularis)
+dvärgstentrast			(Monticola rufocinereus)
+stentrast			(Monticola saxatilis)
+blåstrupig stentrast		(Monticola cinclorhynchus)
+vitstrupig stentrast		(Monticola gularis)
+rostbukig stentrast		(Monticola rufiventris)
+blåtrast			(Monticola solitarius)
+blå visseltrast			(Myophonus caeruleus)
+bergtrast			(Zoothera mollissima)
+långstjärtad trast		(Zoothera dixoni)
+guldtrast			(Zoothera dauma)
+amamitrast			(Zoothera major)
+långnäbbad trast		(Zoothera monticola)
+bonintrast			(Zoothera terrestris)
+broktrast			(Geokichla wardii)
+sibirisk trast			(Geokichla sibirica)
+sitkatrast			(Ixoreus naevius)
+fläckskogstrast			(Hylocichla mustelina)
+orangenäbbad skogstrast		(Catharus aurantiirostris)
+mexikansk skogstrast		(Catharus occidentalis)
+rosthättad skogstrast		(Catharus frantzii)
+svarthuvad skogstrast		(Catharus mexicanus)
+eremitskogstrast		(Catharus guttatus)
+gråkindad skogstrast		(Catharus minimus)
+bicknellskogstrast		(Catharus bicknelli)
+beigekindad skogstrast		(Catharus ustulatus)
+rostskogstrast			(Catharus fuscescens)
+jementrast			(Turdus menachensis)
+gråtrast			(Turdus unicolor)
+svartvit trast			(Turdus cardis)
+halsbandstrast			(Turdus albocinctus)
+ringtrast			(Turdus torquatus)
+gråvingad trast			(Turdus boulboul)
+koltrast			(Turdus merula)
+kastanjetrast			(Turdus rubrocanus)
+kesslertrast			(Turdus kessleri)
+brunhuvad trast			(Turdus chrysolaus)
+izutrast			(Turdus celaenops)
+mingtrast			(Turdus feae)
+gråryggad trast			(Turdus hortulorum)
+amurtrast			(Turdus pallidus)
+gråhalsad trast			(Turdus obscurus)
+rödtrast			(Turdus naumanni)
+bruntrast			(Turdus eunomus)
+rödhalsad trast			(Turdus ruficollis)
 = taigatrast
-svarthalsad trast
-björktrast
-kinesisk trast
-taltrast
-rödvingetrast
-dubbeltrast
-svarttrast
-lerfärgad trast
-sepiatrast
-mexikansk trast
-vandringstrast
-rödfotad trast
-aztektrast
+svarthalsad trast		(Turdus atrogularis)
+björktrast			(Turdus pilaris)
+kinesisk trast			(Turdus mupinensis)
+taltrast			(Turdus philomelos)
+rödvingetrast			(Turdus iliacus)
+dubbeltrast			(Turdus viscivorus)
+svarttrast			(Turdus infuscatus)
+lerfärgad trast			(Turdus grayi)
+sepiatrast			(Turdus assimilis)
+mexikansk trast			(Turdus rufopalliatus)
+vandringstrast			(Turdus migratorius)
+rödfotad trast			(Turdus plumbeus)
+aztektrast			(Ridgwayia pinicola)
 
-mindre klyvstjärt
-vitkronad klyvstjärt
-fläckig klyvstjärt
-gulstrupig tesia
-manchurisk stubbstjärt
-japansk cettia
-brunsidig cettia
-rostkronad cettia
-buskcettia
-drillcettia
-gråsidig cettia
-cettisångare
-fläckig smygsångare
-manchurisk smygsångare
-långnäbbad smygsångare
-kinesisk smygsångare
-brun smygsångare
-grässångare
-streckad prinia
-orientprinia
-strimmig prinia
-svartstrupig prinia
-sahelsångare
-snårsångare
-kinesisk snårsångare
-starrsångare
-ochotsksångare
-träsksångare
-gräshoppsångare
-flodsångare
-vassångare
-större flodsångare
-kilstjärtsångare
-kaveldunsångare
-vattensångare
-sävsångare
-streckad rörsångare
-svartbrynad rörsångare
-kortvingad rörsångare
-fältsångare
-amursångare
-busksångare
-långnäbbad sångare
-kapverdesångare
-kärrsångare
-afrikansk rörsångare
-rörsångare
-papyrussångare
-trastsångare
-kinesisk trastsångare
-basrasångare
-tjocknäbbad sångare
-stäppsångare
+mindre klyvstjärt		(Enicurus scouleri)
+vitkronad klyvstjärt		(Enicurus leschenaulti)
+fläckig klyvstjärt		(Enicurus maculatus)
+gulstrupig tesia		(Tesia castaneocoronata)
+manchurisk stubbstjärt		(Urosphena squameiceps)
+japansk cettia			(Cettia diphone)
+brunsidig cettia		(Cettia fortipes)
+rostkronad cettia		(Cettia major)
+buskcettia			(Cettia flavolivacea)
+drillcettia			(Cettia acanthizoides)
+gråsidig cettia			(Cettia brunnifrons)
+cettisångare			(Cettia cetti)
+fläckig smygsångare		(Bradypterus thoracicus)
+manchurisk smygsångare		(Bradypterus davidi)
+långnäbbad smygsångare		(Bradypterus major)
+kinesisk smygsångare		(Bradypterus tacsanowskius)
+brun smygsångare		(Bradypterus luteoventris)
+grässångare			(Cisticola juncidis)
+streckad prinia			(Prinia gracilis)
+orientprinia			(Prinia inornata)
+strimmig prinia			(Prinia criniger)
+svartstrupig prinia		(Prinia atrogularis)
+sahelsångare			(Spiloptila clamans)
+snårsångare			(Scotocerca inquieta)
+kinesisk snårsångare		(Rhopophilus pekinensis)
+starrsångare			(Locustella certhiola)
+ochotsksångare			(Locustella ochotensis)
+träsksångare			(Locustella lanceolata)
+gräshoppsångare			(Locustella naevia)
+flodsångare			(Locustella fluviatilis)
+vassångare			(Locustella luscinioides)
+större flodsångare		(Locustella fasciolata)
+kilstjärtsångare		(Locustella pryeri)
+kaveldunsångare			(Acrocephalus melanopogon)
+vattensångare			(Acrocephalus paludicola)
+sävsångare			(Acrocephalus schoenobaenus)
+streckad rörsångare		(Acrocephalus sorghophilus)
+svartbrynad rörsångare		(Acrocephalus bistrigiceps)
+kortvingad rörsångare		(Acrocephalus concinens)
+fältsångare			(Acrocephalus agricola)
+amursångare			(Acrocephalus tangorum)
+busksångare			(Acrocephalus dumetorum)
+långnäbbad sångare		(Acrocephalus orinus)
+kapverdesångare			(Acrocephalus brevipennis)
+kärrsångare			(Acrocephalus palustris)
+afrikansk rörsångare		(Acrocephalus baeticatus)
+rörsångare			(Acrocephalus scirpaceus)
+papyrussångare			(Acrocephalus stentoreus)
+trastsångare			(Acrocephalus arundinaceus)
+kinesisk trastsångare		(Acrocephalus orientalis)
+basrasångare			(Acrocephalus griseldis)
+tjocknäbbad sångare		(Iduna aedon)
+stäppsångare			(Iduna caligata)
 = gråsångare
-saxaulsångare
-macchiasångare
-eksångare
-orientsångare
-olivsångare
-härmsångare
-polyglottsångare
-jemensångare
-sardinsk sångare
-balearisk sångare
-provencesångare
-atlassångare
-glasögonsångare
-rödstrupig sångare
-moltonisångare
-östlig sammetshätta
-sammetshätta
-cypernsångare
-svarthakad sångare
-ökensångare
-saharasångare
-arabisk sångare
-herdesångare
-mästersångare
-höksångare
-ärtsångare
-törnsångare
-trädgårdssångare
-svarthätta
+saxaulsångare			(Iduna rama)
+macchiasångare			(Iduna opaca)
+eksångare			(Iduna pallida)
+orientsångare			(Hippolais languida)
+olivsångare			(Hippolais olivetorum)
+härmsångare			(Hippolais icterina)
+polyglottsångare		(Hippolais polyglotta)
+jemensångare			(Parisoma buryi)
+sardinsk sångare		(Sylvia sarda)
+balearisk sångare		(Sylvia balearica)
+provencesångare			(Sylvia undata)
+atlassångare			(Sylvia deserticola)
+glasögonsångare			(Sylvia conspicillata)
+rödstrupig sångare		(Sylvia cantillans)
+moltonisångare			(Sylvia subalpina)
+östlig sammetshätta		(Sylvia mystacea)
+sammetshätta			(Sylvia melanocephala)
+cypernsångare			(Sylvia melanothorax)
+svarthakad sångare		(Sylvia ruppeli)
+ökensångare			(Sylvia nana)
+saharasångare			(Sylvia deserti)
+arabisk sångare			(Sylvia leucomelaena)
+herdesångare			(Sylvia hortensis)
+mästersångare			(Sylvia crassirostris)
+höksångare			(Sylvia nisoria)
+ärtsångare			(Sylvia curruca)
+törnsångare			(Sylvia communis)
+trädgårdssångare		(Sylvia borin)
+svarthätta			(Sylvia atricapilla)
 
-grönkronad bambusångare
-gråkronad bambusångare
-Alströms bambusångare
-Whistlers bambusångare
-emeibambusångare
-Biankis bambusångare
-gråhuvad bambusångare
-gråkindad bambusångare
-rödkronad bambusångare
-svartkindad bambusångare
-grönvingad sångare
-vitstjärtad kronsångare
-mindre kronsångare
-emeikronsångare
-östlig kronsångare
-västlig kronsångare
-drillsångare
-sachalinsångare
-izusångare
-kashmirsångare
-lundsångare
-kaukasisk lundsångare
-grovnäbbad sångare
-nordsångare
-rhododendronsångare
-gråbröstad sångare
-kungsfågelsångare
-sydlig kungsfågelsångare
-sichuansångare
-gansusångare
-kinesisk sångare
-afghansångare
-taigasångare
-bergstaigasångare
-videsångare
-gulstreckad sångare
-brunsångare
-sotbrunsångare
-stensångare
-alpin sångare
-kokonorsångare
-subalpin sångare
-bergsångare
-balkansångare
-grönsångare
-dvärgsångare
-gransångare
+grönkronad bambusångare		(Seicercus burkii)
+gråkronad bambusångare		(Seicercus tephrocephalus)
+Alströms bambusångare		(Seicercus soror)
+Whistlers bambusångare		(Seicercus whistleri)
+emeibambusångare		(Seicercus omeiensis)
+Biankis bambusångare		(Seicercus valentini)
+gråhuvad bambusångare		(Seicercus xanthoschistos)
+gråkindad bambusångare		(Seicercus poliogenys)
+rödkronad bambusångare		(Seicercus castaniceps)
+svartkindad bambusångare	(Abroscopus schisticeps)
+grönvingad sångare		(Phylloscopus umbrovirens)
+vitstjärtad kronsångare		(Phylloscopus davisoni)
+mindre kronsångare		(Phylloscopus reguloides)
+emeikronsångare			(Phylloscopus emeiensis)
+östlig kronsångare		(Phylloscopus coronatus)
+västlig kronsångare		(Phylloscopus occipitalis)
+drillsångare			(Phylloscopus tenellipes)
+sachalinsångare			(Phylloscopus borealoides)
+izusångare			(Phylloscopus ijimae)
+kashmirsångare			(Phylloscopus tytleri)
+lundsångare			(Phylloscopus trochiloides)
+kaukasisk lundsångare		(Phylloscopus nitidus)
+grovnäbbad sångare		(Phylloscopus magnirostris)
+nordsångare			(Phylloscopus borealis)
+rhododendronsångare		(Phylloscopus pulcher)
+gråbröstad sångare		(Phylloscopus maculipennis)
+kungsfågelsångare		(Phylloscopus proregulus)
+sydlig kungsfågelsångare	(Phylloscopus chloronotus)
+sichuansångare			(Phylloscopus forresti)
+gansusångare			(Phylloscopus kansuensis)
+kinesisk sångare		(Phylloscopus yunnanensis)
+afghansångare			(Phylloscopus subviridis)
+taigasångare			(Phylloscopus inornatus)
+bergstaigasångare		(Phylloscopus humei)
+videsångare			(Phylloscopus schwarzi)
+gulstreckad sångare		(Phylloscopus armandii)
+brunsångare			(Phylloscopus fuscatus)
+sotbrunsångare			(Phylloscopus fuligiventer)
+stensångare			(Phylloscopus griseolus)
+alpin sångare			(Phylloscopus affinis)
+kokonorsångare			(Phylloscopus occisinensis)
+subalpin sångare		(Phylloscopus subaffinis)
+bergsångare			(Phylloscopus bonelli)
+balkansångare			(Phylloscopus orientalis)
+grönsångare			(Phylloscopus sibilatrix)
+dvärgsångare			(Phylloscopus neglectus)
+gransångare			(Phylloscopus collybita)
 sibirisk gransångare
-kanariegransångare
-iberisk gransångare
-kashmirgransångare
-berggransångare
-lövsångare
+kanariegransångare		(Phylloscopus canariensis)
+iberisk gransångare		(Phylloscopus ibericus)
+kashmirgransångare		(Phylloscopus sindianus)
+berggransångare			(Phylloscopus lorenzii)
+lövsångare			(Phylloscopus trochilus)
 
-rödkronad kungsfågel
-kungsfågel
-brandkronad kungsfågel
-madeirakungsfågel
-guldkronad kungsfågel
+rödkronad kungsfågel		(Regulus calendula)
+kungsfågel			(Regulus regulus)
+brandkronad kungsfågel		(Regulus ignicapilla)
+madeirakungsfågel		(Regulus madeirensis)
+guldkronad kungsfågel		(Regulus satrapa)
 
-violsångare
-tofsviolsångare
-svartstjärtad myggsnappare
-kalifornisk myggsnappare
-svarthuvad myggsnappare
-blågrå myggsnappare
-vittyglad myggsnappare
-större niltava
-praktniltava
-koboltniltava
-kinesisk niltava
-blåstrupig blåflugsnappare
-orientalisk blåflugsnappare
-dvärgflugsnappare
-blåvit flugsnappare
-turkosflugsnappare
-rostflugsnappare
-sibirisk flugsnappare
-streckad flugsnappare
-rödstjärtad flugsnappare
-glasögonflugsnappare
-grå flugsnappare
-akaciaflugsnappare
-safirflugsnappare
-blågrå flugsnappare
-ultramarinflugsnappare
-nunneflugsnappare
-skifferryggad flugsnappare
-vitbrynad flugsnappare
-vitstrupig flugsnappare
-orangestjärnig flugsnappare
-mindre flugsnappare
-taigaflugsnappare
-kashmirflugsnappare
-mugimakiflugsnappare
-vitbrynad narcissflugsnappare
-gulbrynad narcissflugsnappare
-kinesisk narcissflugsnappare
-balkanflugsnappare
-halsbandsflugsnappare
-svartvit flugsnappare
-atlasflugsnappare
-gråhuvad solflugsnappare
-gul solfjäderstjärt
-vitstrupig solfjäderstjärt
-afrikansk paradisflugsnappare
-asiatisk paradisflugsnappare
-japansk paradisflugsnappare
-rostkindad sabeltimalia
-fläckig sabeltimalia
-rostnackad sabeltimalia
-korallnäbbad sabeltimalia
-bågnäbbad sabeltimalia
-fjällig smygtimalia
-nepalesisk smygtimalia
-mindre smygtimalia
-rödstrupig smygtimalia
-vattrad smygtimalia
-rödhättad mestimalia
-roststjärtad mopinia
-messmyg
+violsångare			(Leptopoecile sophiae)
+tofsviolsångare			(Leptopoecile elegans)
+svartstjärtad myggsnappare	(Polioptila melanura)
+kalifornisk myggsnappare	(Polioptila californica)
+svarthuvad myggsnappare		(Polioptila nigriceps)
+blågrå myggsnappare		(Polioptila caerulea)
+vittyglad myggsnappare		(Polioptila albiloris)
+större niltava			(Niltava grandis)
+praktniltava			(Niltava sundara)
+koboltniltava			(Niltava davidi)
+kinesisk niltava		(Niltava vivida)
+blåstrupig blåflugsnappare	(Cyornis rubeculoides)
+orientalisk blåflugsnappare	(Cyornis banyumas)
+dvärgflugsnappare		(Muscicapella hodgsoni)
+blåvit flugsnappare		(Cyanoptila cyanomelana)
+turkosflugsnappare		(Eumyias thalassina)
+rostflugsnappare		(Muscicapa ferruginea)
+sibirisk flugsnappare		(Muscicapa sibirica)
+streckad flugsnappare		(Muscicapa griseisticta)
+rödstjärtad flugsnappare	(Muscicapa ruficauda)
+glasögonflugsnappare		(Muscicapa dauurica)
+grå flugsnappare		(Muscicapa striata)
+akaciaflugsnappare		(Muscicapa gambagae)
+safirflugsnappare		(Ficedula sapphira)
+blågrå flugsnappare		(Ficedula tricolor)
+ultramarinflugsnappare		(Ficedula superciliaris)
+nunneflugsnappare		(Ficedula westermanni)
+skifferryggad flugsnappare	(Ficedula hodgsonii)
+vitbrynad flugsnappare		(Ficedula hyperythra)
+vitstrupig flugsnappare		(Ficedula monileger)
+orangestjärnig flugsnappare	(Ficedula strophiata)
+mindre flugsnappare		(Ficedula parva)
+taigaflugsnappare		(Ficedula albicilla)
+kashmirflugsnappare		(Ficedula subrubra)
+mugimakiflugsnappare		(Ficedula mugimaki)
+vitbrynad narcissflugsnappare	(Ficedula zanthopygia)
+gulbrynad narcissflugsnappare	(Ficedula narcissina)
+kinesisk narcissflugsnappare	(Ficedula elisae)
+balkanflugsnappare		(Ficedula semitorquata)
+halsbandsflugsnappare		(Ficedula albicollis)
+svartvit flugsnappare		(Ficedula hypoleuca)
+atlasflugsnappare		(Ficedula speculigera)
+gråhuvad solflugsnappare	(Culicicapa ceylonensis)
+gul solfjäderstjärt		(Rhipidura hypoxantha)
+vitstrupig solfjäderstjärt	(Rhipidura albicollis)
+afrikansk paradisflugsnappare	(Terpsiphone viridis)
+asiatisk paradisflugsnappare	(Terpsiphone paradisi)
+japansk paradisflugsnappare	(Terpsiphone atrocaudata)
+rostkindad sabeltimalia		(Pomatorhinus erythrogenys)
+fläckig sabeltimalia		(Pomatorhinus erythrocnemis)
+rostnackad sabeltimalia		(Pomatorhinus ruficollis)
+korallnäbbad sabeltimalia	(Pomatorhinus ferruginosus)
+bågnäbbad sabeltimalia		(Xiphirhynchus superciliaris)
+fjällig smygtimalia		(Pnoepyga albiventer)
+nepalesisk smygtimalia		(Pnoepyga immaculata)
+mindre smygtimalia		(Pnoepyga pusilla)
+rödstrupig smygtimalia		(Spelaeornis caudatus)
+vattrad smygtimalia		(Spelaeornis troglodytoides)
+rödhättad mestimalia		(Stachyris ruficeps)
+roststjärtad mopinia		(Moupinia poecilotis)
+messmyg				(Chamaea fasciata)
 
-skäggmes
-större papegojnäbb
-tretåig papegojnäbb
-brun papegojnäbb
-fläckbröstad papegojnäbb
-glasögonpapegojnäbb
-rosenpapegojnäbb
-brunvingad papegojnäbb
-tofspapegojnäbb
-roststrupig papegojnäbb
-gulbrun papegojnäbb
-svartstrupig papegojnäbb
-guldpapegojnäbb
-vasspapegojnäbb
+skäggmes			(Panurus biarmicus)
+större papegojnäbb		(Conostoma oemodium)
+tretåig papegojnäbb		(Paradoxornis paradoxus)
+brun papegojnäbb		(Paradoxornis unicolor)
+fläckbröstad papegojnäbb	(Paradoxornis guttaticollis)
+glasögonpapegojnäbb		(Paradoxornis conspicillatus)
+rosenpapegojnäbb		(Paradoxornis webbianus)
+brunvingad papegojnäbb		(Paradoxornis brunneus)
+tofspapegojnäbb			(Paradoxornis zappeyi)
+roststrupig papegojnäbb		(Paradoxornis przewalskii)
+gulbrun papegojnäbb		(Paradoxornis fulvifrons)
+svartstrupig papegojnäbb	(Paradoxornis nipalensis)
+guldpapegojnäbb			(Paradoxornis verreauxi)
+vasspapegojnäbb			(Paradoxornis heudei)
 
-irakskriktrast
-orientskriktrast
-arabskriktrast
-saharaskriktrast
-kinesisk babax
-större babax
-Koslows babax
-maskfnittertrast
-vitstrupig fnittertrast
-vitstreckad fnittertrast
-gråvingad fnittertrast
-nordlig fnittertrast
-Sukatsjovs fnittertrast
-mustaschfnittertrast
-rödstrupig fnittertrast
-bandad fnittertrast
-Biets fnittertrast
-större fnittertrast
-pärlfnittertrast
-sångfnittertrast
-västlig fnittertrast
-blåvingad fnittertrast
-fjällig fnittertrast
-gulvingad fnittertrast
-sikangfnittertrast
-svartkindad fnittertrast
-rostkronad fnittertrast
-rödvingad fnittertrast
-emeishanmesia
-rödnäbbad mesia
-eldstjärt
-svarthuvad broktimalia
-gulvingad broktimalia
-grön broktimalia
-rödpannad bandvinge
-himalayabandvinge
-Waldens bandvinge
-streckad bandvinge
-blåstjärtad minla
-brunstjärtad minla
-rödstjärtad minla
-guldfulvetta
-rostvingad fulvetta
-mörkkindad fulvetta
-streckbröstad fulvetta
-glasögonfulvetta
-gråhuvad fulvetta
-Ludlows fulvetta
-svarthuvad sibia
-svartörad sibia
-blågrå sibia
-gulnackad yuhina
-skäggyuhina
-vitnackad yuhina
-rostnackad yuhina
+irakskriktrast			(Turdoides altirostris)
+orientskriktrast		(Turdoides caudata)
+arabskriktrast			(Turdoides squamiceps)
+saharaskriktrast		(Turdoides fulva)
+kinesisk babax			(Babax lanceolatus)
+större babax			(Babax waddelli)
+Koslows babax			(Babax koslowi)
+maskfnittertrast		(Garrulax perspicillatus)
+vitstrupig fnittertrast		(Garrulax albogularis)
+vitstreckad fnittertrast	(Garrulax striatus)
+gråvingad fnittertrast		(Garrulax variegatus)
+nordlig fnittertrast		(Garrulax davidi)
+Sukatsjovs fnittertrast		(Garrulax sukatschewi)
+mustaschfnittertrast		(Garrulax cineraceus)
+rödstrupig fnittertrast		(Garrulax rufogularis)
+bandad fnittertrast		(Garrulax lunulatus)
+Biets fnittertrast		(Garrulax bieti)
+större fnittertrast		(Garrulax maximus)
+pärlfnittertrast		(Garrulax ocellatus)
+sångfnittertrast		(Garrulax canorus)
+västlig fnittertrast		(Garrulax lineatus)
+blåvingad fnittertrast		(Garrulax squamatus)
+fjällig fnittertrast		(Garrulax subunicolor)
+gulvingad fnittertrast		(Garrulax elliotii)
+sikangfnittertrast		(Garrulax henrici)
+svartkindad fnittertrast	(Garrulax affinis)
+rostkronad fnittertrast		(Garrulax erythrocephalus)
+rödvingad fnittertrast		(Garrulax formosus)
+emeishanmesia			(Liocichla omeiensis)
+rödnäbbad mesia			(Leiothrix lutea)
+eldstjärt			(Myzornis pyrrhoura)
+svarthuvad broktimalia		(Pteruthius rufiventer)
+gulvingad broktimalia		(Pteruthius flaviscapis)
+grön broktimalia		(Pteruthius xanthochlorus)
+rödpannad bandvinge		(Actinodura egertoni)
+himalayabandvinge		(Actinodura nipalensis)
+Waldens bandvinge		(Actinodura waldeni)
+streckad bandvinge		(Actinodura souliei)
+blåstjärtad minla		(Minla cyanouroptera)
+brunstjärtad minla		(Minla strigula)
+rödstjärtad minla		(Minla ignotincta)
+guldfulvetta			(Alcippe chrysotis)
+rostvingad fulvetta		(Alcippe castaneceps)
+mörkkindad fulvetta		(Alcippe vinipectus)
+streckbröstad fulvetta		(Alcippe striaticollis)
+glasögonfulvetta		(Alcippe ruficapilla)
+gråhuvad fulvetta		(Alcippe cinereiceps)
+Ludlows fulvetta		(Alcippe ludlowi)
+svarthuvad sibia		(Heterophasia capistrata)
+svartörad sibia			(Heterophasia desgodinsi)
+blågrå sibia			(Heterophasia pulchella)
+gulnackad yuhina		(Yuhina flavicollis)
+skäggyuhina			(Yuhina gularis)
+vitnackad yuhina		(Yuhina diademata)
+rostnackad yuhina		(Yuhina occipitalis)
 
-buskmes
-sotstjärtmes
-svartbrynad stjärtmes
-vitstrupig stjärtmes
-vitkindad stjärtmes
-rödhättad stjärtmes
-stjärtmes
-blåmes
+buskmes				(Psaltriparus minimus)
+sotstjärtmes			(Aegithalos fuliginosus)
+svartbrynad stjärtmes		(Aegithalos iouschistos)
+vitstrupig stjärtmes		(Aegithalos niveogularis)
+vitkindad stjärtmes		(Aegithalos leucogenys)
+rödhättad stjärtmes		(Aegithalos concinnus)
+stjärtmes			(Aegithalos caudatus)
+blåmes				(Cyanistes caeruleus)
 nordafrikansk blåmes
-koboltmes
-azurmes
-grönmes
-markhackare
-västlig gyllenmes
-östlig gyllenmes
-orienttalgoxe
-turkestanmes
-talgoxe
-östlig gråmes
-svarttofsad gråmes
-ekmes
-blek gråmes
-sonoratofsmes
-grå tofsmes
-tofsmes
-simlames
-sherpames
-himalayasvartmes
-svartmes
-mandarinmes
-vitbrynad mes
-samurajmes
-balkanmes
-sichuanmes
-talltita
-entita
-mexikansk tita
-karolinatita
-lappmes
-kanadames
-rostmes
-bergtita
-amerikansk talltita
+koboltmes			(Cyanistes teneriffae)
+azurmes				(Cyanistes cyanus)
+grönmes				(Sylviparus modestus)
+markhackare			(Pseudopodoces humilis)
+västlig gyllenmes		(Parus xanthogenys)
+östlig gyllenmes		(Parus spilonotus)
+orienttalgoxe			(Parus monticolus)
+turkestanmes			(Parus bokharensis)
+talgoxe				(Parus major)
+östlig gråmes			(Baeolophus bicolor)
+svarttofsad gråmes		(Baeolophus atrocristatus)
+ekmes				(Baeolophus inornatus)
+blek gråmes			(Baeolophus ridgwayi)
+sonoratofsmes			(Baeolophus wollweberi)
+grå tofsmes			(Lophophanes dichrous)
+tofsmes				(Lophophanes cristatus)
+simlames			(Periparus rufonuchalis)
+sherpames			(Periparus rubidiventris)
+himalayasvartmes		(Periparus melanolophus)
+svartmes			(Periparus ater)
+mandarinmes			(Periparus venustulus)
+vitbrynad mes			(Poecile superciliosus)
+samurajmes			(Poecile varius)
+balkanmes			(Poecile lugubris)
+sichuanmes			(Poecile davidi)
+talltita			(Poecile montanus)
+entita				(Poecile palustris)
+mexikansk tita			(Poecile sclateri)
+karolinatita			(Poecile carolinensis)
+lappmes				(Poecile cinctus)
+kanadames			(Poecile hudsonicus)
+rostmes				(Poecile rufescens)
+bergtita			(Poecile gambeli)
+amerikansk talltita		(Poecile atricapillus)
 
-yunnannötväcka
-kinesisk nötväcka
-Krüpers nötväcka
-korsikansk nötväcka
-kabylnötväcka
-rödbröstad nötväcka
-dvärgnötväcka
-brunhuvad nötväcka
-vitkindad nötväcka
-vitbröstad nötväcka
-vitstjärtad nötväcka
-kashmirnötväcka
-kastanjenötväcka
-nötväcka
-naganötväcka
-östlig klippnötväcka
-klippnötväcka
+yunnannötväcka			(Sitta yunnanensis)
+kinesisk nötväcka		(Sitta villosa)
+Krüpers nötväcka		(Sitta krueperi)
+korsikansk nötväcka		(Sitta whiteheadi)
+kabylnötväcka			(Sitta ledanti)
+rödbröstad nötväcka		(Sitta canadensis)
+dvärgnötväcka			(Sitta pygmaea)
+brunhuvad nötväcka		(Sitta pusilla)
+vitkindad nötväcka		(Sitta leucopsis)
+vitbröstad nötväcka		(Sitta carolinensis)
+vitstjärtad nötväcka		(Sitta himalayensis)
+kashmirnötväcka			(Sitta cashmirensis)
+kastanjenötväcka		(Sitta castanea)
+nötväcka			(Sitta europaea)
+naganötväcka			(Sitta nagaensis)
+östlig klippnötväcka		(Sitta tephronota)
+klippnötväcka			(Sitta neumayer)
 
-murkrypare
-brunstrupig trädkrypare
-sichuanträdkrypare
-himalayaträdkrypare
-nepalträdkrypare
-trädkrypare
-amerikansk trädkrypare
-trädgårdsträdkrypare
+murkrypare			(Tichodroma muraria)
+brunstrupig trädkrypare		(Certhia discolor)
+sichuanträdkrypare		(Certhia tianquanensis)
+himalayaträdkrypare		(Certhia himalayana)
+nepalträdkrypare		(Certhia nipalensis)
+trädkrypare			(Certhia familiaris)
+amerikansk trädkrypare		(Certhia americana)
+trädgårdsträdkrypare		(Certhia brachydactyla)
 
-brandkronad mes
-verdinmes
-pungmes
-dvärgsolfågel
-nilsolfågel
-purpursolfågel
-abessinsk solfågel
-palestinasolfågel
-Goulds solfågel
-himalayasolfågel
-rödstjärtad solfågel
-tjocknäbbad blomsterpickare
-gulbukig blomsterpickare
-orientblomsterpickare
-indisk glasögonfågel
-brunsidig glasögonfågel
-japansk glasögonfågel
-abessinsk glasögonfågel
-boninhonungsätare
-svartnackad gylling
-smalnäbbad gylling
-sommargylling
+brandkronad mes			(Cephalopyrus flammiceps)
+verdinmes			(Auriparus flaviceps)
+pungmes				(Remiz pendulinus)
+dvärgsolfågel			(Anthreptes platurus)
+nilsolfågel			(Anthreptes metallicus)
+purpursolfågel			(Nectarinia asiatica)
+abessinsk solfågel		(Nectarinia habessinica)
+palestinasolfågel		(Nectarinia osea)
+Goulds solfågel			(Aethopyga gouldiae)
+himalayasolfågel		(Aethopyga nipalensis)
+rödstjärtad solfågel		(Aethopyga ignicauda)
+tjocknäbbad blomsterpickare	(Dicaeum agile)
+gulbukig blomsterpickare	(Dicaeum melanoxanthum)
+orientblomsterpickare		(Dicaeum ignipectus)
+indisk glasögonfågel		(Zosterops palpebrosus)
+brunsidig glasögonfågel		(Zosterops erythropleurus)
+japansk glasögonfågel		(Zosterops japonicus)
+abessinsk glasögonfågel		(Zosterops abyssinicus)
+boninhonungsätare		(Apalopteron familiare)
+svartnackad gylling		(Oriolus chinensis)
+smalnäbbad gylling		(Oriolus tenuirostris)
+sommargylling			(Oriolus oriolus)
 
-svartkronad tchagra
-rosentörnskata
-tigertörnskata
-rosthuvad törnskata
-brun törnskata
-isabellatörnskata
-törnskata
-indisk törnskata
-rostgumpad törnskata
-himalayatörnskata
-svartpannad törnskata
-stäppvarfågel        (Lanius meridionalis pallidirostris)
-medelhavsvarfågel    # samma som ökenvarfågel?
-varfågel
-ökenvarfågel
+svartkronad tchagra		(Tchagra senegalus)
+rosentörnskata			(Rhodophoneus cruentus)
+tigertörnskata			(Lanius tigrinus)
+rosthuvad törnskata		(Lanius bucephalus)
+brun törnskata			(Lanius cristatus)
+isabellatörnskata		(Lanius isabellinus)
+törnskata			(Lanius collurio)
+indisk törnskata		(Lanius vittatus)
+rostgumpad törnskata		(Lanius schach)
+himalayatörnskata		(Lanius tephronotus)
+svartpannad törnskata		(Lanius minor)
+stäppvarfågel			(Lanius meridionalis pallidirostris)
+medelhavsvarfågel		# samma som ökenvarfågel?
+varfågel			(Lanius excubitor)
+ökenvarfågel			(Lanius meridionalis)
 = sydlig varfågel
-kinesisk varfågel
-amerikansk törnskata
-rödhuvad törnskata
-masktörnskata
+kinesisk varfågel		(Lanius sphenocercus)
+amerikansk törnskata		(Lanius ludovicianus)
+rödhuvad törnskata		(Lanius senator)
+masktörnskata			(Lanius nubicus)
 
-svart drongo
-grå drongo
-lyrdrongo
-dvärgskrika
-purpurryggad skrika
-borstskrika
-grönskrika
-brunskrika
-svartstrupig skatskrika
-vitstrupig skatskrika
-stellerskrika
-blåskrika
-kanjonskrika
-västlig snårskrika
-santacruzskrika
-floridasnårskrika
-indigoskrika
-tallskrika
-nötskrika
-svarthuvad nötskrika
-amamiskrika
-grå lavskrika
-lavskrika
-sotlavskrika
-gulnäbbad blåskata
-rödnäbbad blåskata
-blåskata
-skata
-gulnäbbad skata
-Hendersons ökenskrika
-Biddulphs ökenskrika
-Panders ökenskrika
-Pleskes ökenskrika
-grå nötkråka
-nötkråka
-alpkaja
-alpkråka
-kaja
-klippkaja
-huskråka
-råka
-amerikansk kråka
-tamaulipaskråka
-sinaloakråka
-fiskkråka
-alaskakråka
-kråka
+svart drongo			(Dicrurus macrocercus)
+grå drongo			(Dicrurus leucophaeus)
+lyrdrongo			(Dicrurus hottentottus)
+dvärgskrika			(Cyanolyca nana)
+purpurryggad skrika		(Cyanocorax beecheii)
+borstskrika			(Cyanocorax dickeyi)
+grönskrika			(Cyanocorax yncas)
+brunskrika			(Cyanocorax morio)
+svartstrupig skatskrika		(Calocitta colliei)
+vitstrupig skatskrika		(Calocitta formosa)
+stellerskrika			(Cyanocitta stelleri)
+blåskrika			(Cyanocitta cristata)
+kanjonskrika			(Aphelocoma ultramarina)
+västlig snårskrika		(Aphelocoma  californica)
+santacruzskrika			(Aphelocoma insularis)
+floridasnårskrika		(Aphelocoma coerulescens)
+indigoskrika			(Aphelocoma unicolor)
+tallskrika			(Gymnorhinus cyanocephalus)
+nötskrika			(Garrulus glandarius)
+svarthuvad nötskrika		(Garrulus lanceolatus)
+amamiskrika			(Garrulus lidthi)
+grå lavskrika			(Perisoreus canadensis)
+lavskrika			(Perisoreus infaustus)
+sotlavskrika			(Perisoreus internigrans)
+gulnäbbad blåskata		(Urocissa flavirostris)
+rödnäbbad blåskata		(Urocissa erythrorhyncha)
+blåskata			(Cyanopica cyanus)
+skata				(Pica pica)
+gulnäbbad skata			(Pica nuttalli)
+Hendersons ökenskrika		(Podoces hendersoni)
+Biddulphs ökenskrika		(Podoces biddulphi)
+Panders ökenskrika		(Podoces panderi)
+Pleskes ökenskrika		(Podoces pleskei)
+grå nötkråka			(Nucifraga columbiana)
+nötkråka			(Nucifraga caryocatactes)
+alpkaja				(Pyrrhocorax graculus)
+alpkråka			(Pyrrhocorax pyrrhocorax)
+kaja				(Corvus monedula)
+klippkaja			(Corvus dauuricus)
+huskråka			(Corvus splendens)
+råka				(Corvus frugilegus)
+amerikansk kråka		(Corvus brachyrhynchos)
+tamaulipaskråka			(Corvus imparatus)
+sinaloakråka			(Corvus sinaloae)
+fiskkråka			(Corvus ossifragus)
+alaskakråka			(Corvus caurinus)
+kråka				(Corvus corone)
 svartkråka
-djungelkråka
-halsbandskråka
-svartvit kråka
-ökenkorp
-korp
-chihuahuakorp
-kortstjärtad korp
+djungelkråka			(Corvus macrorhynchos)
+halsbandskråka			(Corvus torquatus)
+svartvit kråka			(Corvus albus)
+ökenkorp			(Corvus ruficollis)
+korp				(Corvus corax)
+chihuahuakorp			(Corvus cryptoleucus)
+kortstjärtad korp		(Corvus rhipidurus)
 
-sinaiglansstare
-stare
-svartstare
-flikstare
-rosenstare
-amurstare
-rödkindad stare
-mandarinstare
-pagodstare
-sidenstare
-gråstare
-svartvit stare
-brun majna
-brinkmajna
-burmastare
-större tofsmajna
-ametiststare
-beostare
+sinaiglansstare			(Onychognathus tristramii)
+stare				(Sturnus vulgaris)
+svartstare			(Sturnus unicolor)
+flikstare			(Creatophora cinerea)
+rosenstare			(Pastor roseus)
+amurstare			(Agropsar sturninus)
+rödkindad stare			(Agropsar philippensis)
+mandarinstare			(Sturnia sinensis)
+pagodstare			(Sturnia pagodarum)
+sidenstare			(Spodiopsar sericeus)
+gråstare			(Spodiopsar cineraceus)
+svartvit stare			(Gracupia contra)
+brun majna			(Acridotheres tristis)
+brinkmajna			(Acridotheres ginginianus)
+burmastare			(Acridotheres burmannicus)
+större tofsmajna		(Acridotheres cristatellus)
+ametiststare			(Cinnyricinclus leucogaster)
+beostare			(Gracula religiosa)
 
-saxaulsparv
-gråsparv
-italiensk sparv
-spansk sparv
-sindsparv
-kanelsparv
-tamarisksparv
-kapverdesparv
-ökensparv
-pilfink
-sudanguldsparv
-arabguldsparv
-blek stensparv
-gulstrupig stensparv
-buskstensparv
-stensparv
+saxaulsparv			(Passer ammodendri)
+gråsparv			(Passer domesticus)
+italiensk sparv			(Passer italiae)
+spansk sparv			(Passer hispaniolensis)
+sindsparv			(Passer pyrrhonotus)
+kanelsparv			(Passer rutilans)
+tamarisksparv			(Passer moabiticus)
+kapverdesparv			(Passer iagoensis)
+ökensparv			(Passer simplex)
+pilfink				(Passer montanus)
+sudanguldsparv			(Passer luteus)
+arabguldsparv			(Passer euchlorus)
+blek stensparv			(Petronia brachydactyla)
+gulstrupig stensparv		(Petronia xanthocollis)
+buskstensparv			(Petronia dentata)
+stensparv			(Petronia petronia)
 
-afghansnöfink
-blek snöfink
-rödhalsad snöfink
-mongolsnöfink
-vitgumpad snöfink
-tibetansk snöfink
-snöfink
-rödahavsvävare
-byvävare
-svarthuvad vävare
-gulryggad vävare
-streckad vävare
-madagaskarvävare
-gulkronad biskop
-svartpannad eldvävare
-rödnäbbad amarant
-helenaastrild
-jemenastrild
-röd tigerfink
-guldbröstad astrild
-indisk silvernäbb
-afrikansk silvernäbb
-vitgumpmunia
-fjällig munia
-kastanjemunia
-risfågel
-rostbrynad vireo
-brunsidig törnskatsvireo
-skiffervireo
-svarthuvad vireo
-vitögd vireo
-dvärgvireo
-tjocknäbbad vireo
-grå vireo
-sumpvireo
-dvärgvireo
-guldvireo
-blygrå vireo
-Cassins vireo
-glasögonvireo
-gulstrupig vireo
-Huttons vireo
-kanadavireo
-gulgrön vireo
-rödögd vireo
-yucatanvireo
-mustaschvireo
-sångvireo
-bofink
-blåfink
-bergfink
-buskeufonia
-gulpannad eufonia
-prakteufonia
-rödpannad gulhämpling
-gulhämpling
-levantsiska
-kanariefågel
-citronsiska
-korsikansk siska
-arabsiska
-jemensiska
-guldvingad fink
-rhododendronfink
-grönfink
-orientgrönfink
-svarthuvad grönfink
-himalayagrönfink
-steglits
-grönsiska
-himalayasiska
-tallsiska
-svartkronad siska
-svarthuvad siska
-guldsiska
-småsiska
-kaliforniensiska
-hämpling
-jemenhämpling
-vinterhämpling
-gråsiska
+afghansnöfink			(Montifringilla theresae)
+blek snöfink			(Montifringilla blanfordi)
+rödhalsad snöfink		(Montifringilla ruficollis)
+mongolsnöfink			(Montifringilla davidiana)
+vitgumpad snöfink		(Montifringilla taczanowskii)
+tibetansk snöfink		(Montifringilla adamsi)
+snöfink				(Montifringilla nivalis)
+rödahavsvävare			(Ploceus galbula)
+byvävare			(Ploceus cucullatus)
+svarthuvad vävare		(Ploceus melanocephalus)
+gulryggad vävare		(Ploceus jacksoni)
+streckad vävare			(Ploceus manyar)
+madagaskarvävare		(Foudia madagascarensis)
+gulkronad biskop		(Euplectes afer)
+svartpannad eldvävare		(Euplectes franciscanus)
+rödnäbbad amarant		(Lagonosticta senegala)
+helenaastrild			(Estrilda astrild)
+jemenastrild			(Estrilda rufibarba)
+röd tigerfink			(Amandava amandava)
+guldbröstad astrild		(Amandava subflava)
+indisk silvernäbb		(Euodice malabarica)
+afrikansk silvernäbb		(Euodice cantans)
+vitgumpmunia			(Lonchura striata)
+fjällig munia			(Lonchura punctulata)
+kastanjemunia			(Lonchura malacca)
+risfågel			(Padda oryzivora)
+rostbrynad vireo		(Cyclarhis gujanensis)
+brunsidig törnskatsvireo	(Vireolanius melitophrys)
+skiffervireo			(Vireo brevipennis)
+svarthuvad vireo		(Vireo atricapilla)
+vitögd vireo			(Vireo griseus)
+dvärgvireo			(Vireo nelsoni)
+tjocknäbbad vireo		(Vireo crassirostris)
+grå vireo			(Vireo vicinior)
+sumpvireo			(Vireo bellii)
+dvärgvireo			(Vireo nelsoni)
+guldvireo			(Vireo hypochryseus)
+blygrå vireo			(Vireo plumbeus)
+Cassins vireo			(Vireo cassinii)
+glasögonvireo			(Vireo solitarius)
+gulstrupig vireo		(Vireo flavifrons)
+Huttons vireo			(Vireo huttoni)
+kanadavireo			(Vireo philadelphicus)
+gulgrön vireo			(Vireo flavoviridis)
+rödögd vireo			(Vireo olivaceus)
+yucatanvireo			(Vireo magister)
+mustaschvireo			(Vireo altiloquus)
+sångvireo			(Vireo gilvus)
+bofink				(Fringilla coelebs)
+blåfink				(Fringilla teydea)
+bergfink			(Fringilla montifringilla)
+buskeufonia			(Euphonia affinis)
+gulpannad eufonia		(Euphonia hirundinacea)
+prakteufonia			(Euphonia elegantissima)
+rödpannad gulhämpling		(Serinus pusillus)
+gulhämpling			(Serinus serinus)
+levantsiska			(Serinus syriacus)
+kanariefågel			(Serinus canaria)
+citronsiska			(Serinus citrinella)
+korsikansk siska		(Serinus corsicanus)
+arabsiska			(Serinus rothschildi)
+jemensiska			(Serinus menachensis)
+guldvingad fink			(Rhynchostruthus socotranus)
+rhododendronfink		(Callacanthis burtoni)
+grönfink			(Carduelis chloris)
+orientgrönfink			(Carduelis sinica)
+svarthuvad grönfink		(Carduelis ambigua)
+himalayagrönfink		(Carduelis spinoides)
+steglits			(Carduelis carduelis)
+grönsiska			(Carduelis spinus)
+himalayasiska			(Carduelis thibetana)
+tallsiska			(Carduelis pinus)
+svartkronad siska		(Carduelis atriceps)
+svarthuvad siska		(Carduelis notata)
+guldsiska			(Carduelis tristis)
+småsiska			(Carduelis psaltria)
+kaliforniensiska		(Carduelis lawrencei)
+hämpling			(Carduelis cannabina)
+jemenhämpling			(Carduelis yemenensis)
+vinterhämpling			(Carduelis flavirostris)
+gråsiska			(Carduelis flammea)
 brunsiska
-snösiska
-bändelkorsnäbb
-mindre korsnäbb
-skotsk korsnäbb
-större korsnäbb
-brun alpfink
-grå alpfink
-Sillems alpfink
-asiatisk alpfink
-grånackad alpfink
-svart alpfink
-brunkronad alpfink
-bergsökenfink
-ökenfink
-mongolfink
-ökentrumpetare
-karmosinrosenfink
-mörk rosenfink
-rosenfink
-purpurrosenfink
-Cassins rosenfink
-husrosenfink
-praktrosenfink
-Stresemanns rosenfink
-rödbrynad rosenfink
-vinröd rosenfink
-brun rosenfink
-sinairosenfink
-sibirisk rosenfink
-vitbukig rosenfink
-fläckvingad rosenfink
-vitbrynad rosenfink
-blek rosenfink
-himalayarosenfink
-större rosenfink
-långnäbbad rosenfink
-Roborovskijs rosenfink
+snösiska			(Carduelis hornemanni)
+bändelkorsnäbb			(Loxia leucoptera)
+mindre korsnäbb			(Loxia curvirostra)
+skotsk korsnäbb			(Loxia scotica)
+större korsnäbb			(Loxia pytyopsittacus)
+brun alpfink			(Leucosticte nemoricola)
+grå alpfink			(Leucosticte brandti)
+Sillems alpfink			(Leucosticte sillemi)
+asiatisk alpfink		(Leucosticte arctoa)
+grånackad alpfink		(Leucosticte tephrocotis)
+svart alpfink			(Leucosticte atrata)
+brunkronad alpfink		(Leucosticte australis)
+bergsökenfink			(Rhodopechys sanguineus)
+ökenfink			(Rhodospiza obsoleta)
+mongolfink			(Bucanetes mongolicus)
+ökentrumpetare			(Bucanetes githagineus)
+karmosinrosenfink		(Carpodacus rubescens)
+mörk rosenfink			(Carpodacus nipalensis)
+rosenfink			(Carpodacus erythrinus)
+purpurrosenfink			(Carpodacus purpureus)
+Cassins rosenfink		(Carpodacus cassinii)
+husrosenfink			(Carpodacus mexicanus)
+praktrosenfink			(Carpodacus pulcherrimus)
+Stresemanns rosenfink		(Carpodacus eos)
+rödbrynad rosenfink		(Carpodacus rodochrous)
+vinröd rosenfink		(Carpodacus vinaceus)
+brun rosenfink			(Carpodacus edwardsii)
+sinairosenfink			(Carpodacus synoicus)
+sibirisk rosenfink		(Carpodacus roseus)
+vitbukig rosenfink		(Carpodacus trifasciatus)
+fläckvingad rosenfink		(Carpodacus rodopeplus)
+vitbrynad rosenfink		(Carpodacus thura)
+blek rosenfink			(Carpodacus rhodochlamys)
+himalayarosenfink		(Carpodacus rubicilloides)
+större rosenfink		(Carpodacus rubicilla)
+långnäbbad rosenfink		(Carpodacus puniceus)
+Roborovskijs rosenfink		(Kozlowia roborowskii)
 
-tallbit
-himalayatallbit
-boninstenknäck
-scharlakansfink
-epålettfink
-långstjärtad rosenfink
-rödstjärtad rosenfink
-brun domherre
-orange domherre
-rödhuvad domherre
-gråhuvad domherre
-azorisk domherre
-domherre
-svartgul stenknäck
-halsbandsstenknäck
-bändelstenknäck
-tujastenknäck
-mindre maskstenknäck
-större maskstenknäck
-svarthuvad stenknäck
-stenknäck
-aftonstenknäck
+tallbit				(Pinicola enucleator)
+himalayatallbit			(Pinicola subhimachalus)
+boninstenknäck			(Chaunoproctus ferreorostris)
+scharlakansfink			(Haematospiza sipahi)
+epålettfink			(Pyrrhoplectes epauletta)
+långstjärtad rosenfink		(Uragus sibiricus)
+rödstjärtad rosenfink		(Urocynchramus pylzowi)
+brun domherre			(Pyrrhula nipalensis)
+orange domherre			(Pyrrhula aurantiaca)
+rödhuvad domherre		(Pyrrhula erythrocephala)
+gråhuvad domherre		(Pyrrhula erythaca)
+azorisk domherre		(Pyrrhula murina)
+domherre			(Pyrrhula pyrrhula)
+svartgul stenknäck		(Mycerobas icterioides)
+halsbandsstenknäck		(Mycerobas affinis)
+bändelstenknäck			(Mycerobas melanozanthos)
+tujastenknäck			(Mycerobas carnipes)
+mindre maskstenknäck		(Eophona migratoria)
+större maskstenknäck		(Eophona personata)
+svarthuvad stenknäck		(Coccothraustes abeillei)
+stenknäck			(Coccothraustes coccothraustes)
+aftonstenknäck			(Hesperiphona vespertina)
 
-svartvit skogssångare
-bachmanskogssångare
-guldvingad skogssångare
-blåvingad skogssångare
-tennesseeskogssångare
-orangekronad skogssångare
-nashvilleskogssångare
-Virginias skogssångare
-colimaskogssångare
-rostgumpad skogssångare
-hakbandsskogssångare
-tropisk messångare
-messångare
-gul skogssångare
-brunsidig skogssångare
-blåvit skogssångare
-blåryggad skogssångare
-tallskogssångare
-gråkindad skogssångare
-gulstrupig skogssångare
-kirtlandskogssångare
-svartstrimmig skogssångare
-eremitskogssångare
-townsends skogssångare
-grönryggad skogssångare
-gulkindad skogssångare
-orangestrupig skogssångare
-prärieskogssångare
-brunkindad skogssångare
-magnoliaskogssångare
-gulgumpad skogssångare
-brunhättad skogssångare
-vitkindad skogssångare
-brunbröstad skogssångare
-rödstjärtsskogssångare
-rödkronad piplärksångare
-nordlig piplärksångare
-sydlig piplärksångare
-Swainsons skogssångare
-beigebrynad skogssångare
-gyllenskogssångare
-gulhake
-Beldings gulhake
-lermagulhake
-Nelsons gulhake
-gråkronad gulhake
-kentuckyskogssångare
-connecticutskogssångare
-sorgskogssångare
-gråhuvad skogssångare
-kapuschongskogssångare
-svartkronad skogssångare
-kanadaskogssångare
-rödbröstad skogssångare
-röd skogssångare
-vitvingad skogssångare
-skifferskogssångare
-bredstjärtad skogssångare
-guldkronad skogssångare
-guldbrynad skogssångare
-rostkronad skogssångare
-trastskogssångare
-ockrahuvad skogssångare
+svartvit skogssångare		(Mniotilta varia)
+bachmanskogssångare		(Vermivora bachmanii)
+guldvingad skogssångare		(Vermivora chrysoptera)
+blåvingad skogssångare		(Vermivora cyanoptera)
+tennesseeskogssångare		(Vermivora peregrina)
+orangekronad skogssångare	(Vermivora celata)
+nashvilleskogssångare		(Vermivora ruficapilla)
+Virginias skogssångare		(Vermivora virginiae)
+colimaskogssångare		(Vermivora crissalis)
+rostgumpad skogssångare		(Vermivora luciae)
+hakbandsskogssångare		(Parula superciliosa)
+tropisk messångare		(Parula pitiayumi)
+messångare			(Parula americana)
+gul skogssångare		(Dendroica petechia)
+brunsidig skogssångare		(Dendroica pensylvanica)
+blåvit skogssångare		(Dendroica cerulea)
+blåryggad skogssångare		(Dendroica caerulescens)
+tallskogssångare		(Dendroica pinus)
+gråkindad skogssångare		(Dendroica graciae)
+gulstrupig skogssångare		(Dendroica dominica)
+kirtlandskogssångare		(Dendroica kirtlandii)
+svartstrimmig skogssångare	(Dendroica nigrescens)
+eremitskogssångare		(Dendroica occidentalis)
+townsends skogssångare		(Dendroica townsendi)
+grönryggad skogssångare		(Dendroica virens)
+gulkindad skogssångare		(Dendroica chrysoparia)
+orangestrupig skogssångare	(Dendroica fusca)
+prärieskogssångare		(Dendroica discolor)
+brunkindad skogssångare		(Dendroica tigrina)
+magnoliaskogssångare		(Dendroica magnolia)
+gulgumpad skogssångare		(Dendroica coronata)
+brunhättad skogssångare		(Dendroica palmarum)
+vitkindad skogssångare		(Dendroica striata)
+brunbröstad skogssångare	(Dendroica castanea)
+rödstjärtsskogssångare		(Setophaga ruticilla)
+rödkronad piplärksångare	(Seiurus aurocapilla)
+nordlig piplärksångare		(Seiurus noveboracensis)
+sydlig piplärksångare		(Seiurus motacilla)
+Swainsons skogssångare		(Limnothlypis swainsonii)
+beigebrynad skogssångare	(Helmitheros vermivorus)
+gyllenskogssångare		(Protonotaria citrea)
+gulhake				(Geothlypis trichas)
+Beldings gulhake		(Geothlypis beldingi)
+lermagulhake			(Geothlypis speciosa)
+Nelsons gulhake			(Geothlypis nelsoni)
+gråkronad gulhake		(Geothlypis poliocephala)
+kentuckyskogssångare		(Oporornis formosus)
+connecticutskogssångare		(Oporornis agilis)
+sorgskogssångare		(Oporornis philadelphia)
+gråhuvad skogssångare		(Oporornis tolmiei)
+kapuschongskogssångare		(Wilsonia citrina)
+svartkronad skogssångare	(Wilsonia pusilla)
+kanadaskogssångare		(Wilsonia canadensis)
+rödbröstad skogssångare		(Cardellina rubrifrons)
+röd skogssångare		(Cardellina rubra)
+vitvingad skogssångare		(Myioborus pictus)
+skifferskogssångare		(Myioborus miniatus)
+bredstjärtad skogssångare	(Basileuterus lachrymosus)
+guldkronad skogssångare		(Basileuterus culicivorus)
+guldbrynad skogssångare		(Basileuterus belli)
+rostkronad skogssångare		(Basileuterus rufifrons)
+trastskogssångare		(Icteria virens)
+ockrahuvad skogssångare		(Peucedramus taeniatus)
 
-lappsparv
-praktlappsparv
-tundralappsparv
-prärielappsparv
-snösparv
-beringsnösparv
-banansmyg
-rosentangara
-svarthuvad saltator
-grå saltator
-tegelröd tangara
-sommartangara
-västlig tangara
-scharlakanstangara
-strimhuvad tangara
-blågrå tangara
-gulvingad tangara
-turkoshonungssugare
-brunbukad blompickare
-jakarinifink
-större kubafink
-västindisk frösparv
-skifferfink
-gyllenfink
-vithalsad frösparv
-brunryggad buskfink
-grönstreckad buskfink
-olivsparv
-rostryggad buskfink
-halsbandsbusksparv
-grönstjärtad busksparv
-brunsidig busksparv
-fläckig busksparv
-kanjonbusksparv
-kalifornisk busksparv
-arizonabusksparv
-rostryggad sparv
-rostnackad marksparv
-strimhuvudsparv
-svartbröstad sparv
-tygelsparv
-azteksparv
-svartstrupig sparv
-malörtsparv
-fembandad sparv
-botterisparv
-cassinsparv
-bachmansparv
-rostvingad sparv
-rostkronad sparv
-tundrasparv
-tjippsparv
-lerfärgad sparv
-brewersparv
-åkersparv
-ensparv
-chaparralsparv
-lärksparv
-aftonsparv
-gulbrynad grässparv
-präriesparv
-gräshoppsparv
-Le Contes sparv
-nelsonsparv
-spetsstjärtad sparv
-kustsparv
-henslowsparv
-sierra madresparv
-rävsparv
-sångsparv
-lincolnsparv
-träsksparv
-kanadasparv
-vitkronad sparv
-vitstrupig sparv
-gulkronad sparv
-mörkögd junco
-gulögd junco
-busktangara
-svartsparv
-blågrå sparv
-gråhuvad sparv
-svavelsparv
-koslovsparv
-tallsparv
-gulsparv
-häcksparv
-svarthakad sparv
-klippsparv
-mongolsparv
-ängssparv
-jankowskisparv
-bergsparv
-hussparv
-afrikansk klippsparv
-gulgrå sparv
-ortolansparv
-bergortolan
-rostsparv
-rödkindad sparv
-praktsparv
-skiffersparv
-gulbrynad sparv
-tristramsparv
-videsparv
-dvärgsparv
-rödbrun sparv
-gyllensparv
-sävsparv
-dvärgsävsparv
-amursävsparv
-stäppsparv
-svarthuvad sparv
-tofssparv
-kornsparv
-dickcissel
-orangeblåfink
-blå fröfink
-vitstrupig rödskvätta
-gul kardinal
-svarthuvad kardinal
-brokig kardinal
-röd kardinal
-ökenkardinal
-rödbukad stenknäck
-rödstrupig myrtangara
-fläckvingad tangara
-rödhuvad tangara
-koboltfink
-indigofink
+lappsparv			(Calcarius lapponicus)
+praktlappsparv			(Calcarius ornatus)
+tundralappsparv			(Calcarius pictus)
+prärielappsparv			(Rhynchophanes mccownii)
+snösparv			(Plectrophenax nivalis)
+beringsnösparv			(Plectrophenax hyperboreus)
+banansmyg			(Coereba flaveola)
+rosentangara			(Rhodinocichla rosea)
+svarthuvad saltator		(Saltator atriceps)
+grå saltator			(Saltator coerulescens)
+tegelröd tangara		(Piranga flava)
+sommartangara			(Piranga rubra)
+västlig tangara			(Piranga ludoviciana)
+scharlakanstangara		(Piranga olivacea)
+strimhuvad tangara		(Spindalis zena)
+blågrå tangara			(Thraupis episcopus)
+gulvingad tangara		(Thraupis abbas)
+turkoshonungssugare		(Cyanerpes cyaneus)
+brunbukad blompickare		(Diglossa baritula)
+jakarinifink			(Volatinia jacarina)
+större kubafink			(Tiaris olivaceus)
+västindisk frösparv		(Tiaris bicolor)
+skifferfink			(Haplospiza rustica)
+gyllenfink			(Sicalis luteola)
+vithalsad frösparv		(Sporophila torqueola)
+brunryggad buskfink		(Arremon brunneinucha)
+grönstreckad buskfink		(Arremon virenticeps)
+olivsparv			(Arremonops rufivirgatus)
+rostryggad buskfink		(Atlapetes pileatus)
+halsbandsbusksparv		(Pipilo ocai)
+grönstjärtad busksparv		(Pipilo chlorurus)
+brunsidig busksparv		(Pipilo erythrophthalmus)
+fläckig busksparv		(Pipilo maculatus)
+kanjonbusksparv			(Pipilo fuscus)
+kalifornisk busksparv		(Pipilo crissalis)
+arizonabusksparv		(Pipilo aberti)
+rostryggad sparv		(Aimophila rufescens)
+rostnackad marksparv		(Melozone kieneri)
+strimhuvudsparv			(Peucaea ruficauda)
+svartbröstad sparv		(Peucaea ruficauda)
+tygelsparv			(Peucaea mystacalis)
+azteksparv			(Oriturus superciliosus)
+svartstrupig sparv		(Amphispiza bilineata)
+malörtsparv			(Amphispiza belli)
+fembandad sparv			(Amphispiza quinquestriata)
+botterisparv			(Aimophila botterii)
+cassinsparv			(Aimophila cassinii)
+bachmansparv			(Aimophila aestivalis)
+rostvingad sparv		(Aimophila carpalis)
+rostkronad sparv		(Aimophila ruficeps)
+tundrasparv			(Spizella arborea)
+tjippsparv			(Spizella passerina)
+lerfärgad sparv			(Spizella pallida)
+brewersparv			(Spizella breweri)
+åkersparv			(Spizella pusilla)
+ensparv				(Spizella wortheni)
+chaparralsparv			(Spizella atrogularis)
+lärksparv			(Chondestes grammacus)
+aftonsparv			(Pooecetes gramineus)
+gulbrynad grässparv		(Passerculus sandwichensis)
+präriesparv			(Ammodramus bairdii)
+gräshoppsparv			(Ammodramus savannarum)
+Le Contes sparv			(Ammodramus leconteii)
+nelsonsparv			(Ammodramus nelsoni)
+spetsstjärtad sparv		(Ammodramus caudacutus)
+kustsparv			(Ammodramus maritimus)
+henslowsparv			(Ammodramus henslowii)
+sierra madresparv		(Xenospiza baileyi)
+rävsparv			(Passerella iliaca)
+sångsparv			(Melospiza melodia)
+lincolnsparv			(Melospiza lincolnii)
+träsksparv			(Melospiza georgiana)
+kanadasparv			(Zonotrichia querula)
+vitkronad sparv			(Zonotrichia leucophrys)
+vitstrupig sparv		(Zonotrichia albicollis)
+gulkronad sparv			(Zonotrichia atricapilla)
+mörkögd junco			(Junco hyemalis)
+gulögd junco			(Junco phaeonotus)
+busktangara			(Chlorospingus ophthalmicus)
+svartsparv			(Calamospiza melanocorys)
+blågrå sparv			(Emberiza variabilis)
+gråhuvad sparv			(Emberiza spodocephala)
+svavelsparv			(Emberiza sulphurata)
+koslovsparv			(Emberiza koslowi)
+tallsparv			(Emberiza leucocephalos)
+gulsparv			(Emberiza citrinella)
+häcksparv			(Emberiza cirlus)
+svarthakad sparv		(Emberiza stewarti)
+klippsparv			(Emberiza cia)
+mongolsparv			(Emberiza godlewskii)
+ängssparv			(Emberiza cioides)
+jankowskisparv			(Emberiza jankowskii)
+bergsparv			(Emberiza striolata)
+hussparv			(Emberiza sahari)
+afrikansk klippsparv		(Emberiza tahapisi)
+gulgrå sparv			(Emberiza cineracea)
+ortolansparv			(Emberiza hortulana)
+bergortolan			(Emberiza buchanani)
+rostsparv			(Emberiza caesia)
+rödkindad sparv			(Emberiza fucata)
+praktsparv			(Emberiza elegans)
+skiffersparv			(Emberiza siemsseni)
+gulbrynad sparv			(Emberiza chrysophrys)
+tristramsparv			(Emberiza tristrami)
+videsparv			(Emberiza rustica)
+dvärgsparv			(Emberiza pusilla)
+rödbrun sparv			(Emberiza rutila)
+gyllensparv			(Emberiza aureola)
+sävsparv			(Emberiza schoeniclus)
+dvärgsävsparv			(Emberiza pallasi)
+amursävsparv			(Emberiza yessoensis)
+stäppsparv			(Emberiza bruniceps)
+svarthuvad sparv		(Emberiza melanocephala)
+tofssparv			(Emberiza lathami)
+kornsparv			(Emberiza calandra)
+dickcissel			(Spiza americana)
+orangeblåfink			(Passerina leclancherii)
+blå fröfink			(Amaurospiza concolor)
+vitstrupig rödskvätta		(Granatellus venustus)
+gul kardinal			(Pheucticus chrysopeplus)
+svarthuvad kardinal		(Pheucticus melanocephalus)
+brokig kardinal			(Pheucticus ludovicianus)
+röd kardinal			(Cardinalis cardinalis)
+ökenkardinal			(Cardinalis sinuatus)
+rödbukad stenknäck		(Rhodothraupis celaeno)
+rödstrupig myrtangara		(Habia fuscicauda)
+fläckvingad tangara		(Piranga bidentata)
+rödhuvad tangara		(Piranga erythrocephala)
+koboltfink			(Cyanocompsa parellina)
+indigofink			(Passerina cyanea)
 = indigosparv
-blåtjocknäbb
-lazulifink
-brokfink
-påvefink
-bobolink
+blåtjocknäbb			(Passerina caerulea)
+lazulifink			(Passerina amoena)
+brokfink			(Passerina versicolor)
+påvefink			(Passerina ciris)
+bobolink			(Dolichonyx oryzivorus)
 
-bronskostare
-brunhuvad kostare
-prärietrupial
-myrtrupial
-smalnäbbad båtstjärt
-mexikobåtstjärt
-större båtstjärt
-mindre båtstjärt
-brunskuldrad trupial
-västlig ängstrupial
-östlig ängstrupial
-sångtrupial
-kalifornisk trupial
-rödvingetrupial
-gulhuvad trupial
-glanskostare
-Scotts trupial
-audubontrupial
-palmtrupial
-trädgårdstrupial
-svartgumpad trupial
-baltimoretrupial
-svartryggad trupial
-bullocktrupial
-streckryggad trupial
-altamiratrupial
-fläckbröstad trupial
-gulvingad kasik
-montezumaoropendola
+bronskostare			(Molothrus aeneus)
+brunhuvad kostare		(Molothrus ater)
+prärietrupial			(Euphagus cyanocephalus)
+myrtrupial			(Euphagus carolinensis)
+smalnäbbad båtstjärt		(Quiscalus palustris)
+mexikobåtstjärt			(Quiscalus mexicanus)
+större båtstjärt		(Quiscalus major)
+mindre båtstjärt		(Quiscalus quiscula)
+brunskuldrad trupial		(Agelaius humeralis)
+västlig ängstrupial		(Sturnella neglecta)
+östlig ängstrupial		(Sturnella magna)
+sångtrupial			(Dives dives)
+kalifornisk trupial		(Agelaius tricolor)
+rödvingetrupial			(Agelaius phoeniceus)
+gulhuvad trupial		(Xanthocephalus xanthocephalus)
+glanskostare			(Molothrus bonariensis)
+Scotts trupial			(Icterus parisorum)
+audubontrupial			(Icterus graduacauda)
+palmtrupial			(Icterus cucullatus)
+trädgårdstrupial		(Icterus spurius)
+svartgumpad trupial		(Icterus wagleri)
+baltimoretrupial		(Icterus galbula)
+svartryggad trupial		(Icterus abeillei)
+bullocktrupial			(Icterus bullockii)
+streckryggad trupial		(Icterus pustulatus)
+altamiratrupial			(Icterus gularis)
+fläckbröstad trupial		(Icterus pectoralis)
+gulvingad kasik			(Cacicus melanicterus)
+montezumaoropendola		(Psarocolius montezuma)

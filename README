@@ -32,10 +32,9 @@ from an excursion by picking from a full list of species (or, rather,
 make it more difficult to forget entering a species).
 
 Ironically, this major part of Gavia now consists of a handful of perl
-scripts and an emacs macro - much of what's left is there to support
-the old legacy, binary, broken Lanius data format. Why write a
-dedicated interactive user interface when you can get an existing text
-editor to do the boring stuff for you for free?
+scripts and an emacs macro. Why write a dedicated interactive user
+interface when you can get an existing text editor to do the boring
+stuff for you for free?
 
 Gavia is released under a BSD-style license; see the LICENSE file.
 
@@ -45,10 +44,8 @@ Gavia is released under a BSD-style license; see the LICENSE file.
 To compile and install gavia, you'll need a C++ compiler, Perl and
 Python.
 
-You may also need to be on a Unix-like system. Personally, I'm on a
-Linux box and have never tried to compile for (for example) Win32.
-There may be a few GNUisms in the C++ code, and I know there are
-several in the Makefile.
+You also need to be on a Unix-like system. Personally, I'm on a Linux
+box and have never tried to compile for (for example) Win32.
 
 For my daily use of gavia, I rely on Perl, a revision control system
 (CVS or Git these days), and GNU Emacs. You can avoid some of these
@@ -63,7 +60,7 @@ customize the (admittedly trivial) scripts.
 should be enough to compile and install gavia into /usr/local.
 To install it elsewhere, you have to edit the Makefile.
 
-This creates files in bin/, man/ and lib/gavia/.
+This creates files in bin/, man/, lib/gavia/ and share/emacs/site-lisp/.
 
 Some of the files in lib/gavia/ are more or less example config files
 for various gavia commands.  You are encouraged to create custom
@@ -107,10 +104,10 @@ text editors.  Emacs happens to be the one I use.
 You may have noted already that this isn't a ready solution. Correct -
 it's a hack that does what I need it to do and little else.
 
-One /major/ weakness - which has historical reasons - is that the
-accepted bird species are fixed, and they are identified by their name
-/in Swedish/. You can hack gavia to hide this fact if you care to;
-I'll probably never get around to it.
+It's also specific for my country, Sweden.  The species list is
+primarily in swedish, and the selection of taxa is oriented towards
+birding here.  You're welcome to try to modify it to work in other
+regions; I'll probably never get around to it myself.
 
 
 Jörgen Grahn <grahn+src@snipabacken.se>

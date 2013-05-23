@@ -6,7 +6,9 @@
 .SH "NAME"
 gavia_cat \- concatenate and translate Gavia files
 .SH "SYNOPSIS"
-.B gavia_cat [\-gthmr] [\-cx]
+.B gavia_cat
+.RB [ \-gthmr ]
+.RB [ \-cx ]
 .I file
 .B ...
 .br
@@ -17,27 +19,42 @@ gavia_cat \- concatenate and translate Gavia files
 .B gavia_cat --version
 .SH "DESCRIPTION"
 .B gavia_cat
-concatenates one or more Gavia (''Gab'') files
+concatenates one or more Gavia ''gab'' files
+\- see
+.BR gavia (5)
+\-
 given on the command line.
 A dash '\-' denotes standard input.
 Standard input is also used if no
 book files are mentioned.
 The resulting aggregate book is then written to
-standard output, either as a
-Gavia book (i.e. binary),
-as text,
+standard output, either
 as ''gab'' formatted text,
-as HTML,
+plain text,
+HTML,
 troff source code,
 or a Unix mailbox file.
+.PP
+Meanwhile, syntax checking is performed and errors (if any)
+are written to standard error.
+.PP
+Also, the output is normalized in the sense that:
+.IP \- 3x
+it is reindented
+.IP \-
+species not marked as seen are removed
+.IP \-
+commented-out text is removed.
+.
 .SH "OPTIONS"
 .BP \-g
-(default) Output as ''gab'' text, which gavia_add(1) can read.
+(default) Output as ''gab'' text.  , which is human-editable and also
+serves as input to other related utilities.
 .BP \-t
 Output as pretty-printed plain text.
 .BP \-h
 Output as HTML,
-with each excursion as a HTML table.
+with each excursion as an HTML table.
 .BP \-m
 Output as a mbox file, readable by mail user agents such as
 .BR mail (1)
@@ -72,9 +89,7 @@ Print a brief help text and exit.
 .I lib/gavia/species
 The list of supported taxa and their taxonomic ordering.
 .SH "BUGS"
-Error handling and error reporting is rudimentary, at the most.
-Bad file contents give unrecoverable errors.
-The Gavia book format is fucked up.
+Error handling and error reporting is sometimes rudimentary.
 .LP
 Mbox output isn't MIME-encoded; some mail user agents
 may be confused when encountering 8-bit characters in
@@ -84,7 +99,6 @@ J\(:orgen Grahn
 .IR \[fo]grahn+src@snipabacken.se\[fc] .
 .SH "SEE ALSO"
 .BR gavia (5),
-.BR gavia_add (1),
 .BR gavia_grep (1),
 .BR gavia_sort (1),
-.BR gavia_stat (1)
+.BR gavia_stat (1).

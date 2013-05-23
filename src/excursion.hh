@@ -92,6 +92,7 @@ public:
     bool add_sighting_cont(const char* a, size_t alen);
     bool finalize();
 
+    bool operator< (const Excursion& other) const { return date < other.date; }
     std::ostream& put(std::ostream& os, bool sort = false) const;
 
 private:

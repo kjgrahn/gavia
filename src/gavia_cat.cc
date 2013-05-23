@@ -44,7 +44,7 @@ int main(int argc, char ** argv)
 	+ prog + " --check file ...\n"
 	"       "
 	+ prog + " --version";
-    const char optstring[] = "+gthmrcx";
+    const char optstring[] = "gthmrcx";
     struct option long_options[] = {
 	{"check", 0, 0, 'C'},
 	{"version", 0, 0, 'V'},

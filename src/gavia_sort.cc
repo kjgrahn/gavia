@@ -1,9 +1,4 @@
-/*----------------------------------------------------------------------------
- *
- * $Id: gavia_sort.cc,v 1.17 2008-01-03 09:38:19 grahn Exp $
- *
- * gavia_sort.cc
- *
+/*
  * Copyright (c) 1999--2001, 2013 Jörgen Grahn
  * All rights reserved.
  * 
@@ -28,187 +23,90 @@
  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *----------------------------------------------------------------------------
- *
- * From one or more Gavia books, output (on stdout) the excursions
- * sorted by (place,date) or (date,place).
- *----------------------------------------------------------------------------
  */
+#include <string>
+#include <list>
 #include <iostream>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <cassert>
-#include <vector>
-#include <algorithm>
-#include <unistd.h>
+#include <getopt.h>
 
-#include "version.hh"
-
-#include "excursion.hh"
-#include "streamsource.hh"
-#include "streamsink.hh"
-#include "exception.hh"
-
-#include "canonorder.hh"
-
+#include "files...h"
+#include "taxa.h"
 #include "excursion.hh"
 
-using std::vector;
-using std::stable_sort;
 
-
-static bool internalplace(const Excursion& a, const Excursion& b);
-static bool internaldate(const Excursion& a, const Excursion& b);
-
-
-/*----------------------------------------------------------------------------
- *
- * main()
- *
- *
- *----------------------------------------------------------------------------
- */
 int main(int argc, char ** argv)
 {
-    const char optstring[] = "+pdv";
-    int ch = EOF;
-    bool byplace = false;
+    using std::string;
 
-    Version version("$Name:  $");
+    const string prog = argv[0];
+    const string usage = string("usage: ")
+	+ prog + " [-dp] file ...\n"
+	"       "
+	+ prog + " --version";
+    const char optstring[] = "dp";
+    struct option long_options[] = {
+	{"version", 0, 0, 'V'},
+	{"help", 0, 0, 'H'},
+	{0, 0, 0, 0}
+    };
 
+    std::cin.sync_with_stdio(false);
+    std::cout.sync_with_stdio(false);
 
-    while((ch = getopt(argc, argv, optstring))!=EOF)
-    {
-	switch(ch)
-	{
-	case 'p':		// dictionary sort by place, then date
-	    byplace = true;
+    bool by_date = true;
+
+    int ch;
+    while((ch = getopt_long(argc, argv,
+			    optstring,
+			    &long_options[0], 0)) != -1) {
+	switch(ch) {
+	case 'd':
+	    by_date = true;
 	    break;
-	case 'd':		// sort by date, then place
-	    byplace = false;
-	case 'v':
-	case '?':
-	    fprintf(stderr,
-		    "gavia_sort, part of %s\n"
-		    "Copyright (c) 2000-2008 Jörgen Grahn "
-		    "<grahn+src@snipabacken.se>\n",
-		    version.name());
+	case 'p':
+	    by_date = false;
+	    break;
+	case 'V':
+	    std::string version();
+	    std::cout << prog << ", part of gavia " << "version()" << "\n"
+		      << "Copyright (c) 2000 - 2013 Jörgen Grahn\n";
 	    return 0;
+	    break;
+	case 'H':
+	    std::cout << usage << '\n';
+	    return 0;
+	    break;
+	case ':':
+	case '?':
+	    std::cerr << usage << '\n';
+	    return 1;
 	    break;
 	default:
 	    break;
 	}
     }
 
-    int i = optind;		// [i..argc[ are now the input files
+    Files files(argv+optind, argv+argc);
+    std::ifstream species("lib/species");
+    Taxa taxa(species, std::cerr);
 
-    char dash[] = "-";
-    char * dashp = dash;
-    char **p;
-    char **end;
-
-    if(i==argc)
-    {
-	// no file arguments, use stdin
-	p = &dashp;
-	end = p+1;
-    }
-    else
-    {
-	p = &argv[i];
-	end = &argv[argc];
+    std::list<Excursion> book;
+    const Excursion nil;
+    Excursion ex;
+    while(get(files, std::cerr, taxa, ex)) {
+	book.push_back(nil);
+	book.back().swap(ex);
     }
 
-    vector<Excursion> exlist;
+    book.sort();
 
-    // read in excursions from all input files/stdin
-    // and push them onto exlist
-    try
-    {
-	while(p!=end) {
-	    StreamSource src(*p);
+    for(std::list<Excursion>::const_iterator i = book.begin();
+	i != book.end();
+	i++) {
 
-	    while(!src.eof())
-	    {
-		exlist.push_back(src.excursion());
-		src.next();
-	    }
-
-	    p++;
-	}
-    }
-    catch(const GaviaException& exception)
-    {
-	std::cerr << "gavia_sort: error: " << exception.msg << std::endl;
-	return 1;
-    }
-
-    // sort the exlist vector
-    stable_sort(exlist.begin(), exlist.end(),
-		byplace?(::internalplace):(::internaldate));
-
-
-    // Dump the result to stdout
-    //
-    try
-    {
-        CanonOrder co;
-        StreamSink sink(stdout);
-
-        unsigned int i;
-        for(i=0; i<exlist.size(); i++)
-        {
-            sink.put(exlist[i]);
-        }
-    }
-    catch(const GaviaException& exception)
-    {
-	std::cerr << "gavia_sort: error: " << exception.msg << std::endl;
-	return 1;
+	if(i!=book.begin()) std::cout << '\n';
+	i->put(std::cout);
     }
 
     return 0;
-}
-
-
-/*----------------------------------------------------------------------------
- *
- * ::internalplace()
- *
- * Orders excursions primarily on place string (case-sensitive),
- * secondarily on date
- *----------------------------------------------------------------------------
- */
-static bool internalplace(const Excursion& a, const Excursion& b)
-{
-    if(a.getplace() != b.getplace())
-    {
-	return a.getplace() < b.getplace();
-    }
-    else
-    {
-	return a.getdate() < b.getdate();
-    }
-}
-
-
-/*----------------------------------------------------------------------------
- *
- * ::internaldate()
- *
- * Orders excursions primarily on date,
- * secondarily on place string (case-sensitive)
- *----------------------------------------------------------------------------
- */
-static bool internaldate(const Excursion& a, const Excursion& b)
-{
-    if(a.getdate() != b.getdate())
-    {
-	return a.getdate() < b.getdate();
-    }
-    else
-    {
-	return a.getplace() < b.getplace();
-    }
 }

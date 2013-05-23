@@ -1,48 +1,71 @@
-.\" $Id: gavia_sort.1,v 1.12 2008-01-03 09:38:19 grahn Exp $
-.\" 
-.\"
-.TH gavia_sort 1 "NOVEMBER 1999" Gavia "User Manuals"
+.ss 12 0
+.de BP
+.IP \\fB\\$*
+..
+.TH gavia_sort 1 "MAY 2013" Gavia "User Manuals"
 .SH "NAME"
-gavia_sort \- sort excursions in Gavia books
+gavia_sort \- sort excursions in Gavia files
 .SH "SYNOPSIS"
-.B gavia_sort [\-dpv]
-.I bookfiles
-.B ...
+.B gavia_sort
+.RB [ \-dp ]
+.I file
+\&...
+.br
+.B gavia_sort --version
+.br
+.B gavia_sort --help
 .SH "DESCRIPTION"
 .B gavia_sort
-sorts one or more Gavia book files
+sorts one or more Gavia ''gab'' files
+\- see
+.BR gavia (5)
+\-
 given on the command line.
-Excursions can be made to sort by
-place, then date or
-date, then place.
-.PP
 A dash '\-' denotes standard input.
 Standard input is also used if no
 book files are mentioned.
-The resulting book is then written to
-standard output, as a
-Gavia book (i.e. binary).
+.PP
+Excursions can be made to sort by
+.B place
+or by
+.BR date ,
+the latter being the default.
+For dates,
+an initial part of the text on the form
+.IR yyyy-mm-dd ,
+.IR yyyy-mm ,
+or
+.IR yyyy ,
+(or more uncommonly
+.I yyyymmdd
+and so on)
+is taken to be the date.
+Undated excursions and undecipherable dates
+sort before all real dates.
+.PP
+The resulting file is written to
+standard output.
 .SH "OPTIONS"
-.IP \-d
+.BP \-d
 Use date as primary sorting key (default).
-.IP \-p
+.BP \-p
 Use place as primary sorting key.
-.IP \-v
+.BP --version
 Print version information and exit.
+.BP --help
+Print a brief help text and exit.
 .SH "FILES"
-N/A.
+.TP
+.I lib/gavia/species
+The list of supported taxa.
 .SH "ENVIRONMENT"
-The current locale settings might influence certain aspects;
-in particular, the collating order.
-.SH "DIAGNOSTICS"
-TBD.
-.SH "BUGS"
-Error handling and error reporting is rudimentary, at the most.
-Bad file contents may give unrecoverable errors.
-The Gavia book format is fucked up.
+The current locale settings might influence certain aspects,
+in particular the collating order.
 .SH "AUTHOR"
-J\(:orgen Grahn <grahn+src@snipabacken.se>
+J\(:orgen Grahn
+.IR \[fo]grahn+src@snipabacken.se\[fc] .
 .SH "SEE ALSO"
+.BR gavia (5),
 .BR gavia_cat (1),
 .BR gavia_grep (1),
 .BR gavia_stat (1)

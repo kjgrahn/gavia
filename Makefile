@@ -36,14 +36,11 @@ CFLAGS=-W -Wall -pedantic -ansi -g -O2
 CXXFLAGS=-W -Wall -pedantic -std=c++98 -g -Os
 LDFLAGS=-Lsrc
 
-OUTS=src/gavia_add src/gavia_cat src/gavia_grep src/gavia_sort
+OUTS=src/gavia_cat src/gavia_grep src/gavia_sort
 
 all: $(OUTS)
 
 src/gavia_cat: src/gavia_cat.o src/libgavia.a
-	$(CXX) $(LDFLAGS) -o $@ $< -lgavia
-
-src/gavia_add: src/gavia_add.o src/libgavia.a
 	$(CXX) $(LDFLAGS) -o $@ $< -lgavia
 
 src/gavia_grep: src/gavia_grep.o src/libgavia.a
@@ -137,7 +134,7 @@ install_outs: $(OUTS)
 
 .PHONY: install_man1
 install_man1: doc/gavia.1
-install_man1: doc/gavia_add.1 doc/gavia_cat.1
+install_man1: doc/gavia_cat.1
 install_man1: doc/gavia_grep.1 doc/gavia_sort.1
 install_man1: doc/gavia_stellata.1
 install_man1: doc/gavia_stat.1 doc/gavia_focus.1 doc/gavia_score.1
@@ -187,10 +184,6 @@ src/gabsource.o: src/speciesorder.hh src/canonorder.hh src/speciesredro.hh
 src/gabsource.o: src/exception.hh src/regex.hh src/gabsource.hh
 src/gabsource.o: src/booksource.hh src/excursion.hh src/taxon.h src/date.h
 src/gabsource.o: src/contstream.hh
-src/gavia_add.o: src/version.hh src/streamsource.hh src/booksource.hh
-src/gavia_add.o: src/excursion.hh src/taxon.h src/date.h src/gabsource.hh
-src/gavia_add.o: src/contstream.hh src/streamsink.hh src/booksink.hh
-src/gavia_add.o: src/canonorder.hh src/speciesorder.hh src/exception.hh
 src/gavia_cat.o: src/files...h src/taxa.h src/taxon.h src/excursion.hh
 src/gavia_cat.o: src/date.h
 src/gavia_grep.o: src/version.hh src/streamsource.hh src/booksource.hh

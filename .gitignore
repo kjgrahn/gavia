@@ -1,6 +1,5 @@
 *.[oa]
 *.bak
-src/gavia_add
 src/gavia_cat
 src/gavia_grep
 src/gavia_sort

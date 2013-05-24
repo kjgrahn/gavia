@@ -1,55 +1,86 @@
-.\" $Id: gavia_grep.1,v 1.14 2008-01-03 09:38:19 grahn Exp $
-.\" 
-.\"
-.TH gavia_grep 1 "JULY 1999" Gavia "User Manuals"
+.ss 12 0
+.de BP
+.IP \\fB\\$*
+..
+.TH gavia_grep 1 "MAY 2013" Gavia "User Manuals"
+.
 .SH "NAME"
-gavia_grep \- filter Gavia books through regular expression
+gavia_grep \- filter Gavia files through regular expression
+.
 .SH "SYNOPSIS"
-.B gavia_grep [\-v|\-V]
+.B gavia_grep
+.RB [ \-v ]
 .I pattern
-.I bookfiles
+.I file
 .B ...
+.br
+.B gavia_grep --version
+.br
+.B gavia_grep --help
+.
 .SH "DESCRIPTION"
 .B gavia_grep
-filters one or more Gavia book files
+filters one or more Gavia ''gab'' files
+\- see
+.BR gavia (5)
+\-
 given on the command line.
-Any excursion matching the pattern
-(in place, date, time, weather, observers,
-comments, species name or species comment)
-is passed through.
-.PP
 A dash '\-' denotes standard input.
 Standard input is also used if no
 book files are mentioned.
-The resulting aggregate book is then written to
-standard output, as a
-Gavia book (i.e. binary).
+The result is written to standard output.
 .PP
-The pattern syntax follows that of regex(7).
+Any excursion matching the
+.BR regex (7)
+regular expression
+.I pattern
+is included, unless
+.B \-v
+is given and the matching excursions are instead excluded.
+.PP
+The match is applied to the excursion text:
+.IR place ,
+.IR date ,
+.IR time ,
+.IR weather ,
+.IR observers ,
+.I command
+and other headers;
+species
+.IR name ,
+.I numbers
+and
+.IR comment .
+.PP
+Species names aren't matched only verbatim, but also against
+synonyms and scientific names.
+For example, the pattern
+.I Lanius
+will match any Shrike.
+.
 .SH "OPTIONS"
-.IP \-v
+.BP \-v
 Inverts handling,
-so that excursions not matching the pattern
-are passed through.
-.IP \-V
+so that excursions
+.I not
+matching the pattern are passed through.
+.BP --version
 Print version information and exit.
+.BP --help
+Print a brief help text and exit.
+.
 .SH "FILES"
 .TP
 .I lib/gavia/species
 The list of supported taxa and their taxonomic ordering.
-.SH "ENVIRONMENT"
-The current locale settings might influence certain aspects.
-TBD.
-.SH "DIAGNOSTICS"
-TBD.
-.SH "BUGS"
-Error handling and error reporting is rudimentary, at the most.
-Bad file contents may give unrecoverable errors.
-The Gavia book format is fucked up.
+.
 .SH "AUTHOR"
-J\(:orgen Grahn <grahn+src@snipabacken.se>
+J\(:orgen Grahn
+.IR \[fo]grahn+src@snipabacken.se\[fc] .
+.
 .SH "SEE ALSO"
+.BR gavia (5),
 .BR gavia_cat (1),
 .BR gavia_sort (1),
 .BR gavia_stat (1),
-.BR regex (7)
+.BR regex (7).

@@ -36,7 +36,7 @@ CFLAGS=-W -Wall -pedantic -ansi -g -O2
 CXXFLAGS=-W -Wall -pedantic -std=c++98 -g -Os
 LDFLAGS=-Lsrc
 
-OUTS=src/gavia_cat src/gavia_grep src/gavia_sort
+OUTS=src/gavia_cat src/gavia_sort
 
 all: $(OUTS)
 

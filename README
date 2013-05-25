@@ -41,8 +41,7 @@ Gavia is released under a BSD-style license; see the LICENSE file.
 
 2. REQUIREMENTS
 
-To compile and install gavia, you'll need a C++ compiler, Perl and
-Python.
+To compile and install gavia, you'll need a C++ compiler and Perl.
 
 You also need to be on a Unix-like system. Personally, I'm on a Linux
 box and have never tried to compile for (for example) Win32.

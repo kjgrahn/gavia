@@ -34,16 +34,41 @@
 #include "excursion.hh"
 
 
+namespace {
+
+    template<class BinOp>
+    struct Reverse {
+	explicit Reverse(const BinOp& op) : op(op) {}
+	BinOp op;
+	bool operator() (const Excursion& a, const Excursion& b) const {
+	    return op(b, a);
+	}
+    };
+
+    struct ByDate {
+	bool operator() (const Excursion& a, const Excursion& b) const {
+	    return a.date < b.date;
+	}
+    };
+
+    struct ByPlace {
+	bool operator() (const Excursion& a, const Excursion& b) const {
+	    return a.place < b.place;
+	}
+    };
+}
+
+
 int main(int argc, char ** argv)
 {
     using std::string;
 
     const string prog = argv[0];
     const string usage = string("usage: ")
-	+ prog + " [-dp] file ...\n"
+	+ prog + " [-dpr] file ...\n"
 	"       "
 	+ prog + " --version";
-    const char optstring[] = "dp";
+    const char optstring[] = "dpr";
     struct option long_options[] = {
 	{"version", 0, 0, 'V'},
 	{"help", 0, 0, 'H'},
@@ -53,7 +78,8 @@ int main(int argc, char ** argv)
     std::cin.sync_with_stdio(false);
     std::cout.sync_with_stdio(false);
 
-    bool by_date = true;
+    char sorting = 'd';
+    bool reverse = false;
 
     int ch;
     while((ch = getopt_long(argc, argv,
@@ -61,10 +87,11 @@ int main(int argc, char ** argv)
 			    &long_options[0], 0)) != -1) {
 	switch(ch) {
 	case 'd':
-	    by_date = true;
-	    break;
 	case 'p':
-	    by_date = false;
+	    sorting = ch;
+	    break;
+	case 'r':
+	    reverse = true;
 	    break;
 	case 'V':
 	    std::string version();
@@ -78,10 +105,9 @@ int main(int argc, char ** argv)
 	    break;
 	case ':':
 	case '?':
+	default:
 	    std::cerr << usage << '\n';
 	    return 1;
-	    break;
-	default:
 	    break;
 	}
     }
@@ -98,7 +124,24 @@ int main(int argc, char ** argv)
 	book.back().swap(ex);
     }
 
-    book.sort();
+    /* Note that reverse sort is not the same thing as sorting, then
+     * reverse; the latter sort is not stable. So we do it the hard
+     * way.
+     */
+    switch(sorting+reverse) {
+    case 'd':
+	book.sort(ByDate());
+	break;
+    case 'd'+true:
+	book.sort(Reverse<ByDate>(ByDate()));
+	break;
+    case 'p':
+	book.sort(ByPlace());
+	break;
+    case 'p'+true:
+	book.sort(Reverse<ByPlace>(ByPlace()));
+	break;
+    }
 
     for(std::list<Excursion>::const_iterator i = book.begin();
 	i != book.end();

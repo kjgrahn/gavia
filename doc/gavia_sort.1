@@ -3,17 +3,20 @@
 .IP \\fB\\$*
 ..
 .TH gavia_sort 1 "MAY 2013" Gavia "User Manuals"
+.
 .SH "NAME"
 gavia_sort \- sort excursions in Gavia files
+.
 .SH "SYNOPSIS"
 .B gavia_sort
-.RB [ \-dp ]
+.RB [ \-dpr ]
 .I file
 \&...
 .br
 .B gavia_sort --version
 .br
 .B gavia_sort --help
+.
 .SH "DESCRIPTION"
 .B gavia_sort
 sorts one or more Gavia ''gab'' files
@@ -45,25 +48,35 @@ sort before all real dates.
 .PP
 The resulting file is written to
 standard output.
+.
 .SH "OPTIONS"
 .BP \-d
-Use date as primary sorting key (default).
+Sort by
+.BR date .
+This is the default, and perhaps most useful.
 .BP \-p
-Use place as primary sorting key.
+Sort by
+.BR place .
+.BP \-r
+Reverse sort, e.g. most recent date first.
 .BP --version
 Print version information and exit.
 .BP --help
 Print a brief help text and exit.
+.
 .SH "FILES"
 .TP
 .I lib/gavia/species
 The list of supported taxa.
+.
 .SH "ENVIRONMENT"
 The current locale settings might influence certain aspects,
 in particular the collating order.
+.
 .SH "AUTHOR"
 J\(:orgen Grahn
 .IR \[fo]grahn+src@snipabacken.se\[fc] .
+.
 .SH "SEE ALSO"
 .BR gavia (5),
 .BR gavia_cat (1),

@@ -129,6 +129,7 @@ bool Excursion::finalize()
     const std::string& s = find_header("date");
     const char* a = s.c_str();
     date = Date(a, a+s.size());
+    place = find_header("place");
     return true;
 }
 

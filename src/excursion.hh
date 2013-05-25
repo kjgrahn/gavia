@@ -95,12 +95,14 @@ public:
     bool operator< (const Excursion& other) const { return date < other.date; }
     std::ostream& put(std::ostream& os, bool sort = false) const;
 
+    Date date;
+    std::string place;
+
 private:
     typedef std::vector<Header> Headers;
     typedef std::vector<Sighting> Sightings;
     Headers headers;
     Sightings sightings;
-    Date date;
 
     const std::string& find_header(const char* name) const;
 };

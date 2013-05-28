@@ -1,7 +1,7 @@
 /*
- * Copyright (c) 1999--2001, 2013 Jörgen Grahn
+ * Copyright (c) 2013 Jörgen Grahn
  * All rights reserved.
- * 
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
  * are met:
@@ -12,7 +12,7 @@
  *    documentation and/or other materials provided with the distribution.
  * 3. The name of the author may not be used to endorse or promote products
  *    derived from this software without specific prior written permission.
- * 
+ *
  * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
  * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
  * OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
@@ -26,15 +26,42 @@
  */
 #include <string>
 #include <iostream>
+#include <cstdlib>
 #include <getopt.h>
+#include <unistd.h>
 
 #include "files...h"
 #include "taxa.h"
 #include "excursion.hh"
 
-extern "C" {
-    const char* gavia_name();
-    const char* gavia_version();
+
+namespace {
+
+    std::string getenv(const char* name)
+    {
+	const char* p = std::getenv(name);
+	return p? p: "";
+    }
+
+    /**
+     * foo -> $HOME/foo
+     */
+    std::string tilde(const std::string& tail)
+    {
+	return getenv("HOME") + "/" + tail;
+    }
+
+    /**
+     * "/tmp/gavia_stellata.tmp.$$.gavia"
+     */
+    std::string tmpname()
+    {
+	char buf[50];
+	std::snprintf(buf, sizeof buf,
+		      "/tmp/gavia_stellata.tmp.%d.gavia",
+		      getpid());
+	return buf;
+    }
 }
 
 
@@ -44,14 +71,11 @@ int main(int argc, char ** argv)
 
     const string prog = argv[0];
     const string usage = string("usage: ")
-	+ prog + " [-gthmr] [-cx] file ...\n"
-	"       "
-	+ prog + " --check file ...\n"
+	+ prog + " [-f template] file\n"
 	"       "
 	+ prog + " --version";
-    const char optstring[] = "gthmrcx";
+    const char optstring[] = "f:";
     const struct option long_options[] = {
-	{"check", 0, 0, 'C'},
 	{"version", 0, 0, 'V'},
 	{"help", 0, 0, 'H'},
 	{0, 0, 0, 0}
@@ -60,33 +84,19 @@ int main(int argc, char ** argv)
     std::cin.sync_with_stdio(false);
     std::cout.sync_with_stdio(false);
 
-    bool sort_spp = false;
-    char outfmt = 'g';
+    string extemplate;
 
     int ch;
     while((ch = getopt_long(argc, argv,
 			    optstring,
 			    &long_options[0], 0)) != -1) {
 	switch(ch) {
-	case 'g':
-	case 't':
-	case 'h':
-	case 'm':
-	case 'r':
-	    outfmt = ch;
-	    break;
-	case 'c':
-	    sort_spp = false;
-	    break;
-	case 'x':
-	    sort_spp = true;
-	    break;
-	case 'C':
-	    outfmt = '-';
+	case 'f':
+	    extemplate = optarg;
 	    break;
 	case 'V':
-	    std::cout << prog << ", part of "
-		      << gavia_name() << ' ' << gavia_version() << "\n"
+	    std::string version();
+	    std::cout << prog << ", part of gavia " << "version()" << "\n"
 		      << "Copyright (c) 1999 - 2013 Jörgen Grahn\n";
 	    return 0;
 	    break;
@@ -104,17 +114,10 @@ int main(int argc, char ** argv)
 	}
     }
 
-    Files files(argv+optind, argv+argc);
-    std::ifstream species(Taxa::species_file().c_str());
-    Taxa taxa(species, std::cerr);
+    if(extemplate.empty()) {
+	extemplate = tilde(".gavia_template");
+	;
 
-    Excursion ex;
-    unsigned n = 0;
-    while(get(files, std::cerr, taxa, ex)) {
-	if(outfmt != 'g') continue;
-
-	if(n++) std::cout << '\n';
-	ex.put(std::cout, sort_spp);
     }
 
     return 0;

@@ -55,6 +55,8 @@ public:
     TaxonId find(const std::string& name) const;
     const Taxon& operator[] (TaxonId id) const;
 
+    static std::string species_file();
+
 private:
     std::vector<Taxon> v;
     typedef std::tr1::unordered_map<std::string, TaxonId> Map;

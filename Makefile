@@ -36,9 +36,10 @@ CFLAGS=-W -Wall -pedantic -ansi -g -O2
 CXXFLAGS=-W -Wall -pedantic -std=c++98 -g -Os
 LDFLAGS=-Lsrc
 
-OUTS=src/gavia_cat src/gavia_sort
-
-all: $(OUTS)
+all: src/gavia_cat
+all: src/gavia_grep
+all: src/gavia_sort
+all: src/gavia_stellata
 
 src/gavia_cat: src/gavia_cat.o src/libgavia.a
 	$(CXX) $(LDFLAGS) -o $@ $< -lgavia
@@ -107,7 +108,7 @@ depend:
 clean:
 	$(RM) src/test/test
 	$(RM) src/test/test.cc
-	$(RM) $(OUTS)
+	$(RM) src/gavia_{cat,grep,sort,stellata}
 	$(RM) src/*.[oa]
 	$(RM) src/test/*.[oa]
 	$(RM) Makefile.bak core TAGS
@@ -129,8 +130,11 @@ install: install_perl
 	[ -d  $(ELISPDIR) ] && install -m444 gavia-mode.el $(ELISPDIR)
 
 .PHONY: install_outs
-install_outs: $(OUTS)
-	install -s -m755 $(OUTS) $(INSTALLBASE)/bin/
+install_outs: src/gavia_cat
+install_outs: src/gavia_grep
+install_outs: src/gavia_sort
+install_outs: src/gavia_stellata
+	install -s -m755 $^ $(INSTALLBASE)/bin/
 
 .PHONY: install_man1
 install_man1: doc/gavia.1
@@ -190,10 +194,8 @@ src/gavia_grep.o: src/version.hh src/streamsource.hh src/booksource.hh
 src/gavia_grep.o: src/excursion.hh src/taxon.h src/date.h src/streamsink.hh
 src/gavia_grep.o: src/booksink.hh src/exception.hh src/canonorder.hh
 src/gavia_grep.o: src/speciesorder.hh src/dynamicorder.hh src/speciesset.hh
-src/gavia_sort.o: src/version.hh src/excursion.hh src/taxon.h src/date.h
-src/gavia_sort.o: src/streamsource.hh src/booksource.hh src/streamsink.hh
-src/gavia_sort.o: src/booksink.hh src/exception.hh src/canonorder.hh
-src/gavia_sort.o: src/speciesorder.hh
+src/gavia_sort.o: src/files...h src/taxa.h src/taxon.h src/excursion.hh
+src/gavia_sort.o: src/date.h
 src/mboxsink.o: src/dynamicorder.hh src/speciesorder.hh src/speciesset.hh
 src/mboxsink.o: src/exception.hh src/mboxsink.hh src/booksink.hh
 src/mboxsink.o: src/excursion.hh src/taxon.h src/date.h

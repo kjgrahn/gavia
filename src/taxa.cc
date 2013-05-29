@@ -104,6 +104,15 @@ const Taxon& Taxa::operator[] (TaxonId id) const
 }
 
 
+/**
+ * Return an ordered list of the taxa matching 're', in any of its
+ * names.
+ */
+std::vector<TaxonId> Taxa::match(const Regex& re) const
+{
+}
+
+
 extern "C" const char* gavia_prefix();
 
 /**

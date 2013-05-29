@@ -29,7 +29,7 @@
 
 SHELL=/bin/bash
 
-INSTALLBASE = /usr/local
+INSTALLBASE=/usr/local
 ELISPDIR=$(INSTALLBASE)/share/emacs/site-lisp
 
 CFLAGS=-W -Wall -pedantic -ansi -g -Os
@@ -37,7 +37,7 @@ CXXFLAGS=-W -Wall -pedantic -std=c++98 -g -Os
 LDFLAGS=-Lsrc
 
 all: src/gavia_cat
-#all: src/gavia_grep
+all: src/gavia_grep
 all: src/gavia_sort
 #all: src/gavia_stellata
 
@@ -60,6 +60,7 @@ src/libgavia.a: src/taxa.o
 src/libgavia.a: src/date.o
 src/libgavia.a: src/excursion.o
 src/libgavia.a: src/excursion_put.o
+src/libgavia.a: src/regex.o
 src/libgavia.a: version.o
 	$(AR) -r $@ $^
 
@@ -195,15 +196,14 @@ src/gabsource.o: src/booksource.hh src/excursion.hh src/taxon.h src/date.h
 src/gabsource.o: src/contstream.hh
 src/gavia_cat.o: src/files...h src/taxa.h src/taxon.h src/excursion.hh
 src/gavia_cat.o: src/date.h
-src/gavia_grep.o: src/version.hh src/streamsource.hh src/booksource.hh
-src/gavia_grep.o: src/excursion.hh src/taxon.h src/date.h src/streamsink.hh
-src/gavia_grep.o: src/booksink.hh src/exception.hh src/canonorder.hh
-src/gavia_grep.o: src/speciesorder.hh src/dynamicorder.hh src/speciesset.hh
+src/gavia_grep.o: src/files...h src/taxa.h src/taxon.h src/excursion.hh
+src/gavia_grep.o: src/date.h src/regex.hh
 src/gavia_sort.o: src/files...h src/taxa.h src/taxon.h src/excursion.hh
 src/gavia_sort.o: src/date.h
 src/mboxsink.o: src/dynamicorder.hh src/speciesorder.hh src/speciesset.hh
 src/mboxsink.o: src/exception.hh src/mboxsink.hh src/booksink.hh
 src/mboxsink.o: src/excursion.hh src/taxon.h src/date.h
+src/regex.o: src/regex.hh
 src/sortedorder.o: src/speciesorder.hh src/sortedorder.hh
 src/specieslist.o: src/specieslist.hh src/exception.hh
 src/speciesredro.o: src/speciesredro.hh src/speciesorder.hh

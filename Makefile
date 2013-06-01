@@ -37,7 +37,7 @@ CXXFLAGS=-W -Wall -pedantic -std=c++98 -g -Os
 LDFLAGS=-Lsrc
 
 all: src/gavia_cat
-all: src/gavia_grep
+#all: src/gavia_grep
 all: src/gavia_sort
 #all: src/gavia_stellata
 
@@ -48,6 +48,9 @@ src/gavia_grep: src/gavia_grep.o src/libgavia.a
 	$(CXX) $(LDFLAGS) -o $@ $< -lgavia
 
 src/gavia_sort: src/gavia_sort.o src/libgavia.a
+	$(CXX) $(LDFLAGS) -o $@ $< -lgavia
+
+src/gavia_stellata: src/gavia_stellata.o src/libgavia.a
 	$(CXX) $(LDFLAGS) -o $@ $< -lgavia
 
 src/libgavia.a: src/contstream.o
@@ -200,6 +203,10 @@ src/gavia_grep.o: src/files...h src/taxa.h src/taxon.h src/excursion.hh
 src/gavia_grep.o: src/date.h src/regex.hh
 src/gavia_sort.o: src/files...h src/taxa.h src/taxon.h src/excursion.hh
 src/gavia_sort.o: src/date.h
+src/gavia_sort.o: src/files...h src/taxa.h src/taxon.h src/excursion.hh
+src/gavia_sort.o: src/date.h
+src/gavia_stellata.o: src/files...h src/taxa.h src/taxon.h src/excursion.hh
+src/gavia_stellata.o: src/date.h
 src/mboxsink.o: src/dynamicorder.hh src/speciesorder.hh src/speciesset.hh
 src/mboxsink.o: src/exception.hh src/mboxsink.hh src/booksink.hh
 src/mboxsink.o: src/excursion.hh src/taxon.h src/date.h

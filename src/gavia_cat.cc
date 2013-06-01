@@ -32,6 +32,11 @@
 #include "taxa.h"
 #include "excursion.hh"
 
+extern "C" {
+    const char* gavia_name();
+    const char* gavia_version();
+}
+
 
 int main(int argc, char ** argv)
 {
@@ -45,7 +50,7 @@ int main(int argc, char ** argv)
 	"       "
 	+ prog + " --version";
     const char optstring[] = "gthmrcx";
-    struct option long_options[] = {
+    const struct option long_options[] = {
 	{"check", 0, 0, 'C'},
 	{"version", 0, 0, 'V'},
 	{"help", 0, 0, 'H'},
@@ -80,8 +85,8 @@ int main(int argc, char ** argv)
 	    outfmt = '-';
 	    break;
 	case 'V':
-	    std::string version();
-	    std::cout << prog << ", part of gavia " << "version()" << "\n"
+	    std::cout << prog << ", part of "
+		      << gavia_name() << ' ' << gavia_version() << "\n"
 		      << "Copyright (c) 1999 - 2013 Jörgen Grahn\n";
 	    return 0;
 	    break;
@@ -100,7 +105,7 @@ int main(int argc, char ** argv)
     }
 
     Files files(argv+optind, argv+argc);
-    std::ifstream species("lib/species");
+    std::ifstream species(Taxa::species_file().c_str());
     Taxa taxa(species, std::cerr);
 
     Excursion ex;

@@ -32,6 +32,7 @@
 #include "date.h"
 
 #include <string>
+#include <vector>
 #include <iosfwd>
 
 
@@ -93,14 +94,20 @@ public:
     bool finalize();
 
     bool operator< (const Excursion& other) const { return date < other.date; }
+    bool has_one(const std::vector<TaxonId>& taxa) const;
     std::ostream& put(std::ostream& os, bool sort = false) const;
+
+    typedef std::vector<Header> Headers;
+    typedef std::vector<Sighting> Sightings;
+    Headers::const_iterator hbegin() const { return headers.begin(); }
+    Headers::const_iterator hend() const { return headers.end(); }
+    Sightings::const_iterator sbegin() const { return sightings.begin(); }
+    Sightings::const_iterator send() const { return sightings.end(); }
 
     Date date;
     std::string place;
 
 private:
-    typedef std::vector<Header> Headers;
-    typedef std::vector<Sighting> Sightings;
     Headers headers;
     Sightings sightings;
 

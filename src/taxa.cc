@@ -102,3 +102,27 @@ const Taxon& Taxa::operator[] (TaxonId id) const
     assert(sp.id==id);
     return sp;
 }
+
+
+/**
+ * Return an ordered list of the taxa matching 're', in any of its
+ * names.
+ */
+std::vector<TaxonId> Taxa::match(const Regex& re) const
+{
+}
+
+
+extern "C" const char* gavia_prefix();
+
+/**
+ * The path to the file containing the default list of taxa.  Quite
+ * unrelated to the rest of Taxa, which don't use it -- taxa are read
+ * from a std::istream.
+ */
+std::string Taxa::species_file()
+{
+    std::string s = gavia_prefix();
+    s += "/lib/species";
+    return s;
+}

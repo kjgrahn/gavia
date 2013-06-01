@@ -1,19 +1,10 @@
 /* -*- c++ -*-
  *
- * $Id: regex.hh,v 1.1 2006-05-02 21:53:58 grahn Exp $
- *
- * regex.h
- *
- * Copyright (C) 2001 Jörgen Grahn <jgrahn@algonet.se>
- *----------------------------------------------------------------------------
- *
- *----------------------------------------------------------------------------
+ * Copyright (C) 2001, 2013 Jörgen Grahn
+ * All rights reserved.
  */
-#ifndef REGEX_H
-#define REGEX_H
-
-#include <sys/types.h>
-#include <regex.h>
+#ifndef GAVIA_REGEX_H
+#define GAVIA_REGEX_H
 
 #include <string>
 #include <cassert>
@@ -26,21 +17,22 @@
 class Regex
 {
 public:
-    explicit Regex(const std::string& regex) {
-	int rc = regcomp(&_preg, regex.c_str(), REG_EXTENDED|REG_NOSUB|REG_ICASE);
-	assert(!rc);
-    }
-    ~Regex() {regfree(&_preg);}
+    explicit Regex(const std::string& regex);
+    ~Regex();
 
-    bool matches(const std::string& s) const {
-	return !regexec(&_preg, s.c_str(), 0, 0, 0);
-    }
+    bool bad() const;
+    std::string error() const;
+
+    bool match(const std::string& s) const { return match(s.c_str()); }
+    bool match(const char* s) const;
+
+    struct Wrapper;
 
 private:
     Regex();
     Regex(const Regex&);
 
-    regex_t _preg;
+    Wrapper* const wrapper;
 };
 
 #endif

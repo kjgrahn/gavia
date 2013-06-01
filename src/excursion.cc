@@ -56,6 +56,7 @@ void Excursion::swap(Excursion& other)
     headers.swap(other.headers);
     sightings.swap(other.sightings);
     std::swap(date, other.date);
+    std::swap(place, other.place);
 }
 
 

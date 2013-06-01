@@ -1,9 +1,4 @@
-/*----------------------------------------------------------------------------
- *
- * $Id: gavia_grep.cc,v 1.19 2008-01-03 09:38:19 grahn Exp $
- *
- * gavia_grep.cc
- *
+/*
  * Copyright (c) 1999--2001, 2013 Jörgen Grahn
  * All rights reserved.
  * 
@@ -28,241 +23,129 @@
  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *----------------------------------------------------------------------------
- *
- * From one or more Gavia books, output (on stdout) all excursions
- * that contain text (e.g. place, species, species comments) matching
- * the pattern given on the command line.
- *----------------------------------------------------------------------------
  */
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <cassert>
+#include <string>
 #include <iostream>
-#include <unistd.h>
+#include <getopt.h>
 
-#include <regex.h>
-
-#include "version.hh"
-
-#include "streamsource.hh"
-#include "streamsink.hh"
-#include "exception.hh"
-
-#include "canonorder.hh"
-#include "dynamicorder.hh"
-
+#include "files...h"
+#include "taxa.h"
 #include "excursion.hh"
+#include "regex.hh"
 
 
-static bool internalmatchex(const Excursion&, regex_t *);
+extern "C" {
+    const char* gavia_name();
+    const char* gavia_version();
+}
 
 
-/*----------------------------------------------------------------------------
- *
- * main()
- *
- *
- *----------------------------------------------------------------------------
- */
+namespace {
+
+    /**
+     * True if 'ex' matches 're' in some way, or if it contains
+     * one of 'taxa'.
+     */
+    template<class Regex>
+    bool matches(const Regex& re, const Excursion& ex,
+		 const std::vector<TaxonId>& taxa)
+    {
+	if(ex.has_one(taxa)) return true;
+	for(Excursion::Headers::const_iterator i = ex.hbegin();
+	    i != ex.hend();
+	    i++) {
+	    if(re.match(i->value)) return true;
+	}
+	for(Excursion::Sightings::const_iterator i = ex.sbegin();
+	    i != ex.send();
+	    i++) {
+	    if(re.match(i->name)) return true;
+	    if(re.match(i->comment)) return true;
+	}
+
+	return false;
+    }
+}
+
+
 int main(int argc, char ** argv)
 {
-    const char optstring[] = "+vV";
-    int ch = EOF;
+    using std::string;
+
+    const string prog = argv[0];
+    const string usage = string("usage: ")
+	+ prog + " [-v] pattern file ...\n"
+	"       "
+	+ prog + " --version";
+    const char optstring[] = "v";
+    const struct option long_options[] = {
+	{"version", 0, 0, 'V'},
+	{"help", 0, 0, 'H'},
+	{0, 0, 0, 0}
+    };
+
+    std::cin.sync_with_stdio(false);
+    std::cout.sync_with_stdio(false);
+
     bool invert = false;
 
-    Version version("$Name:  $");
-
-
-    while((ch = getopt(argc, argv, optstring))!=EOF)
-    {
-	switch(ch)
-	{
-	case 'v':		// inverse grep
+    int ch;
+    while((ch = getopt_long(argc, argv,
+			    optstring,
+			    &long_options[0], 0)) != -1) {
+	switch(ch) {
+	case 'v':
 	    invert = true;
 	    break;
 	case 'V':
-	case '?':
-	    fprintf(stderr,
-		    "gavia_grep, part of %s\n"
-		    "Copyright (c) 2000-2008 Jörgen Grahn "
-		    "<grahn+src@snipabacken.se>\n",
-		    version.name());
+	    std::cout << prog << ", part of "
+		      << gavia_name() << ' ' << gavia_version() << "\n"
+		      << "Copyright (c) 2000-2008, 2013 Jörgen Grahn\n";
 	    return 0;
+	    break;
+	case 'H':
+	    std::cout << usage << '\n';
+	    return 0;
+	    break;
+	case ':':
+	case '?':
+	    std::cerr << usage << '\n';
+	    return 1;
 	    break;
 	default:
 	    break;
 	}
     }
 
-    int i = optind;
-
-    if((argc - i) < 1)
-    {
-	fprintf(stderr, "gavia_grep: %s\n", "too few arguments");
+    if(optind==argc) {
+	std::cerr << usage << '\n';
 	return 1;
     }
 
-    regex_t preg;
-    int rc = regcomp(&preg, argv[i], REG_EXTENDED|REG_ICASE|REG_NOSUB);
-    if(rc)
-    {
-	const size_t ERRBUF_SIZE = 80;
-	char errbuf[ERRBUF_SIZE];
-
-	regerror(rc, &preg, errbuf, ERRBUF_SIZE);
-	regfree(&preg);
-
-	fprintf(stderr, "gavia_grep: %s\n", errbuf);
+    const string rest = argv[optind++];
+    const Regex re(rest);
+    if(re.bad()) {
+	std::cerr << prog << ": error in\""
+		  << rest << "\": "
+		  << re.error() << '\n';
 	return 1;
     }
 
-    i++;			// [i..argc[ are now the input files
+    Files files(argv+optind, argv+argc);
+    std::ifstream species(Taxa::species_file().c_str());
+    Taxa taxa(species, std::cerr);
+    species.close();
+    const std::vector<TaxonId> matchtx = taxa.match(re);
 
-    StreamSink sink(stdout);
+    Excursion ex;
+    unsigned n = 0;
+    while(get(files, std::cerr, taxa, ex)) {
 
-    char dash[] = "-";
-    char * dashp = dash;
-    char **p;
-    char **end;
-
-    if(i==argc)
-    {
-	// no file arguments, use stdin
-	p = &dashp;
-	end = p+1;
-    }
-    else
-    {
-	p = &argv[i];
-	end = &argv[argc];
-    }
-
-    try
-    {
-	while(p!=end) {
-	    StreamSource src(*p);
-
-	    while(!src.eof())
-	    {
-		Excursion ex = src.excursion();
-	    
-		if(invert ^ internalmatchex(ex, &preg))
-		{
-		    sink.put(ex);
-		}
-		src.next();
-	    }
-
-	    p++;
+	if(invert ^ matches(re, ex, matchtx)) {
+	    if(n++) std::cout << '\n';
+	    ex.put(std::cout);
 	}
-    }
-    catch(const GaviaException& ge)
-    {
-	std::cerr << "gavia_grep: error: " << ge.msg << std::endl;
-	return 1;
     }
 
     return 0;
-}
-
-
-/*----------------------------------------------------------------------------
- *
- * ::internalmatchex()
- *
- *
- * Applies 'preg' to the excursion, and returns true if it matches.
- * The pattern is defined to match if it matches one or more of the
- * following strings:
- * - place
- * - date, formatted as yyyymmdd
- * - date, formatted as yyyy-mm-dd
- * - time
- * - observers
- * - weather
- * - comments
- * - the name of any species
- * - the comment to any species
- *----------------------------------------------------------------------------
- */
-static bool internalmatchex(const Excursion& ex, regex_t * preg)
-{
-    // place
-    if(regexec(preg,
-	       ex.getplace().c_str(),
-	       0, 0, 0)
-       ==0)
-    {
-	return true;
-    }
-
-    // date
-    char tmp2[9];
-    sprintf(tmp2, "%8ld", ex.getdate());
-    if(regexec(preg, tmp2, 0, 0, 0)==0)
-    {
-	return true;
-    }
-    if(regexec(preg, ex.isodate().c_str(),
-	       0, 0, 0) ==0)
-    {
-	return true;
-    }
-
-    // time
-    if(regexec(preg,
-	       ex.gettime().c_str(),
-	       0, 0, 0) ==0)
-    {
-	return true;
-    }
-
-    // observers
-    if(regexec(preg,
-	       ex.getobservers().c_str(),
-	       0, 0, 0) ==0)
-    {
-	return true;
-    }
-
-    // weather
-    if(regexec(preg,
-	       ex.getweather().c_str(),
-	       0, 0, 0) ==0)
-    {
-	return true;
-    }
-
-    // comments
-    if(regexec(preg,
-	       ex.getcomments().c_str(),
-	       0, 0, 0) ==0)
-    {
-	return true;
-    }
-
-    // species names and comments
-    const CanonOrder canon;
-    const DynamicOrder order(&canon, ex.speciesset());
-
-    for(int i = 0; i!=order.end(); i++)
-    {
-	if(regexec(preg,
-		   order.species(i).c_str(),
-		   0, 0, 0) ==0)
-	{
-	    return true;
-	}
-
-	if(regexec(preg,
-		   ex.speciescomment(order.species(i)).c_str(),
-		   0, 0, 0) ==0)
-	{
-	    return true;
-	}
-    }
-
-    return false;
 }

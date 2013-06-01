@@ -34,6 +34,12 @@
 #include "excursion.hh"
 
 
+extern "C" {
+    const char* gavia_name();
+    const char* gavia_version();
+}
+
+
 namespace {
 
     template<class BinOp>
@@ -94,8 +100,8 @@ int main(int argc, char ** argv)
 	    reverse = true;
 	    break;
 	case 'V':
-	    std::string version();
-	    std::cout << prog << ", part of gavia " << "version()" << "\n"
+	    std::cout << prog << ", part of "
+		      << gavia_name() << ' ' << gavia_version() << "\n"
 		      << "Copyright (c) 2000 - 2013 Jörgen Grahn\n";
 	    return 0;
 	    break;
@@ -113,7 +119,7 @@ int main(int argc, char ** argv)
     }
 
     Files files(argv+optind, argv+argc);
-    std::ifstream species("lib/species");
+    std::ifstream species(Taxa::species_file().c_str());
     Taxa taxa(species, std::cerr);
 
     std::list<Excursion> book;

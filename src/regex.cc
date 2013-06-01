@@ -1,5 +1,4 @@
-/* -*- c++ -*-
- *
+/*
  * Copyright (c) 2013 Jörgen Grahn
  * All rights reserved.
  * 
@@ -25,46 +24,63 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-#ifndef GAVIA_TAXA_H
-#define GAVIA_TAXA_H
+#include "regex.hh"
 
-#include "taxon.h"
+#include <sys/types.h>
+#include <regex.h>
 
-#include <vector>
-#include <tr1/unordered_map>
-#include <iosfwd>
-
-
-class Regex;
 
 /**
- * A "species list": a list of taxa in roughly taxonomical order with
- * - a swedish name (in lowercase)
- * - a scientific name (optional)
- * - a number of synonyms (optional)
- * - an implicit order within the list
- * - an implicit numerical ID
- *
- * Such a list is typically initialized from a text file, but there
- * are provisions for adding to it.
+ * Needed only because POSIX regexes don't allow for forward
+ * declarations -- there is no struct regex, only a regex_t typedef.
  */
-class Taxa {
-public:
-    Taxa(std::istream& is, std::ostream& err);
-
-    TaxonId insert(const std::string& name);
-
-    TaxonId find(const std::string& name) const;
-    const Taxon& operator[] (TaxonId id) const;
-
-    std::vector<TaxonId> match(const Regex& re) const;
-
-    static std::string species_file();
-
-private:
-    std::vector<Taxon> v;
-    typedef std::tr1::unordered_map<std::string, TaxonId> Map;
-    Map m;
+struct Regex::Wrapper {
+    explicit Wrapper(const std::string& regex) {
+	err = regcomp(&re, regex.c_str(),
+		      REG_EXTENDED|
+		      REG_ICASE|
+		      REG_NOSUB);
+    }
+    ~Wrapper() {
+	if(!err) regfree(&re);
+    }
+    int err;
+    regex_t re;
 };
 
-#endif
+
+Regex::Regex(const std::string& regex)
+    : wrapper(new Wrapper(regex))
+{}
+
+
+Regex::~Regex()
+{
+    delete wrapper;
+}
+
+
+/**
+ * True if the Regex is broken, i.e. unsuitable for a match().
+ */
+bool Regex::bad() const
+{
+    return !wrapper->err;
+}
+
+
+/**
+ * If bad(), the error string (or at least an initial part of it).
+ */
+std::string Regex::error() const
+{
+    char buf[60];
+    regerror(wrapper->err, &wrapper->re, buf, sizeof buf);
+    return buf;
+}
+
+
+bool Regex::match(const char* s) const
+{
+    return !regexec(&wrapper->re, s, 0, 0, 0);
+}

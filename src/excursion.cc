@@ -137,6 +137,27 @@ bool Excursion::finalize()
 
 namespace {
 
+    struct IsTaxon {
+	bool operator() (const Excursion::Sighting& s, TaxonId sp) {
+	    return s.sp == sp;
+	}
+    };
+}
+
+
+/**
+ * True if at least one of 'taxa' is present.
+ */
+bool Excursion::has_one(const std::vector<TaxonId>& taxa) const
+{
+    return std::find_first_of(sightings.begin(), sightings.end(),
+			      taxa.begin(), taxa.end(),
+			      IsTaxon()) != sightings.end();
+}
+
+
+namespace {
+
     template<class T>
     struct IsNamed {
 	explicit IsNamed(const char* name) : name(name) {}

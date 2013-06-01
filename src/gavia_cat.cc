@@ -50,7 +50,7 @@ int main(int argc, char ** argv)
 	"       "
 	+ prog + " --version";
     const char optstring[] = "gthmrcx";
-    struct option long_options[] = {
+    const struct option long_options[] = {
 	{"check", 0, 0, 'C'},
 	{"version", 0, 0, 'V'},
 	{"help", 0, 0, 'H'},

@@ -65,7 +65,7 @@ Regex::~Regex()
  */
 bool Regex::bad() const
 {
-    return !wrapper->err;
+    return wrapper->err;
 }
 
 

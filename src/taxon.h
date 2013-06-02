@@ -49,6 +49,8 @@ struct TaxonId {
 };
 
 
+class Regex;
+
 /**
  * A species, or taxon in general.
  */
@@ -68,6 +70,8 @@ public:
 
     bool operator< (const Taxon& other) const { return id < other.id; }
     std::ostream& put(std::ostream& os) const;
+
+    bool match(const Regex& re) const;
 
     TaxonId id;
     std::string name;

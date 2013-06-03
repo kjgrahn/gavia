@@ -27,12 +27,21 @@
 #include <string>
 #include <iostream>
 #include <cstdlib>
+#include <ctime>
 #include <getopt.h>
+#include <sys/types.h>
 #include <unistd.h>
 
 #include "files...h"
 #include "taxa.h"
 #include "excursion.hh"
+
+
+extern "C" {
+    const char* gavia_name();
+    const char* gavia_version();
+    const char* gavia_prefix();
+}
 
 
 namespace {
@@ -51,15 +60,30 @@ namespace {
 	return getenv("HOME") + "/" + tail;
     }
 
+
     /**
-     * "/tmp/gavia_stellata.tmp.$$.gavia"
+     * Invent a temporary file name "/tmp/gavia_stellata.pid.gavia."
+     * I'd rather not do this by hand, but the numerous library
+     * functions are, as always, either deprecated or unsuitable.
      */
-    std::string tmpname()
+    std::string temp_name()
     {
 	char buf[50];
 	std::snprintf(buf, sizeof buf,
-		      "/tmp/gavia_stellata.tmp.%d.gavia",
-		      getpid());
+		      "/tmp/gavia_stellata.%x.gavia",
+		      unsigned(getpid()));
+	return buf;
+    }
+
+
+    std::string today()
+    {
+	char buf[4+3+3+1];
+	const time_t t = time(0);
+	struct tm tm;
+	localtime_r(&t, &tm);
+	std::strftime(buf, sizeof buf,
+		      "%Y-%m-%d", &tm);
 	return buf;
     }
 }
@@ -95,8 +119,8 @@ int main(int argc, char ** argv)
 	    extemplate = optarg;
 	    break;
 	case 'V':
-	    std::string version();
-	    std::cout << prog << ", part of gavia " << "version()" << "\n"
+	    std::cout << prog << ", part of "
+		      << gavia_name() << ' ' << gavia_version() << "\n"
 		      << "Copyright (c) 1999 - 2013 Jörgen Grahn\n";
 	    return 0;
 	    break;
@@ -114,11 +138,12 @@ int main(int argc, char ** argv)
 	}
     }
 
-    if(extemplate.empty()) {
-	extemplate = tilde(".gavia_template");
-	;
-
+    if(optind+1!=argc) {
+	std::cerr << usage << '\n';
+	return 1;
     }
+
+    const std::string book = argv[optind];
 
     return 0;
 }

@@ -64,6 +64,7 @@ src/libgavia.a: src/date.o
 src/libgavia.a: src/excursion.o
 src/libgavia.a: src/excursion_put.o
 src/libgavia.a: src/regex.o
+src/libgavia.a: src/filetest.o
 src/libgavia.a: version.o
 	$(AR) -r $@ $^
 
@@ -96,6 +97,7 @@ src/test/libtest.a: src/test/test_cont.o
 src/test/libtest.a: src/test/test_taxon.o
 src/test/libtest.a: src/test/test_files.o
 src/test/libtest.a: src/test/test_date.o
+src/test/libtest.a: src/test/test_filetest.o
 	$(AR) -r $@ $^
 
 src/test/test_%.o: CPPFLAGS+=-Isrc

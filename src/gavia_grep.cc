@@ -125,7 +125,7 @@ int main(int argc, char ** argv)
     const string rest = argv[optind++];
     const Regex re(rest);
     if(re.bad()) {
-	std::cerr << prog << ": error in\""
+	std::cerr << prog << ": error in \""
 		  << rest << "\": "
 		  << re.error() << '\n';
 	return 1;

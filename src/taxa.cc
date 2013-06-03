@@ -110,6 +110,13 @@ const Taxon& Taxa::operator[] (TaxonId id) const
  */
 std::vector<TaxonId> Taxa::match(const Regex& re) const
 {
+    std::vector<TaxonId> acc;
+    for(std::vector<Taxon>::const_iterator i = v.begin();
+	i != v.end();
+	i++) {
+	if(i->match(re)) acc.push_back(i->id);
+    }
+    return acc;
 }
 
 

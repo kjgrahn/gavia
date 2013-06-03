@@ -220,7 +220,7 @@ src/streamsource.o: src/motorola.h src/bitmap.h src/speciesorder.hh
 src/streamsource.o: src/canonorder.hh src/exception.hh src/streamsource.hh
 src/streamsource.o: src/booksource.hh src/excursion.hh src/taxon.h src/date.h
 src/taxa.o: src/taxa.h src/taxon.h src/lineparse.h
-src/taxon.o: src/taxon.h
+src/taxon.o: src/taxon.h src/regex.hh
 src/taxonomicorder.o: src/taxonomicorder.hh src/speciesorder.hh
 src/taxonomicorder.o: src/specieslist.hh
 src/version.o: src/version.hh

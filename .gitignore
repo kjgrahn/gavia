@@ -3,6 +3,7 @@
 src/gavia_cat
 src/gavia_grep
 src/gavia_sort
+src/gavia_stellata
 src/test/test
 src/test/test.cc
 version.c

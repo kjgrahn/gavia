@@ -37,9 +37,9 @@ CXXFLAGS=-W -Wall -pedantic -std=c++98 -g -Os
 LDFLAGS=-Lsrc
 
 all: src/gavia_cat
-#all: src/gavia_grep
+all: src/gavia_grep
 all: src/gavia_sort
-#all: src/gavia_stellata
+all: src/gavia_stellata
 
 src/gavia_cat: src/gavia_cat.o src/libgavia.a
 	$(CXX) $(LDFLAGS) -o $@ $< -lgavia
@@ -64,6 +64,7 @@ src/libgavia.a: src/date.o
 src/libgavia.a: src/excursion.o
 src/libgavia.a: src/excursion_put.o
 src/libgavia.a: src/regex.o
+src/libgavia.a: src/filetest.o
 src/libgavia.a: version.o
 	$(AR) -r $@ $^
 
@@ -96,6 +97,7 @@ src/test/libtest.a: src/test/test_cont.o
 src/test/libtest.a: src/test/test_taxon.o
 src/test/libtest.a: src/test/test_files.o
 src/test/libtest.a: src/test/test_date.o
+src/test/libtest.a: src/test/test_filetest.o
 	$(AR) -r $@ $^
 
 src/test/test_%.o: CPPFLAGS+=-Isrc

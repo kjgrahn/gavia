@@ -27,14 +27,15 @@
 #include <string>
 #include <iostream>
 #include <cstdlib>
+#include <cstdio>
 #include <ctime>
 #include <getopt.h>
 #include <sys/types.h>
 #include <unistd.h>
 
-#include "files...h"
 #include "taxa.h"
 #include "excursion.hh"
+#include "editor.h"
 
 
 extern "C" {
@@ -144,6 +145,8 @@ int main(int argc, char ** argv)
     }
 
     const std::string book = argv[optind];
+
+    return editor(book)? 0: 1;
 
     return 0;
 }

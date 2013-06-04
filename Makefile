@@ -65,6 +65,7 @@ src/libgavia.a: src/excursion.o
 src/libgavia.a: src/excursion_put.o
 src/libgavia.a: src/regex.o
 src/libgavia.a: src/filetest.o
+src/libgavia.a: src/editor.o
 src/libgavia.a: version.o
 	$(AR) -r $@ $^
 
@@ -186,11 +187,13 @@ src/canonorder.o: src/canonorder.hh src/speciesorder.hh src/specieslist.hh
 src/contstream.o: src/contstream.hh
 src/date.o: src/date.h
 src/dynamicorder.o: src/speciesset.hh src/speciesorder.hh src/dynamicorder.hh
+src/editor.o: src/editor.h
 src/exception.o: src/exception.hh
 src/excursion.o: src/excursion.hh src/taxon.h src/date.h src/taxa.h
 src/excursion.o: src/lineparse.h src/files...h
 src/excursion_put.o: src/excursion.hh src/taxon.h src/date.h
 src/files...o: src/files...h
+src/filetest.o: src/filetest.h
 src/filtersink.o: src/speciesorder.hh src/exception.hh src/filtersink.hh
 src/filtersink.o: src/booksink.hh src/excursion.hh src/taxon.h src/date.h
 src/gabsink.o: src/dynamicorder.hh src/speciesorder.hh src/speciesset.hh
@@ -205,8 +208,8 @@ src/gavia_grep.o: src/files...h src/taxa.h src/taxon.h src/excursion.hh
 src/gavia_grep.o: src/date.h src/regex.hh
 src/gavia_sort.o: src/files...h src/taxa.h src/taxon.h src/excursion.hh
 src/gavia_sort.o: src/date.h
-src/gavia_stellata.o: src/files...h src/taxa.h src/taxon.h src/excursion.hh
-src/gavia_stellata.o: src/date.h
+src/gavia_stellata.o: src/taxa.h src/taxon.h src/excursion.hh src/date.h
+src/gavia_stellata.o: src/editor.h
 src/mboxsink.o: src/dynamicorder.hh src/speciesorder.hh src/speciesset.hh
 src/mboxsink.o: src/exception.hh src/mboxsink.hh src/booksink.hh
 src/mboxsink.o: src/excursion.hh src/taxon.h src/date.h
@@ -229,4 +232,5 @@ src/version.o: src/version.hh
 src/test/test_cont.o: src/contstream.hh
 src/test/test_date.o: src/date.h
 src/test/test_files.o: src/files...h
+src/test/test_filetest.o: src/filetest.h
 src/test/test_taxon.o: src/taxa.h src/taxon.h

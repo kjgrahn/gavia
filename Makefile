@@ -66,6 +66,8 @@ src/libgavia.a: src/excursion_put.o
 src/libgavia.a: src/regex.o
 src/libgavia.a: src/filetest.o
 src/libgavia.a: src/editor.o
+src/libgavia.a: src/md5.o
+src/libgavia.a: src/md5pp.o
 src/libgavia.a: version.o
 	$(AR) -r $@ $^
 
@@ -99,6 +101,7 @@ src/test/libtest.a: src/test/test_taxon.o
 src/test/libtest.a: src/test/test_files.o
 src/test/libtest.a: src/test/test_date.o
 src/test/libtest.a: src/test/test_filetest.o
+src/test/libtest.a: src/test/test_md5.o
 	$(AR) -r $@ $^
 
 src/test/test_%.o: CPPFLAGS+=-Isrc
@@ -181,6 +184,7 @@ install_perl: perl/gavia_gab2text perl/gavia_gab2roff perl/gavia_gab2html
 
 # DO NOT DELETE
 
+src/md5.o: src/md5.h
 src/motorola.o: src/motorola.h
 src/bitmap.o: src/bitmap.h
 src/canonorder.o: src/canonorder.hh src/speciesorder.hh src/specieslist.hh
@@ -213,6 +217,7 @@ src/gavia_stellata.o: src/editor.h
 src/mboxsink.o: src/dynamicorder.hh src/speciesorder.hh src/speciesset.hh
 src/mboxsink.o: src/exception.hh src/mboxsink.hh src/booksink.hh
 src/mboxsink.o: src/excursion.hh src/taxon.h src/date.h
+src/md5pp.o: src/md5pp.h src/md5.h
 src/regex.o: src/regex.hh
 src/sortedorder.o: src/speciesorder.hh src/sortedorder.hh
 src/specieslist.o: src/specieslist.hh src/exception.hh
@@ -233,4 +238,5 @@ src/test/test_cont.o: src/contstream.hh
 src/test/test_date.o: src/date.h
 src/test/test_files.o: src/files...h
 src/test/test_filetest.o: src/filetest.h
+src/test/test_md5.o: src/md5.h src/md5pp.h
 src/test/test_taxon.o: src/taxa.h src/taxon.h

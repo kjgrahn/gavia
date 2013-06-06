@@ -37,7 +37,9 @@
 #include <errno.h>
 
 #include "taxa.h"
+#include "files...h"
 #include "excursion.hh"
+#include "lineparse.h"
 #include "editor.h"
 #include "filetest.h"
 #include "md5pp.h"
@@ -94,7 +96,20 @@ namespace {
     }
 
 
-    md5::Digest md5sum(const std::string& f);
+    /**
+     * Simply the MD5 digest of text file 'f'.  An unreadable file is
+     * indistinguishable from an empty one.
+     */
+    md5::Digest md5sum(const std::string& f)
+    {
+	std::ifstream is(f.c_str());
+	std::string s;
+	md5::Ctx ctx;
+	while(std::getline(is, s)) {
+	    ctx.update(s);
+	}
+	return ctx.digest();
+    }
 
 
     /**
@@ -112,22 +127,129 @@ namespace {
     };
 
 
+    /**
+     * True if s matches /^\s*date\s*:\s*$/.
+     */
+    bool is_date_header(const std::string& s)
+    {
+	const char dateh [] = "date";
+
+	const char* a = s.c_str();
+	const char* const b = a + s.size();
+	a = Parse::ws(a, b);
+	if(a==b || *a != dateh[0]) return false;
+	const char* c = a;
+	while(c!=b && *c!=':') c++;
+	if(c==b || Parse::ws(c+1, b) != b) return false;
+
+	/* ok, everything is fine except we don't know
+	 * that [a, c[ matches place\s*.
+	 */
+	c = Parse::trimr(a, c);
+	if(c-a != sizeof dateh - 1) return false;
+	return std::equal(a, c, dateh);
+    }
+
+
+    /**
+     * Copy a template file from 'src' to 'dst', while filling in
+     * today's date.
+     */
+    bool prepare(const std::string& src,
+		 const std::string& dest)
+    {
+	const std::string& date = today();
+	std::ifstream is(src.c_str());
+	std::ofstream os(dest.c_str());
+	if(!is || !os) return false;
+	std::string s;
+	while(std::getline(is, s)) {
+	    if(is_date_header(s)) {
+		os << s << date << '\n';
+	    }
+	    else {
+		os << s << '\n';
+	    }
+	}
+	/* XXX is fail() the right test? */
+	return is.fail() + os.fail();
+    }
+
+
     std::vector<Excursion> read(std::ostream& cerr,
 				Taxa& taxa,
-				const std::string& file);
+				const std::string& file)
+    {
+	Files in(&file, &file+1);
+	std::vector<Excursion> acc;
+	const Excursion nil;
 
-    bool prepare(const std::string& src,
-		 const std::string& dest,
-		 const std::string& today);
+	Excursion ex;
+	while(get(in, cerr, taxa, ex)) {
+	    acc.push_back(nil);
+	    acc.back().swap(ex);
+	}
+	return acc;
+    }
 
+
+    /**
+     * Filter 'file' through get(..., Excursion&) and write it back.
+     * This removes unseen taxa, cleans up indentation, and so on.
+     */
     bool rewrite(std::ostream& cerr,
 		 Taxa& taxa,
-		 const std::string& file);
+		 const std::string& file)
+    {
+	const std::vector<Excursion> book = read(cerr, taxa, file);
+	std::ofstream os(file.c_str());
 
+	for(std::vector<Excursion>::const_iterator i = book.begin();
+	    i != book.end();
+	    i++) {
+
+	    i->put(os) << '\n';
+	}
+
+	if(!os || os.fail()) {
+	    cerr << "error: failed to rewrite "
+		 << file << ": "
+		 << std::strerror(errno) << '\n';
+	    return false;
+	}
+
+	return true;
+    }
+
+
+    /**
+     * Like rewrite(), but appends to 'dest' instead of writing back.
+     */
     bool rewrite_to(std::ostream& cerr,
 		    Taxa& taxa,
 		    const std::string& src,
-		    const std::string& dest);
+		    const std::string& dest)
+    {
+	const std::vector<Excursion> book = read(cerr, taxa, src);
+	std::ofstream os(dest.c_str(), std::ios_base::app);
+
+	for(std::vector<Excursion>::const_iterator i = book.begin();
+	    i != book.end();
+	    i++) {
+
+	    i->put(os) << '\n';
+	}
+
+	if(!os || os.fail()) {
+	    cerr << "error: failed to write "
+		 << dest << ": "
+		 << std::strerror(errno) << '\n';
+	    return false;
+	}
+
+	return true;
+    }
+
 
     /**
      * The main work, after a decent attempt to weed out non-existing
@@ -139,7 +261,7 @@ namespace {
     {
 	const std::string tmp0 = temp_name();
 
-	if(!prepare(extemplate, tmp0, today())) {
+	if(!prepare(extemplate, tmp0)) {
 	    cerr << "failed to generate temporary file \""
 		 << extemplate << "\": exiting\n";
 	    return 1;
@@ -247,7 +369,7 @@ int main(int argc, char ** argv)
     }
 
     const std::string book = argv[optind];
-    if(!filetest::readable(book)) {
+    if(!filetest::writeable(book)) {
 	std::cerr << prog << ": error: "
 		  << book << ": "
 		  << std::strerror(errno) << '\n';

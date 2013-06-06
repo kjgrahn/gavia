@@ -25,15 +25,45 @@
  */
 #include "filetest.h"
 
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <errno.h>
+
 
 namespace filetest {
 
+    /**
+     * True if 'f' (or, to be pedantic, the leading part of 'f' before
+     * any \0) appears to be a writeable file.
+     */
     bool writeable(const std::string& f)
     {
+	int fd = open(f.c_str(), O_WRONLY);
+	if(fd!=-1) close(fd);
+	return fd!=-1;
     }
 
 
+    /**
+     * True if 'f' appears to be a readable file (or symlink etc, but
+     * anyway not a directory).
+     */
     bool readable(const std::string& f)
     {
+	struct stat stat;
+	int fd = open(f.c_str(), O_RDONLY);
+	if(fd==-1) return false;
+
+	(void)fstat(fd, &stat);
+	close(fd);
+
+	if(S_ISDIR(stat.st_mode)) {
+	    errno = EISDIR;
+	    return false;
+	}
+
+	return true;
     }
 }

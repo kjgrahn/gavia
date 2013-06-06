@@ -26,16 +26,21 @@
  */
 #include <string>
 #include <iostream>
+#include <fstream>
 #include <cstdlib>
 #include <cstdio>
 #include <ctime>
+#include <cstring>
 #include <getopt.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include <errno.h>
 
 #include "taxa.h"
 #include "excursion.hh"
 #include "editor.h"
+#include "filetest.h"
+#include "md5pp.h"
 
 
 extern "C" {
@@ -86,6 +91,103 @@ namespace {
 	std::strftime(buf, sizeof buf,
 		      "%Y-%m-%d", &tm);
 	return buf;
+    }
+
+
+    md5::Digest md5sum(const std::string& f);
+
+
+    /**
+     * Delete a file when we go out of scope.
+     */
+    struct Guard {
+	explicit Guard(const std::string& f) : f(f) {}
+	~Guard() {
+	    if(f.empty()) return;
+	    (void)unlink(f.c_str());
+	}
+	void unguard() { f.clear(); }
+    private:
+	std::string f;
+    };
+
+
+    std::vector<Excursion> read(std::ostream& cerr,
+				Taxa& taxa,
+				const std::string& file);
+
+    bool prepare(const std::string& src,
+		 const std::string& dest,
+		 const std::string& today);
+
+    bool rewrite(std::ostream& cerr,
+		 Taxa& taxa,
+		 const std::string& file);
+
+    bool rewrite_to(std::ostream& cerr,
+		    Taxa& taxa,
+		    const std::string& src,
+		    const std::string& dest);
+
+    /**
+     * The main work, after a decent attempt to weed out non-existing
+     * templates and unwritable books.
+     */
+    int stellata(std::ostream& cerr,
+		 const std::string& extemplate,
+		 const std::string& book)
+    {
+	const std::string tmp0 = temp_name();
+
+	if(!prepare(extemplate, tmp0, today())) {
+	    cerr << "failed to generate temporary file \""
+		 << extemplate << "\": exiting\n";
+	    return 1;
+	}
+
+	Guard guard(tmp0);
+
+	const md5::Digest before = md5sum(tmp0);
+
+	cerr << "Invoking editor... " << std::flush;
+	if(!editor(tmp0)) {
+	    cerr << '\n'
+		 << "Failed; aborting.\n";
+	    return 1;
+	}
+
+	const md5::Digest after = md5sum(tmp0);
+	if(before==after) {
+	    cerr << '\n'
+		 << "Aborted unmodified excursion.\n";
+	    return 0;
+	}
+
+	std::ifstream is(Taxa::species_file().c_str());
+	Taxa taxa(is, cerr);
+	is.close();
+	if(!rewrite(cerr, taxa, tmp0)) {
+	    cerr << '\n'
+		 << "Error: some problem rewriting the excursion; aborting.\n";
+	    return 1;
+	}
+
+	cerr << "again...\n";
+	if(!editor(tmp0)) {
+	    cerr << "Failed; aborting.\n"
+		 << "If you want your text back, look for " << tmp0 << ".\n";
+	    guard.unguard();
+	    return 1;
+	}
+
+	if(!rewrite_to(cerr, taxa, tmp0, book)) {
+	    cerr << "Error: failed to add to " << book << ".\n"
+		 << "If you want your text back, look for " << tmp0 << ".\n";
+	    guard.unguard();
+	    return 1;
+	}
+
+	return 0;
     }
 }
 
@@ -145,8 +247,20 @@ int main(int argc, char ** argv)
     }
 
     const std::string book = argv[optind];
+    if(!filetest::readable(book)) {
+	std::cerr << prog << ": error: "
+		  << book << ": "
+		  << std::strerror(errno) << '\n';
+	return 1;
+    }
 
-    return editor(book)? 0: 1;
+    if(extemplate.empty()) {
+	extemplate = tilde(".gavia_template");
+	if(!filetest::readable(extemplate)) {
+	    extemplate = gavia_prefix();
+	    extemplate += "/lib/default";
+	}
+    }
 
-    return 0;
+    return stellata(std::cerr, extemplate, book);
 }

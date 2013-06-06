@@ -40,5 +40,6 @@ namespace ftest {
 	not_readable(".");
 	not_readable("/");
 	not_readable("xyzzy");
+	not_readable("");
     }
 }

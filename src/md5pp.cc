@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <cstdio>
+#include <cstring>
 
 using namespace md5;
 
@@ -28,6 +29,12 @@ std::string Digest::hex() const
 	s.append(buf);
     }
     return s;
+}
+
+
+bool Digest::operator== (const Digest& other) const
+{
+    return std::memcmp(val, other.val, sizeof val)==0;
 }
 
 

@@ -24,6 +24,8 @@ namespace md5 {
 	Digest() {}
 	explicit Digest(const unsigned char buf[16]);
 	std::string hex() const;
+	bool operator== (const Digest& other) const;
+	bool operator!= (const Digest& other) const { return !(*this==other); }
 	unsigned char val[16];
     };
 

@@ -1,52 +1,50 @@
-.\" $Id: gavia.5,v 1.13 2008-01-03 09:38:19 grahn Exp $
-.\" 
-.\"
-.TH gavia 5 "JAN 2008" Gavia "User Manuals"
+.ss 12 0
+.de BP
+.IP \\fB\\$*
+..
+.
+.
+.TH gavia 5 "JUN 2013" Gavia "User Manuals"
 .
 .
 .
 .SH "NAME"
-gavia \- Gavia bird notebook formats
+gavia \- Gavia bird notebook format
 .
 .SH "DESCRIPTION"
-Two different file formats are used with Gavia:
-the text format tentatively called \(lqgab\(rq, and
-the older, binary format \(lqLanius book\(rq.
-Different Gavia commands work on different kinds of
-files.
 .
-.
-.
-.SH "GAB FILES"
-The \(lqGab\(rq input format is designed so that
+A Gavia bird notebook file
+(referred to as a \(lqGab\(rq file in some of the documentation)
+describes
+.B excursions
+(birding trips)
+and the bird species (and other taxa) sighted during them.
+.LP
+It replaces the birdwatcher's traditional field notebook.
+.LP
+The input format is designed so that
 a user can start with a template file
 and quickly edit it, marking the species
 seen during an excursion
 and filling in any extra information.
+.
+.
+.
+.SS "General format"
+Input is line-oriented.
+Blank lines are ignored, and
+so are comment lines (prefixed with a hash (#) sign).
+Case is significant.
 .LP
-Blank lines are ignored.
-Comment lines (prefixed with a hash (#) sign)
-are ignored.
-Case and extra blank space
-is not significant except in species names
-(which are by convention in all lowercase)
-and user-supplied data.
-.LP
-Input is line-oriented with
-.IR continuations .
-That is, fields may only be broken into several lines if line two, three and so on
-are indented with blankspace.
-This line break plus indentation is treated as a single space.
-Thus, these two fragments are equivalent:
+.I "Continuation lines"
+are supported.
+That is, fields may be broken into several lines if line two, three and so on
+are indented with blankspace, for example:
 .IP
 .nf
 .ft CW
 place: M\(:ossebergsparken,
-       Djurparken,
-       \(oAngermanland
-date : 2006-02-16
-
-place: M\(:ossebergsparken, Djurparken, \(oAngermanland
+       Djurparken, \(oAngermanland
 date : 2006-02-16
 .fi
 .LP
@@ -56,123 +54,101 @@ each looking like
 .nf
 .ft CW
 {
-excursion fields
+header fields
 }{
-species fields
+sightings
 }
 .fi
-.LP
-Excursion fields are
-.IP
-.nf
-.ft CW
-Place: <place description>
-Date: <yyyy-mm-dd>
-Time: <description of time out>
-Observers: <names of any persons involved>
-Weather: <weather description>
-Comments: <anything else you want to note>
-.fi
-.LP
-All but place and date are optional and
-can be left unfilled or left out entirely.
-.LP
-Dates may be given in six-digit form
+.
+.SS "Header fields"
+Header fields are
+.BP place
+The place(s) visited during the excursion.
+.BP date
+The date, preferably as
+.IR yyyy-mm-dd ,
+but also six-digit form
 .RI ( yymmdd ),
 eight-digit form
 .RI ( yyyymmdd ),
-or preferably as
-.IR yyyy-mm-dd .
-Otherwise, the exact rules for the fields
-(e.g. what format should the time have?)
-are up to local conventions.
+or whatever you like.
+.BP
+A date field at least
+.I starting
+with a date on one of these forms can be used for
+sorting by tools like
+.BR gavia_sort (1).
+.BP time
+The time of day or duration.
+.BP observers
+The people present.
+.BP weather
+The weather.
+.BP comments
+Anything else worth noting which does not concern a specific sighting.
+.PP
+For example:
+.IP
+.nf
+.ft CW
+place        : Hills golfbana, inre delen av Alveredsdalen
+date         : 2013-03-09
+time         : 8.10--9.50
+observers    : J\(:oG
+weather      : sol, barmark och frost; viss vind
+comments     :
+.fi
 .LP
-Species fields have the format
+All headers but place and date are optional, and
+can be left unfilled or left out entirely.
+The exact rules
+are up to local conventions.
+You may also invent additional fields, but various tools may generate warnings
+about them, in case they are misspellings of the existing ones.
+.
+.SS "Sightings"
+Sightings have the format
 .IP
 .ft CW
-<species name>: <mark>: <number of individuals>: <comment>
+species name: mark: number of individuals: comment
 .LP
-The species name must be exactly one of those defined by Gavia
+For example:
+.IP
+.nf
+.ft CW
+flods\(oangare  :#: 2: 1 sj SO tippkanten vid dungen;
+                    1 sj mellan Sn\(:otippen och grandungen.
+.fi
+.LP
+The species or taxon name should be one of those defined by Gavia
 (i.e. the file
-.IR lib/gavia/species ).
+.IR lib/gavia/species ),
+but others are acceptable too.
+Some tools will generate a warning message for unknown names.
 .LP
-A species field can be unfilled (neither mark, number nor comment),
-in which case that species
+A sighting can be unfilled (neither mark, number nor comment),
+in which case it
 is not to be regarded as included in the excursion.
-The only purpose of the mark (typically a `#') is to include species
+The only purpose of the mark (typically a `#') is to include a species
 without giving the number of individuals or a comment.
-.LP
-An empty number-of-individuals field is equivalent with one
-set to `0'; both mean
-\(lqthe species was seen, but in unspecified numbers\(rq.
 .
 .
 .
 .SH "LANIUS BOOK"
-The binary Lanius book format was inherited by Gavia from its
-Commodore-Amiga-based predecessor.
-.LP
-Integer values are stored in big-endian (network) byteorder.
-Strings are encoded in the
-.BR ISO_8859-1 (7)
-charset.
-They start with a two-octet, MSB first length and are not NUL-terminated.
-.LP
-The book itself consists of a preamble, the string
-.IP
-.ft CW
-Lanius Book v1.0
-.LP
-followed by zero or more excursion records and terminated by
-the string
-.IP
-.ft CW
-NIL:
-.LP
-A excursion record consists of the sequence:
-.IP \(bu 2m
-An empty string.
-.IP \(bu
-Place (string).
-.IP \(bu
-Date, in seconds since Jan 1, 1978 00:00:00, as a 4-octet integer.
-Considering the Amiga's system clock always lives in local time
-(including DST) this is obviously not a good way to encode dates.
-.IP \(bu
-Time (string).
-.IP \(bu
-Observers (string).
-.IP \(bu
-Weather (string).
-.IP \(bu
-Comments (string).
-.IP \(bu
-An empty string.
-.IP \(bu
-A 200-octet bitmap identifying the birds seen,
-arranged so that MSB of the first octet represents the first bird,
-LSB represents the eighth bird, and so on.
-Undefined positions are zeroed.
-The mapping from number to species name, defined by
-the file
-.I lib/gavia/species
-in a Gavia installation,
-is guaranteed never to change (although new species will be added
-and existing species may have their names changed,
-or maybe translated to some language other than Swedish).
-.IP \(bu
-For each species marked in the bitmap, a two-octet
-count of individuals. A zero means no count was given,
-.I not
-no individuals.
-.IP \(bu
-For each species marked in the bitmap, a comment
-string.
+Earlier versions of
+.B gavia
+also used a binary file format inherited from its
+Commodore-Amiga-based predecessor,
+.BR Lanius .
+No such files have existed in the wild for a decade or so, and support was dropped
+with Gavia 4.0.  Good riddance.
 .
 .
 .SH "AUTHOR"
-J\(:orgen Grahn \fI<grahn+src@snipabacken.se>
+J\(:orgen Grahn
+.IR \[fo]grahn+src@snipabacken.se\[fc] .
 .
 .
 .SH "SEE ALSO"
-.BR gavia (1)
+.BR gavia (1),
+.BR gavia_stellata (1).

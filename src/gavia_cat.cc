@@ -26,6 +26,7 @@
  */
 #include <string>
 #include <iostream>
+#include <stdio.h>
 #include <getopt.h>
 
 #include "files...h"
@@ -35,6 +36,36 @@
 extern "C" {
     const char* gavia_name();
     const char* gavia_version();
+    const char* gavia_prefix();
+}
+
+
+namespace {
+
+    /**
+     * Pipe through gavia_gab2roff etc.
+     */
+    FILE* popen(char kind)
+    {
+	const char* fmt;
+	switch(kind) {
+	case 't':
+	default:
+	    return 0;
+	case 'm':
+	    fmt = "mbox"; break;
+	case 'h':
+	    fmt = "html"; break;
+	case 'r':
+	    fmt = "roff"; break;
+	}
+
+	std::string cmd = gavia_prefix();
+	cmd += "/bin/gavia_gab2";
+	cmd += fmt;
+
+	return ::popen(cmd.c_str(), "w");
+    }
 }
 
 
@@ -69,11 +100,13 @@ int main(int argc, char ** argv)
 			    &long_options[0], 0)) != -1) {
 	switch(ch) {
 	case 'g':
-	case 't':
 	case 'h':
 	case 'm':
 	case 'r':
 	    outfmt = ch;
+	    break;
+	case 't':
+	    outfmt = 'g';
 	    break;
 	case 'c':
 	    sort_spp = false;
@@ -108,13 +141,35 @@ int main(int argc, char ** argv)
     std::ifstream species(Taxa::species_file().c_str());
     Taxa taxa(species, std::cerr);
 
-    Excursion ex;
-    unsigned n = 0;
-    while(get(files, std::cerr, taxa, ex)) {
-	if(outfmt != 'g') continue;
+    if(outfmt=='g' || outfmt=='-') {
+	Excursion ex;
+	unsigned n = 0;
+	while(get(files, std::cerr, taxa, ex)) {
+	    if(outfmt != 'g') continue;
 
-	if(n++) std::cout << '\n';
-	ex.put(std::cout, sort_spp);
+	    if(n++) std::cout << '\n';
+	    ex.put(std::cout, sort_spp);
+	}
+    }
+    else {
+	FILE* const f = popen(outfmt);
+	if(!f) {
+	    std::cerr << prog
+		      << ": error: failed to open output formatter for '"
+		      << outfmt << "': exiting\n";
+	    return 1;
+	}
+
+	Excursion ex;
+	while(get(files, std::cerr, taxa, ex)) {
+	    if(!ex.put(f, sort_spp)) break;
+	}
+
+	if(pclose(f)==-1) {
+	    std::cerr << prog
+		      << ": error: output formatter failed\n";
+	    return 1;
+	}
     }
 
     return 0;

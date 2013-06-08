@@ -27,6 +27,7 @@
 
 #include <iostream>
 #include <algorithm>
+#include <sstream>
 
 
 namespace {
@@ -216,4 +217,18 @@ std::ostream& Excursion::put(std::ostream& os, const bool sort) const
 		  PrintSighting(os, m+1, n+1));
 
     return os << "}\n";
+}
+
+
+/**
+ * Like put(ostream*, ...) but using stdio so it can be used with
+ * popen(3).  Returns true if the writing worked.
+ */
+bool Excursion::put(FILE* f, const bool sort) const
+{
+    std::ostringstream oss;
+    put(oss, sort);
+    const std::string s = oss.str();
+    size_t n = std::fwrite(s.data(), s.size(), 1, f);
+    return n==1;
 }

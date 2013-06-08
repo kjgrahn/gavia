@@ -2,7 +2,7 @@
 .de BP
 .IP \\fB\\$*
 ..
-.TH gavia_cat 1 "MAY 2013" Gavia "User Manuals"
+.TH gavia_cat 1 "JUN 2013" Gavia "User Manuals"
 .SH "NAME"
 gavia_cat \- concatenate and translate Gavia files
 .SH "SYNOPSIS"
@@ -32,7 +32,6 @@ book files are mentioned.
 The resulting aggregate book is then written to
 standard output, either
 as ''gab'' formatted text,
-plain text,
 HTML,
 troff source code,
 or a Unix mailbox file.
@@ -49,11 +48,9 @@ species not marked as seen are removed
 commented-out text is removed.
 .
 .SH "OPTIONS"
-.BP \-g
-(default) Output as ''gab'' text.  , which is human-editable and also
+.BP \-g,\ \-t
+(default) Output as ''gab'' text, which is human-readable and also
 serves as input to other related utilities.
-.BP \-t
-Output as pretty-printed plain text.
 .BP \-h
 Output as HTML,
 with each excursion as an HTML table.
@@ -93,7 +90,9 @@ The list of supported taxa and their taxonomic ordering.
 .SH "BUGS"
 Error handling and error reporting is sometimes rudimentary.
 .LP
-Mbox output isn't MIME-encoded; some mail user agents
+Mbox output
+.RB ( \-m )
+isn't MIME-encoded; some mail user agents
 may be confused when encountering 8-bit characters in
 mail headers and bodies.
 .SH "AUTHOR"

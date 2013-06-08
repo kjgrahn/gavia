@@ -156,7 +156,7 @@ install_man1: doc/gavia_cat.1
 install_man1: doc/gavia_grep.1 doc/gavia_sort.1
 install_man1: doc/gavia_stellata.1
 install_man1: doc/gavia_stat.1 doc/gavia_focus.1 doc/gavia_score.1
-install_man1: doc/gavia_gab2roff.1 doc/gavia_gab2text.1 doc/gavia_gab2html.1
+install_man1: doc/gavia_gab2roff.1 doc/gavia_gab2html.1
 	install -m644 $^ $(INSTALLBASE)/man/man1/
 
 .PHONY: install_man5
@@ -172,12 +172,11 @@ install_lib: lib/species lib/default lib/focus
 .PHONY: install_perl
 install_perl: perl/gavia_stat.pl perl/_gavia_stellata perl/_gavia_focus
 install_perl: perl/gavia_score
-install_perl: perl/gavia_gab2text perl/gavia_gab2roff perl/gavia_gab2html
+install_perl: perl/gavia_gab2roff perl/gavia_gab2html
 	install -m555 perl/gavia_stat.pl $(INSTALLBASE)/bin/gavia_stat
 	install -m555 perl/_gavia_stellata $(INSTALLBASE)/bin/gavia_stellata
 	install -m555 perl/_gavia_focus $(INSTALLBASE)/bin/gavia_focus
 	install -m555 perl/gavia_score $(INSTALLBASE)/bin/
-	install -m555 perl/gavia_gab2text $(INSTALLBASE)/bin/
 	install -m555 perl/gavia_gab2roff $(INSTALLBASE)/bin/
 	install -m555 perl/gavia_gab2html $(INSTALLBASE)/bin/
 

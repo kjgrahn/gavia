@@ -1,15 +1,11 @@
 .\" $Id: gavia_gab2roff.1,v 1.6 2008-01-03 09:38:19 grahn Exp $
 .\" 
 .\"
-.TH gavia_gab2roff 1 "SEPTEMBER 2002" Gavia "User Manuals"
+.TH gavia_gab2roff 1 "JUN 2013" Gavia "User Manuals"
 .SH "NAME"
-gavia_gab2roff, gavia_gab2text, gavia_gab2html \- exporting Gavia data to various formats
+gavia_gab2roff, gavia_gab2html \- exporting Gavia data to various formats
 .SH "SYNOPSIS"
 .B gavia_gab2roff
-.I files
-.B ...
-.br
-.B gavia_gab2text
 .I files
 .B ...
 .br
@@ -17,7 +13,7 @@ gavia_gab2roff, gavia_gab2text, gavia_gab2html \- exporting Gavia data to variou
 .I files
 .B ...
 .SH "DESCRIPTION"
-All of these programs read ''gab''-formatted text from
+These programs read ''gab''-formatted text from
 .IR files \(emor
 from standard input\(emand reformat it in different ways.
 .PP
@@ -29,11 +25,6 @@ It relies heavily on the
 .B tbl
 preprocessor, for creating tables.
 .PP
-.B gavia_gab2text
-produces a plain text version, not that different from
-the original ''gab'' source.
-.PP
-Finally,
 .B gavia_gab2html
 produces HTML (HTML 4.01 strict), for viewing with
 a web browser.

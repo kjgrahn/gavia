@@ -34,7 +34,6 @@ ELISPDIR=$(INSTALLBASE)/share/emacs/site-lisp
 
 CFLAGS=-W -Wall -pedantic -ansi -g -Os
 CXXFLAGS=-W -Wall -pedantic -std=c++98 -g -Os
-LDFLAGS=-Lsrc
 
 all: src/gavia_cat
 all: src/gavia_grep
@@ -42,16 +41,16 @@ all: src/gavia_sort
 all: src/gavia_stellata
 
 src/gavia_cat: src/gavia_cat.o src/libgavia.a
-	$(CXX) $(LDFLAGS) -o $@ $< -lgavia
+	$(CXX) $(CXXFLAGS) -o $@ $< -Lsrc -lgavia
 
 src/gavia_grep: src/gavia_grep.o src/libgavia.a
-	$(CXX) $(LDFLAGS) -o $@ $< -lgavia
+	$(CXX) $(CXXFLAGS) -o $@ $< -Lsrc -lgavia
 
 src/gavia_sort: src/gavia_sort.o src/libgavia.a
-	$(CXX) $(LDFLAGS) -o $@ $< -lgavia
+	$(CXX) $(CXXFLAGS) -o $@ $< -Lsrc -lgavia
 
 src/gavia_stellata: src/gavia_stellata.o src/libgavia.a
-	$(CXX) $(LDFLAGS) -o $@ $< -lgavia
+	$(CXX) $(CXXFLAGS) -o $@ $< -Lsrc -lgavia
 
 src/libgavia.a: src/contstream.o
 src/libgavia.a: src/files...o
@@ -107,7 +106,7 @@ src/test/libtest.a: src/test/test_md5.o
 src/test/test_%.o: CPPFLAGS+=-Isrc
 
 src/test/test: src/test/test.o src/test/libtest.a src/libgavia.a
-	$(CXX) $(LDFLAGS) -o $@ src/test/test.o -Lsrc/test/ -ltest -lgavia
+	$(CXX) $(CXXFLAGS) -o $@ src/test/test.o -Lsrc/test/ -ltest -Lsrc -lgavia
 
 src/test/test.cc: src/test/libtest.a
 	testicle -o $@ $^

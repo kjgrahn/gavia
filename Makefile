@@ -35,6 +35,7 @@ ELISPDIR=$(INSTALLBASE)/share/emacs/site-lisp
 CFLAGS=-W -Wall -pedantic -ansi -g -Os
 CXXFLAGS=-W -Wall -pedantic -std=c++98 -g -Os
 
+.PHONY: all
 all: src/gavia_cat
 all: src/gavia_grep
 all: src/gavia_sort
@@ -76,15 +77,6 @@ src/libgavia.a: version.o
 version.c: Makefile mkversion
 	./mkversion gavia_{name=Gavia,version=4.0,prefix=$(INSTALLBASE)} $@
 
-src/specieslist.o: src/specieslist.cc
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -DINSTALLBASE=\"$(INSTALLBASE)\" -c -o $@ $<
-
-src/filtersink.o: src/filtersink.cc
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -D_POSIX_C_SOURCE=2 -c -o $@ $<
-
-perl/_gavia_stellata: perl/gavia_stellata.pl
-	sed "s|INSTALLBASE|$(INSTALLBASE)|" <$< >$@
-
 perl/_gavia_focus: perl/gavia_focus
 	sed "s|INSTALLBASE|$(INSTALLBASE)|" <$< >$@
 
@@ -118,9 +110,11 @@ tags: TAGS
 TAGS:
 	etags src/*.{c,h,cc,hh}
 
+.PHONY: depend
 depend:
 	makedepend -- $(CFLAGS) -- -Y -I. src/*.{c,cc} src/test/*.cc
 
+.PHONY: clean
 clean:
 	$(RM) src/test/test
 	$(RM) src/test/test.cc
@@ -138,49 +132,40 @@ love:
 
 .PHONY: install
 install: gavia-mode.el
-install: install_outs
-install: install_man1
-install: install_man5
-install: install_lib
-install: install_perl
-	[ -d  $(ELISPDIR) ] && install -m444 gavia-mode.el $(ELISPDIR)
-
-.PHONY: install_outs
-install_outs: src/gavia_cat
-install_outs: src/gavia_grep
-install_outs: src/gavia_sort
-install_outs: src/gavia_stellata
-	install -s -m755 $^ $(INSTALLBASE)/bin/
-
-.PHONY: install_man1
-install_man1: doc/gavia.1
-install_man1: doc/gavia_cat.1
-install_man1: doc/gavia_grep.1 doc/gavia_sort.1
-install_man1: doc/gavia_stellata.1
-install_man1: doc/gavia_stat.1 doc/gavia_focus.1 doc/gavia_score.1
-install_man1: doc/gavia_gab2roff.1 doc/gavia_gab2html.1
-	install -m644 $^ $(INSTALLBASE)/man/man1/
-
-.PHONY: install_man5
-install_man5: doc/gavia.5
-	install -m644 $^ $(INSTALLBASE)/man/man5/
-
-.PHONY: install_lib
-install_lib: lib/species lib/default lib/focus
-	[ -d $(INSTALLBASE)/lib ] || mkdir $(INSTALLBASE)/lib
-	[ -d $(INSTALLBASE)/lib/gavia ] || mkdir $(INSTALLBASE)/lib/gavia
-	install -m644 $^ $(INSTALLBASE)/lib/gavia
-
-.PHONY: install_perl
-install_perl: perl/gavia_stat.pl perl/_gavia_stellata perl/_gavia_focus
-install_perl: perl/gavia_score
-install_perl: perl/gavia_gab2roff perl/gavia_gab2html
-	install -m555 perl/gavia_stat.pl $(INSTALLBASE)/bin/gavia_stat
-	install -m555 perl/_gavia_stellata $(INSTALLBASE)/bin/gavia_stellata
+install: src/gavia_cat
+install: src/gavia_grep
+install: src/gavia_sort
+install: src/gavia_stellata
+install: doc/gavia.1
+install: doc/gavia_cat.1
+install: doc/gavia_focus.1
+install: doc/gavia_gab2html.1
+install: doc/gavia_gab2roff.1
+install: doc/gavia_grep.1
+install: doc/gavia_score.1
+install: doc/gavia_sort.1
+install: doc/gavia_stat.1
+install: doc/gavia_stellata.1
+install: doc/gavia.5
+install: lib/default
+install: lib/focus
+install: lib/species
+install: perl/_gavia_focus
+install: perl/gavia_stat.pl
+install: perl/gavia_gab2html
+install: perl/gavia_gab2roff
+install: perl/gavia_score
+	[ -d  $(ELISPDIR) ] && install -m644 gavia-mode.el $(ELISPDIR)
+	install -s -m755 src/gavia_{cat,grep,sort,stellata} $(INSTALLBASE)/bin/
+	install -m644 doc/gavia.1 doc/gavia_{cat,focus,gab2html,gab2roff,grep,score,sort,stat,stellata}.1 $(INSTALLBASE)/man/man1/
+	install -m644 doc/gavia.5 $(INSTALLBASE)/man/man5/
+	[ -d $(INSTALLBASE)/lib/gavia ] || mkdir -p $(INSTALLBASE)/lib/gavia
+	install -m644 lib/{default,focus,species} $(INSTALLBASE)/lib/gavia/
 	install -m555 perl/_gavia_focus $(INSTALLBASE)/bin/gavia_focus
-	install -m555 perl/gavia_score $(INSTALLBASE)/bin/
-	install -m555 perl/gavia_gab2roff $(INSTALLBASE)/bin/
-	install -m555 perl/gavia_gab2html $(INSTALLBASE)/bin/
+	install -m555 perl/gavia_stat.pl $(INSTALLBASE)/bin/gavia_stat
+	install -m555 perl/gavia_{gab2html,gab2roff,score} $(INSTALLBASE)/bin/
+	$(RM) $(INSTALLBASE)/bin/gavia_{add,gab2text}
+	$(RM) $(INSTALLBASE)/man/man1/gavia_{add,gab2text}.1
 
 # DO NOT DELETE
 

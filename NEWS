@@ -2,6 +2,32 @@ Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
 
+gavia 4.0 (2013-06-10)
+
+	- Extended the species (or taxon) list.  It's now based on the
+	  SOF Holarctic list, plus local additions (i.e. subspecies
+	  present in the earlier list.)
+
+	- Support scientific (latin) names, and other aliases, in the
+	  species list. It is now easier and safer to add to the list;
+	  changes to it will not change the meaning of already
+	  recorded data.
+
+	- Allow taxon names not present in the species list.  They
+	  will generate a warning and will not sort into the proper
+	  taxonomic order, but they will not be ignored by the various
+	  tools.
+
+	- The binary "Lanius book" file format is now obsolete. It was
+	  the cause of the earlier limit of 512 taxa. The gavia_add(1)
+	  utility is also removed -- use gavia_cat(1) to check and
+	  manipulate existing data.
+
+	- Massive rewriting of the various utilities, and some
+	  improvements.
+	  gavia_cat -t (pretty-printed text output) is no longer supported.
+	  gavia_cat -m (mbox output) is temporarily broken.
+
 gavia 3.4 (2011-01-09)
 
 	- Emacs gavia-mode: color header lines called 'status:' too.

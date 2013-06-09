@@ -62,6 +62,7 @@ src/libgavia.a: src/taxa.o
 src/libgavia.a: src/date.o
 src/libgavia.a: src/excursion.o
 src/libgavia.a: src/excursion_put.o
+src/libgavia.a: src/indent.o
 src/libgavia.a: src/regex.o
 src/libgavia.a: src/filetest.o
 src/libgavia.a: src/editor.o
@@ -98,6 +99,7 @@ checkv: src/test/test
 src/test/libtest.a: src/test/test_cont.o
 src/test/libtest.a: src/test/test_taxon.o
 src/test/libtest.a: src/test/test_files.o
+src/test/libtest.a: src/test/test_indent.o
 src/test/libtest.a: src/test/test_date.o
 src/test/libtest.a: src/test/test_filetest.o
 src/test/libtest.a: src/test/test_md5.o
@@ -193,7 +195,7 @@ src/editor.o: src/editor.h
 src/exception.o: src/exception.hh
 src/excursion.o: src/excursion.hh src/taxon.h src/date.h src/taxa.h
 src/excursion.o: src/lineparse.h src/files...h
-src/excursion_put.o: src/excursion.hh src/taxon.h src/date.h
+src/excursion_put.o: src/excursion.hh src/taxon.h src/date.h src/indent.h
 src/files...o: src/files...h
 src/filetest.o: src/filetest.h
 src/filtersink.o: src/speciesorder.hh src/exception.hh src/filtersink.hh
@@ -213,6 +215,7 @@ src/gavia_sort.o: src/date.h
 src/gavia_stellata.o: src/taxa.h src/taxon.h src/files...h src/excursion.hh
 src/gavia_stellata.o: src/date.h src/lineparse.h src/editor.h src/filetest.h
 src/gavia_stellata.o: src/md5pp.h src/md5.h
+src/indent.o: src/indent.h
 src/mboxsink.o: src/dynamicorder.hh src/speciesorder.hh src/speciesset.hh
 src/mboxsink.o: src/exception.hh src/mboxsink.hh src/booksink.hh
 src/mboxsink.o: src/excursion.hh src/taxon.h src/date.h
@@ -237,5 +240,6 @@ src/test/test_cont.o: src/contstream.hh
 src/test/test_date.o: src/date.h
 src/test/test_files.o: src/files...h
 src/test/test_filetest.o: src/filetest.h
+src/test/test_indent.o: src/indent.h
 src/test/test_md5.o: src/md5.h src/md5pp.h
 src/test/test_taxon.o: src/taxa.h src/taxon.h

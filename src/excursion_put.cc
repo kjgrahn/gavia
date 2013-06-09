@@ -24,6 +24,7 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 #include "excursion.hh"
+#include "indent.h"
 
 #include <iostream>
 #include <algorithm>
@@ -31,84 +32,6 @@
 
 
 namespace {
-
-    static const std::string space(20, ' ');
-
-    std::ostream& spacer(std::ostream& os, size_t n)
-    {
-	while(n >= space.size()) {
-	    os << space;
-	    n -= space.size();
-	}
-	if(n) {
-	    os.write(space.c_str(), n);
-	}
-	return os;
-    }
-
-    /**
-     * A string printed with space padding to a total of 'n'.
-     */
-    std::ostream& adjust(std::ostream& os, const std::string& s,
-			 const size_t n, const bool left)
-    {
-	size_t sn = s.size();
-	if(left && sn) {
-	    os << s;
-	}
-	while(sn < n) {
-	    if(n - sn >= space.size()) {
-		os << space;
-		sn += space.size();
-	    }
-	    else {
-		os.write(space.c_str(), n - sn);
-		sn = n;
-	    }
-	}
-	if(!left && sn) {
-	    os << s;
-	}
-	return os;
-    }
-
-    std::ostream& ljust(std::ostream& os, const std::string& s,
-			const size_t n) {
-	return adjust(os, s, n, true);
-    }
-
-    std::ostream& rjust(std::ostream& os, const std::string& s,
-			const size_t n) {
-	return adjust(os, s, n, false);
-    }
-
-
-    /**
-     * Print the string 's', replacing any newlines with
-     * n spaces + newline.
-     */
-    std::ostream& andjust(std::ostream& os, const std::string& s,
-			  const size_t n)
-    {
-	const char* a = s.c_str();
-	const char* const b = a + s.size();
-
-	while(a!=b) {
-	    const char* p = std::find(a, b, '\n');
-	    if(p==b) {
-		os.write(a, p-a);
-		a = p;
-	    }
-	    else {
-		p++;
-		os.write(a, p-a);
-		spacer(os, n);
-		a = p;
-	    }
-	}
-	return os;
-    }
-
 
     /**
      * The maximum size() of iter->name.
@@ -156,8 +79,8 @@ namespace {
 
     void PrintHeader::operator() (const Excursion::Header& val)
     {
-	ljust(os, val.name, n) << ": ";
-	andjust(os, val.value, n+2) << '\n';
+	indent::ljust(os, val.name, n) << ": ";
+	indent::andjust(os, val.value, n+2) << '\n';
     }
 
     /**
@@ -167,7 +90,6 @@ namespace {
      * taxon      :#:  nnn: text text text
      *                      text text ...
      */
-
     struct PrintSighting {
 	PrintSighting(std::ostream& os, size_t m, size_t n)
 	    : os(os),
@@ -182,9 +104,9 @@ namespace {
 
     void PrintSighting::operator() (const Excursion::Sighting& val)
     {
-	ljust(os, val.name, m) << ":#:";
-	rjust(os, val.number, n) << ": ";
-	andjust(os, val.comment, m+3+n+2) << '\n';
+	indent::ljust(os, val.name, m) << ":#:";
+	indent::rjust(os, val.number, n) << ": ";
+	indent::andjust(os, val.comment, m+3+n+2) << '\n';
     }
 }
 

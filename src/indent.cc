@@ -32,16 +32,32 @@
 
 namespace {
 
-    static const std::string space(20, ' ');
-
-    std::ostream& spacer(std::ostream& os, size_t n)
+    /**
+     * Indent by 'n', assuming 'm' positions have already been
+     * written.
+     *
+     * <    m    >
+     * <             n            >
+     * 0       8       8       8       8
+     * xxxxxxxxxxxT    T       ssss
+     */
+    std::ostream& spacer(std::ostream& os, size_t m, size_t n)
     {
-	while(n >= space.size()) {
-	    os << space;
-	    n -= space.size();
-	}
-	if(n) {
-	    os.write(space.c_str(), n);
+	if(m < n) {
+	    static const char SP[] = "        ";
+	    const unsigned tabs = n/8;
+	    const unsigned spaces = n%8;
+	    unsigned consumed_tabs = m/8;
+	    if(consumed_tabs < tabs) {
+		while(consumed_tabs < tabs) {
+		    os.put('\t');
+		    consumed_tabs++;
+		}
+		os.write(SP, spaces);
+	    }
+	    else {
+		os.write(SP, n-m);
+	    }
 	}
 	return os;
     }
@@ -50,45 +66,43 @@ namespace {
 namespace indent {
 
     /**
-     * A string printed with space padding to a total of 'n'.
+     * Print 's' followed by enough whitespace to make the width 'n'.
+     * TABs are used as far as possible. For this, it's assumed that
+     * the output starts at column 0.
+     *
+     * <     n       >
+     * foo............
      */
-    std::ostream& adjust(std::ostream& os, const std::string& s,
-			 const size_t n, const bool left)
-    {
-	size_t sn = s.size();
-	if(left && sn) {
-	    os << s;
-	}
-	while(sn < n) {
-	    if(n - sn >= space.size()) {
-		os << space;
-		sn += space.size();
-	    }
-	    else {
-		os.write(space.c_str(), n - sn);
-		sn = n;
-	    }
-	}
-	if(!left && sn) {
-	    os << s;
-	}
-	return os;
-    }
-
     std::ostream& ljust(std::ostream& os, const std::string& s,
-			const size_t n) {
-	return adjust(os, s, n, true);
-    }
-
-    std::ostream& rjust(std::ostream& os, const std::string& s,
-			const size_t n) {
-	return adjust(os, s, n, false);
+			const size_t n)
+    {
+	const size_t ss = s.size();
+	return spacer(os << s, ss, n);
     }
 
 
     /**
-     * Print the string 's', replacing any newlines with
-     * n spaces + newline.
+     * Print 's' preceded by enough whitespace to make the width 'n'.
+     * TABs are used as far as possible. For this, it's assumed that
+     * the output starts at column 0.
+     *
+     * <     n       >
+     * ............foo
+     */
+    std::ostream& rjust(std::ostream& os, const std::string& s,
+			const size_t n)
+    {
+	const size_t ss = s.size();
+	if(ss < n) {
+	    spacer(os, 0, n - ss);
+	}
+	return os << s;
+    }
+
+
+    /**
+     * Print the string 's', replacing any newlines with newline + a
+     * an indentation (consisting of spaces and TABs) of width 'b'.
      */
     std::ostream& andjust(std::ostream& os, const std::string& s,
 			  const size_t n)
@@ -105,7 +119,7 @@ namespace indent {
 	    else {
 		p++;
 		os.write(a, p-a);
-		spacer(os, n);
+		spacer(os, 0, n);
 		a = p;
 	    }
 	}

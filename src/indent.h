@@ -11,8 +11,6 @@
 
 namespace indent {
 
-    std::ostream& adjust(std::ostream& os, const std::string& s,
-			 const size_t n, const bool left);
     std::ostream& ljust(std::ostream& os, const std::string& s,
 			const size_t n);
     std::ostream& rjust(std::ostream& os, const std::string& s,

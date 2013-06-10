@@ -2,6 +2,10 @@ Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
 
+	- gavia_stellata etc: indent sightings better, like earlier
+	  versions did: Avoid jaggedness and use TABs to save disk
+	  space.
+
 gavia 4.1 (2013-06-11)
 
 	- Bug fix: gavia 4.0 looked for files like the species list in

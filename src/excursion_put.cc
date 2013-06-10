@@ -116,14 +116,19 @@ namespace {
  * optionally sort the sightings according to taxonomic order, but
  * species names are printed as they were entered, empty headers are
  * printed and so on ... more effort is spent on proper indentation.
+ *
+ * Indents the text after the taxon name to at least column 'indent';
+ * more if needed to avoid jaggedness.
  */
-std::ostream& Excursion::put(std::ostream& os, const bool sort) const
+std::ostream& Excursion::put(std::ostream& os,
+			     const bool sort,
+			     const size_t indent) const
 {
     size_t m, n;
     os << "{\n";
-    n = max_name(headers.begin(), headers.end());
+    n = max_name(headers.begin(), headers.end()) + 1;
     std::for_each(headers.begin(), headers.end(),
-		  PrintHeader(os, n+1));
+		  PrintHeader(os, n));
 
     Sightings sorted;
     if(sort) {
@@ -133,23 +138,25 @@ std::ostream& Excursion::put(std::ostream& os, const bool sort) const
     const Sightings& ss = sort ? sorted : sightings;
 
     os << "}{\n";
-    m = max_name(ss.begin(), ss.end());
-    n = max_number(ss.begin(), ss.end());
+    m = std::max(indent, max_name(ss.begin(), ss.end()) + 1);
+    n = max_number(ss.begin(), ss.end()) + 1;
     std::for_each(ss.begin(), ss.end(),
-		  PrintSighting(os, m+1, n+1));
+		  PrintSighting(os, m, n));
 
     return os << "}\n";
 }
 
 
 /**
- * Like put(ostream*, ...) but using stdio so it can be used with
+ * Like put(ostream&, ...) but using stdio so it can be used with
  * popen(3).  Returns true if the writing worked.
  */
-bool Excursion::put(FILE* f, const bool sort) const
+bool Excursion::put(FILE* f,
+		    const bool sort,
+		    const size_t indent) const
 {
     std::ostringstream oss;
-    put(oss, sort);
+    put(oss, sort, indent);
     const std::string s = oss.str();
     size_t n = std::fwrite(s.data(), s.size(), 1, f);
     return n==1;

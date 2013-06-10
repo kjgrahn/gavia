@@ -2,6 +2,11 @@ Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
 
+gavia 4.1 (2013-06-11)
+
+	- Bug fix: gavia 4.0 looked for files like the species list in
+          the wrong location.
+
 gavia 4.0 (2013-06-10)
 
 	- Extended the species (or taxon) list.  It's now based on the

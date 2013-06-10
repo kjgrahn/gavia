@@ -130,6 +130,6 @@ extern "C" const char* gavia_prefix();
 std::string Taxa::species_file()
 {
     std::string s = gavia_prefix();
-    s += "/lib/species";
+    s += "/lib/gavia/species";
     return s;
 }

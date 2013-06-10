@@ -380,7 +380,7 @@ int main(int argc, char ** argv)
 	extemplate = tilde(".gavia_template");
 	if(!filetest::readable(extemplate)) {
 	    extemplate = gavia_prefix();
-	    extemplate += "/lib/default";
+	    extemplate += "/lib/gavia/default";
 	}
     }
 

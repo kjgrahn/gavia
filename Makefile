@@ -32,14 +32,17 @@ SHELL=/bin/bash
 INSTALLBASE=/usr/local
 ELISPDIR=$(INSTALLBASE)/share/emacs/site-lisp
 
-CFLAGS=-W -Wall -pedantic -ansi -g -Os
-CXXFLAGS=-W -Wall -pedantic -std=c++98 -g -Os
-
 .PHONY: all
 all: src/gavia_cat
 all: src/gavia_grep
 all: src/gavia_sort
 all: src/gavia_stellata
+
+version.c: Makefile mkversion
+	./mkversion gavia_{name=Gavia,version=4.1,prefix=$(INSTALLBASE)} $@
+
+CFLAGS=-W -Wall -pedantic -ansi -g -Os
+CXXFLAGS=-W -Wall -pedantic -std=c++98 -g -Os
 
 src/gavia_cat: src/gavia_cat.o src/libgavia.a
 	$(CXX) $(CXXFLAGS) -o $@ $< -Lsrc -lgavia
@@ -72,9 +75,6 @@ src/libgavia.a: version.o
 	$(AR) -r $@ $^
 
 # targets that need special help
-
-version.c: Makefile mkversion
-	./mkversion gavia_{name=Gavia,version=4.0,prefix=$(INSTALLBASE)} $@
 
 perl/_gavia_focus: perl/gavia_focus
 	sed "s|INSTALLBASE|$(INSTALLBASE)|" <$< >$@

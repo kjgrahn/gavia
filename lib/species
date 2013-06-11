@@ -223,7 +223,9 @@ trumpetarsvan			(Cygnus buccinator)
 
 svangås				(Anser cygnoides)
 sädgås				(Anser fabalis)
-tundrasädgås
+skogssädgås			(Anser fabalis fabalis)
+= taigasädgås
+tundrasädgås			(Anser fabalis rossicus)
 spetsbergsgås			(Anser brachyrhynchus)
 bläsgås				(Anser albifrons)
 grönländsk bläsgås
@@ -1972,6 +1974,7 @@ sinaloakråka			(Corvus sinaloae)
 fiskkråka			(Corvus ossifragus)
 alaskakråka			(Corvus caurinus)
 kråka				(Corvus corone)
+= gråkråka
 svartkråka
 djungelkråka			(Corvus macrorhynchos)
 halsbandskråka			(Corvus torquatus)

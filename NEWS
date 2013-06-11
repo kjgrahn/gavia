@@ -3,8 +3,11 @@ Major changes (with focus on user-visible changes) to Gavia, per version.
 _________________________________________
 
 	- gavia_stellata etc: indent sightings better, like earlier
-	  versions did: Avoid jaggedness and use TABs to save disk
+	  versions did: avoid jaggedness and use TABs to save disk
 	  space.
+
+	- Names already in use ("skogssädgås", "gråkråka") added to
+	  the accepted taxa list.
 
 gavia 4.1 (2013-06-11)
 

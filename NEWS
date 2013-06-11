@@ -2,6 +2,8 @@ Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
 
+gavia 4.2 (2013-06-12)
+
 	- gavia_stellata etc: indent sightings better, like earlier
 	  versions did: avoid jaggedness and use TABs to save disk
 	  space.

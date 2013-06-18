@@ -32,13 +32,18 @@
 
 namespace Parse {
 
+    inline bool isspace(char ch)
+    {
+	return std::isspace(static_cast<unsigned char>(ch));
+    }
+
     /**
      * Trim whitespace to the left in [a, b).
      */
     inline
     const char* ws(const char* a, const char* b)
     {
-	while(a!=b && std::isspace(*a)) a++;
+	while(a!=b && isspace(*a)) a++;
 	return a;
     }
 
@@ -48,7 +53,7 @@ namespace Parse {
     inline
     const char* non_ws(const char* a, const char* b)
     {
-	while(a!=b && !std::isspace(*a)) a++;
+	while(a!=b && !isspace(*a)) a++;
 	return a;
     }
 
@@ -59,10 +64,9 @@ namespace Parse {
     inline
     const char* trimr(const char* a, const char* b)
     {
-	while(a!=b && std::isspace(*(b-1))) b--;
+	while(a!=b && isspace(*(b-1))) b--;
 	return b;
     }
-
 
     /**
      * Like std::find(), but finds right brackets, while ignoring

@@ -94,6 +94,7 @@ src/test/libtest.a: src/test/test_indent.o
 src/test/libtest.a: src/test/test_date.o
 src/test/libtest.a: src/test/test_filetest.o
 src/test/libtest.a: src/test/test_md5.o
+src/test/libtest.a: src/test/test_lineparse.o
 	$(AR) -r $@ $^
 
 src/test/test_%.o: CPPFLAGS+=-Isrc
@@ -207,5 +208,6 @@ src/test/test_date.o: src/date.h
 src/test/test_files.o: src/files...h
 src/test/test_filetest.o: src/filetest.h
 src/test/test_indent.o: src/indent.h
+src/test/test_lineparse.o: src/lineparse.h
 src/test/test_md5.o: src/md5.h src/md5pp.h
 src/test/test_taxon.o: src/taxa.h src/taxon.h

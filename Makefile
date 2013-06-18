@@ -58,7 +58,6 @@ src/gavia_stellata: src/gavia_stellata.o src/libgavia.a
 
 src/libgavia.a: src/contstream.o
 src/libgavia.a: src/files...o
-src/libgavia.a: src/version.o
 src/libgavia.a: src/exception.o
 src/libgavia.a: src/taxon.o
 src/libgavia.a: src/taxa.o
@@ -119,6 +118,7 @@ clean:
 	$(RM) src/test/test
 	$(RM) src/test/test.cc
 	$(RM) src/gavia_{cat,grep,sort,stellata}
+	$(RM) version.[co]
 	$(RM) src/*.[oa]
 	$(RM) src/test/*.[oa]
 	$(RM) Makefile.bak core TAGS
@@ -179,7 +179,6 @@ src/excursion.o: src/lineparse.h src/files...h
 src/excursion_put.o: src/excursion.hh src/taxon.h src/date.h src/indent.h
 src/files...o: src/files...h
 src/filetest.o: src/filetest.h
-src/gabsink.o: src/exception.hh
 src/gavia_cat.o: src/files...h src/taxa.h src/taxon.h src/excursion.hh
 src/gavia_cat.o: src/date.h
 src/gavia_grep.o: src/files...h src/taxa.h src/taxon.h src/excursion.hh
@@ -193,16 +192,8 @@ src/indent.o: src/indent.h
 src/mboxsink.o: src/exception.hh src/mboxsink.hh
 src/md5pp.o: src/md5pp.h src/md5.h
 src/regex.o: src/regex.hh
-src/sortedorder.o: src/speciesorder.hh src/sortedorder.hh
-src/specieslist.o: src/specieslist.hh src/exception.hh
-src/speciesredro.o: src/speciesredro.hh src/speciesorder.hh
-src/streamsink.o: src/streamsink.hh src/speciesset.hh src/exception.hh
-src/streamsource.o: src/speciesorder.hh src/exception.hh src/streamsource.hh
 src/taxa.o: src/taxa.h src/taxon.h src/lineparse.h
 src/taxon.o: src/taxon.h src/regex.hh
-src/taxonomicorder.o: src/taxonomicorder.hh src/speciesorder.hh
-src/taxonomicorder.o: src/specieslist.hh
-src/version.o: src/version.hh
 src/test/test_cont.o: src/contstream.hh
 src/test/test_date.o: src/date.h
 src/test/test_files.o: src/files...h

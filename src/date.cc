@@ -10,6 +10,7 @@
 #include <cstring>
 #include <cstdlib>
 #include <cctype>
+#include <time.h>
 
 
 Date::Date(const char* a, const char* b)
@@ -50,6 +51,45 @@ Date::Date(const char* a, const char* b)
 	if(end-a != 2 || n<1 || n>31) return;
 	val += n;
     }
+}
+
+
+/**
+ * Conversion to a struct tm, expressed in local time.
+ * (UTC is not quite possible, since Date carries no
+ * time zone information.)
+ *
+ * No time of day is more likely than any other, so
+ * we choose midnight.
+ *
+ * Date is also more flexible than a struct tm in that it can express
+ * only year (2013-00-00) or only year and month (2013-07-00).  Such
+ * Dates have to, unfortunately, be mapped to something unrelated; I
+ * choose the Epoch.
+ *
+ * Day-of-week and day-of-year are not initialized.
+ */
+struct tm Date::tm() const
+{
+    struct tm t;
+    t.tm_sec = 0;
+    t.tm_min = 0;
+    t.tm_hour = 0;
+    t.tm_wday = 0;
+    t.tm_yday = 0;
+    t.tm_isdst = -1;
+
+    t.tm_mday = val % 100;
+    t.tm_mon  = (val/100) % 100 - 1;
+    t.tm_year = val/10000 - 1900;
+
+    if(t.tm_mday==0 || t.tm_mon==-1 || val==0) {
+	t.tm_mday = 1;
+	t.tm_mon  = 0;
+	t.tm_year = 70;
+    }
+
+    return t;
 }
 
 

@@ -30,6 +30,8 @@
 
 #include <iosfwd>
 
+struct tm;
+
 /**
  * A parsing of the Gavia date: header, mostly to provide equality and
  * ordering.  Since this header is free-form, with a few suggested
@@ -44,6 +46,7 @@ public:
     bool operator== (const Date& other) const { return val==other.val; }
     bool operator< (const Date& other) const  { return val<other.val; }
 
+    struct tm tm() const;
     std::ostream& put(std::ostream& os) const;
 
 private:

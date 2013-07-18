@@ -64,6 +64,7 @@ src/libgavia.a: src/taxa.o
 src/libgavia.a: src/date.o
 src/libgavia.a: src/excursion.o
 src/libgavia.a: src/excursion_put.o
+src/libgavia.a: src/mbox.o
 src/libgavia.a: src/indent.o
 src/libgavia.a: src/regex.o
 src/libgavia.a: src/filetest.o
@@ -180,7 +181,7 @@ src/excursion_put.o: src/excursion.hh src/taxon.h src/date.h src/indent.h
 src/files...o: src/files...h
 src/filetest.o: src/filetest.h
 src/gavia_cat.o: src/files...h src/taxa.h src/taxon.h src/excursion.hh
-src/gavia_cat.o: src/date.h
+src/gavia_cat.o: src/date.h src/mbox.h
 src/gavia_grep.o: src/files...h src/taxa.h src/taxon.h src/excursion.hh
 src/gavia_grep.o: src/date.h src/regex.hh
 src/gavia_sort.o: src/files...h src/taxa.h src/taxon.h src/excursion.hh
@@ -189,6 +190,7 @@ src/gavia_stellata.o: src/taxa.h src/taxon.h src/files...h src/excursion.hh
 src/gavia_stellata.o: src/date.h src/lineparse.h src/editor.h src/filetest.h
 src/gavia_stellata.o: src/md5pp.h src/md5.h
 src/indent.o: src/indent.h
+src/mbox.o: src/mbox.h src/excursion.hh src/taxon.h src/date.h
 src/mboxsink.o: src/exception.hh src/mboxsink.hh
 src/md5pp.o: src/md5pp.h src/md5.h
 src/regex.o: src/regex.hh

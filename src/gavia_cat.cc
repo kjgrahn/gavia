@@ -32,6 +32,8 @@
 #include "files...h"
 #include "taxa.h"
 #include "excursion.hh"
+#include "mbox.h"
+
 
 extern "C" {
     const char* gavia_name();
@@ -141,14 +143,23 @@ int main(int argc, char ** argv)
     std::ifstream species(Taxa::species_file().c_str());
     Taxa taxa(species, std::cerr);
 
-    if(outfmt=='g' || outfmt=='-') {
+    if(outfmt=='g' || outfmt=='m') {
 	Excursion ex;
 	unsigned n = 0;
 	while(get(files, std::cerr, taxa, ex)) {
-	    if(outfmt != 'g') continue;
-
 	    if(n++) std::cout << '\n';
+
+	    if(outfmt == 'm') {
+		std::cout << MboxHeader(ex) << '\n';
+	    }
+
 	    ex.put(std::cout, sort_spp);
+	}
+    }
+    else if(outfmt=='-') {
+	Excursion ex;
+	while(get(files, std::cerr, taxa, ex)) {
+	    ;
 	}
     }
     else {

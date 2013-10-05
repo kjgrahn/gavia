@@ -59,12 +59,13 @@ namespace files {
     using testicle::assert_eq;
     using testicle::assert_gt;
     using testicle::assert_;
+    using testicle::TC;
 
     static const char pass[] = "/etc/passwd";
-    static const char null[] = "/dev/null";
+    static const char devnull[] = "/dev/null";
     static const char dir[] = "/";
 
-    void test_construct()
+    void construct(TC)
     {
 	const char* const argv[] = {"foo", "bar", "baz"};
 	Files f0(argv, argv);
@@ -77,36 +78,37 @@ namespace files {
      * exists as a readable, non-empty text file.
      */
 
-    void test_null()
+    void null(TC)
     {
-	const char* const argv[] = {null};
+	const char* const argv[] = {devnull};
 	Files f(argv, argv+1);
 	std::string s;
 	assert_eq(f.getline(s), false);
     }
 
-    void test_no_means_no()
+    void no_means_no(TC)
     {
-	const char* const argv[] = {null};
+	const char* const argv[] = {devnull};
 	Files f(argv, argv+0, false);
 	std::string s;
 	assert_eq(f.getline(s), false);
     }
 
-    void test_null2()
+    void null2(TC)
     {
-	const char* const argv[] = {null, null};
+	const char* const argv[] = {devnull, devnull};
 	Files f(argv, argv+2);
 	std::string s;
 	assert_eq(f.getline(s), false);
     }
 
-    void test_many()
+    void many(TC)
     {
 	const std::vector<std::string> p2 = cat(pass, pass);
 	assert_gt(p2.size(), 0);
 	assert_eq(p2.size() % 2, 0);
 
+	const char* const null = devnull;
 	assert_(cat(null, pass, pass) == p2);
 	assert_(cat(pass, pass, null) == p2);
 	assert_(cat(pass, null, pass) == p2);
@@ -115,9 +117,9 @@ namespace files {
 	assert_(cat(null, null, pass, pass) == p2);
     }
 
-    void test_err()
+    void err(TC)
     {
 	const std::vector<std::string> p2 = cat(pass, pass);
-	assert_(cat(null,  dir, pass, pass) == p2);
+	assert_(cat(devnull, dir, pass, pass) == p2);
     }
 }

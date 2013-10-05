@@ -32,9 +32,11 @@ namespace {
 
 namespace md5 {
 
+    using testicle::TC;
+
     namespace c {
 
-	void test()
+	void test(TC)
 	{
 	    MD5_CTX ctx;
 	    MD5_Init(&ctx);
@@ -73,7 +75,7 @@ namespace md5 {
 
 	const char hw[] = "Hello, world!";
 
-	void test()
+	void test(TC)
 	{
 	    md5::Ctx ctx;
 	    assert_eq("d41d8cd98f00b204e9800998ecf8427e",
@@ -90,7 +92,7 @@ namespace md5 {
 		      ctx.digest());
 	}
 
-	void test_string()
+	void string(TC)
 	{
 	    const std::string d(hw);
 	    md5::Ctx ctx;
@@ -99,7 +101,7 @@ namespace md5 {
 		      ctx.digest());
 	}
 
-	void test_vector()
+	void vector(TC)
 	{
 	    const std::vector<char> d(hw, hw+13);
 	    md5::Ctx ctx;
@@ -108,7 +110,7 @@ namespace md5 {
 		      ctx.digest());
 	}
 
-	void test_iter()
+	void iter(TC)
 	{
 	    const std::list<unsigned char> d(hw, hw+13);
 	    md5::Ctx ctx;
@@ -117,7 +119,7 @@ namespace md5 {
 		      ctx.digest());
 	}
 
-	void test_istream()
+	void istream(TC)
 	{
 	    std::istringstream is(hw);
 	    md5::Ctx ctx;
@@ -127,7 +129,7 @@ namespace md5 {
 	    testicle::assert_(is.eof());
 	}
 
-	void test_digestobj()
+	void digestobj(TC)
 	{
 	    md5::Ctx ctx;
 	    ctx.update(hw);

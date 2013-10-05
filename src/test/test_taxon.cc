@@ -23,6 +23,8 @@ namespace {
 
 namespace taxa {
 
+    using testicle::TC;
+
     Taxa test_lom(const char* const txt)
     {
 	const Taxa spp = parse(txt);
@@ -38,14 +40,14 @@ namespace taxa {
 	return spp;
     }
 
-    void test_simple()
+    void simple(TC)
     {
 	test_lom("# comment\n"
 		 "\n"
 		 "storlom (Gavia arctica)\n");
     }
 
-    void test_spacing()
+    void spacing(TC)
     {
 	test_lom("\n"
 		 "  # nil\n"
@@ -54,14 +56,14 @@ namespace taxa {
 		 " storlom   (Gavia arctica)   # nil");
     }
 
-    void test_more()
+    void more(TC)
     {
 	test_lom("smålom\n"
 		 "storlom (Gavia arctica)\n"
 		 "smådopping\n");
     }
 
-    void test_alias()
+    void alias(TC)
     {
 	const Taxa spp = test_lom("storlom (Gavia arctica)\n"
 				  "björktrast\n"
@@ -70,7 +72,7 @@ namespace taxa {
 			    spp.find("snöskata"));
     }
 
-    void test_alias2()
+    void alias2(TC)
     {
 	const Taxa spp = test_lom("storlom (Gavia arctica)\n"
 				  " björktrast # nil\n"
@@ -81,7 +83,7 @@ namespace taxa {
 			    spp.find("snöskata"));
     }
 
-    void test_order()
+    void order(TC)
     {
 	const Taxa spp = test_lom("storlom (Gavia arctica)\n"
 				  "björktrast\n");

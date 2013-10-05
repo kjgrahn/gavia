@@ -29,17 +29,19 @@ namespace {
 
 namespace ftest {
 
-    void test_readable()
+    using testicle::TC;
+
+    void readable(TC)
     {
-	readable("/etc/passwd");
+	::readable("/etc/passwd");
     }
 
-    void test_not_readable()
+    void not_readable(TC)
     {
-	not_readable("/etc/shadow");
-	not_readable(".");
-	not_readable("/");
-	not_readable("xyzzy");
-	not_readable("");
+	::not_readable("/etc/shadow");
+	::not_readable(".");
+	::not_readable("/");
+	::not_readable("xyzzy");
+	::not_readable("");
     }
 }

@@ -14,6 +14,8 @@
 using std::istringstream;
 using std::string;
 
+using testicle::TC;
+
 namespace {
     std::string line(Continuation& c) {
 	testicle::assert_(c);
@@ -39,41 +41,41 @@ namespace {
 
 namespace cont {
 
-    void testA() {
+    void A(TC) {
 	istringstream iss("");
 	Continuation cs(iss);
 	testicle::assert_eq("deadbeef", line(cs));
 	testicle::assert_(!cs);
     }
-    void testB() {
+    void B(TC) {
 	istringstream iss("\n");
 	Continuation cs(iss);
 	testicle::assert_eq("", line(cs));
 	testicle::assert_eq(1, cs.line());
 	assert_eof(cs);
     }
-    void testC() {
+    void C(TC) {
 	istringstream iss("foo");
 	Continuation cs(iss);
 	testicle::assert_eq("foo", line(cs));
 	testicle::assert_eq(1, cs.line());
 	assert_eof(cs);
     }
-    void testD() {
+    void D(TC) {
 	istringstream iss("foo\n");
 	Continuation cs(iss);
 	testicle::assert_eq("foo", line(cs));
 	testicle::assert_eq(1, cs.line());
 	assert_eof(cs);
     }
-    void testE() {
+    void E(TC) {
 	istringstream iss("foo ");
 	Continuation cs(iss);
 	testicle::assert_eq("foo ", line(cs));
 	testicle::assert_eq(1, cs.line());
 	assert_eof(cs);
     }
-    void testF() {
+    void F(TC) {
 	istringstream iss("foo\n"
 			  "bar\n");
 	Continuation cs(iss);
@@ -83,7 +85,7 @@ namespace cont {
 	testicle::assert_eq(2, cs.line());
 	assert_eof(cs);
     }
-    void testG() {
+    void G(TC) {
 	istringstream iss("foo bar\t\n"
 			  "  foo bar\n");
 	Continuation cs(iss);
@@ -91,7 +93,7 @@ namespace cont {
 	testicle::assert_eq(2, cs.line());
 	assert_eof(cs);
     }
-    void testH() {
+    void H(TC) {
 	istringstream iss("foobar\t\n"
 			  "  foobar \n"
 			  "  foobar \n"
@@ -103,7 +105,7 @@ namespace cont {
 	testicle::assert_eq(4, cs.line());
 	assert_eof(cs);
     }
-    void testI() {
+    void I(TC) {
 	istringstream iss("foobar\t\n"
 			  "  foobar \n"
 			  "\t\t\n"
@@ -117,7 +119,7 @@ namespace cont {
 	testicle::assert_eq(4, cs.line());
 	assert_eof(cs);
     }
-    void testJ() {
+    void J(TC) {
 	istringstream iss("foo\n"
 			  " foo\n"
 			  " foo\n"
@@ -127,7 +129,7 @@ namespace cont {
 	testicle::assert_eq(4, cs.line());
 	assert_eof(cs);
     }
-    void testK() {
+    void K(TC) {
 	istringstream iss("foo     \n"
 			  "bar\n");
 	Continuation cs(iss);
@@ -142,38 +144,38 @@ namespace cont {
 
 namespace continuation {
 
-    void testA() {
+    void A(TC) {
 	istringstream iss("");
 	Continuation cs(iss);
 	std::string s("deadbeef");
 	testicle::assert_(!getline(cs, s));
 	testicle::assert_eq(s, "deadbeef");
     }
-    void testB() {
+    void B(TC) {
 	istringstream iss("\n");
 	Continuation cs(iss);
 	assert_line(cs, 1, "");
 	assert_eof(cs);
     }
-    void testC() {
+    void C(TC) {
 	istringstream iss("%foo");
 	Continuation cs(iss);
 	assert_line(cs, 1, "%foo");
 	assert_eof(cs);
     }
-    void testD() {
+    void D(TC) {
 	istringstream iss("%foo\n");
 	Continuation cs(iss);
 	assert_line(cs, 1, "%foo");
 	assert_eof(cs);
     }
-    void testE() {
+    void E(TC) {
 	istringstream iss("%foo ");
 	Continuation cs(iss);
 	assert_line(cs, 1, "%foo ");
 	assert_eof(cs);
     }
-    void testF() {
+    void F(TC) {
 	istringstream iss("%foo\n"
 			  "%bar\n");
 	Continuation cs(iss);
@@ -181,14 +183,14 @@ namespace continuation {
 	assert_line(cs, 2, "%bar");
 	assert_eof(cs);
     }
-    void testG() {
+    void G(TC) {
 	istringstream iss("%foo bar\t\n"
 			  "  foo bar\n");
 	Continuation cs(iss);
 	assert_line(cs, 2, "%foo bar foo bar");
 	assert_eof(cs);
     }
-    void testH() {
+    void H(TC) {
 	istringstream iss("%foobar\t\n"
 			  "  foobar \n"
 			  "  foobar \n"
@@ -198,7 +200,7 @@ namespace continuation {
 	assert_line(cs, 4, "%foobar");
 	assert_eof(cs);
     }
-    void testI() {
+    void I(TC) {
 	istringstream iss("%foobar\t\n"
 			  "  foobar \n"
 			  "\n"
@@ -209,7 +211,7 @@ namespace continuation {
 	assert_line(cs, 4, "%foobar");
 	assert_eof(cs);
     }
-    void testJ() {
+    void J(TC) {
 	istringstream iss("%foo\n"
 			  " foo\n"
 			  " foo\n"
@@ -218,7 +220,7 @@ namespace continuation {
 	assert_line(cs, 4, "%foo foo foo foo");
 	assert_eof(cs);
     }
-    void testK() {
+    void K(TC) {
 	istringstream iss("%foo     \n"
 			  "%bar\n");
 	Continuation cs(iss);
@@ -226,7 +228,7 @@ namespace continuation {
 	assert_line(cs, 2, "%bar");
 	assert_eof(cs);
     }
-    void testL() {
+    void L(TC) {
 	istringstream iss("%foo \n"
 			  " bar\t\n"
 			  " baz \n"
@@ -244,7 +246,7 @@ namespace continuation {
 	assert_line(cs, 10, "%foo bar baz ");
 	assert_eof(cs);
     }
-    void testM() {
+    void M(TC) {
 	istringstream iss("  \n"
 			  "\t\t");
 	Continuation cs(iss);
@@ -252,7 +254,7 @@ namespace continuation {
 	assert_line(cs, 2, "\t\t");
 	assert_eof(cs);
     }
-    void testN() {
+    void N(TC) {
 	istringstream iss("  \n"
 			  "%foo\n"
 			  " bar\n"
@@ -264,7 +266,7 @@ namespace continuation {
 	assert_line(cs, 5, "%bat");
 	assert_eof(cs);
     }
-    void testO() {
+    void O(TC) {
 	istringstream iss("%foo\n"
 			  " bar\n"
 			  " baz\n"
@@ -275,7 +277,7 @@ namespace continuation {
 	assert_line(cs, 5, "%bat ben");
 	assert_eof(cs);
     }
-    void testP() {
+    void P(TC) {
 	istringstream iss("%foo\n"
 			  " foo\n"
 			  "%foo\n"
@@ -285,7 +287,7 @@ namespace continuation {
 	assert_line(cs, 4, "%foo foo");
 	assert_eof(cs);
     }
-    void testR() {
+    void R(TC) {
 	istringstream iss("%foo\n"
 			  "\n"
 			  "%bar");

@@ -20,32 +20,33 @@ namespace date {
 
     using testicle::assert_eq;
     using testicle::assert_lt;
+    using testicle::TC;
 
-    void test_simple()
+    void simple(TC)
     {
 	assert_eq(D("2013-05-01"), D("2013-05-01"));
 	assert_lt(D("2013-05-18"), D("2013-05-19"));
     }
 
-    void test_crazy()
+    void crazy(TC)
     {
 	assert_eq(D("2013-05-41"), D("2013-05"));
 	assert_eq(D("2013-15-01"), D("2013"));
     }
 
-    void test_old_formats()
+    void old_formats(TC)
     {
 	assert_eq(D("2013-05-01"), D("20130501"));
 	assert_eq(D("2013-05-01"), D("130501"));
     }
 
-    void test_extra_crud()
+    void extra_crud(TC)
     {
 	assert_eq(D("2013-05-01"), D("2013-05-01--"));
 	assert_eq(D("2013-05-01"), D("2013-05-01ff"));
     }
 
-    void test_missing_stuff()
+    void missing_stuff(TC)
     {
 	assert_lt(D("2013-05"), D("2013-05-01"));
 	assert_lt(D("2013-04-30"), D("2013-05"));
@@ -54,7 +55,7 @@ namespace date {
 	assert_lt(D("2012-12-31"), D("2013"));
     }
 
-    void test_empty()
+    void empty(TC)
     {
 	assert_lt(D(""), D("1907"));
 	assert_eq(D(""), D("garbage"));

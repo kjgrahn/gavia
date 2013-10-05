@@ -35,7 +35,9 @@ namespace indent {
 
 namespace indent {
 
-    void test_simple()
+    using testicle::TC;
+
+    void simple(TC)
     {
 	using testicle::assert_eq;
 
@@ -51,7 +53,7 @@ namespace indent {
 
 	using testicle::assert_eq;
 
-	void test_0()
+	void test_0(TC)
 	{
 	    assert_eq(ljust("", 0), "");
 	    assert_eq(ljust("", 1), " ");
@@ -63,7 +65,7 @@ namespace indent {
 	    assert_eq(ljust("", 16), "\t\t");
 	}
 
-	void test_1()
+	void test_1(TC)
 	{
 	    assert_eq(ljust("a", 1), "a");
 	    assert_eq(ljust("a", 2), "a ");
@@ -74,7 +76,7 @@ namespace indent {
 	    assert_eq(ljust("a", 16), "a\t\t");
 	}
 
-	void test_2()
+	void test_2(TC)
 	{
 	    assert_eq(ljust("ab", 2), "ab");
 	    assert_eq(ljust("ab", 7), "ab     ");
@@ -84,7 +86,7 @@ namespace indent {
 	    assert_eq(ljust("ab", 16), "ab\t\t");
 	}
 
-	void test_7()
+	void test_7(TC)
 	{
 	    assert_eq(ljust("abcdefg", 7), "abcdefg");
 	    assert_eq(ljust("abcdefg", 8), "abcdefg\t");
@@ -93,7 +95,7 @@ namespace indent {
 	    assert_eq(ljust("abcdefg", 16), "abcdefg\t\t");
 	}
 
-	void test_8()
+	void test_8(TC)
 	{
 	    assert_eq(ljust("abcdefgh", 8), "abcdefgh");
 	    assert_eq(ljust("abcdefgh", 9), "abcdefgh ");
@@ -102,7 +104,7 @@ namespace indent {
 	    assert_eq(ljust("abcdefgh", 17), "abcdefgh\t ");
 	}
 
-	void test_9()
+	void test_9(TC)
 	{
 	    assert_eq(ljust("abcdefghi", 9), "abcdefghi");
 	    assert_eq(ljust("abcdefghi", 10), "abcdefghi ");
@@ -116,7 +118,7 @@ namespace indent {
 
 	using testicle::assert_eq;
 
-	void test_0()
+	void test_0(TC)
 	{
 	    assert_eq(rjust("", 0), "");
 	    assert_eq(rjust("", 1), " ");
@@ -128,7 +130,7 @@ namespace indent {
 	    assert_eq(rjust("", 16), "\t\t");
 	}
 
-	void test_1()
+	void test_1(TC)
 	{
 	    assert_eq(rjust("A", 1), "A");
 	    assert_eq(rjust("A", 2), " A");

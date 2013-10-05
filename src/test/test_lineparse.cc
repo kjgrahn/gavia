@@ -36,7 +36,9 @@ namespace {
 
 namespace lineparse {
 
-    void test_ws()
+    using testicle::TC;
+
+    void ws(TC)
     {
 	assert_ws("", 0);
 	assert_ws("a", 0);
@@ -46,7 +48,7 @@ namespace lineparse {
 	assert_ws(" \xff", 1);
     }
 
-    void test_non()
+    void non(TC)
     {
 	assert_non_ws("", 0);
 	assert_non_ws("a", 1);
@@ -54,7 +56,7 @@ namespace lineparse {
 	assert_non_ws("\xff" "a", 2);
     }
 
-    void test_trimr()
+    void trimr(TC)
     {
 	assert_trimr("", "");
 	assert_trimr("foo", "foo");

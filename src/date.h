@@ -45,6 +45,7 @@ public:
     Date(const char* a, const char* b);
     bool operator== (const Date& other) const { return val==other.val; }
     bool operator< (const Date& other) const  { return val<other.val; }
+    bool empty() const { return !val; }
 
     struct tm tm() const;
     std::ostream& put(std::ostream& os) const;

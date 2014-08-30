@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013 Jörgen Grahn
+ * Copyright (c) 2013, 2014 Jörgen Grahn
  * All rights reserved.
  *
  */
@@ -11,10 +11,8 @@ bool Taxon::match(const Regex& re) const
 {
     if(re.match(name)) return true;
     if(re.match(latin)) return true;
-    for(std::vector<std::string>::const_iterator i = alias.begin();
-	i!=alias.end();
-	i++) {
-	if(re.match(*i)) return true;
+    for(const std::string& name : alias) {
+	if(re.match(name)) return true;
     }
     return false;
 }

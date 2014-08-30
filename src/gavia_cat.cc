@@ -140,7 +140,7 @@ int main(int argc, char ** argv)
     }
 
     Files files(argv+optind, argv+argc);
-    std::ifstream species(Taxa::species_file().c_str());
+    std::ifstream species(Taxa::species_file());
     Taxa taxa(species, std::cerr);
 
     if(outfmt=='g' || outfmt=='m') {

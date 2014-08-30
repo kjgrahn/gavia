@@ -135,35 +135,18 @@ bool Excursion::finalize()
 }
 
 
-namespace {
-
-    struct IsTaxon {
-	bool operator() (const Excursion::Sighting& s, TaxonId sp) {
-	    return s.sp == sp;
-	}
-    };
-}
-
-
 /**
  * True if at least one of 'taxa' is present.
  */
 bool Excursion::has_one(const std::vector<TaxonId>& taxa) const
 {
+    auto IsTaxon = [](const Excursion::Sighting& s, TaxonId sp) {
+	return s.sp == sp;
+    };
+
     return std::find_first_of(sightings.begin(), sightings.end(),
 			      taxa.begin(), taxa.end(),
-			      IsTaxon()) != sightings.end();
-}
-
-
-namespace {
-
-    template<class T>
-    struct IsNamed {
-	explicit IsNamed(const char* name) : name(name) {}
-	const char* const name;
-	bool operator() (const T& t) { return t.name==name; }
-    };
+			      IsTaxon) != sightings.end();
 }
 
 
@@ -174,9 +157,11 @@ namespace {
 const std::string& Excursion::find_header(const char* name) const
 {
     static const std::string NIL;
-    Headers::const_iterator i = std::find_if(headers.begin(),
-					     headers.end(),
-					     IsNamed<Header>(name));
+    auto i = std::find_if(headers.begin(),
+			  headers.end(),
+			  [name] (const Header& h) {
+			      return h.name==name;
+			  });
     if(i==headers.end()) return NIL;
     return i->value;
 }

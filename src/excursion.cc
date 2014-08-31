@@ -37,7 +37,7 @@ namespace {
 
     bool known_header(const std::string& name)
     {
-	const std::string known[] = {
+	static const std::string known[] = {
 	    "place",
 	    "date",
 	    "time",

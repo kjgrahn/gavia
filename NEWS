@@ -2,6 +2,11 @@ Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
 
+gavia 4.3 (2015-10-27)
+
+	- gavia-mode: helper Emacs function for editing groblad(5)
+          files.
+
 gavia 4.2 (2013-06-12)
 
 	- gavia_stellata etc: indent sightings better, like earlier

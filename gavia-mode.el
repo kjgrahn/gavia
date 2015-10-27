@@ -1,6 +1,6 @@
 ;;; gavia-mode-el -- Major mode for editing Gavia "GAB" files
 
-;; Copyright (C) 2005, 2007, 2010 Jörgen Grahn
+;; Copyright (C) 2005, 2007, 2010, 2015 Jörgen Grahn
 ;; All right reserved.
 
 ;; Based on Scott Andrew Borton's tutorial at
@@ -37,13 +37,25 @@
   (next-line 1)
   )
 
+(defun gavia-tag-line ()
+  "Add the groblad(5) :#: marker to the next line."
+  (interactive)
+  (next-line)
+  (move-end-of-line 1)
+  (indent-relative)
+  (insert ":#: ")
+  (backward-char 4)
+  )
+
 (define-derived-mode gavia-mode text-mode "Gavia"
-  "Major mode for editing Gavia 'GAB' files.
+  "Major mode for editing gavia(5) files.
 This is merely text mode, plus some colorization, plus
-a command to mark a species as seen (with a '#' character).
+a command to mark a species as seen (with a '#' character)
+and another for the very similar groblad(5) files.
 A file whose name ends in '.gavia' gets this mode."
 
   (define-key gavia-mode-map [f4] 'gavia-tick-species)
+  (define-key gavia-mode-map [f5] 'gavia-tag-line)
   (setq comment-start "#")
   (setq comment-start-skip "#+\\s-*")
 

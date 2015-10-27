@@ -3,7 +3,7 @@
  */
 #include <taxa.h>
 
-#include <testicle.h>
+#include <orchis.h>
 #include <iostream>
 #include <sstream>
 
@@ -16,27 +16,27 @@ namespace {
 	std::istringstream iss(s);
 	std::ostringstream err;
 	const Taxa spp(iss, err);
-	testicle::assert_eq(err.str(), "");
+	orchis::assert_eq(err.str(), "");
 	return spp;
     }
 }
 
 namespace taxa {
 
-    using testicle::TC;
+    using orchis::TC;
 
     Taxa test_lom(const char* const txt)
     {
 	const Taxa spp = parse(txt);
 	const TaxonId lom = spp.find("storlom");
-	testicle::assert_(lom);
-	testicle::assert_eq(lom, spp.find("Gavia arctica"));
+	orchis::assert_(lom);
+	orchis::assert_eq(lom, spp.find("Gavia arctica"));
 
 	const Taxon& lom2 = spp[lom];
-	testicle::assert_eq(lom2.name, "storlom");
-	testicle::assert_eq(lom2.latin, "Gavia arctica");
+	orchis::assert_eq(lom2.name, "storlom");
+	orchis::assert_eq(lom2.latin, "Gavia arctica");
 
-	testicle::assert_(!spp.find("nil"));
+	orchis::assert_(!spp.find("nil"));
 	return spp;
     }
 
@@ -68,8 +68,8 @@ namespace taxa {
 	const Taxa spp = test_lom("storlom (Gavia arctica)\n"
 				  "björktrast\n"
 				  "= snöskata\n");
-	testicle::assert_eq(spp.find("björktrast"),
-			    spp.find("snöskata"));
+	orchis::assert_eq(spp.find("björktrast"),
+			  spp.find("snöskata"));
     }
 
     void alias2(TC)
@@ -79,16 +79,16 @@ namespace taxa {
 				  "   \n"
 				  "#nil\n"
 				  "= snöskata");
-	testicle::assert_eq(spp.find("björktrast"),
-			    spp.find("snöskata"));
+	orchis::assert_eq(spp.find("björktrast"),
+			  spp.find("snöskata"));
     }
 
     void order(TC)
     {
 	const Taxa spp = test_lom("storlom (Gavia arctica)\n"
 				  "björktrast\n");
-	testicle::assert_lt(spp.find("storlom"), spp.find("björktrast"));
-	testicle::assert_lt(spp.find("Gavia arctica"), spp.find("björktrast"));
-	testicle::assert_(!(spp.find("björktrast") < spp.find("storlom")));
+	orchis::assert_lt(spp.find("storlom"), spp.find("björktrast"));
+	orchis::assert_lt(spp.find("Gavia arctica"), spp.find("björktrast"));
+	orchis::assert_true(!(spp.find("björktrast") < spp.find("storlom")));
     }
 }

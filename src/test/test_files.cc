@@ -4,7 +4,7 @@
  */
 #include <files...h>
 
-#include <testicle.h>
+#include <orchis.h>
 
 namespace {
 
@@ -56,10 +56,10 @@ namespace {
 
 namespace files {
 
-    using testicle::assert_eq;
-    using testicle::assert_gt;
-    using testicle::assert_;
-    using testicle::TC;
+    using orchis::assert_eq;
+    using orchis::assert_gt;
+    using orchis::assert_;
+    using orchis::TC;
 
     static const char pass[] = "/etc/passwd";
     static const char devnull[] = "/dev/null";

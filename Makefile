@@ -102,7 +102,7 @@ src/test/test: src/test/test.o src/test/libtest.a src/libgavia.a
 	$(CXX) $(CXXFLAGS) -o $@ src/test/test.o -Lsrc/test/ -ltest -Lsrc -lgavia
 
 src/test/test.cc: src/test/libtest.a
-	testicle -o $@ $^
+	orchis -o $@ $^
 
 .PHONY: tags
 tags: TAGS

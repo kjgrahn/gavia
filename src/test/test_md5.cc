@@ -8,7 +8,7 @@
 #include <md5.h>
 #include <md5pp.h>
 
-#include <testicle.h>
+#include <orchis.h>
 #include <string>
 #include <vector>
 #include <list>
@@ -19,7 +19,7 @@ namespace {
     void assert_eq(const std::string& ref,
 		   const md5::Digest& digest)
     {
-	testicle::assert_eq(ref, digest.hex());
+	orchis::assert_eq(ref, digest.hex());
     }
 
     void assert_eq(const std::string& ref,
@@ -32,7 +32,7 @@ namespace {
 
 namespace md5 {
 
-    using testicle::TC;
+    using orchis::TC;
 
     namespace c {
 
@@ -126,7 +126,7 @@ namespace md5 {
 	    ctx.update(is);
 	    assert_eq("6cd3556deb0da54bca060b4c39479839",
 		      ctx.digest());
-	    testicle::assert_(is.eof());
+	    orchis::assert_(is.eof());
 	}
 
 	void digestobj(TC)
@@ -137,13 +137,13 @@ namespace md5 {
 
 	    std::ostringstream o1;
 	    o1 << "foo " << digest.hex();
-	    testicle::assert_eq("foo 6cd3556deb0da54bca060b4c39479839",
-				o1.str());
+	    orchis::assert_eq("foo 6cd3556deb0da54bca060b4c39479839",
+			      o1.str());
 
 	    std::ostringstream o2;
 	    o2 << "bar " << digest;
-	    testicle::assert_eq("bar 6cd3556deb0da54bca060b4c39479839",
-				o2.str());
+	    orchis::assert_eq("bar 6cd3556deb0da54bca060b4c39479839",
+			      o2.str());
 	}
     }
 }

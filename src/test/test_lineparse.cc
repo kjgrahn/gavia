@@ -4,11 +4,11 @@
  */
 #include <lineparse.h>
 
-#include <testicle.h>
+#include <orchis.h>
 
 namespace {
 
-    using testicle::assert_eq;
+    using orchis::assert_eq;
 
     void assert_ws(const std::string& s,
 		   size_t n)
@@ -36,7 +36,7 @@ namespace {
 
 namespace lineparse {
 
-    using testicle::TC;
+    using orchis::TC;
 
     void ws(TC)
     {

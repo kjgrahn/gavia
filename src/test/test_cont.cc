@@ -9,7 +9,7 @@
 
 #include <testicle.h>
 
-#include "../contstream.hh"
+#include <contstream.hh>
 
 using std::istringstream;
 using std::string;

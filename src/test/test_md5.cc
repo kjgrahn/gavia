@@ -5,8 +5,8 @@
  * All rights reserved.
  *
  */
-#include "md5.h"
-#include "md5pp.h"
+#include <md5.h>
+#include <md5pp.h>
 
 #include <testicle.h>
 #include <string>

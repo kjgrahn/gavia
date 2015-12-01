@@ -1,7 +1,7 @@
 /* Copyright (C) 2013 Jörgen Grahn.
  * All rights reserved.
  */
-#include "../taxa.h"
+#include <taxa.h>
 
 #include <testicle.h>
 #include <iostream>

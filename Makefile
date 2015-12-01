@@ -109,10 +109,6 @@ tags: TAGS
 TAGS:
 	etags src/*.{c,h,cc,hh}
 
-.PHONY: depend
-depend:
-	makedepend -- $(CFLAGS) -- -Y -I. src/*.{c,cc} src/test/*.cc
-
 .PHONY: clean
 clean:
 	$(RM) src/test/test
@@ -124,6 +120,7 @@ clean:
 	$(RM) Makefile.bak core TAGS
 	$(RM) perl/_gavia_focus
 	$(RM) perl/_gavia_stellata
+	$(RM) -r dep
 
 love:
 	@echo "not war?"
@@ -169,35 +166,16 @@ install: perl/gavia_score
 
 # DO NOT DELETE
 
-src/md5.o: src/md5.h
-src/contstream.o: src/contstream.hh
-src/date.o: src/date.h
-src/editor.o: src/editor.h
-src/excursion.o: src/excursion.hh src/taxon.h src/date.h src/taxa.h
-src/excursion.o: src/lineparse.h src/files...h
-src/excursion_put.o: src/excursion.hh src/taxon.h src/date.h src/indent.h
-src/files...o: src/files...h
-src/filetest.o: src/filetest.h
-src/gavia_cat.o: src/files...h src/taxa.h src/taxon.h src/excursion.hh
-src/gavia_cat.o: src/date.h src/mbox.h
-src/gavia_grep.o: src/files...h src/taxa.h src/taxon.h src/excursion.hh
-src/gavia_grep.o: src/date.h src/regex.hh
-src/gavia_sort.o: src/files...h src/taxa.h src/taxon.h src/excursion.hh
-src/gavia_sort.o: src/date.h
-src/gavia_stellata.o: src/taxa.h src/taxon.h src/files...h src/excursion.hh
-src/gavia_stellata.o: src/date.h src/lineparse.h src/editor.h src/filetest.h
-src/gavia_stellata.o: src/md5pp.h src/md5.h
-src/indent.o: src/indent.h
-src/mbox.o: src/mbox.h src/excursion.hh src/taxon.h src/date.h
-src/md5pp.o: src/md5pp.h src/md5.h
-src/regex.o: src/regex.hh
-src/taxa.o: src/taxa.h src/taxon.h src/lineparse.h
-src/taxon.o: src/taxon.h src/regex.hh
-src/test/test_cont.o: src/contstream.hh
-src/test/test_date.o: src/date.h
-src/test/test_files.o: src/files...h
-src/test/test_filetest.o: src/filetest.h
-src/test/test_indent.o: src/indent.h
-src/test/test_lineparse.o: src/lineparse.h
-src/test/test_md5.o: src/md5.h src/md5pp.h
-src/test/test_taxon.o: src/taxa.h src/taxon.h
+$(shell mkdir -p dep/src{,/test})
+DEPFLAGS=-MT $@ -MMD -MP -MF dep/$*.Td
+COMPILE.cc=$(CXX) $(DEPFLAGS) $(CXXFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
+
+%.o: %.cc
+	$(COMPILE.cc) $(OUTPUT_OPTION) $<
+	mv dep/$*.{Td,d}
+
+dep/%.d: ;
+dep/src/%.d: ;
+dep/src/test/%.d: ;
+-include dep/src/*.d
+-include dep/src/test/*.d

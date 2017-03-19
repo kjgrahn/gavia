@@ -39,7 +39,7 @@ all: src/gavia_sort
 all: src/gavia_stellata
 
 version.c: Makefile mkversion
-	./mkversion gavia_{name=Gavia,version=4.3,prefix=$(INSTALLBASE)} $@
+	./mkversion gavia_{name=Gavia,version=4.4,prefix=$(INSTALLBASE)} $@
 
 CFLAGS=-W -Wall -pedantic -ansi -g -Os
 CXXFLAGS=-W -Wall -pedantic -std=c++11 -g -Os

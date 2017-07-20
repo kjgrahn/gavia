@@ -70,6 +70,7 @@ src/libgavia.a: src/filetest.o
 src/libgavia.a: src/editor.o
 src/libgavia.a: src/md5.o
 src/libgavia.a: src/md5pp.o
+src/libgavia.a: src/utf8.o
 src/libgavia.a: version.o
 	$(AR) -r $@ $^
 
@@ -93,6 +94,7 @@ src/test/libtest.a: src/test/test_indent.o
 src/test/libtest.a: src/test/test_date.o
 src/test/libtest.a: src/test/test_filetest.o
 src/test/libtest.a: src/test/test_md5.o
+src/test/libtest.a: src/test/test_utf8.o
 src/test/libtest.a: src/test/test_lineparse.o
 	$(AR) -r $@ $^
 

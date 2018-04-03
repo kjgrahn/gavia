@@ -37,6 +37,11 @@ all: src/gavia_cat
 all: src/gavia_grep
 all: src/gavia_sort
 all: src/gavia_stellata
+all: perl/_gavia_focus
+all: perl/gavia_stat.pl
+all: perl/gavia_gab2html
+all: perl/gavia_gab2roff
+all: perl/gavia_score
 
 version.c: Makefile mkversion
 	./mkversion gavia_{name=Gavia,version=4.4,prefix=$(INSTALLBASE)} $@
@@ -121,7 +126,6 @@ clean:
 	$(RM) src/test/*.[oa]
 	$(RM) Makefile.bak core TAGS
 	$(RM) perl/_gavia_focus
-	$(RM) perl/_gavia_stellata
 	$(RM) -r dep
 
 love:

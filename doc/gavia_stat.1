@@ -1,14 +1,15 @@
 .\" $Id: gavia_stat.1,v 1.9 2008-01-03 09:38:19 grahn Exp $
 .\" 
 .\"
-.TH gavia_stat 1 "DECEMBER 2000" Gavia "User Manuals"
+.TH gavia_stat 1 "APR 2018" Gavia "User Manuals"
 .SH "NAME"
-gavia_stat \- extract species info from a ''Gab'' book
+gavia_stat \- extract species info from a Gavia book
 .SH "SYNOPSIS"
 gavia_stat file ...
 .SH "DESCRIPTION"
-gavia_stat takes one or more files (stdin if none given),
-in ''Gab'' format and outputs basically the same data but
+gavia_stat takes one or more files (stdin if none given) in
+.BR gavia (5)
+format and outputs basically the same data but
 rearranged with the species name as major key.
 .PP
 Fields are colon-separated:
@@ -59,4 +60,5 @@ J\(:orgen Grahn <grahn+src@snipabacken.se>
 .SH "SEE ALSO"
 .BR gavia_cat (1),
 .BR gavia_grep (1),
-.BR gavia_sort (1)
+.BR gavia_sort (1),
+.BR gavia (5)

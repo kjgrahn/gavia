@@ -1,16 +1,17 @@
 .\" $Id: gavia_focus.1,v 1.9 2008-01-03 09:38:19 grahn Exp $
 .\" 
 .\"
-.TH gavia_focus 1 "OCTOBER 2002" Gavia "User Manuals"
+.TH gavia_focus 1 "APR 2018" Gavia "User Manuals"
 .SH "NAME"
-gavia_focus \- filter away species from a ''Gab'' book
+gavia_focus \- filter away species from a Gavia book
 .SH "SYNOPSIS"
 gavia_focus [\-v] [\-f filter]
 .I file
 .B ...
 .SH "DESCRIPTION"
-gavia_focus takes one or more files (stdin if none given),
-in ''Gab'' format and outputs them as-is, except for species
+gavia_focus takes one or more files (stdin if none given) in
+.BR gavia (5)
+format and outputs them as-is, except for species
 mentioned in a filter file (or ''blacklist'', or ''kill file'').
 This may be used when quickly browsing a book, to avoid listing
 common or ''trivial'' species.
@@ -59,3 +60,6 @@ appearing out of their normal habitat or in unusual numbers.
 Use with care.
 .SH "AUTHOR"
 J\(:orgen Grahn <grahn+src@snipabacken.se>
+.SH "SEE ALSO"
+.BR gavia (1),
+.BR gavia (5)

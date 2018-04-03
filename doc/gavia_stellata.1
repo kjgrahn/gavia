@@ -1,7 +1,7 @@
 .\" $Id: gavia_stellata.1,v 1.9 2008-01-03 09:38:19 grahn Exp $
 .\" 
 .\"
-.TH gavia_stellata 1 "MAY 2013" Gavia "User Manuals"
+.TH gavia_stellata 1 "APR 2018" Gavia "User Manuals"
 .
 .
 .SH "NAME"
@@ -70,6 +70,13 @@ Specifies the editor to use.
 If not set, VISUAL or EDITOR is used instead.
 If none of these are set, the default is
 .BR emacs .
+.LP
+If the editor is
+.BR emacs ,
+the original file is opened in a second buffer in the background, so that
+.I "M-x dabbrev-expand"
+can fetch words (like place names) from earlier entries and make input
+easier and less prone to spelling errors.
 .
 .SH "AUTHOR"
 J\(:orgen Grahn \fI<grahn+src@snipabacken.se>

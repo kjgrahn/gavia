@@ -44,7 +44,7 @@ all: perl/gavia_gab2roff
 all: perl/gavia_score
 
 version.c: Makefile mkversion
-	./mkversion gavia_{name=Gavia,version=4.4,prefix=$(INSTALLBASE)} $@
+	./mkversion gavia_{name=Gavia,version=4.5,prefix=$(INSTALLBASE)} $@
 
 CFLAGS=-W -Wall -pedantic -ansi -g -Os
 CXXFLAGS=-W -Wall -pedantic -std=c++11 -g -Os

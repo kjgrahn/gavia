@@ -41,16 +41,6 @@ namespace {
 	const char* const argv[] = {a, b, c, d};
 	return cat(argv, 4);
     }
-
-    std::vector<std::string> cat(const char* a,
-				 const char* b,
-				 const char* c,
-				 const char* d,
-				 const char* e)
-    {
-	const char* const argv[] = {a, b, c, d, e};
-	return cat(argv, 5);
-    }
 }
 
 

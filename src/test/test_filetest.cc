@@ -9,19 +9,19 @@
 
 namespace {
 
-    void readable(const char* f) {
+    void assert_readable(const char* f) {
 	orchis::assert_eq(filetest::readable(f), true);
     }
 
-    void not_readable(const char* f) {
+    void assert_not_readable(const char* f) {
 	orchis::assert_eq(filetest::readable(f), false);
     }
 
-    void writeable(const char* f) {
+    void assert_writeable(const char* f) {
 	orchis::assert_eq(filetest::writeable(f), true);
     }
 
-    void not_writeable(const char* f) {
+    void assert_not_writeable(const char* f) {
 	orchis::assert_eq(filetest::writeable(f), false);
     }
 }
@@ -33,15 +33,22 @@ namespace ftest {
 
     void readable(TC)
     {
-	::readable("/etc/passwd");
+	assert_readable("/etc/passwd");
     }
 
     void not_readable(TC)
     {
-	::not_readable("/etc/shadow");
-	::not_readable(".");
-	::not_readable("/");
-	::not_readable("xyzzy");
-	::not_readable("");
+	assert_not_readable("/etc/shadow");
+	assert_not_readable(".");
+	assert_not_readable("/");
+	assert_not_readable("xyzzy");
+	assert_not_readable("");
+    }
+
+    void not_writable(TC)
+    {
+	assert_not_writeable("/etc/passwd");
+	assert_not_writeable("/");
+	assert_not_writeable(".");
     }
 }

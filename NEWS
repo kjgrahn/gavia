@@ -2,6 +2,9 @@ Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
 
+	- Changes to what excursion header problems are reported as
+	  warnings, e.g. by gavia_cat --check.
+
 gavia 4.5 (2018-04-04)
 
 	- gavia_stellata: improved excursion input if you use Emacs,

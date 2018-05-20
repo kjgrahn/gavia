@@ -108,6 +108,7 @@ public:
     Sightings::const_iterator sbegin() const { return sightings.begin(); }
     Sightings::const_iterator send() const { return sightings.end(); }
 
+    bool has_header(const std::string& name) const;
     const std::string& find_header(const char* name) const;
 
     Date date;

@@ -1,4 +1,4 @@
-/* Copyright (c) 1999, 2008, 2011, 2013 Jörgen Grahn
+/* Copyright (c) 1999, 2008, 2011, 2013, 2018 Jörgen Grahn
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -30,13 +30,14 @@
 #include "files...h"
 
 #include <algorithm>
+#include <array>
 
 
 namespace {
 
     bool known_header(const std::string& name)
     {
-	static const std::string known[] = {
+	static const std::array<const char*, 6> names {
 	    "place",
 	    "date",
 	    "time",
@@ -44,8 +45,19 @@ namespace {
 	    "weather",
 	    "comments",
 	};
-	const std::string* const end = known + sizeof known/sizeof known[0];
-	return std::find(known, end, name) != end;
+	auto it = std::find(begin(names), end(names), name);
+	return it != end(names);
+    }
+
+    bool important_header(const std::string& name)
+    {
+	static const std::array<const char*, 3> names {
+	    "place",
+	    "date",
+	    "observers",
+	};
+	auto it = std::find(begin(names), end(names), name);
+	return it != end(names);
     }
 }
 
@@ -60,16 +72,18 @@ void Excursion::swap(Excursion& other)
 
 
 /**
- * Add a header. Returns false if the header name isn't familiar
+ * Add a header. Returns false if the header is a duplicate
  * (but adds it anyway).
  */
 bool Excursion::add_header(const char* a, size_t alen,
 			   const char* b, size_t blen)
 {
-    const Header h(std::string(a, alen),
-		   std::string(b, blen));
+    const std::string name{a, alen};
+    const bool was_present = has_header(name);
+
+    const Header h(name, std::string(b, blen));
     headers.push_back(h);
-    return known_header(h.name);
+    return !was_present;
 }
 
 
@@ -149,6 +163,14 @@ bool Excursion::has_one(const std::vector<TaxonId>& taxa) const
 }
 
 
+bool Excursion::has_header(const std::string& name) const
+{
+    auto i = std::find_if(begin(headers), end(headers),
+			  [name] (const Header& h) { return h.name==name; });
+    return i != end(headers);
+}
+
+
 /**
  * Find the first header named 'name' and return its value, or "".
  * Returns by reference, so you'd better not modify the headers afterwards.
@@ -180,7 +202,8 @@ namespace {
 	void sighting(const std::string& s) { general(s); }
 	void trailer();
 
-	void warn_header(const char* s, size_t len);
+	void warn_dup_header(const std::string&);
+	void warn_empty_header(const std::string&);
 	void warn_sighting(const char* s, size_t len);
 
 	std::ostream& errstream;
@@ -197,10 +220,16 @@ namespace {
 	errstream << files.position() << ": trailing partial excursion ignored\n";
     }
 
-    void Errlog::warn_header(const char* s, size_t len)
+    void Errlog::warn_dup_header(const std::string& name)
     {
-	errstream << files.position() << ": unfamiliar header field \"";
-	errstream.write(s, len) << "\"\n";
+	errstream << files.position() << ": duplicate header field \""
+		  << name << "\"\n";
+    }
+
+    void Errlog::warn_empty_header(const std::string& name)
+    {
+	errstream << files.position() << ": empty header field \""
+		  << name << "\"\n";
     }
 
     void Errlog::warn_sighting(const char* s, size_t len)
@@ -264,8 +293,14 @@ bool get(Files& is, std::ostream& errstream,
 	    c = ws(c+1, b);
 
 	    /* [a, d) : [c, b) */
+	    const std::string name(a, d-a);
 	    if(!ex.add_header(a, d-a, c, b-c)) {
-		err.warn_header(a, d-a);
+		if(known_header(name)) {
+		    err.warn_dup_header(name);
+		}
+	    }
+	    if(b==c && important_header(name)) {
+		err.warn_empty_header(name);
 	    }
 	}
 	else if(state==HEADERS) {

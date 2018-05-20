@@ -105,12 +105,17 @@ weather      : sol, barmark och frost; viss vind
 comments     :
 .fi
 .LP
-All headers but place and date are optional, and
-can be left unfilled or left out entirely.
-The exact rules
-are up to local conventions.
-You may also invent additional fields, but various tools may generate warnings
-about them, in case they are misspellings of the existing ones.
+Headers are generally optional, and can be left unfilled or left out entirely \-
+or you can invent additional fields.
+However, the
+.BR place ,
+.B date
+and
+.B observers
+fields may not be left unfilled; in the unlikely case that you don't want them,
+you should remove them entirely.
+.LP
+The six official header fields may not be repeated.
 .
 .SS "Sightings"
 Sightings have the format

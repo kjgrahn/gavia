@@ -59,55 +59,6 @@ namespace {
 	}
 	return n;
     }
-
-    /**
-     * Printing a Header with the colon in
-     * column 'n', as
-     *
-     * name     : text text text
-     *            text text ...
-     */
-    struct PrintHeader {
-	PrintHeader(std::ostream& os, size_t n)
-	    : os(os),
-	      n(n)
-	{}
-	void operator() (const Excursion::Header& val);
-	std::ostream& os;
-	const size_t n;
-    };
-
-    void PrintHeader::operator() (const Excursion::Header& val)
-    {
-	indent::ljust(os, val.name, n) << ": ";
-	indent::andjust(os, val.value, n+2) << '\n';
-    }
-
-    /**
-     * Printing a Sighting as
-     *
-     * <    m    >   < n >
-     * taxon      :#:  nnn: text text text
-     *                      text text ...
-     */
-    struct PrintSighting {
-	PrintSighting(std::ostream& os, size_t m, size_t n)
-	    : os(os),
-	      m(m),
-	      n(n)
-	{}
-	void operator() (const Excursion::Sighting& val);
-	std::ostream& os;
-	const size_t m;
-	const size_t n;
-    };
-
-    void PrintSighting::operator() (const Excursion::Sighting& val)
-    {
-	indent::ljust(os, val.name, m) << ":#:";
-	indent::rjust(os, val.number, n) << ": ";
-	indent::andjust(os, val.comment, m+3+n+2) << '\n';
-    }
 }
 
 
@@ -124,11 +75,22 @@ std::ostream& Excursion::put(std::ostream& os,
 			     const bool sort,
 			     const size_t indent) const
 {
-    size_t m, n;
     os << "{\n";
-    n = max_name(headers.begin(), headers.end()) + 1;
-    std::for_each(headers.begin(), headers.end(),
-		  PrintHeader(os, n));
+    {
+	const size_t n = max_name(headers.begin(), headers.end()) + 1;
+	/* Printing a Header with the colon in
+	 * column 'n', as
+	 *
+	 * name     : text text text
+	 *            text text ...
+	 */
+	auto print = [&os, n](const Header& h) {
+			 indent::ljust(os, h.name, n) << ": ";
+			 indent::andjust(os, h.value, n+2) << '\n';
+		     };
+
+	std::for_each(headers.begin(), headers.end(), print);
+    }
 
     Sightings sorted;
     if(sort) {
@@ -138,11 +100,23 @@ std::ostream& Excursion::put(std::ostream& os,
     const Sightings& ss = sort ? sorted : sightings;
 
     os << "}{\n";
-    m = std::max(indent, max_name(ss.begin(), ss.end()) + 1);
-    n = max_number(ss.begin(), ss.end()) + 1;
-    std::for_each(ss.begin(), ss.end(),
-		  PrintSighting(os, m, n));
+    {
+	size_t m = std::max(indent, max_name(ss.begin(), ss.end()) + 1);
+	size_t n = max_number(ss.begin(), ss.end()) + 1;
+	/* Printing a Sighting as
+	 *
+	 * <    m    >   < n >
+	 * taxon      :#:  nnn: text text text
+	 *                      text text ...
+	 */
+	auto print = [&os, m, n](const Sighting& s) {
+			 indent::ljust(os, s.name, m) << ":#:";
+			 indent::rjust(os, s.number, n) << ": ";
+			 indent::andjust(os, s.comment, m+3+n+2) << '\n';
+		     };
 
+	std::for_each(ss.begin(), ss.end(), print);
+    }
     return os << "}\n";
 }
 

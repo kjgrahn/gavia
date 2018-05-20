@@ -31,7 +31,7 @@
 #include "taxon.h"
 
 #include <vector>
-#include <tr1/unordered_map>
+#include <unordered_map>
 #include <iosfwd>
 
 
@@ -63,7 +63,7 @@ public:
 
 private:
     std::vector<Taxon> v;
-    typedef std::tr1::unordered_map<std::string, TaxonId> Map;
+    typedef std::unordered_map<std::string, TaxonId> Map;
     Map m;
 };
 

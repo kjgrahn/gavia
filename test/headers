@@ -1,0 +1,94 @@
+# -*- gavia -*-
+
+# valid headers
+
+{
+place	  : Falköping, till stationen
+date	  : 2018-01-01
+time	  : 8.20
+observers : JöG
+weather	  : töväder, mulet, duggregn
+comments  : foo
+}{
+}
+
+{
+place	  : Falköping, till stationen
+date	  : 2018-01-01
+observers : JöG
+}{
+}
+
+{
+}{
+}
+
+{
+place	  : Falköping, till stationen
+date	  : 2018-01-01
+observers : JöG
+repeated  :
+repeated  :
+}{
+}
+
+{
+place	  : Falköping, till stationen
+date	  : nyår
+observers : JöG
+}{
+}
+
+# valid headers, date will be canonized
+
+{
+place	  : Falköping, till stationen
+date	  : 180101
+observers : JöG
+}{
+}
+
+{
+place	  : Falköping, till stationen
+date	  : 20180101
+observers : JöG
+}{
+}
+
+{
+place	  : Falköping, till stationen
+date	  : 20180101 etc
+observers : JöG
+}{
+}
+
+# warnings
+
+{
+place	  : 
+date	  : 2018-01-01
+observers : JöG
+}{
+}
+
+{
+place	  : Falköping, till stationen
+date	  : 
+observers : JöG
+}{
+}
+
+{
+place	  : Falköping, till stationen
+date	  : 2018-01-01
+observers : 
+}{
+}
+
+{
+place	  : Falköping, till stationen
+date	  : 2018-01-01
+date	  : 2018-01-01
+observers : JöG
+}{
+}

@@ -98,8 +98,8 @@ public:
     bool has_one(const std::vector<TaxonId>& taxa) const;
 
     std::ostream& put(std::ostream& os,
-		      bool sort = false, size_t indent = 16) const;
-    bool put(FILE* f, bool sort = false, size_t indent = 16) const;
+		      bool sort = false) const;
+    bool put(FILE* f, bool sort = false) const;
 
     typedef std::vector<Header> Headers;
     typedef std::vector<Sighting> Sightings;

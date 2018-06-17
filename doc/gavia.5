@@ -4,7 +4,7 @@
 ..
 .
 .
-.TH gavia 5 "JUN 2013" Gavia "User Manuals"
+.TH gavia 5 "JUN 2018" Gavia "User Manuals"
 .
 .
 .
@@ -31,7 +31,14 @@ and filling in any extra information.
 .
 .
 .SS "General format"
-Input is line-oriented.
+The
+Gavia file format is a line-oriented text file format.
+Allowed text encodings are
+.BR UTF-8 ,
+.B "ISO\ 8859-1"
+(Latin-1), and
+.BR ASCII .
+.LP
 Blank lines are ignored, and
 so are comment lines (prefixed with a hash (#) sign).
 Case is significant.
@@ -106,7 +113,7 @@ comments     :
 .fi
 .LP
 Headers are generally optional, and can be left unfilled or left out entirely \-
-or you can invent additional fields.
+or you can invent additional fields (but you have to use ASCII-encoded names).
 However, the
 .BR place ,
 .B date

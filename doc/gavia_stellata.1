@@ -36,6 +36,20 @@ appends the result to
 .I file
 and exits.
 .
+.SS "Text encoding"
+Gavia
+supports
+.B Latin-1
+and
+.BR UTF-8 -encoded
+text, independently of your
+.BR locale (5)
+settings.
+Editors typically save a text file using the encoding it had when opened.
+Provided yours does,
+and your book, template file and list of supported taxa all use a specific encoding,
+the added excursions will use that encoding, too, and all is well.
+.
 .SS "Emacs-specific features"
 If the editor is
 .BR emacs ,

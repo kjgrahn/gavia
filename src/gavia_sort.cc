@@ -149,11 +149,8 @@ int main(int argc, char ** argv)
 	break;
     }
 
-    for(std::list<Excursion>::const_iterator i = book.begin();
-	i != book.end();
-	i++) {
-
-	if(i!=book.begin()) std::cout << '\n';
+    for(auto i = begin(book); i != end(book); i++) {
+	if(i!=begin(book)) std::cout << '\n';
 	i->put(std::cout);
     }
 

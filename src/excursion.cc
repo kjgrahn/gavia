@@ -157,9 +157,9 @@ bool Excursion::has_one(const std::vector<TaxonId>& taxa) const
 	return s.sp == sp;
     };
 
-    return std::find_first_of(sightings.begin(), sightings.end(),
-			      taxa.begin(), taxa.end(),
-			      IsTaxon) != sightings.end();
+    return std::find_first_of(begin(sightings), end(sightings),
+			      begin(taxa), end(taxa),
+			      IsTaxon) != end(sightings);
 }
 
 
@@ -178,12 +178,11 @@ bool Excursion::has_header(const std::string& name) const
 const std::string& Excursion::find_header(const char* name) const
 {
     static const std::string NIL;
-    auto i = std::find_if(headers.begin(),
-			  headers.end(),
+    auto i = std::find_if(begin(headers), end(headers),
 			  [name] (const Header& h) {
 			      return h.name==name;
 			  });
-    if(i==headers.end()) return NIL;
+    if(i==end(headers)) return NIL;
     return i->value;
 }
 

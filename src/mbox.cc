@@ -15,7 +15,7 @@ namespace {
     std::ostream& join(std::ostream& os, const std::string& s)
     {
 	std::string ss = s;
-	std::replace(ss.begin(), ss.end(), '\n', ' ');
+	std::replace(begin(ss), end(ss), '\n', ' ');
 	return os << ss;
     }
 

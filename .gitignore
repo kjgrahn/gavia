@@ -7,4 +7,5 @@ src/gavia_stellata
 src/test/test
 src/test/test.cc
 version.c
+perl/_gavia_focus
 TAGS

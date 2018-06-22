@@ -1,31 +1,35 @@
-.\" $Id: gavia.1,v 1.6 2008-01-03 09:38:19 grahn Exp $
-.\" 
-.\"
-.TH gavia 1 "JUN 2001" Gavia "User Manuals"
+.TH gavia 1 "JUN 2018" Gavia "User Manuals"
+.
 .SH "NAME"
 gavia \- bird notebook tools
+.
 .SH "DESCRIPTION"
 Gavia is a set of tools used to create,
 share, maintain and present bird notebooks.
-
+.LP
 It is centered around the
 .I excursion
 concept, i.e. you write down where you were, the time and day,
 weather et cetera, and what species you saw.
-
+.LP
 .BR gavia_stellata (1)
 is the primary tool for entering excursions.
-
-A Gavia book may be shared between several birders using tools such as
-.BR cvs (1).
+.LP
+Since it's just a text file,
+a Gavia book may be shared between several birders using tools such as
+.BR git (1).
+This also makes it more likely that the data stays accessible far into the future.
+.
 .SH "AUTHOR"
-J\(:orgen Grahn <grahn+src@snipabacken.se>
+J\(:orgen Grahn
+.IR \[fo]grahn@snipabacken.se\[fc] .
+.
 .SH "SEE ALSO"
+.BR gavia_stellata (1),
+.BR gavia (5),
 .BR gavia_cat (1),
 .BR gavia_grep (1),
 .BR gavia_score (1),
 .BR gavia_sort (1),
 .BR gavia_stat (1),
-.BR gavia_focus (1),
-.BR gavia_stellata (1),
-.BR gavia (5)
+.BR gavia_focus (1).

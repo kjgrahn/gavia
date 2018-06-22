@@ -42,6 +42,7 @@ all: perl/gavia_stat.pl
 all: perl/gavia_gab2html
 all: perl/gavia_gab2roff
 all: perl/gavia_score
+all: src/test/test
 
 version.c: Makefile mkversion
 	./mkversion gavia_{name=Gavia,version=4.5,prefix=$(INSTALLBASE)} $@

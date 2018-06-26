@@ -36,12 +36,12 @@ ELISPDIR=$(INSTALLBASE)/share/emacs/site-lisp
 all: src/gavia_cat
 all: src/gavia_grep
 all: src/gavia_sort
+all: src/gavia_score
 all: src/gavia_stellata
 all: perl/_gavia_focus
 all: perl/gavia_stat.pl
 all: perl/gavia_gab2html
 all: perl/gavia_gab2roff
-all: perl/gavia_score
 all: src/test/test
 
 version.c: Makefile mkversion
@@ -57,6 +57,9 @@ src/gavia_grep: src/gavia_grep.o src/libgavia.a
 	$(CXX) $(CXXFLAGS) -o $@ $< -Lsrc -lgavia
 
 src/gavia_sort: src/gavia_sort.o src/libgavia.a
+	$(CXX) $(CXXFLAGS) -o $@ $< -Lsrc -lgavia
+
+src/gavia_score: src/gavia_score.o src/libgavia.a
 	$(CXX) $(CXXFLAGS) -o $@ $< -Lsrc -lgavia
 
 src/gavia_stellata: src/gavia_stellata.o src/libgavia.a
@@ -121,7 +124,7 @@ TAGS:
 clean:
 	$(RM) src/test/test
 	$(RM) src/test/test.cc
-	$(RM) src/gavia_{cat,grep,sort,stellata}
+	$(RM) src/gavia_{cat,grep,sort,score,stellata}
 	$(RM) version.[co]
 	$(RM) src/*.[oa]
 	$(RM) src/test/*.[oa]
@@ -139,6 +142,7 @@ install: gavia-mode.el
 install: src/gavia_cat
 install: src/gavia_grep
 install: src/gavia_sort
+install: src/gavia_score
 install: src/gavia_stellata
 install: doc/gavia.1
 install: doc/gavia_cat.1
@@ -158,16 +162,15 @@ install: perl/_gavia_focus
 install: perl/gavia_stat.pl
 install: perl/gavia_gab2html
 install: perl/gavia_gab2roff
-install: perl/gavia_score
 	[ -d  $(ELISPDIR) ] && install -m644 gavia-mode.el $(ELISPDIR)
-	install -s -m755 src/gavia_{cat,grep,sort,stellata} $(INSTALLBASE)/bin/
+	install -s -m755 src/gavia_{cat,grep,sort,score,stellata} $(INSTALLBASE)/bin/
 	install -m644 doc/gavia.1 doc/gavia_{cat,focus,gab2html,gab2roff,grep,score,sort,stat,stellata}.1 $(INSTALLBASE)/man/man1/
 	install -m644 doc/gavia.5 $(INSTALLBASE)/man/man5/
 	[ -d $(INSTALLBASE)/lib/gavia ] || mkdir -p $(INSTALLBASE)/lib/gavia
 	install -m644 lib/{default,focus,species} $(INSTALLBASE)/lib/gavia/
 	install -m555 perl/_gavia_focus $(INSTALLBASE)/bin/gavia_focus
 	install -m555 perl/gavia_stat.pl $(INSTALLBASE)/bin/gavia_stat
-	install -m555 perl/gavia_{gab2html,gab2roff,score} $(INSTALLBASE)/bin/
+	install -m555 perl/gavia_{gab2html,gab2roff} $(INSTALLBASE)/bin/
 	$(RM) $(INSTALLBASE)/bin/gavia_{add,gab2text}
 	$(RM) $(INSTALLBASE)/man/man1/gavia_{add,gab2text}.1
 

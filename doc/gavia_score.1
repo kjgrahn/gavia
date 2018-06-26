@@ -1,16 +1,21 @@
 .\" $Id: gavia_score.1,v 1.6 2008-01-03 09:38:19 grahn Exp $
 .\" 
 .\"
-.TH gavia_score 1 "APR 2018" Gavia "User Manuals"
+.TH gavia_score 1 "JUN 2018" Gavia "User Manuals"
+.
 .SH "NAME"
 gavia_score \- find out how often different species are seen
+.
 .SH "SYNOPSIS"
 gavia_score file ...
+.
 .SH "DESCRIPTION"
 gavia_score takes one or more files (stdin if none given) in
 .BR gavia (5)
 format and outputs, for each species present,
 how many excursions it appears in.
+The species are printed in taxonomic order.
+.
 .SH "EXAMPLES"
 .IP
 .ft CW
@@ -33,8 +38,15 @@ might print something similar to
 249  1  bläsgås
 250  1  biätare
 .fi
+.
+.SH "FILES"
+.TP
+.I lib/gavia/species
+The list of supported taxa and their taxonomic ordering.
+.
 .SH "AUTHOR"
 J\(:orgen Grahn \fI<grahn+src@snipabacken.se>
+.
 .SH "BUGS"
 .B gavia_score
 does not take the numbers into account, only whether
@@ -42,6 +54,7 @@ a specific bird has been seen during a specific excursion or not.
 .PP
 Rare birds have an advantage, since they tend to get
 an excursion entry all by themselves when seen unexpectedly.
+.
 .SH "SEE ALSO"
 .BR gavia (1),
 .BR gavia (5)

@@ -31,7 +31,7 @@
 
 #include "files...h"
 #include "taxa.h"
-#include "excursion.hh"
+#include "excursion.h"
 
 
 extern "C" {

@@ -4,7 +4,7 @@
  *
  */
 #include "taxon.h"
-#include "regex.hh"
+#include "regex.h"
 
 
 bool Taxon::match(const Regex& re) const

@@ -9,7 +9,7 @@
 
 #include <orchis.h>
 
-#include <contstream.hh>
+#include <contstream.h>
 
 using std::istringstream;
 using std::string;

@@ -32,7 +32,7 @@ static const char* rcsid() { rcsid(); return
 }
 
 #include <iostream>
-#include "contstream.hh"
+#include "contstream.h"
 
 namespace {
     /**

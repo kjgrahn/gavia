@@ -5,7 +5,7 @@
  */
 #include "mbox.h"
 
-#include "excursion.hh"
+#include "excursion.h"
 
 #include <algorithm>
 #include <time.h>

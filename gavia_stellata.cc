@@ -38,7 +38,7 @@
 
 #include "taxa.h"
 #include "files...h"
-#include "excursion.hh"
+#include "excursion.h"
 #include "lineparse.h"
 #include "editor.h"
 #include "filetest.h"

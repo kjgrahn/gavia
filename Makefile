@@ -33,16 +33,16 @@ INSTALLBASE=/usr/local
 ELISPDIR=$(INSTALLBASE)/share/emacs/site-lisp
 
 .PHONY: all
-all: src/gavia_cat
-all: src/gavia_grep
-all: src/gavia_sort
-all: src/gavia_score
-all: src/gavia_stat
-all: src/gavia_stellata
+all: gavia_cat
+all: gavia_grep
+all: gavia_sort
+all: gavia_score
+all: gavia_stat
+all: gavia_stellata
 all: perl/_gavia_focus
 all: perl/gavia_gab2html
 all: perl/gavia_gab2roff
-all: src/test/test
+all: test/test
 
 version.c: Makefile mkversion
 	./mkversion gavia_{name=Gavia,version=4.5,prefix=$(INSTALLBASE)} $@
@@ -50,40 +50,40 @@ version.c: Makefile mkversion
 CFLAGS=-W -Wall -pedantic -ansi -g -Os
 CXXFLAGS=-W -Wall -pedantic -std=c++11 -g -Os
 
-src/gavia_cat: src/gavia_cat.o src/libgavia.a
-	$(CXX) $(CXXFLAGS) -o $@ $< -Lsrc -lgavia
+gavia_cat: gavia_cat.o libgavia.a
+	$(CXX) $(CXXFLAGS) -o $@ $< -L. -lgavia
 
-src/gavia_grep: src/gavia_grep.o src/libgavia.a
-	$(CXX) $(CXXFLAGS) -o $@ $< -Lsrc -lgavia
+gavia_grep: gavia_grep.o libgavia.a
+	$(CXX) $(CXXFLAGS) -o $@ $< -L. -lgavia
 
-src/gavia_sort: src/gavia_sort.o src/libgavia.a
-	$(CXX) $(CXXFLAGS) -o $@ $< -Lsrc -lgavia
+gavia_sort: gavia_sort.o libgavia.a
+	$(CXX) $(CXXFLAGS) -o $@ $< -L. -lgavia
 
-src/gavia_score: src/gavia_score.o src/libgavia.a
-	$(CXX) $(CXXFLAGS) -o $@ $< -Lsrc -lgavia
+gavia_score: gavia_score.o libgavia.a
+	$(CXX) $(CXXFLAGS) -o $@ $< -L. -lgavia
 
-src/gavia_stat: src/gavia_stat.o src/libgavia.a
-	$(CXX) $(CXXFLAGS) -o $@ $< -Lsrc -lgavia
+gavia_stat: gavia_stat.o libgavia.a
+	$(CXX) $(CXXFLAGS) -o $@ $< -L. -lgavia
 
-src/gavia_stellata: src/gavia_stellata.o src/libgavia.a
-	$(CXX) $(CXXFLAGS) -o $@ $< -Lsrc -lgavia
+gavia_stellata: gavia_stellata.o libgavia.a
+	$(CXX) $(CXXFLAGS) -o $@ $< -L. -lgavia
 
-src/libgavia.a: src/contstream.o
-src/libgavia.a: src/files...o
-src/libgavia.a: src/taxon.o
-src/libgavia.a: src/taxa.o
-src/libgavia.a: src/date.o
-src/libgavia.a: src/excursion.o
-src/libgavia.a: src/excursion_put.o
-src/libgavia.a: src/mbox.o
-src/libgavia.a: src/indent.o
-src/libgavia.a: src/regex.o
-src/libgavia.a: src/filetest.o
-src/libgavia.a: src/editor.o
-src/libgavia.a: src/md5.o
-src/libgavia.a: src/md5pp.o
-src/libgavia.a: src/utf8.o
-src/libgavia.a: version.o
+libgavia.a: contstream.o
+libgavia.a: files...o
+libgavia.a: taxon.o
+libgavia.a: taxa.o
+libgavia.a: date.o
+libgavia.a: excursion.o
+libgavia.a: excursion_put.o
+libgavia.a: mbox.o
+libgavia.a: indent.o
+libgavia.a: regex.o
+libgavia.a: filetest.o
+libgavia.a: editor.o
+libgavia.a: md5.o
+libgavia.a: md5pp.o
+libgavia.a: utf8.o
+libgavia.a: version.o
 	$(AR) -r $@ $^
 
 # targets that need special help
@@ -94,43 +94,43 @@ perl/_gavia_focus: perl/gavia_focus
 # misc
 
 .PHONY: check checkv
-check: src/test/test
-	./src/test/test
-checkv: src/test/test
-	valgrind -q ./src/test/test -v
+check: test/test
+	./test/test
+checkv: test/test
+	valgrind -q ./test/test -v
 
-src/test/libtest.a: src/test/test_cont.o
-src/test/libtest.a: src/test/test_taxon.o
-src/test/libtest.a: src/test/test_files.o
-src/test/libtest.a: src/test/test_indent.o
-src/test/libtest.a: src/test/test_date.o
-src/test/libtest.a: src/test/test_filetest.o
-src/test/libtest.a: src/test/test_md5.o
-src/test/libtest.a: src/test/test_utf8.o
-src/test/libtest.a: src/test/test_lineparse.o
+test/libtest.a: test/test_cont.o
+test/libtest.a: test/test_taxon.o
+test/libtest.a: test/test_files.o
+test/libtest.a: test/test_indent.o
+test/libtest.a: test/test_date.o
+test/libtest.a: test/test_filetest.o
+test/libtest.a: test/test_md5.o
+test/libtest.a: test/test_utf8.o
+test/libtest.a: test/test_lineparse.o
 	$(AR) -r $@ $^
 
-src/test/test_%.o: CPPFLAGS+=-Isrc
+test/test_%.o: CPPFLAGS+=-I.
 
-src/test/test: src/test/test.o src/test/libtest.a src/libgavia.a
-	$(CXX) $(CXXFLAGS) -o $@ src/test/test.o -Lsrc/test/ -ltest -Lsrc -lgavia
+test/test: test/test.o test/libtest.a libgavia.a
+	$(CXX) $(CXXFLAGS) -o $@ test/test.o -Ltest/ -ltest -L. -lgavia
 
-src/test/test.cc: src/test/libtest.a
+test/test.cc: test/libtest.a
 	orchis -o $@ $^
 
 .PHONY: tags
 tags: TAGS
 TAGS:
-	etags src/*.{c,h,cc,hh}
+	etags *.{c,h,cc}
 
 .PHONY: clean
 clean:
-	$(RM) src/test/test
-	$(RM) src/test/test.cc
-	$(RM) src/gavia_{cat,grep,sort,score,stat,stellata}
+	$(RM) test/test
+	$(RM) test/test.cc
+	$(RM) gavia_{cat,grep,sort,score,stat,stellata}
 	$(RM) version.[co]
-	$(RM) src/*.[oa]
-	$(RM) src/test/*.[oa]
+	$(RM) *.[oa]
+	$(RM) test/*.[oa]
 	$(RM) Makefile.bak core TAGS
 	$(RM) perl/_gavia_focus
 	$(RM) -r dep
@@ -142,12 +142,12 @@ love:
 
 .PHONY: install
 install: gavia-mode.el
-install: src/gavia_cat
-install: src/gavia_grep
-install: src/gavia_sort
-install: src/gavia_score
-install: src/gavia_stat
-install: src/gavia_stellata
+install: gavia_cat
+install: gavia_grep
+install: gavia_sort
+install: gavia_score
+install: gavia_stat
+install: gavia_stellata
 install: doc/gavia.1
 install: doc/gavia_cat.1
 install: doc/gavia_focus.1
@@ -166,7 +166,7 @@ install: perl/_gavia_focus
 install: perl/gavia_gab2html
 install: perl/gavia_gab2roff
 	[ -d  $(ELISPDIR) ] && install -m644 gavia-mode.el $(ELISPDIR)
-	install -s -m755 src/gavia_{cat,grep,sort,score,stat,stellata} $(INSTALLBASE)/bin/
+	install -s -m755 gavia_{cat,grep,sort,score,stat,stellata} $(INSTALLBASE)/bin/
 	install -m644 doc/gavia.1 doc/gavia_{cat,focus,gab2html,gab2roff,grep,score,sort,stat,stellata}.1 $(INSTALLBASE)/man/man1/
 	install -m644 doc/gavia.5 $(INSTALLBASE)/man/man5/
 	[ -d $(INSTALLBASE)/lib/gavia ] || mkdir -p $(INSTALLBASE)/lib/gavia
@@ -178,7 +178,7 @@ install: perl/gavia_gab2roff
 
 # DO NOT DELETE
 
-$(shell mkdir -p dep/src{,/test})
+$(shell mkdir -p dep{,/test})
 DEPFLAGS=-MT $@ -MMD -MP -MF dep/$*.Td
 COMPILE.cc=$(CXX) $(DEPFLAGS) $(CXXFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
 
@@ -187,7 +187,6 @@ COMPILE.cc=$(CXX) $(DEPFLAGS) $(CXXFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
 	mv dep/$*.{Td,d}
 
 dep/%.d: ;
-dep/src/%.d: ;
-dep/src/test/%.d: ;
--include dep/src/*.d
--include dep/src/test/*.d
+dep/test/%.d: ;
+-include dep/*.d
+-include dep/test/*.d

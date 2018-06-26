@@ -69,7 +69,6 @@ public:
     void add(const std::string& name) { alias.push_back(name); }
 
     bool operator< (const Taxon& other) const { return id < other.id; }
-    std::ostream& put(std::ostream& os) const;
 
     bool match(const Regex& re) const;
 
@@ -78,11 +77,5 @@ public:
     std::string latin;
     std::vector<std::string> alias;
 };
-
-
-inline std::ostream& operator<< (std::ostream& os, const Taxon& s)
-{
-    return s.put(os);
-}
 
 #endif

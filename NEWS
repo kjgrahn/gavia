@@ -2,8 +2,19 @@ Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
 
+gavia 4.6 (2018-07-21)
+
 	- Changes to what excursion header problems are reported as
-	  warnings, e.g. by gavia_cat --check.
+	  warnings, e.g. by gavia_cat --check.  See gavia(5).
+
+	- gavia_stat(1) rewritten and bugfixed.
+
+	- gavia_score(1) rewritten and bugfixed.
+
+	- better treatment of the date: header.
+
+	- Gavia books can now use the UTF-8 encoding, not just
+          ASCII/Latin-1.
 
 gavia 4.5 (2018-04-04)
 

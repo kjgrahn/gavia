@@ -2,6 +2,10 @@ Major changes (with focus on user-visible changes) to Gavia, per version.
 
 _________________________________________
 
+gavia 4.7 (2018-08-02)
+
+	- Fix breakage introduced in 4.6.
+
 gavia 4.6 (2018-07-21)
 
 	- Changes to what excursion header problems are reported as

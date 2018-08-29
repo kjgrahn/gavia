@@ -41,10 +41,12 @@ Gavia is released under a BSD-style license; see the LICENSE file.
 
 2. REQUIREMENTS
 
-To compile and install gavia, you'll need a C++ compiler and Perl.
+To compile and install gavia, you'll need a C++11 compiler and Perl.
+
+To compile the unit tests, you need orchis:  git://snipabacken.se/orchis.
 
 You also need to be on a Unix-like system. Personally, I'm on a Linux
-box and have never tried to compile for (for example) Win32.
+box and have never tried to compile for anything but Linux and OpenBSD.
 
 For my daily use of gavia, I rely on Perl, a revision control system
 (CVS or Git these days), and GNU Emacs. You can avoid some of these

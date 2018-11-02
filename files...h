@@ -10,6 +10,7 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
+#include <sstream>
 
 
 /**
@@ -26,12 +27,16 @@
  * - you want file name and line number information for diagnostics,
  *   even for standard input
  *
+ * Also support for reading from a std::stringstream, but that's
+ * mostly so that other classes which read from Files can be tested.
  */
 class Files {
 public:
     template <class It>
     Files(It begin, It end,
 	  bool empty_is_stdin = true);
+
+    explicit Files(std::stringstream& ss);
 
     bool getline(std::string& s);
 

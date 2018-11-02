@@ -48,7 +48,7 @@ namespace files {
 
     using orchis::assert_eq;
     using orchis::assert_gt;
-    using orchis::assert_;
+    using orchis::assert_true;
     using orchis::TC;
 
     static const char pass[] = "/etc/passwd";
@@ -99,17 +99,49 @@ namespace files {
 	assert_eq(p2.size() % 2, 0);
 
 	const char* const null = devnull;
-	assert_(cat(null, pass, pass) == p2);
-	assert_(cat(pass, pass, null) == p2);
-	assert_(cat(pass, null, pass) == p2);
-	assert_(cat(pass, null, null, pass) == p2);
-	assert_(cat(pass, pass, null, null) == p2);
-	assert_(cat(null, null, pass, pass) == p2);
+	assert_true(cat(null, pass, pass) == p2);
+	assert_true(cat(pass, pass, null) == p2);
+	assert_true(cat(pass, null, pass) == p2);
+	assert_true(cat(pass, null, null, pass) == p2);
+	assert_true(cat(pass, pass, null, null) == p2);
+	assert_true(cat(null, null, pass, pass) == p2);
     }
 
     void err(TC)
     {
 	const std::vector<std::string> p2 = cat(pass, pass);
-	assert_(cat(devnull, dir, pass, pass) == p2);
+	assert_true(cat(devnull, dir, pass, pass) == p2);
+    }
+
+    namespace string {
+
+	void assert_read(Files& f, unsigned line, const char* ref)
+	{
+	    std::string s;
+	    orchis::assert_true(f.getline(s));
+	    orchis::assert_eq(s, ref);
+	    orchis::assert_eq(f.position().line, line);
+	}
+
+	void assert_eof(Files& f)
+	{
+	    std::string s;
+	    orchis::assert_false(f.getline(s));
+	}
+
+	void simple(TC)
+	{
+	    std::stringstream ss;
+	    ss << "foo\n"
+	       << " bar \n"
+	       << "  baz  .";
+
+	    Files f(ss);
+	    assert_read(f, 1, "foo");
+	    assert_read(f, 2, " bar ");
+	    assert_read(f, 3, "  baz  .");
+	    assert_eof(f);
+	    assert_eof(f);
+	}
     }
 }

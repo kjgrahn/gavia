@@ -7,9 +7,15 @@
 
 #include <cstring>
 
-namespace {
-    static const std::string std_in = "<stdin>";
-}
+
+/**
+ * Reading from a single string stream instead of named files and/or
+ * stdin.
+ */
+Files::Files(std::stringstream& ss)
+    : is(&ss),
+      pos{"<string>", 0}
+{}
 
 
 /**
@@ -74,7 +80,7 @@ bool Files::getline_helper(std::string& s)
 void Files::open()
 {
     if(*f=="-") {
-	pos = {std_in, 1};
+	pos = {"<stdin>", 1};
 	is = &std::cin;
     }
     else {

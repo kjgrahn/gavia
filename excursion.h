@@ -33,7 +33,7 @@
 
 #include <string>
 #include <vector>
-#include <iosfwd>
+#include <iostream>
 #include <cstdio>
 
 
@@ -122,5 +122,11 @@ private:
 
 bool get(Files& is, std::ostream& errstream,
 	 Taxa& spp, Excursion& excursion);
+
+inline
+std::ostream& operator<< (std::ostream& os, const Excursion& val)
+{
+    return val.put(os);
+}
 
 #endif

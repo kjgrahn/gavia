@@ -151,7 +151,7 @@ int main(int argc, char ** argv)
 
     for(auto i = begin(book); i != end(book); i++) {
 	if(i!=begin(book)) std::cout << '\n';
-	i->put(std::cout);
+	std::cout << *i;
     }
 
     return 0;

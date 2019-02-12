@@ -106,6 +106,7 @@ test/libtest.a: test/test_indent.o
 test/libtest.a: test/test_date.o
 test/libtest.a: test/test_filetest.o
 test/libtest.a: test/test_md5.o
+test/libtest.a: test/test_regex.o
 test/libtest.a: test/test_utf8.o
 test/libtest.a: test/test_lineparse.o
 test/libtest.a: test/test_excursion.o

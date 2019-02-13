@@ -7,7 +7,6 @@
 #define GAVIA_REGEX_H
 
 #include <string>
-#include <cassert>
 
 /**
  * A simple wrapper around the basic parts of

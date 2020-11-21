@@ -119,11 +119,6 @@ int main(int argc, char ** argv)
 	}
     }
 
-    if(optind==argc) {
-	std::cerr << usage << '\n';
-	return 1;
-    }
-
     Files files(argv+optind, argv+argc);
     std::ifstream species(Taxa::species_file());
     Taxa taxa(species, std::cerr);

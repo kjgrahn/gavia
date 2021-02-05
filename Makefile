@@ -186,7 +186,7 @@ COMPILE.cc=$(CXX) $(DEPFLAGS) $(CXXFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
 
 %.o: %.cc
 	$(COMPILE.cc) $(OUTPUT_OPTION) $<
-	mv dep/$*.{Td,d}
+	@mv dep/$*.{Td,d}
 
 dep/%.d: ;
 dep/test/%.d: ;

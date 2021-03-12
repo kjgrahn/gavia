@@ -49,6 +49,8 @@ version.c: Makefile mkversion
 
 CFLAGS=-W -Wall -pedantic -ansi -g -Os
 CXXFLAGS=-W -Wall -pedantic -std=c++11 -g -Os
+CPPFLAGS=
+ARFLAGS=rTP
 
 gavia_cat: gavia_cat.o libgavia.a
 	$(CXX) $(CXXFLAGS) -o $@ $< -L. -lgavia
@@ -84,7 +86,7 @@ libgavia.a: md5.o
 libgavia.a: md5pp.o
 libgavia.a: utf8.o
 libgavia.a: version.o
-	$(AR) -r $@ $^
+	$(AR) $(ARFLAGS) $@ $^
 
 # targets that need special help
 
@@ -110,7 +112,7 @@ test/libtest.a: test/test_regex.o
 test/libtest.a: test/test_utf8.o
 test/libtest.a: test/test_lineparse.o
 test/libtest.a: test/test_excursion.o
-	$(AR) -r $@ $^
+	$(AR) $(ARFLAGS) $@ $^
 
 test/test_%.o: CPPFLAGS+=-I.
 

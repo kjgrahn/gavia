@@ -1,17 +1,5 @@
-# The canonical list of species or taxa accepted by Gavia.
-#
-# The format is:
-# - empty lines are disregarded
-# - '#' comment lines are disregarded
-# - all other lines are on the forms
-#   	name
-#   	name  (scientific name)
-#   	= name
-#   where the latter is an alias for the preceding name.
-#
-# The species should appear in taxonomic order, and there should be no
-# duplicates.  Apart from that, no grouping is implied (although you could
-# infer that Gavia stellata and G. immer are related).
+# The canonical list of species or taxa supported by Gavia.
+# See gavia_species(5).
 #
 # The actual list below is based on:
 #   Erling Jirle (April 2014).

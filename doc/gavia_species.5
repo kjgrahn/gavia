@@ -1,0 +1,123 @@
+.ss 12 0
+.de BP
+.IP "\\fB\\$*"
+..
+.hw dia-lec-tal
+.
+.TH gavia_species 5 "MAR 2021" Gavia "User Manuals"
+.
+.
+.SH "NAME"
+gavia_species \- taxon list file format
+.
+.
+.SH "DESCRIPTION"
+The
+.BR gavia (1)
+tools for recording and managing bird observations use
+lists of valid taxa to catch errors, translate common names to scientific ones,
+and to provide taxonomical ordering.
+This manual documents the file format.
+.
+.
+.SS "Semantics"
+The taxon list defines a list of taxa where each taxon has one or more names.
+One is the primary name, and one (possibly the same one) is the primary
+scientific name.
+It also defines an ordering of the taxa.
+.PP
+It does
+.I not
+describe the taxonomy as a whole, though:
+there's no concept of the taxonomical level of a name, of
+species, genera or families, or of relationships between taxa.
+Nor is there a concept of auctors.
+.
+.
+.SS "Basic syntax"
+The file uses either the
+.BR UTF-8
+or
+.B "ISO\ 8859-1"
+(Latin-1) character set, depending on the character set of the
+.BR gavia (5)
+files it is used with.
+Blank lines and comment lines, introduced by a
+.IR # ,
+are ignored.
+.
+.
+.SS "Taxon lines"
+Remaining lines are on one of these forms:
+.
+.BP "\fIcommon name\fP (\fIscientific name\fP)"
+Define a taxon with a common name and a scientific (latin) name.
+.BP
+Names are capitalized according to the usual language rules.
+E.g. genus names are capitalized, but swedish common names are not.
+.BP
+Additionally, the genus is introduced as a taxon if it's not
+known already: if the scientific name is
+.IR "Gavia immer" ,
+the genus is also introduced as a taxon, under the name
+.IR "Gavia sp" .
+.
+.BP "\fIcommon name"
+Define a taxon with a common name and no known scientific name.
+.
+.BP "\- (\fIscientific name\fP)"
+Same thing, except no common name is introduced for the taxon.
+(Perhaps there
+.I is
+no such name.)
+.
+.BP "\fIcommon name\fP (\fIgenus\fP)"
+.BP "\- (\fIgenus\fP)"
+Define a genus with a scientific name and optionally a common name.
+As described above, genera are introduced automatically when defining species,
+but this allows you to also introduce common names and synonyms for the genus.
+This is more useful for non-bird organisms
+where you often cannot identify the species you've seen,
+while the genus may be well-known and even have a common name.
+.
+.BP "= \fIname"
+Define an alternate name for the immediately preceding taxon.
+This can be a scientific name (perhaps a genus has been split in recent years)
+or a common one (perhaps a dialectal name that deserves to be used and preserved).
+.
+.
+.SH "EXAMPLES"
+This defines four taxa (including
+.IR "Quercus sp" ),
+one of which has an alternate name, and
+one of which is a hybrid.
+.IP
+.ft CW
+.nf
+bergek            (Quercus petraea)
+skogsek           (Quercus robur)
+= ek
+bergek × skogsek  (Quercus petraea × robur)
+.fi
+.
+.SH "FILES"
+.TP
+.I INSTALLBASE/lib/gavia/species
+The location of the default taxon list.
+.
+.
+.SH "NOTES"
+This file format is the same as
+.BR groblad_species (5),
+used for plants.
+.
+.
+.SH "AUTHOR"
+J\(:orgen Grahn \fI\[fo]grahn+src@snipabacken.se\[fc]
+.
+.
+.SH "SEE ALSO"
+.BR gavia (1),
+.BR gavia_cat (1),
+.BR gavia (5),
+.BR groblad_species (5).

@@ -19,7 +19,8 @@ namespace {
 	return spp;
     }
 
-    void assert_sp(Taxa::const_iterator i, const char* name, const char* latin)
+    template <class It>
+    void assert_sp(It i, const char* name, const char* latin)
     {
 	orchis::assert_eq(i->name, name);
 	orchis::assert_eq(i->latin, latin);
@@ -47,7 +48,7 @@ namespace taxa {
     {
 	const Taxa spp = list("bergek  (Quercus petraea)\n"
 			      "skogsek (Quercus robur)");
-	Taxa::const_iterator i = spp.begin();
+	auto i = spp.begin();
 	assert_sp(i++, "Quercus sp", "Quercus");
 	assert_sp(i++, "bergek", "Quercus petraea");
 	assert_sp(i++, "skogsek", "Quercus robur");
@@ -57,7 +58,7 @@ namespace taxa {
     void common_only(TC)
     {
 	const Taxa spp = list("skogsek");
-	Taxa::const_iterator i = spp.begin();
+	auto i = spp.begin();
 	assert_sp(i++, "skogsek", "");
 	orchis::assert_(i == spp.end());
     }
@@ -65,7 +66,7 @@ namespace taxa {
     void scientific_only(TC)
     {
 	const Taxa spp = list("- (Taraxacum hamosiforme)");
-	Taxa::const_iterator i = spp.begin();
+	auto i = spp.begin();
 	assert_sp(i++, "Taraxacum sp", "Taraxacum");
 	assert_sp(i++, "Taraxacum hamosiforme", "Taraxacum hamosiforme");
 	orchis::assert_(i == spp.end());
@@ -75,7 +76,7 @@ namespace taxa {
     {
 	const Taxa spp = list("skogsek (Quercus robur)\n"
 			      "= ek");
-	Taxa::const_iterator i = spp.begin();
+	auto i = spp.begin();
 	assert_sp(i++, "Quercus sp", "Quercus");
 	assert_sp(i++, "skogsek", "Quercus robur");
 	orchis::assert_(i == spp.end());
@@ -91,7 +92,7 @@ namespace taxa {
 			      "fetblad       (Phedimus)\n"
 			      "= Sedum\n"
 			      "gyllenfetblad (Phedimus aizoon)");
-	Taxa::const_iterator i = spp.begin();
+	auto i = spp.begin();
 	assert_sp(i++, "Cotoneaster sp", "Cotoneaster");
 	assert_sp(i++, "starr", "Carex");
 	assert_sp(i++, "finnstarr", "Carex atherodes");

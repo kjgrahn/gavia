@@ -102,7 +102,6 @@ checkv: test/test
 	valgrind -q ./test/test -v
 
 test/libtest.a: test/test_cont.o
-test/libtest.a: test/test_taxon.o
 test/libtest.a: test/test_files.o
 test/libtest.a: test/test_indent.o
 test/libtest.a: test/test_date.o
@@ -111,6 +110,7 @@ test/libtest.a: test/test_md5.o
 test/libtest.a: test/test_regex.o
 test/libtest.a: test/test_utf8.o
 test/libtest.a: test/test_lineparse.o
+test/libtest.a: test/test_taxa.o
 test/libtest.a: test/test_excursion.o
 	$(AR) $(ARFLAGS) $@ $^
 

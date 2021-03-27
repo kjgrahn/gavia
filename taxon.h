@@ -53,6 +53,19 @@ class Regex;
 
 /**
  * A species, or taxon in general.
+ *
+ * There's always a primary name, which usually is the common name.
+ * The scientific (latin) name is optional, but will become the primary
+ * name if there is no common name.  So the cases are:
+ *
+ * - gullviva
+ * - gullviva, Primula veris
+ * - Primula veris
+ *
+ * Then there are also optional aliases: other names applied to the
+ * same taxon.  These are usually common names, but may also be
+ * scientific names.  There's no classification of the names, except
+ * 'latin' of course is a scientific name.
  */
 class Taxon {
 public:
@@ -69,6 +82,7 @@ public:
     void add(const std::string& name) { alias.push_back(name); }
 
     bool operator< (const Taxon& other) const { return id < other.id; }
+    std::ostream& put(std::ostream& os) const;
 
     bool match(const Regex& re) const;
 
@@ -77,5 +91,11 @@ public:
     std::string latin;
     std::vector<std::string> alias;
 };
+
+
+inline std::ostream& operator<< (std::ostream& os, const Taxon& s)
+{
+    return s.put(os);
+}
 
 #endif

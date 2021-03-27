@@ -6,18 +6,44 @@
 #include "taxa.h"
 #include "lineparse.h"
 
+#include <unordered_set>
 #include <iostream>
 #include <algorithm>
 #include <cassert>
 
 
-using Parse::ws;
-using Parse::trimr;
-using Parse::find;
+namespace {
+
+    /**
+     * Just a helper class, for processing a genus name only once.
+     */
+    class Genera {
+	std::unordered_set<std::string> s;
+    public:
+	bool seen(const std::string& name);
+	bool seen(const char* a, const char* b);
+    };
+
+    bool Genera::seen(const std::string& name)
+    {
+	return !s.insert(name).second;
+    }
+
+    bool Genera::seen(const char* a, const char* b)
+    {
+	return seen(std::string(a, b-a));
+    }
+}
 
 
-Taxa::Taxa(std::istream& is, std::ostream&)
+/**
+ * Create the list from a text file in the format documented
+ * in groblad_species(5).
+ *
+ */
+Taxa::Taxa(std::istream& is, std::ostream& err)
 {
+    Genera genera;
     std::string s;
     unsigned n = 1;
 
@@ -25,17 +51,17 @@ Taxa::Taxa(std::istream& is, std::ostream&)
 	const char* a = s.c_str();
 	const char* b = a + s.size();
 
-	a = ws(a, b);
+	a = Parse::ws(a, b);
 	b = std::find(a, b, '#');
-	b = trimr(a, b);
+	b = Parse::trimr(a, b);
 	if(a==b) continue;
 
 	if(*a=='=' && !v.empty()) {
 	    Taxon& sp = v.back();
-	    a = ws(a+1, b);
+	    a = Parse::ws(a+1, b);
 	    const std::string alias(a, b-a);
 	    sp.add(alias);
-	    m[alias] = sp.id;
+	    map(alias, sp.id, err);
 	}
 	else {
 	    const char* d = std::find(a, b, '(');
@@ -43,18 +69,52 @@ Taxa::Taxa(std::istream& is, std::ostream&)
 		const TaxonId id(n++);
 		const std::string name(a, b-a);
 		v.push_back(Taxon(id, name));
-		m[name] = id;
+		map(name, id, err);
 	    }
 	    else {
-		const char* c = trimr(a, d);
+		const char* c = Parse::trimr(a, d);
 		d++;
-		const char* e = ::find(d, b, '(', ')');
-		const TaxonId id(n++);
-		const std::string name(a, c-a);
-		const std::string latin(d, e-d);
-		v.push_back(Taxon(id, name, latin));
-		m[name] = id;
-		m[latin] = id;
+		const char* f = Parse::find(d, b, '(', ')');
+		const char* e = Parse::non_ws(d, f);
+		/* " common name  (scientific name) ..."
+		 *   a          c  d         e    f
+		 */
+		if(e==f) {
+		    /* genus */
+		    const TaxonId id(n++);
+		    std::string name(a, c-a);
+		    const std::string latin(d, f-d);
+		    Taxon genus(id, name, latin);
+		    if(genus.name=="-") {
+			genus.name = latin + " sp";
+		    }
+		    else {
+			genus.add(latin + " sp");
+		    }
+		    genera.seen(latin);
+		    map(genus, err);
+		    v.push_back(genus);
+		}
+		else {
+		    if(!genera.seen(d, e)) {
+			/* the genus is a taxon, too */
+			const TaxonId id(n++);
+			const std::string latin(d, e-d);
+			const std::string name = latin + " sp";
+			Taxon genus(id, name, latin);
+			map(genus, err);
+			v.push_back(genus);
+		    }
+		    const TaxonId id(n++);
+		    std::string name(a, c-a);
+		    const std::string latin(d, f-d);
+		    Taxon sp(id, name, latin);
+		    if(sp.name=="-") {
+			sp.name = sp.latin;
+		    }
+		    map(sp, err);
+		    v.push_back(sp);
+		}
 	    }
 	}
     }
@@ -84,11 +144,22 @@ TaxonId Taxa::insert(const std::string& name)
 TaxonId Taxa::find(const std::string& name) const
 {
     TaxonId id;
-    Map::const_iterator i = m.find(name);
+    auto i = m.find(name);
     if(i!=m.end()) {
 	id = i->second;
     }
     return id;
+}
+
+
+/**
+ * All taxon names, aliases and all, in no particular order.
+ */
+std::vector<std::string> Taxa::names() const
+{
+    std::vector<std::string> acc;
+    for(const auto& item: m) acc.push_back(item.first);
+    return acc;
 }
 
 
@@ -111,10 +182,23 @@ const Taxon& Taxa::operator[] (TaxonId id) const
 std::vector<TaxonId> Taxa::match(const Regex& re) const
 {
     std::vector<TaxonId> acc;
-    for(const Taxon& tx : v) {
-	if(tx.match(re)) acc.push_back(tx.id);
+    for(const Taxon& sp: v) {
+	if(sp.match(re)) acc.push_back(sp.id);
     }
     return acc;
+}
+
+
+/**
+ * Dump the taxon list, for debugging purposes.
+ */
+std::ostream& Taxa::put(std::ostream& os) const
+{
+    for(const Taxon& sp: v) {
+	os << sp << '\n';
+    }
+
+    return os;
 }
 
 
@@ -130,4 +214,29 @@ std::string Taxa::species_file()
     std::string s = gavia_prefix();
     s += "/lib/gavia/species";
     return s;
+}
+
+
+/**
+ * Helper. Map all names in 'sp'.
+ */
+void Taxa::map(const Taxon& sp, std::ostream& err)
+{
+    map(sp.name, sp.id, err);
+    if(!sp.latin.empty()) map(sp.latin, sp.id, err);
+
+    for(const auto& name: sp.alias) map(name, sp.id, err);
+}
+
+
+/**
+ * Helper. Create the mapping from 'name' to taxon, and warn if this
+ * doesn't work (a different mapping already exists).
+ */
+void Taxa::map(const std::string& name, TaxonId id, std::ostream& err)
+{
+    auto p = m.insert(std::make_pair(name, id));
+    if(!p.second && p.first->second != id) {
+	err << "warning: \"" << name << "\" has already been used to name a different taxon\n";
+    }
 }

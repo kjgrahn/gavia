@@ -19,7 +19,7 @@
     ("^comments[ \t]*:" . font-lock-constant-face)
     ("^coordinate[ \t]*:" . font-lock-constant-face)
     ("^status[ \t]*:" . font-lock-constant-face)
-    ("^.+?:.:" . font-lock-variable-name-face)
+    ("^.+?:[^ \t]:" . font-lock-variable-name-face)
     ("XXX" . font-lock-warning-face))
   "Syntax highlighting for Gavia mode.")
 

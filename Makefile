@@ -45,7 +45,7 @@ all: perl/gavia_gab2roff
 all: test/test
 
 version.c: Makefile mkversion
-	./mkversion gavia_{name=Gavia,version=4.12,prefix=$(INSTALLBASE)} $@
+	./mkversion gavia_{name=Gavia,version=4.13,prefix=$(INSTALLBASE)} $@
 
 CFLAGS=-W -Wall -pedantic -ansi -g -Os
 CXXFLAGS=-W -Wall -pedantic -std=c++14 -g -Os
